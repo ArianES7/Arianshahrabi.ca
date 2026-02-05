@@ -1,0 +1,24 @@
+<header class="site-header">
+  <nav class="site-nav">
+    <ul class="main-menu">
+      <!-- Home on the left -->
+      {{ $home := site.Menus.main | first }}
+      {{ with $home }}
+        <li class="main-menu-item">
+          <a href="{{ .URL | relURL }}" class="main-menu-link">
+            <span class="nav-wiggle-target">{{ .Name }}</span>
+          </a>
+        </li>
+      {{ end }}
+
+      <!-- The rest on the right -->
+      {{ range (after 1 site.Menus.main) }}
+        <li class="main-menu-item menu-right">
+          <a href="{{ .URL | relURL }}" class="main-menu-link">
+            <span class="nav-wiggle-target">{{ .Name }}</span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </nav>
+</header>

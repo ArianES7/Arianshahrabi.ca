@@ -1,0 +1,21 @@
+{{/* Props:
+  bg: "none"|"neutral"|"dark"|"accent"|"image"
+  image: path (when bg="image")
+  overlay: "0.0".."0.9" (optional)
+  pad: "md"|"lg"|"xl"
+  max: "prose" to limit width
+*/}}
+{{ $bg := .Get "bg" | default "none" }}
+{{ $pad := .Get "pad" | default "md" }}
+{{ $max := .Get "max" }}
+{{ $image := .Get "image" }}
+{{ $overlay := .Get "overlay" | default "0" }}
+
+<section class="about-section block bg-{{ $bg }} pad-{{ $pad }} {{ if $max }}max-{{ $max }}{{ end }}"
+  {{ if eq $bg "image" }}
+    style='--bg-url: url("{{ $image | relURL }}"); --bg-overlay: {{ $overlay }};'
+  {{ end }}>
+  <div class="inner">
+    {{ .Inner | markdownify }}
+  </div>
+</section>

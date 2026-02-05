@@ -1,0 +1,7 @@
+{{ with .Params.badges }}
+<div class="post-badges">
+  {{ range . }}
+    <span class="badge">{{ . }}</span>
+  {{ end }}
+</div>
+{{ end }}

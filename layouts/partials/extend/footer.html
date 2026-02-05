@@ -1,0 +1,72 @@
+<script>
+(function(){
+  const stiffness = 0.12;   // spring strength
+  const damping   = 0.15;   // friction
+  const maxTilt   = 10;     // deg cap
+  const dragTilt  = 16;     // extra tilt while dragging
+
+  const cards = Array.from(document.querySelectorAll('.lanyard')).map(wrap => {
+    const card = wrap.querySelector('.lanyard-card');
+    return {
+      wrap, card,
+      rx: 0, ry: 0, vx: 0, vy: 0,
+      dragging: false,
+      pointer: {x:0,y:0}
+    };
+  });
+
+  // mouse tilt
+  function onPointerMove(e){
+    for (const o of cards){
+      const rect = o.card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top)  / rect.height - 0.5;
+      const targetRy =  (x * 2) *  maxTilt;
+      const targetRx = -(y * 2) *  maxTilt;
+      if (!o.dragging){ o.vx += (targetRx - o.rx) * stiffness; o.vy += (targetRy - o.ry) * stiffness; }
+      o.pointer.x = e.clientX; o.pointer.y = e.clientY;
+    }
+  }
+  document.addEventListener('mousemove', onPointerMove);
+
+  // drag to swing
+  cards.forEach(o=>{
+    o.card.addEventListener('pointerdown', (e)=>{
+      o.dragging = true; o.card.setPointerCapture(e.pointerId);
+    });
+    o.card.addEventListener('pointerup',   ()=>{ o.dragging = false; });
+    o.card.addEventListener('pointercancel',()=>{ o.dragging = false; });
+    o.card.addEventListener('pointermove',(e)=>{
+      if(!o.dragging) return;
+      const rect = o.card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top ) / rect.height - 0.5;
+      // stronger response while dragging
+      const targetRy =  (x * 2) * dragTilt;
+      const targetRx = -(y * 2) * dragTilt;
+      o.vx += (targetRx - o.rx) * (stiffness*1.4);
+      o.vy += (targetRy - o.ry) * (stiffness*1.4);
+    });
+  });
+
+  // integrate + render
+  function tick(){
+    for (const o of cards){
+      o.vx *= (1 - damping);
+      o.vy *= (1 - damping);
+      o.rx += o.vx; o.ry += o.vy;
+      o.card.style.transform = `rotateX(${o.rx.toFixed(2)}deg) rotateY(${o.ry.toFixed(2)}deg)`;
+    }
+    requestAnimationFrame(tick);
+  }
+  tick();
+
+  // reset on leave
+  document.addEventListener('mouseleave', ()=>{
+    cards.forEach(o=>{
+      o.vx += (0 - o.rx) * stiffness;
+      o.vy += (0 - o.ry) * stiffness;
+    });
+  });
+})();
+</script>

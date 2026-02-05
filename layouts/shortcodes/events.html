@@ -1,0 +1,27 @@
+{{/* Shortcode: events — usage: {{< events >}} */}}
+{{ $events := site.Data.events | default (slice) }}
+{{ if not (gt (len $events) 0) }}
+  <p>No events yet.</p>
+{{ else }}
+  {{ $events = sort $events "date" "desc" }}
+  <div class="events-grid">
+    {{ range first 8 $events }}
+      {{ $title := .title | default .name | default "Event" }}
+      <figure class="event-card">
+        <div class="logo-wrap" tabindex="0" aria-label="{{ $title }}">
+          <img class="event-logo" src="{{ .logo | relURL }}" alt="{{ $title }}">
+        </div>
+        <figcaption class="event-caption">
+          <div class="event-title">{{ $title }}</div>
+          {{ if .display_date }}
+            <div class="event-date">{{ .display_date }}</div>
+          {{ else }}
+            {{ with .date }}
+              <div class="event-date">{{ dateFormat "Jan 2, 2006" (time .) }}</div>
+            {{ end }}
+          {{ end }}
+        </figcaption>
+      </figure>
+    {{ end }}
+  </div>
+{{ end }}

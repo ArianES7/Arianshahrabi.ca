@@ -1,0 +1,301 @@
+/* ================================
+   Fonts
+================================= */
+@font-face {
+  font-family: 'Sora';
+  src: url('/fonts/Sora-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Sora';
+  src: url('/fonts/Sora-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Sora';
+  src: url('/fonts/Sora-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Sora';
+  src: url('/fonts/Sora-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', sans-serif;
+}
+
+/* Make strong/b tags use ExtraBold weight */
+b, strong {
+  font-weight: 800;
+}
+
+/* ================================
+   Layout / Typography
+================================= */
+.menu-right {
+  margin-left: auto;
+  display: flex;
+}
+
+.site-title, .logo, .logo a {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+header nav a, .main-menu a, .menu a, .site-title, .logo, .logo a {
+  font-size: 1.0rem;
+  padding: 0.45rem 0.85rem;
+  line-height: 1.0;
+  font-weight: 600;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.85rem; }
+p  { font-size: 1rem; }
+
+
+
+/* --------------------------------
+   Badge jiggle
+--------------------------------- */
+@keyframes badge-jiggle {
+  0%,100% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  50% { transform: rotate(-2deg); }
+  75% { transform: rotate(1deg); }
+}
+
+/* Mode-aware badge tokens (light defaults) */
+:root {
+  --badge-bg:        var(--color-bg-light);
+  --badge-fg:        var(--color-neutral-900);
+  --badge-border:    var(--color-neutral-300);
+  --badge-hover-bg:  var(--color-neutral-100);
+}
+
+/* Dark overrides */
+html.dark {
+  --badge-bg:        var(--color-bg-dark);
+  --badge-fg:        var(--color-neutral-50);
+  --badge-border:    var(--color-neutral-700);
+  --badge-hover-bg:  var(--color-neutral-800);
+}
+
+.post-badges {
+  margin-top: 0;
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+/* Compact, single-source badge styles */
+.badge {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 500;
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid rgb(var(--badge-border));
+  background: rgb(var(--badge-bg));
+  color: rgb(var(--badge-fg));
+  transition:
+    background-color .2s ease,
+    color .2s ease,
+    border-color .2s ease,
+    transform .15s ease;
+}
+.badge:hover {
+  background: rgb(var(--badge-hover-bg));
+  animation: badge-jiggle .35s ease-in-out;
+}
+
+/* Optional: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .badge:hover { animation: none; }
+}
+
+
+
+/* ================================
+   Nav Wiggle Loop
+================================= */
+@keyframes nav-wiggle {
+  0%,100% { transform: rotate(0deg); }
+  25%     { transform: rotate(3deg); }
+  50%     { transform: rotate(-3deg); }
+  75%     { transform: rotate(1.5deg); }
+}
+
+/* Wiggle interactions */
+.main-menu nav.md\:flex a > p,
+.main-menu .nested-menu > a,
+.main-menu > .flex > nav.flex a,
+#menu-wrapper a > p {
+  display: inline-block;
+  transform-origin: center;
+}
+.main-menu nav.md\:flex a:hover > p,
+.main-menu nav.md\:flex a:focus-visible > p,
+.main-menu .nested-menu > a:hover,
+.main-menu .nested-menu > a:focus-visible,
+.main-menu > .flex > nav.flex a:hover,
+.main-menu > .flex > nav.flex a:focus-visible,
+#menu-wrapper a:hover > p,
+#menu-wrapper a:focus-visible > p {
+  animation: nav-wiggle .6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main-menu nav.md\:flex a:hover > p,
+  .main-menu nav.md\:flex a:focus-visible > p,
+  .main-menu .nested-menu > a:hover,
+  .main-menu .nested-menu > a:focus-visible,
+  .main-menu > .flex > nav.flex a:hover,
+  .main-menu > .flex > nav.flex a:focus-visible,
+  #menu-wrapper a:hover > p,
+  #menu-wrapper a:focus-visible > p {
+    animation: none;
+  }
+}
+
+/* ================================
+   Portfolio page
+================================= */
+
+/* About page building blocks */
+.about-section { margin: 2.5rem 0; }
+
+.about-section.max-prose .inner { max-width: 68ch; margin: 0 auto; }
+.pad-md .inner { padding: 1.25rem 0; }
+.pad-lg .inner { padding: 2rem 0; }
+.pad-xl .inner { padding: 3rem 0; }
+
+/* Background treatments */
+.block.bg-none { background: transparent; }
+.block.bg-neutral { background: var(--color-neutral-100, #f5f5f5); }
+.block.bg-dark { background: var(--color-neutral-900, #121212); color: var(--color-neutral, #fff); }
+.block.bg-accent { background: var(--color-primary-100, rgba(0,0,0,0.05)); }
+.block.bg-image {
+  position: relative;
+  color: var(--color-neutral, #fff);
+}
+.block.bg-image::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: var(--bg-url);
+  background-size: cover; background-position: center;
+  filter: saturate(1) contrast(1);
+}
+.block.bg-image::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,var(--bg-overlay, 0.35));
+}
+.block.bg-image .inner { position: relative; }
+
+/* Two-column */
+.two-col { display: grid; gap: 2rem; align-items: center; }
+@media (min-width: 900px) {
+  .two-col { grid-template-columns: 1fr 1fr; }
+}
+.two-col .col img { width: 100%; height: auto; border-radius: 8px; }
+.two-col.swap { direction: rtl; }
+.two-col.swap .col { direction: ltr; }
+
+/* Cards grid */
+.cards-grid {
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.card {
+  border: 1px solid var(--color-neutral-200, #ddd);
+  background: var(--color-neutral, #fff);
+  border-radius: 10px; padding: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
+}
+.dark .card {
+  background: var(--color-neutral-800, #1e1e1e);
+  border-color: var(--color-neutral-700, #333);
+}
+.card h3 { margin: 0 0 .25rem; font-weight: 700; }
+.card p { margin: 0; opacity: .9; }
+
+/* ================================================================= */
+
+/* ——— Events logo grid ——— */
+:root { --events-glow: #1e40af; }
+
+.events-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* fixed 2-wide = 2x4 */
+  gap: 1rem;
+  max-width: 720px;
+}
+
+.event-card{ margin:0; }
+
+.logo-wrap{
+  aspect-ratio: 2 / 1;                 /* squares so mixed logo sizes don't break */
+  display:grid; place-items:center;
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 0 0 0 transparent;
+  transition: box-shadow .2s ease, transform .15s ease;
+}
+:root[data-theme="light"] .logo-wrap{
+  background: rgb(0, 0, 0);
+  border-color: rgb(0, 0, 0);
+}
+
+.event-logo{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;                  /* never crop */
+  filter: grayscale(100%) saturate(.7) contrast(1.05);
+  transition: filter .2s ease;
+}
+
+.logo-wrap:hover .event-logo,
+.logo-wrap:focus-visible .event-logo{
+  filter: none;
+}
+
+.logo-wrap:hover,
+.logo-wrap:focus-visible{
+  box-shadow:
+    0 0 0 2px var(--events-glow),
+    0 0 18px color-mix(in srgb, var(--events-glow), transparent 35%);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.event-caption{
+  text-align:center;
+  margin-top:.5rem;
+}
+.event-title{
+  font-size:.9rem;
+  opacity:.9;
+}
+.event-date{
+  font-size:.8rem;
+  opacity:.65;
+  margin-top:.15rem;
+}
+
+
+
+/* ================================================================= */

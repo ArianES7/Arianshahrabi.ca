@@ -1,0 +1,21 @@
+{{/* Usage:
+{{< cards >}}
+#### C++ / Low-Level
+Memory, data-oriented thinking, profiling.
+
+---
+
+#### AI Systems
+Behavior trees, FSMs, utility AI.
+{{< /cards >}}
+*/}}
+{{ $blocks := split .Inner "\n---\n" }}
+<section class="about-section cards">
+  <div class="cards-grid">
+    {{ range $blocks }}
+      <div class="card">
+        {{ . | markdownify }}
+      </div>
+    {{ end }}
+  </div>
+</section>

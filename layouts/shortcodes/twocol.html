@@ -1,0 +1,22 @@
+{{/* Props:
+  swap: true|false (optional) flips columns on desktop
+  Usage:
+  {{< twocol >}}
+  Left column markdown...
+
+  <!-- split -->
+
+  Right column markdown...
+  {{< /twocol >}}
+*/}}
+{{ $swap := .Get "swap" | default false }}
+{{ $parts := split .Inner "<!-- split -->" }}
+{{ $left := "" }}
+{{ $right := "" }}
+{{ if ge (len $parts) 1 }}{{ $left = index $parts 0 | markdownify }}{{ end }}
+{{ if ge (len $parts) 2 }}{{ $right = index $parts 1 | markdownify }}{{ end }}
+
+<section class="about-section two-col {{ if $swap }}swap{{ end }}">
+  <div class="col left">{{ $left }}</div>
+  <div class="col right">{{ $right }}</div>
+</section>

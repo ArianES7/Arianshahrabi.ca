@@ -1,0 +1,47 @@
+/* Arian — Blowfish-compatible scheme */
+:root {
+  /* Neutral ladder (light surfaces 50→700, dark surfaces 700→900) */
+  --color-neutral: 255, 255, 255;       /* used by theme for "neutral" text */
+  --color-neutral-50: 246, 245, 240;    /* light text on darkest bg */
+  --color-neutral-100: 240, 239, 234;   /* body text on dark */
+  --color-neutral-200: 232, 231, 226;
+  --color-neutral-300: 222, 221, 216;
+  --color-neutral-400: 200, 199, 194;
+  --color-neutral-500: 170, 169, 164;
+  --color-neutral-600: 136, 135, 130;
+  --color-neutral-700: 72, 71, 66;      /* dark surfaces */
+  --color-neutral-800: 17, 17, 17;      /* **dark mode base background** */
+  --color-neutral-900: 40, 39, 34;      /* deepest dark */
+
+  /* Primary — Cobalt ramp */
+  --color-primary-50: 224, 235, 255;
+  --color-primary-100: 194, 215, 255;
+  --color-primary-200: 153, 190, 255;
+  --color-primary-300: 102, 153, 255;
+  --color-primary-400: 51, 119, 230;
+  --color-primary-500: 0, 71, 171;
+  --color-primary-600: 0, 57, 137;
+  --color-primary-700: 0, 43, 103;
+  --color-primary-800: 0, 29, 69;
+  --color-primary-900: 0, 20, 48;
+
+  /* Secondary greys for chips/badges */
+  --color-secondary-50: 255, 255, 255;
+  --color-secondary-100: 235, 235, 235;
+  --color-secondary-200: 210, 210, 210;
+  --color-secondary-300: 180, 180, 180;
+  --color-secondary-400: 150, 150, 150;
+  --color-secondary-500: 120, 120, 120;
+  --color-secondary-600: 95, 95, 95;
+  --color-secondary-700: 72, 72, 72;
+  --color-secondary-800: 50, 50, 50;
+  --color-secondary-900: 30, 30, 30;
+
+  /* ---- Aliases (use these in your components) ---- */
+  --color-bg-light: var(--color-neutral);         /* light base bg = white */
+  --color-bg-dark: var(--color-neutral-800);      /* dark base bg = 40,39,34 */
+  --color-surface-dark: var(--color-neutral-700); /* cards on dark */
+  --color-border-dark: var(--color-neutral-700);
+  --color-text-dark: var(--color-neutral-50);     /* headings on dark */
+  --color-text-muted-dark: var(--color-neutral-100);
+}

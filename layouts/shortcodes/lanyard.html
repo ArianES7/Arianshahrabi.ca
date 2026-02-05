@@ -1,0 +1,14 @@
+<div class="lanyard" data-tilt>
+  <div class="lanyard-strap"></div>
+  <a class="lanyard-card" href="{{ .Get "link" | safeURL }}" target="_blank" rel="noopener">
+    {{ with .Get "logo" }}<img class="lanyard-logo" src="{{ . | relURL }}" alt="Event logo">{{ end }}
+    <div class="lanyard-info">
+      <h3 class="lanyard-title">{{ .Get "title" }}</h3>
+      <p class="lanyard-meta">
+        {{ with .Get "date" }}<span>{{ . }}</span>{{ end }}
+        {{ with .Get "location" }}<span> • {{ . }}</span>{{ end }}
+      </p>
+      {{ with .Get "tag" }}<span class="lanyard-tag">{{ . }}</span>{{ end }}
+    </div>
+  </a>
+</div>
