@@ -3,8 +3,8 @@
 # https://blowfish.page/docs/getting-started/
 
 theme = "blowfish"
-# baseURL = "https://your_domain.com/"
-defaultContentLanguage = "en"
+baseURL = "https://arianshahrabi.ca/"
+defaultContentLanguage = "en-us"
 
 # pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
 
@@ -16,7 +16,9 @@ buildFuture = false
 
 enableEmoji = true
 
-# googleAnalytics = "G-XXXXXXXXX"
+[services]
+  [services.googleAnalytics]
+    id = "G-LP46GZZ1KM"
 
 [pagination]
   pagerSize = 100
