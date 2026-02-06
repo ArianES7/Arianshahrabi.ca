@@ -80,7 +80,7 @@ p  { font-size: 1rem; }
   --badge-bg:        var(--color-bg-light);
   --badge-fg:        var(--color-neutral-900);
   --badge-border:    var(--color-neutral-300);
-  --badge-hover-bg:  var(--color-neutral-100);
+  --badge-hover-bg: rgb(var(--color-neutral-100));
 }
 
 /* Dark overrides */
@@ -183,7 +183,7 @@ html.dark {
 
 /* Background treatments */
 .block.bg-none { background: transparent; }
-.block.bg-neutral { background: var(--color-neutral-100, #f5f5f5); }
+.block.bg-neutral { background: rgb(var(--color-neutral-100)); }
 .block.bg-dark { background: var(--color-neutral-900, #121212); color: var(--color-neutral, #fff); }
 .block.bg-accent { background: var(--color-primary-100, rgba(0,0,0,0.05)); }
 .block.bg-image {
@@ -219,7 +219,7 @@ html.dark {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 .card {
-  border: 1px solid var(--color-neutral-200, #ddd);
+  border: 1px solid rgb(var(--color-neutral-200));
   background: var(--color-neutral, #fff);
   border-radius: 10px; padding: 1rem;
   box-shadow: 0 6px 20px rgba(0,0,0,.06);
@@ -255,7 +255,7 @@ html.dark {
   box-shadow: 0 0 0 0 transparent;
   transition: box-shadow .2s ease, transform .15s ease;
 }
-:root[data-theme="light"] .logo-wrap{
+html:not(.dark) .logo-wrap{
   background: rgb(0, 0, 0);
   border-color: rgb(0, 0, 0);
 }

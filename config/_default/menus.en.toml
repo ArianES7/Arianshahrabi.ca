@@ -25,7 +25,7 @@ weight = 2
 [[main]]
 identifier = "contact"
 name = "Contact"
-pageRef = "contact"
+pageRef = "about me/contact"
 parent = "about"
 weight = 3
 
