@@ -1,0 +1,19 @@
+# For Hugo 
+public
+resources
+.hugo_build.lock
+
+# Local 
+hugo.exe
+
+# Editor
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+
+#  For later
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
