@@ -8,9 +8,13 @@ showDate: false
 showAuthor: false
 showReadingTime: false
 ---
+Rogue Malfunction is a puzzle adventure where the game remaps your controls room-by-room, turning movement itself into the main obstacle.
+
+<!--more-->
 
 ## Download
-- **Get it on itch.io:** https://arian-shahrabi.itch.io/rogue
+- Get it on itch.io: https://arian-shahrabi.itch.io/rogue
+
 
 ## Summary
 Rogue Malfunction is a puzzle adventure where you control a robot fighting an external system that **overrides and remaps inputs**. Each room is a self-contained puzzle, and on first entry the game can remap your controls, forcing you to adapt fast. :contentReference[oaicite:6]{index=6}

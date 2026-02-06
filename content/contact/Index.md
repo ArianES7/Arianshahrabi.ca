@@ -4,6 +4,7 @@ description: "Get in touch with Arian Shahrabi"
 showDate: false
 showAuthor: false
 showReadingTime: false
+showZenMode: false
 ---
 
 ## The fastest way to reach me
