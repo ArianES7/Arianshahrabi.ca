@@ -1,7 +1,7 @@
 ---
 title: "My fourth post"
 date: 2025-08-08
-draft: false
+draft: true
 badges: ["Devlog", "C++"]
 # optional: featuredImage: "images/whatever.jpg"
 summary: "Short one‑liner that shows on the list."

@@ -11,7 +11,7 @@ showDate: false
 {{< section bg="none" max="prose" pad="lg" >}}
 # Hi, 
 
-I specialize in **C++**, **AI behavior**, and **physics-based gameplay**. I like solving hard technical problems and making them feel effortless in-game.
+Welcome to the about me 
 {{< /section >}}
 
 {{< twocol >}}
