@@ -10,38 +10,45 @@
 # overridden by providing a weight value. The menu will then be
 # ordered by weight from lowest to highest.
 
+
 [[main]]
-identifier = "blog"
-name = "Blog"
-pageRef = "blog"
+identifier = "home"
+name = "Home"
+url = "/"
 weight = 1
 
-[[main]]
-identifier = "about"
-name = "About Me"
-pageRef = "about me"
-weight = 2
+# [[main]]
+# identifier = "blog"
+# name = "Blog"
+# pageRef = "blog"
+# weight = 1
 
-[[main]]
-identifier = "contact"
-name = "Contact"
-url="/contact/"
-pageRef = "about me/contact"
-parent = "about"
-weight = 3
+# [[main]]
+# identifier = "about"
+# name = "About Me"
+# pageRef = "about me"
+# weight = 2
 
-[[main]]
-identifier = "resume"
-name = "Resume"
-url = "/resume.pdf"    # external or static link
-parent = "about"
-weight = 4
+# [[main]]
+# identifier = "contact"
+# name = "Contact"
+# url="/contact/"
+# pageRef = "about me/contact"
+# parent = "about"
+# weight = 3
 
-[[main]]
-identifier = "projects"
-name = "My Projects"
-pageRef = "projects"
-weight = 5
+# [[main]]
+# identifier = "resume"
+# name = "Resume"
+# url = "/resume.pdf"    # external or static link
+# parent = "about"
+# weight = 4
+
+# [[main]]
+# identifier = "projects"
+# name = "My Projects"
+# pageRef = "projects"
+# weight = 5
 
 #[[main]]
 #  name = "example sub-menu 2"
