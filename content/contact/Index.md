@@ -5,6 +5,9 @@ showDate: false
 showAuthor: false
 showReadingTime: false
 showZenMode: false
+# -----------
+draft: true
+# -----------
 ---
 
 ## The fastest way to reach me

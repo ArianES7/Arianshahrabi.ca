@@ -7,6 +7,9 @@ badges: ["Construct 3", "HTML5"]
 showDate: false
 showAuthor: false
 showReadingTime: false
+# -----------
+draft: true
+# -----------
 ---
 Eclipsed is a 2D action platformer built around fast movement and mouse-aim shooting, focused on pushing through infected hordes while hunting key objectives.
 

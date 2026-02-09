@@ -6,7 +6,9 @@ heroStyle: "thumbAndBackground" # or "thumbAndBackground"
 heroImage: "images/profile.jpg" # only used if thumbAndBackground
 showZenMode: false
 showDate: false
-
+# -----------
+draft: true
+# -----------
 ---
 {{< section bg="none" max="prose" pad="lg" >}}
 # Hi, 
