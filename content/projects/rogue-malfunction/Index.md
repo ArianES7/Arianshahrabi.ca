@@ -8,7 +8,7 @@ showDate: false
 showAuthor: false
 showReadingTime: false
 # -----------
-draft: true
+draft: false
 # -----------
 ---
 Rogue Malfunction is a puzzle adventure where the game remaps your controls room-by-room, turning movement itself into the main obstacle.
