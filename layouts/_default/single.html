@@ -1,9 +1,18 @@
 {{ define "main" }}
   {{ .Scratch.Set "scope" "single" }}
 
+  {{/* Respect per-page boolean overrides (explicit false should stay false). */}}
+  {{ $showHero := (.Site.Params.article.showHero | default false) }}
+  {{ if isset .Params "showHero" }}{{ $showHero = .Params.showHero }}{{ end }}
+
+  {{ $showBreadcrumbs := (.Site.Params.article.showBreadcrumbs | default false) }}
+  {{ if isset .Params "showBreadcrumbs" }}{{ $showBreadcrumbs = .Params.showBreadcrumbs }}{{ end }}
+
+  {{ $showTOC := (.Site.Params.article.showTableOfContents | default false) }}
+  {{ if isset .Params "showTableOfContents" }}{{ $showTOC = .Params.showTableOfContents }}{{ end }}
 
   <article>
-    {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
+    {{ if $showHero }}
       {{ $heroStyle := .Params.heroStyle }}
       {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
       {{ $heroStyle := print "hero/" $heroStyle ".html" }}
@@ -14,15 +23,17 @@
       {{ end }}
     {{ end }}
 
-
-<header id="single_header" class="mt-5 max-w-prose not-sticky" style="position: static; background: transparent;">
-      {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
+    <header id="single_header" class="mt-5 max-w-prose not-sticky" style="position: static; background: transparent;">
+      {{ if $showBreadcrumbs }}
         {{ partial "breadcrumbs.html" . }}
       {{ end }}
+
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
         {{ .Title | emojify }}
       </h1>
-      {{ partial "post-badges.html" . }}  <!-- ADDED: badges under the single post title -->
+
+      {{ partial "post-badges.html" . }}
+
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
       </div>
@@ -70,13 +81,10 @@
         {{ end }}
 
       {{ end }}
-
     </header>
 
     <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
-      {{ if or (and (.Params.showTableOfContents | default (.Site.Params.article.showTableOfContents | default false)) (in
-        .TableOfContents "<ul")) (.Site.Params.article.showRelatedPosts | default false)
-      }}
+      {{ if and $showTOC (in .TableOfContents "<ul") }}
         <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
           <div
             class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky {{ if hasPrefix .Site.Params.header.layout "fixed" -}}
@@ -85,24 +93,13 @@
               lg:top-10
             {{ end }}
             ">
-            {{ if and (.Params.showTableOfContents | default (.Site.Params.article.showTableOfContents | default false)) (in
-              .TableOfContents "<ul")
-            }}
-              {{ partial "toc.html" . }}
-            {{ end }}
-            {{ if .Site.Params.article.showRelatedPosts |
-              default false
-            }}
-              sd
-            {{ end }}
+            {{ partial "toc.html" . }}
           </div>
         </div>
       {{ end }}
 
-
       <div class="min-w-0 min-h-0 max-w-fit">
         {{ partial "series/series.html" . }}
-
 
         <div class="article-content max-w-prose mb-20">
           {{ .Content }}
@@ -167,8 +164,8 @@
           data-oid="views_{{ $path }}"
           data-oid-likes="likes_{{ $path }}"></script>
       {{ end }}
-
     </section>
+
     <footer class="pt-8 max-w-prose print:hidden">
       {{ partial "article-pagination.html" . }}
       {{ if .Params.showComments | default (.Site.Params.article.showComments | default false) }}

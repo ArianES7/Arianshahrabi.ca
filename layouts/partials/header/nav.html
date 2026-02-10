@@ -12,10 +12,10 @@
       {{ end }}
 
       <!-- The rest on the right -->
-      {{ range (after 1 site.Menus.main) }}
-        <li class="main-menu-item menu-right">
-          <a href="{{ .URL | relURL }}" class="main-menu-link">
-            <span class="nav-wiggle-target">{{ .Name }}</span>
+      {{ range $i, $item := (after 1 site.Menus.main) }}
+        <li class="main-menu-item menu-right {{ if eq $i 0 }}menu-right-first{{ end }}">
+          <a href="{{ $item.URL | relURL }}" class="main-menu-link">
+            <span class="nav-wiggle-target">{{ $item.Name }}</span>
           </a>
         </li>
       {{ end }}

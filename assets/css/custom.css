@@ -299,3 +299,250 @@ html:not(.dark) .logo-wrap{
 
 
 /* ================================================================= */
+
+/* ================================
+   Polished UI building blocks
+   (no new assets required)
+================================= */
+
+/* Better type rendering */
+html { -webkit-text-size-adjust: 100%; }
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible focus rings (only when keyboarding) */
+:where(a, button, input, textarea, select, summary):focus-visible {
+  outline: 2px solid rgb(var(--color-primary-500));
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* Primary/secondary buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  font-weight: 650;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform .15s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0px); }
+
+.btn-primary {
+  background: rgb(var(--color-primary-500));
+  color: rgb(var(--color-neutral-50));
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+}
+.btn-primary:hover { background: rgb(var(--color-primary-600)); }
+
+.btn-secondary {
+  background: rgba(255,255,255,.7);
+  border-color: rgb(var(--color-neutral-300));
+  color: rgb(var(--color-neutral-900));
+}
+html.dark .btn-secondary {
+  background: rgba(0,0,0,.2);
+  border-color: rgb(var(--color-neutral-700));
+  color: rgb(var(--color-neutral-50));
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,.9);
+}
+html.dark .btn-secondary:hover {
+  background: rgba(0,0,0,.35);
+}
+
+/* Home hero */
+.hero-shell {
+  position: relative;
+  border-radius: 22px;
+  padding: 2.25rem 1.25rem;
+  border: 1px solid rgb(var(--color-neutral-200));
+  background:
+    radial-gradient(1200px 400px at 20% 0%, rgba(0,71,171,0.12), transparent 60%),
+    linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.6));
+  box-shadow: 0 18px 60px rgba(0,0,0,.10);
+  overflow: hidden;
+}
+html.dark .hero-shell {
+  border-color: rgb(var(--color-neutral-700));
+  background:
+    radial-gradient(1200px 400px at 20% 0%, rgba(0,71,171,0.22), transparent 60%),
+    linear-gradient(to bottom, rgba(17,17,17,0.65), rgba(17,17,17,0.35));
+  box-shadow: 0 18px 60px rgba(0,0,0,.45);
+}
+
+.hero-kicker {
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin: 0 0 0.75rem;
+}
+.hero-title {
+  margin: 0;
+  font-size: clamp(2.2rem, 4.8vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+}
+.hero-subtitle {
+  margin: 0.75rem 0 0;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+.hero-blurb {
+  margin: 1.1rem auto 0;
+  max-width: 60ch;
+  line-height: 1.75;
+  opacity: 0.9;
+}
+.hero-cta {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.35rem;
+}
+.hero-links {
+  margin-top: 0.85rem;
+  font-size: 1.65rem;
+  display: flex;
+  justify-content: center;
+}
+.hero-proof {
+  margin: 1.25rem auto 0;
+  max-width: 68ch;
+  text-align: left;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+.hero-proof li {
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.65;
+  opacity: 0.9;
+}
+.hero-proof li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: rgb(var(--color-primary-500));
+}
+
+/* Section headings */
+.section-head {
+  text-align: left;
+  max-width: 72ch;
+  margin: 0 auto 1rem;
+}
+.section-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+.section-sub {
+  margin: 0.35rem 0 0;
+  opacity: 0.75;
+  line-height: 1.6;
+}
+
+/* Proof bar */
+.proof-grid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.proof-card {
+  text-align: left;
+  border-radius: 16px;
+  border: 1px solid rgb(var(--color-neutral-200));
+  background: rgba(255,255,255,.7);
+  padding: 1rem 1rem;
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+html.dark .proof-card {
+  border-color: rgb(var(--color-neutral-700));
+  background: rgba(0,0,0,.18);
+}
+.proof-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.12);
+}
+.proof-title {
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+.proof-detail {
+  opacity: 0.8;
+  line-height: 1.65;
+}
+
+/* Featured projects */
+.featured-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.project-card {
+  text-align: left;
+  border-radius: 18px;
+  border: 1px solid rgb(var(--color-neutral-200));
+  background: rgba(255,255,255,.75);
+  padding: 1.1rem 1.1rem;
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+html.dark .project-card {
+  border-color: rgb(var(--color-neutral-700));
+  background: rgba(0,0,0,.18);
+}
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 50px rgba(0,0,0,.14);
+  border-color: rgba(0,71,171,.35);
+}
+.project-title {
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+}
+.project-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+.project-summary {
+  opacity: 0.85;
+  line-height: 1.65;
+}
+.project-cta {
+  margin-top: 0.9rem;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .btn, .proof-card, .project-card { transition: none; }
+  .btn:hover, .proof-card:hover, .project-card:hover { transform: none; }
+}
+
+/* Make badges feel "premium" (less playful) */
+.badge { transition: transform .15s ease, box-shadow .2s ease; }
+.badge:hover { animation: none; transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,.12); }
+@media (prefers-reduced-motion: reduce) { .badge { transition: none; } .badge:hover { transform: none; } }
