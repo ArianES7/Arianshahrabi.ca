@@ -17,38 +17,31 @@ name = "Home"
 url = "/"
 weight = 1
 
-# [[main]]
-# identifier = "blog"
-# name = "Blog"
-# pageRef = "blog"
-# weight = 1
+[[main]]
+identifier = "about"
+name = "About Me"
+pageRef = "about me"
+weight = 2
 
-# [[main]]
-# identifier = "about"
-# name = "About Me"
-# pageRef = "about me"
-# weight = 2
+[[main]]
+identifier = "projects"
+name = "Projects"
+pageRef = "projects"
+weight = 3
 
-# [[main]]
-# identifier = "contact"
-# name = "Contact"
-# url="/contact/"
-# pageRef = "about me/contact"
-# parent = "about"
-# weight = 3
+[[main]]
+identifier = "contact"
+name = "Contact"
+pageRef = "contact"
+weight = 4
 
+# Optional (enable when the file exists in /static)
 # [[main]]
 # identifier = "resume"
 # name = "Resume"
-# url = "/resume.pdf"    # external or static link
-# parent = "about"
-# weight = 4
-
-# [[main]]
-# identifier = "projects"
-# name = "My Projects"
-# pageRef = "projects"
+# url = "/resume.pdf"
 # weight = 5
+
 
 #[[main]]
 #  name = "example sub-menu 2"

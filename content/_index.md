@@ -1,5 +1,6 @@
 ---
-title: "Welcome to Arian.ca"
+title: "Arian Shahrabi"
+description: "Game programmer focused on gameplay systems, AI behavior, and physics-driven simulation."
 ---
 
 # Hi, Welcome to my website
