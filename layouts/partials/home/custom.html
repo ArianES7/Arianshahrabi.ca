@@ -1,0 +1,91 @@
+{{ $projectsSection := site.GetPage "section" "projects" }}
+{{ $projects := slice }}
+{{ if $projectsSection }}
+  {{ $projects = $projectsSection.Pages }}
+{{ end }}
+
+{{ $featured := where $projects "Params.featured" true }}
+{{ if lt (len $featured) 1 }}
+  {{ $featured = $projects }}
+{{ end }}
+
+{{ $featured = $featured.ByWeight }}
+
+<article class="flex flex-col items-center text-center">
+  <header class="relative w-full max-w-4xl px-4 pt-10 pb-8">
+    <div class="hero-shell">
+      <p class="hero-kicker">Gameplay & Systems Programmer</p>
+      <h1 class="hero-title">{{ .Site.Params.Author.name | default .Site.Title }}</h1>
+
+      {{ with .Site.Params.Author.headline }}
+        <p class="hero-subtitle">{{ . | markdownify }}</p>
+      {{ end }}
+
+      <p class="hero-blurb">
+        I build clean, performant gameplay systems and ship playable work. I like hard problems: simulation, AI behavior, and tools that make iteration faster.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="{{ "/projects/" | relURL }}">View Projects</a>
+        <a class="btn btn-secondary" href="{{ "/contact/" | relURL }}">Contact</a>
+      </div>
+
+      <div class="hero-links">
+        {{ partialCached "author-links.html" . }}
+      </div>
+
+      <ul class="hero-proof">
+        <li><strong>Systems-first</strong> approach: modular, testable, reusable.</li>
+        <li><strong>Performance-aware</strong> workflows: profile → measure → improve.</li>
+        <li><strong>Team-ready</strong> output: clear docs, clean repos, predictable delivery.</li>
+      </ul>
+    </div>
+  </header>
+
+  {{ with site.Data.proofs }}
+    <section class="w-full max-w-6xl px-4 pb-10">
+      <div class="proof-grid">
+        {{ range . }}
+          <div class="proof-card">
+            <div class="proof-title">{{ .title }}</div>
+            <div class="proof-detail">{{ .detail }}</div>
+          </div>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+
+  <section class="w-full max-w-6xl px-4 pb-6">
+    <div class="section-head">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-sub">A few things I’ve built recently (with breakdowns you can skim fast).</p>
+    </div>
+
+    {{ if gt (len $featured) 0 }}
+      <div class="featured-grid">
+        {{ range first 3 $featured }}
+          <a class="project-card" href="{{ .RelPermalink }}">
+            <div class="project-title">{{ .Title }}</div>
+            {{ with .Params.badges }}
+              <div class="project-badges">
+                {{ range . }}<span class="badge">{{ . }}</span>{{ end }}
+              </div>
+            {{ end }}
+            <div class="project-summary">{{ .Summary | plainify }}</div>
+            <div class="project-cta">Read case study →</div>
+          </a>
+        {{ end }}
+      </div>
+
+      <div class="mt-6">
+        <a class="btn btn-secondary" href="{{ "/projects/" | relURL }}">See all projects</a>
+      </div>
+    {{ else }}
+      <div class="prose dark:prose-invert mx-auto max-w-prose">
+        <p>
+          Projects page is being set up. Next step: add 3–6 case studies with a short “goal → constraints → what I owned → results” format.
+        </p>
+      </div>
+    {{ end }}
+
+</article>
