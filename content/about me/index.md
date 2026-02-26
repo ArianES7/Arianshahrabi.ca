@@ -13,8 +13,6 @@ showReadingTime: false
 
 I’m a gameplay & systems programmer. I like building the “invisible” parts that make games feel good: movement, combat loops, enemy behaviors, simulation tools, and the workflow glue that lets a team iterate without stepping on each other.
 
-{{< /section >}}
-
 {{< cards >}}
 #### Systems-first mindset
 I treat games as modular systems that interlock cleanly: input, movement, combat, AI, spawning, saving, UI, and tooling.
