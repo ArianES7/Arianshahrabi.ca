@@ -1,11 +1,11 @@
 - title: "Systems-first"
-  detail: "I break problems into modular systems, then iterate fast until it feels right."
+  detail: "I break problems into modular systems, then iterate until they feel right."
 
 - title: "Performance-aware"
-  detail: "I profile, measure, and optimize — not guess. Clean code, stable frame time."
+  detail: "I profile, measure, and optimize instead of guessing—clean code and stable frame time matter."
 
 - title: "Gameplay tooling"
-  detail: "Custom sim/tools (SFML), Unity gameplay scripting, and Unreal workflows." 
+  detail: "Custom simulation tools, Unity gameplay scripting, and Unreal workflows that support faster iteration."
 
 - title: "Team-ready"
-  detail: "Clear ownership, documentation, and communication — so teams don’t step on each other." 
+  detail: "Clear ownership, useful documentation, and communication that helps a team move together."
