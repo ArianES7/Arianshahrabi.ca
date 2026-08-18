@@ -14,13 +14,15 @@ showRelatedContent: false
 showHeadingAnchors: false
 ---
 
+{{< section bg="neutral" max="prose" pad="lg" >}}
+
 I'm a game producer with practical programming experience. I focus on planning and organizing development while understanding technical work well enough to communicate clearly with programmers, designers, artists, and other disciplines.
 
 ## Background
 
 I'm based in Toronto, Ontario, and I'm open to onsite, hybrid, and remote opportunities.
 
-I completed an Advanced Diploma in Video Game Design & Development at Toronto Film School in June 2026. I also hold an Advanced Diploma in Business Administration, Project Management from George Brown Polytechnic.
+I completed an Advanced Diploma in Video Game Design & Development at Toronto Film School from January 2025 to June 2026. I also hold an Advanced Diploma in Business Administration, Project Management from George Brown Polytechnic.
 
 ## How I lead
 
@@ -51,3 +53,5 @@ I keep development organized and moving. My work includes scope management, spri
   <a class="btn btn-secondary" href="/projects/">View projects</a>
   <a class="btn btn-primary" href="/contact/">Contact me</a>
 </div>
+
+{{< /section >}}
