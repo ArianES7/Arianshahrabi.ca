@@ -1,9 +1,4 @@
 ---
 title: "Arian Shahrabi"
-description: "Game programmer focused on gameplay systems, AI behavior, and physics-driven simulation."
+description: "Programmer and producer building thoughtful, playable games."
 ---
-
-# Hi, Welcome to my website
-
-My name is Arian Shahrabi,
-this website is under construction at the moment 

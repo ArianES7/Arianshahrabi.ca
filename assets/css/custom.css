@@ -536,6 +536,41 @@ html.dark .project-card {
   opacity: 0.9;
 }
 
+/* A quiet final call-to-action keeps the landing page focused. */
+.home-closing {
+  text-align: center;
+  padding: 2rem 1.25rem;
+  border: 1px solid rgb(var(--color-neutral-200));
+  border-radius: 18px;
+  background: rgba(255,255,255,.55);
+}
+html.dark .home-closing {
+  border-color: rgb(var(--color-neutral-700));
+  background: rgba(0,0,0,.16);
+}
+.home-closing h2 {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+.home-closing p {
+  margin: .5rem auto 0;
+  max-width: 48ch;
+  opacity: .8;
+}
+
+/* Keep interaction feedback calm and professional. */
+.main-menu nav.md\:flex a:hover > p,
+.main-menu nav.md\:flex a:focus-visible > p,
+.main-menu .nested-menu > a:hover,
+.main-menu .nested-menu > a:focus-visible,
+.main-menu > .flex > nav.flex a:hover,
+.main-menu > .flex > nav.flex a:focus-visible,
+#menu-wrapper a:hover > p,
+#menu-wrapper a:focus-visible > p {
+  animation: none;
+}
+
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
   .btn, .proof-card, .project-card { transition: none; }

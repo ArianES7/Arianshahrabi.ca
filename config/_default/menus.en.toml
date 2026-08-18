@@ -19,14 +19,14 @@ weight = 1
 
 [[main]]
 identifier = "about"
-name = "About Me"
+name = "About"
 pageRef = "about me"
 weight = 2
 
 [[main]]
-identifier = "projects"
-name = "Projects"
-pageRef = "projects"
+identifier = "resume"
+name = "Resume"
+pageRef = "resume"
 weight = 3
 
 [[main]]
@@ -34,14 +34,6 @@ identifier = "contact"
 name = "Contact"
 pageRef = "contact"
 weight = 4
-
-# Optional (enable when the file exists in /static)
-# [[main]]
-# identifier = "resume"
-# name = "Resume"
-# url = "/resume.pdf"
-# weight = 5
-
 
 #[[main]]
 #  name = "example sub-menu 2"

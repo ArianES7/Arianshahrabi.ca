@@ -1,49 +1,33 @@
 {{ $projectsSection := site.GetPage "section" "projects" }}
 {{ $projects := slice }}
-{{ if $projectsSection }}
-  {{ $projects = $projectsSection.Pages }}
-{{ end }}
+{{ with $projectsSection }}{{ $projects = .Pages.ByWeight }}{{ end }}
 
-{{ $featured := where $projects "Params.featured" true }}
-{{ if lt (len $featured) 1 }}
-  {{ $featured = $projects }}
-{{ end }}
-
-{{ $featured = $featured.ByWeight }}
-
-<article class="flex flex-col items-center text-center">
-  <header class="relative w-full max-w-4xl px-4 pt-10 pb-8">
+<article class="home-page flex flex-col items-center text-center">
+  <header class="relative w-full max-w-4xl px-4 pt-10 pb-10">
     <div class="hero-shell">
-      <p class="hero-kicker">Gameplay & Systems Programmer</p>
+      <p class="hero-kicker">Programmer &amp; Producer</p>
       <h1 class="hero-title">{{ .Site.Params.Author.name | default .Site.Title }}</h1>
-
       {{ with .Site.Params.Author.headline }}
         <p class="hero-subtitle">{{ . | markdownify }}</p>
       {{ end }}
-
       <p class="hero-blurb">
-        I build clean, performant gameplay systems and ship playable work. I like hard problems: simulation, AI behavior, and tools that make iteration faster.
+        I build thoughtful gameplay systems and help teams turn ambitious ideas into playable, shippable work. My focus is technical clarity, practical iteration, and games that feel good to play.
       </p>
-
       <div class="hero-cta">
-        <a class="btn btn-primary" href="{{ "/projects/" | relURL }}">View Projects</a>
-        <a class="btn btn-secondary" href="{{ "/contact/" | relURL }}">Contact</a>
+        <a class="btn btn-primary" href="#work">View selected work</a>
+        <a class="btn btn-secondary" href="{{ "/contact/" | relURL }}">Get in touch</a>
       </div>
-
-      <div class="hero-links">
-        {{ partialCached "author-links.html" . }}
-      </div>
-
+      <div class="hero-links">{{ partialCached "author-links.html" . }}</div>
       <ul class="hero-proof">
-        <li><strong>Systems-first</strong> approach: modular, testable, reusable.</li>
-        <li><strong>Performance-aware</strong> workflows: profile → measure → improve.</li>
-        <li><strong>Team-ready</strong> output: clear docs, clean repos, predictable delivery.</li>
+        <li><strong>Systems-first</strong> work: modular, testable, and built to evolve.</li>
+        <li><strong>Practical production:</strong> clear scope, useful documentation, steady delivery.</li>
+        <li><strong>Performance-aware</strong> iteration: profile, measure, then improve.</li>
       </ul>
     </div>
   </header>
 
   {{ with site.Data.proofs }}
-    <section class="w-full max-w-6xl px-4 pb-10">
+    <section class="w-full max-w-6xl px-4 pb-12" aria-label="Working principles">
       <div class="proof-grid">
         {{ range . }}
           <div class="proof-card">
@@ -55,37 +39,41 @@
     </section>
   {{ end }}
 
-  <section class="w-full max-w-6xl px-4 pb-6">
+  <section id="work" class="w-full max-w-6xl px-4 pb-12 scroll-mt-32" aria-labelledby="work-heading">
     <div class="section-head">
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-sub">A few things I’ve built recently (with breakdowns you can skim fast).</p>
+      <h2 id="work-heading" class="section-title">Selected work</h2>
+      <p class="section-sub">A selection of games and systems I’ve helped bring to life.</p>
     </div>
 
-    {{ if gt (len $featured) 0 }}
+    {{ if gt (len $projects) 0 }}
       <div class="featured-grid">
-        {{ range first 3 $featured }}
+        {{ range first 3 $projects }}
           <a class="project-card" href="{{ .RelPermalink }}">
             <div class="project-title">{{ .Title }}</div>
             {{ with .Params.badges }}
-              <div class="project-badges">
-                {{ range . }}<span class="badge">{{ . }}</span>{{ end }}
-              </div>
+              <div class="project-badges">{{ range . }}<span class="badge">{{ . }}</span>{{ end }}</div>
             {{ end }}
             <div class="project-summary">{{ .Summary | plainify }}</div>
-            <div class="project-cta">Read case study →</div>
+            <div class="project-cta">View project →</div>
           </a>
         {{ end }}
       </div>
-
-      <div class="mt-6">
-        <a class="btn btn-secondary" href="{{ "/projects/" | relURL }}">See all projects</a>
+      <div class="mt-7">
+        <a class="btn btn-secondary" href="{{ "/projects/" | relURL }}">Browse all projects</a>
       </div>
     {{ else }}
-      <div class="prose dark:prose-invert mx-auto max-w-prose">
-        <p>
-          Projects page is being set up. Next step: add 3–6 case studies with a short “goal → constraints → what I owned → results” format.
-        </p>
-      </div>
+      <p class="prose dark:prose-invert mx-auto max-w-prose">Selected work is being prepared. Check back soon for project breakdowns.</p>
     {{ end }}
+  </section>
 
+  <section class="w-full max-w-4xl px-4 pb-16" aria-label="Next step">
+    <div class="home-closing">
+      <h2>Interested in working together?</h2>
+      <p>See my experience or reach out directly to start a conversation.</p>
+      <div class="hero-cta">
+        <a class="btn btn-secondary" href="{{ "/resume/" | relURL }}">View resume</a>
+        <a class="btn btn-primary" href="{{ "/contact/" | relURL }}">Contact me</a>
+      </div>
+    </div>
+  </section>
 </article>

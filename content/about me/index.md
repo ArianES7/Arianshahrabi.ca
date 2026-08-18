@@ -1,6 +1,8 @@
 ---
 title: "About"
-description: "Game Programmer | C++ | Physics Simulations | AI Systems"
+description: "Programmer and producer focused on gameplay systems, team delivery, and thoughtful iteration."
+url: "/about/"
+aliases: ["/about-me/"]
 showHero: false
 showZenMode: false
 showDate: false
@@ -11,26 +13,28 @@ showReadingTime: false
 {{< section bg="none" max="prose" pad="lg" >}}
 # Hi — I’m Arian.
 
-I’m a gameplay & systems programmer. I like building the “invisible” parts that make games feel good: movement, combat loops, enemy behaviors, simulation tools, and the workflow glue that lets a team iterate without stepping on each other.
+I’m a programmer and producer focused on making games feel good and helping teams ship them well. I enjoy the systems players feel before they notice them: movement, combat loops, enemy behaviour, simulation tools, and the practical workflow that keeps a project moving.
+
+I work best where technical problem-solving and production overlap: turning an idea into a clear, testable plan; building the right slice first; and creating room for a team to iterate with confidence.
 
 {{< cards >}}
 #### Systems-first mindset
-I treat games as modular systems that interlock cleanly: input, movement, combat, AI, spawning, saving, UI, and tooling.
+I break game features into clear, composable parts—input, movement, combat, AI, spawning, UI, and tooling—so they stay easier to test and extend.
 
 ---
 
 #### Performance-aware
-I profile, measure, and optimize. I care about stable frame-time and predictable behavior, not “it feels faster.”
+I profile, measure, and optimize. Stable frame time and predictable behaviour matter more than guesswork.
 
 ---
 
 #### Practical AI
-FSMs, behavior trees, and utility-style decision making — tuned for readable debugging and iteration.
+FSMs, behaviour trees, and utility-style decision-making, tuned for readable debugging and fast iteration.
 
 ---
 
-#### Simulation / physics tools
-Verlet systems, constraints, collisions, and material-driven behavior — built with clarity and testability.
+#### Simulation and physics tools
+Verlet systems, constraints, collisions, and material-driven behaviour, built with clarity and testability.
 {{< /cards >}}
 
 {{< /section >}}
