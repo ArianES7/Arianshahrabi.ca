@@ -361,15 +361,19 @@ html.dark .btn-secondary:hover {
 }
 
 /* Home hero */
+.home-intro {
+  padding-top: clamp(1.5rem, 4vw, 3rem);
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
 .hero-shell {
   position: relative;
-  border-radius: 22px;
-  padding: 2.25rem 1.25rem;
+  border-radius: 20px;
+  padding: clamp(3rem, 8vw, 5.5rem) 1.5rem;
   border: 1px solid rgb(var(--color-neutral-200));
   background:
     radial-gradient(1200px 400px at 20% 0%, rgba(0,71,171,0.12), transparent 60%),
     linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.6));
-  box-shadow: 0 18px 60px rgba(0,0,0,.10);
+  box-shadow: 0 14px 40px rgba(0,0,0,.08);
   overflow: hidden;
 }
 html.dark .hero-shell {
@@ -377,77 +381,39 @@ html.dark .hero-shell {
   background:
     radial-gradient(1200px 400px at 20% 0%, rgba(0,71,171,0.22), transparent 60%),
     linear-gradient(to bottom, rgba(17,17,17,0.65), rgba(17,17,17,0.35));
-  box-shadow: 0 18px 60px rgba(0,0,0,.45);
-}
-
-.hero-kicker {
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0.75;
-  margin: 0 0 0.75rem;
+  box-shadow: 0 14px 40px rgba(0,0,0,.32);
 }
 .hero-title {
   margin: 0;
-  font-size: clamp(2.2rem, 4.8vw, 3.2rem);
+  font-size: clamp(2.5rem, 7vw, 4.25rem);
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 1;
+  letter-spacing: -0.04em;
 }
 .hero-subtitle {
-  margin: 0.75rem 0 0;
-  font-size: 1.1rem;
-  opacity: 0.8;
-}
-.hero-blurb {
-  margin: 1.1rem auto 0;
-  max-width: 60ch;
-  line-height: 1.75;
-  opacity: 0.9;
+  margin: 0.8rem 0 0;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  opacity: 0.72;
 }
 .hero-cta {
   display: flex;
   gap: 0.75rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 1.35rem;
+  margin-top: 1.6rem;
 }
 .hero-links {
-  margin-top: 0.85rem;
-  font-size: 1.65rem;
+  margin-top: 1.25rem;
+  font-size: 1.55rem;
   display: flex;
   justify-content: center;
-}
-.hero-proof {
-  margin: 1.25rem auto 0;
-  max-width: 68ch;
-  text-align: left;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.55rem;
-}
-.hero-proof li {
-  padding-left: 1rem;
-  position: relative;
-  line-height: 1.65;
-  opacity: 0.9;
-}
-.hero-proof li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.72rem;
-  width: 0.35rem;
-  height: 0.35rem;
-  border-radius: 999px;
-  background: rgb(var(--color-primary-500));
 }
 
 /* Section headings */
 .section-head {
   text-align: left;
   max-width: 72ch;
-  margin: 0 auto 1rem;
+  margin: 0 auto 1.25rem;
 }
 .section-title {
   margin: 0;
@@ -460,38 +426,10 @@ html.dark .hero-shell {
   line-height: 1.6;
 }
 
-/* Proof bar */
-.proof-grid {
-  display: grid;
-  gap: 0.9rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-.proof-card {
-  text-align: left;
-  border-radius: 16px;
-  border: 1px solid rgb(var(--color-neutral-200));
-  background: rgba(255,255,255,.7);
-  padding: 1rem 1rem;
-  transition: transform .15s ease, box-shadow .2s ease;
-}
-html.dark .proof-card {
-  border-color: rgb(var(--color-neutral-700));
-  background: rgba(0,0,0,.18);
-}
-.proof-card:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 16px 40px rgba(0,0,0,.12);
-}
-.proof-title {
-  font-weight: 800;
-  margin-bottom: 0.25rem;
-}
-.proof-detail {
-  opacity: 0.8;
-  line-height: 1.65;
-}
-
 /* Featured projects */
+.work-section {
+  padding-bottom: clamp(3.5rem, 8vw, 6rem);
+}
 .featured-grid {
   display: grid;
   gap: 1rem;
@@ -536,6 +474,10 @@ html.dark .project-card {
   opacity: 0.9;
 }
 
+.closing-section {
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
 /* A quiet final call-to-action keeps the landing page focused. */
 .home-closing {
   text-align: center;
@@ -573,8 +515,8 @@ html.dark .home-closing {
 
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
-  .btn, .proof-card, .project-card { transition: none; }
-  .btn:hover, .proof-card:hover, .project-card:hover { transform: none; }
+  .btn, .project-card { transition: none; }
+  .btn:hover, .project-card:hover { transform: none; }
 }
 
 /* Make badges feel "premium" (less playful) */
