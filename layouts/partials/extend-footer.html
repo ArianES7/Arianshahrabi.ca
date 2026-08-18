@@ -2,9 +2,11 @@
   <div class="site-footer-identity">
     <p class="site-footer-name">{{ .Site.Params.Author.name }}</p>
     <p class="site-footer-title">{{ .Site.Params.Author.headline }}</p>
-    <a class="site-footer-contact" href="mailto:{{ .Site.Params.Author.email }}">Feel free to reach out</a>
   </div>
-  <div class="site-footer-socials" aria-label="Social links">
-    {{ partialCached "author-links.html" . }}
+  <div class="site-footer-actions">
+    <a class="site-footer-contact" href="mailto:{{ .Site.Params.Author.email }}">Feel free to reach out</a>
+    <div class="site-footer-socials" aria-label="Social links">
+      {{ partialCached "author-links.html" . }}
+    </div>
   </div>
 </div>

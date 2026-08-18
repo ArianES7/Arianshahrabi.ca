@@ -492,24 +492,69 @@ html.dark .project-card {
   font-weight: 700;
   opacity: 0.9;
 }
+.projects-cta {
+  margin-top: 2.75rem;
+}
 
 /* Compact footer sign-off */
+#site-footer {
+  display: flex;
+  flex-direction: column;
+}
+#site-footer > .site-footer-extra { order: 2; }
+#site-footer > .flex.items-center.justify-between {
+  order: 3;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgb(var(--color-neutral-200));
+}
 .site-footer-extra {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 0 0 2rem;
-  border-bottom: 1px solid rgb(var(--color-neutral-200));
+  padding: 0 0 .5rem;
 }
-html.dark .site-footer-extra { border-bottom-color: rgb(var(--color-neutral-700)); }
+html.dark #site-footer > .flex.items-center.justify-between { border-top-color: rgb(var(--color-neutral-700)); }
 .site-footer-name { margin: 0; font-weight: 800; }
 .site-footer-title { margin: .2rem 0 .65rem; opacity: .7; }
-.site-footer-contact { font-weight: 650; color: rgb(var(--color-primary-600)); }
-.site-footer-socials { font-size: 1.35rem; }
+.site-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+.site-footer-contact {
+  display: inline-flex;
+  align-items: center;
+  padding: .55rem .9rem;
+  border: 1px solid rgb(var(--color-neutral-300));
+  border-radius: 999px;
+  background: rgb(var(--color-neutral-100));
+  color: rgb(var(--color-neutral-900));
+  font-weight: 650;
+  text-decoration: none;
+  transition: background-color .2s ease, border-color .2s ease, transform .15s ease;
+}
+.site-footer-contact:hover,
+.site-footer-contact:focus-visible {
+  background: rgb(var(--color-neutral-200));
+  border-color: rgb(var(--color-neutral-500));
+  transform: translateY(-1px);
+}
+html.dark .site-footer-contact {
+  border-color: rgb(var(--color-neutral-600));
+  background: rgb(var(--color-neutral-700));
+  color: rgb(var(--color-neutral-50));
+}
+html.dark .site-footer-contact:hover,
+html.dark .site-footer-contact:focus-visible { background: rgb(var(--color-neutral-800)); }
+.site-footer-socials { font-size: 1.5rem; }
+.site-footer-socials .icon { width: 1.8rem; height: 1.8rem; }
+.site-footer-socials .icon svg { width: 100%; height: 100%; }
 @media (max-width: 640px) {
-  .site-footer-extra { align-items: flex-start; flex-direction: column; }
-  .site-footer-socials { margin-top: .25rem; }
+  .site-footer-extra { align-items: flex-start; flex-direction: column; gap: 1rem; }
+  .site-footer-actions { align-items: flex-start; flex-wrap: wrap; gap: .85rem 1rem; }
 }
 
 /* Keep interaction feedback calm and professional. */
