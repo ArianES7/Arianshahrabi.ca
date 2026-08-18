@@ -13,13 +13,24 @@
         <a class="btn btn-primary" href="#work">View projects</a>
       </div>
       <div class="hero-links">{{ partialCached "author-links.html" . }}</div>
+      <div class="demo-reel">
+        <div class="demo-reel-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/7vhCvBQkJVg"
+            title="Arian Shahrabi demo reel"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
   </header>
 
   <section id="work" class="work-section w-full max-w-6xl px-4 scroll-mt-32" aria-labelledby="work-heading">
     <div class="section-head">
-      <h2 id="work-heading" class="section-title">Selected work</h2>
-      <p class="section-sub">Games and systems I’ve worked on.</p>
+      <h2 id="work-heading" class="section-title">Projects I’ve worked on</h2>
+      <p class="section-sub">Games and systems I’ve helped bring to life.</p>
     </div>
 
     {{ if gt (len $projects) 0 }}
@@ -43,14 +54,4 @@
     {{ end }}
   </section>
 
-  <section class="closing-section w-full max-w-4xl px-4" aria-label="Next step">
-    <div class="home-closing">
-      <h2>Let’s work together.</h2>
-      <p>Take a look at my resume or get in touch.</p>
-      <div class="hero-cta">
-        <a class="btn btn-secondary" href="{{ "/resume/" | relURL }}">Resume</a>
-        <a class="btn btn-primary" href="{{ "/contact/" | relURL }}">Contact</a>
-      </div>
-    </div>
-  </section>
 </article>

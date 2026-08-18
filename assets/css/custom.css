@@ -408,6 +408,25 @@ html.dark .hero-shell {
   display: flex;
   justify-content: center;
 }
+.demo-reel {
+  width: min(100%, 52rem);
+  margin: 2rem auto 0;
+}
+.demo-reel-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 14px;
+  background: rgb(var(--color-neutral-900));
+  box-shadow: 0 12px 32px rgba(0,0,0,.16);
+}
+.demo-reel-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
 /* Section headings */
 .section-head {
@@ -474,31 +493,23 @@ html.dark .project-card {
   opacity: 0.9;
 }
 
-.closing-section {
-  padding-bottom: clamp(3rem, 7vw, 5rem);
+/* Compact footer sign-off */
+.site-footer-extra {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0 0 2rem;
+  border-bottom: 1px solid rgb(var(--color-neutral-200));
 }
-
-/* A quiet final call-to-action keeps the landing page focused. */
-.home-closing {
-  text-align: center;
-  padding: 2rem 1.25rem;
-  border: 1px solid rgb(var(--color-neutral-200));
-  border-radius: 18px;
-  background: rgba(255,255,255,.55);
-}
-html.dark .home-closing {
-  border-color: rgb(var(--color-neutral-700));
-  background: rgba(0,0,0,.16);
-}
-.home-closing h2 {
-  margin: 0;
-  font-size: 1.45rem;
-  font-weight: 800;
-}
-.home-closing p {
-  margin: .5rem auto 0;
-  max-width: 48ch;
-  opacity: .8;
+html.dark .site-footer-extra { border-bottom-color: rgb(var(--color-neutral-700)); }
+.site-footer-name { margin: 0; font-weight: 800; }
+.site-footer-title { margin: .2rem 0 .65rem; opacity: .7; }
+.site-footer-contact { font-weight: 650; color: rgb(var(--color-primary-600)); }
+.site-footer-socials { font-size: 1.35rem; }
+@media (max-width: 640px) {
+  .site-footer-extra { align-items: flex-start; flex-direction: column; }
+  .site-footer-socials { margin-top: .25rem; }
 }
 
 /* Keep interaction feedback calm and professional. */
