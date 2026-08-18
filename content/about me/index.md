@@ -1,6 +1,6 @@
 ---
 title: "About me"
-description: "Game producer with hands-on programming experience."
+description: "Game producer with practical programming experience."
 url: "/about/"
 aliases: ["/about-me/"]
 showHero: false
@@ -14,29 +14,29 @@ showRelatedContent: false
 showHeadingAnchors: false
 ---
 
-I’m a game producer with hands-on programming experience. I focus on planning and organizing development while understanding technical work well enough to communicate clearly with programmers, designers, artists, and other disciplines.
+I'm a game producer with practical programming experience. I focus on planning and organizing development while understanding technical work well enough to communicate clearly with programmers, designers, artists, and other disciplines.
 
 ## Background
 
-I’m based in Toronto, Ontario, and I’m open to onsite, hybrid, and remote opportunities.
+I'm based in Toronto, Ontario, and I'm open to onsite, hybrid, and remote opportunities.
 
-I completed an Advanced Diploma in Video Game Design & Development at Toronto Film School in June 2026. I also hold an Advanced Diploma in Business Administration Project Management from George Brown Polytechnic.
+I completed an Advanced Diploma in Video Game Design & Development at Toronto Film School in June 2026. I also hold an Advanced Diploma in Business Administration, Project Management from George Brown Polytechnic.
 
 ## How I lead
 
-I keep development organized and moving. My work includes scope management, sprint and milestone planning, task prioritization, dependency tracking, risk and blocker management, cross-discipline communication, playtest coordination, bug triage, release coordination, documentation, and workflow organization.
+I keep development organized and moving. My work includes scope management, sprint and milestone planning, task prioritization, dependency tracking, risk and blocker management, communication across disciplines, playtest coordination, bug triage, release coordination, documentation, and workflow organization.
 
 ## Experience
 
 - Led a multidisciplinary team of approximately 20 people through development and release.
-- Currently lead production and programming for a three-person independent Unity project.
+- Currently lead production and programming for a three person independent Unity project.
 
 ## Education
 
-- **Advanced Diploma, Video Game Design & Development** — Toronto Film School, 2025 - 2026
+- **Advanced Diploma, Video Game Design & Development** at Toronto Film School, from 2025 to 2026
   - Graduated with a 4.21/4.3 GPA.
-  - President’s List and Honour’s List recognition across all six terms.
-- **Advanced Diploma, Business Administration — Project Management** — George Brown Polytechnic, 2020 - 2024
+  - President's List and Honour's List recognition across all six terms.
+- **Advanced Diploma, Business Administration, Project Management** at George Brown Polytechnic, from 2020 to 2024
 
 ## Tools and skills
 
