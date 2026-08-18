@@ -180,17 +180,6 @@ html.dark {
   gap: .75rem;
   margin-top: 1.5rem;
 }
-.article-content > .about-section.block.bg-neutral {
-  margin: 1rem 0 0;
-  padding: 0 1.5rem;
-  border: 1px solid rgb(var(--color-neutral-200));
-  border-radius: 18px;
-  box-shadow: 0 14px 40px rgba(0,0,0,.06);
-}
-html.dark .article-content > .about-section.block.bg-neutral {
-  border-color: rgb(var(--color-neutral-700));
-  box-shadow: 0 14px 40px rgba(0,0,0,.22);
-}
 .about-section { margin: 2.5rem 0; }
 
 .about-section.max-prose .inner { max-width: 68ch; margin: 0 auto; }

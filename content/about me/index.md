@@ -14,7 +14,7 @@ showRelatedContent: false
 showHeadingAnchors: false
 ---
 
-{{< section bg="neutral" max="prose" pad="lg" >}}
+{{< section bg="none" max="prose" pad="lg" >}}
 
 I'm a game producer with practical programming experience. I focus on planning and organizing development while understanding technical work well enough to communicate clearly with programmers, designers, artists, and other disciplines.
 
