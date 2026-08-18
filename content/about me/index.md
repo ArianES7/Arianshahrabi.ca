@@ -20,7 +20,7 @@ I’m a game producer with hands-on programming experience. I focus on planning 
 
 I’m based in Toronto, Ontario, and I’m open to onsite, hybrid, and remote opportunities.
 
-I completed an Advanced Diploma in Video Game Design & Development at Toronto Film School in June 2026. I also hold an Advanced Diploma in Business Administration — Project Management from George Brown Polytechnic.
+I completed an Advanced Diploma in Video Game Design & Development at Toronto Film School in June 2026. I also hold an Advanced Diploma in Business Administration Project Management from George Brown Polytechnic.
 
 ## How I lead
 
@@ -33,14 +33,14 @@ I keep development organized and moving. My work includes scope management, spri
 
 ## Education
 
-- **Advanced Diploma, Video Game Design & Development** — Toronto Film School, June 2026
+- **Advanced Diploma, Video Game Design & Development** — Toronto Film School, 2025 - 2026
   - Graduated with a 4.21/4.3 GPA.
   - President’s List and Honour’s List recognition across all six terms.
-- **Advanced Diploma, Business Administration — Project Management** — George Brown Polytechnic.
+- **Advanced Diploma, Business Administration — Project Management** — George Brown Polytechnic, 2020 - 2024
 
 ## Tools and skills
 
-**Production:** Trello, Miro, Google Sheets, Microsoft Excel, SharePoint
+**Production:** Trello, Miro, Jira, Google Sheets, Microsoft Excel, SharePoint
 
 **Technical:** Unity, C#, Unreal Engine 5, Blueprints, Git, GitHub
 
