@@ -1,6 +1,6 @@
 ---
-title: "About"
-description: "Programmer and producer focused on gameplay systems, team delivery, and thoughtful iteration."
+title: "About me"
+description: "Game producer with hands-on programming experience."
 url: "/about/"
 aliases: ["/about-me/"]
 showHero: false
@@ -8,33 +8,46 @@ showZenMode: false
 showDate: false
 showAuthor: false
 showReadingTime: false
+showTableOfContents: false
+showPagination: false
+showRelatedContent: false
+showHeadingAnchors: false
 ---
 
-{{< section bg="none" max="prose" pad="lg" >}}
-# Hi — I’m Arian.
+I’m a game producer with hands-on programming experience. I focus on planning and organizing development while understanding technical work well enough to communicate clearly with programmers, designers, artists, and other disciplines.
 
-I’m a programmer and producer focused on making games feel good and helping teams ship them well. I enjoy the systems players feel before they notice them: movement, combat loops, enemy behaviour, simulation tools, and the practical workflow that keeps a project moving.
+## Background
 
-I work best where technical problem-solving and production overlap: turning an idea into a clear, testable plan; building the right slice first; and creating room for a team to iterate with confidence.
+I’m based in Toronto, Ontario, and I’m open to onsite, hybrid, and remote opportunities.
 
-{{< cards >}}
-#### Systems-first mindset
-I break game features into clear, composable parts—input, movement, combat, AI, spawning, UI, and tooling—so they stay easier to test and extend.
+I completed an Advanced Diploma in Video Game Design & Development at Toronto Film School in June 2026. I also hold an Advanced Diploma in Business Administration — Project Management from George Brown Polytechnic.
 
----
+## How I lead
 
-#### Performance-aware
-I profile, measure, and optimize. Stable frame time and predictable behaviour matter more than guesswork.
+I keep development organized and moving. My work includes scope management, sprint and milestone planning, task prioritization, dependency tracking, risk and blocker management, cross-discipline communication, playtest coordination, bug triage, release coordination, documentation, and workflow organization.
 
----
+## Experience
 
-#### Practical AI
-FSMs, behaviour trees, and utility-style decision-making, tuned for readable debugging and fast iteration.
+- Led a multidisciplinary team of approximately 20 people through development and release.
+- Currently lead production and programming for a three-person independent Unity project.
 
----
+## Education
 
-#### Simulation and physics tools
-Verlet systems, constraints, collisions, and material-driven behaviour, built with clarity and testability.
-{{< /cards >}}
+- **Advanced Diploma, Video Game Design & Development** — Toronto Film School, June 2026
+  - Graduated with a 4.21/4.3 GPA.
+  - President’s List and Honour’s List recognition across all six terms.
+- **Advanced Diploma, Business Administration — Project Management** — George Brown Polytechnic.
 
-{{< /section >}}
+## Tools and skills
+
+**Production:** Trello, Miro, Google Sheets, Microsoft Excel, SharePoint
+
+**Technical:** Unity, C#, Unreal Engine 5, Blueprints, Git, GitHub
+
+## Further details
+
+<div class="about-actions not-prose">
+  <a class="btn btn-secondary" href="/resume/">View resume</a>
+  <a class="btn btn-secondary" href="/projects/">View projects</a>
+  <a class="btn btn-primary" href="/contact/">Contact me</a>
+</div>

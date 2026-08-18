@@ -174,6 +174,12 @@ html.dark {
 ================================= */
 
 /* About page building blocks */
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.5rem;
+}
 .about-section { margin: 2.5rem 0; }
 
 .about-section.max-prose .inner { max-width: 68ch; margin: 0 auto; }
