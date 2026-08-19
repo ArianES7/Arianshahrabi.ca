@@ -26,7 +26,8 @@ weight = 2
 [[main]]
 identifier = "resume"
 name = "Resume"
-pageRef = "resume"
+url = "https://arianshahrabi.ca/Resume/Arian%20Shahrabi%20Resume.pdf"
+title = "Open resume PDF in a new tab"
 weight = 3
 
 [[main]]
