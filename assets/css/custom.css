@@ -1112,6 +1112,43 @@ html.dark .neon-placeholder { border-color: rgb(var(--color-neutral-600)); }
   .rolling-results-grid > div:nth-child(2) { border-bottom: 1px solid var(--neon-line); }
 }
 
+/* Rogue Malfunction case study */
+.rogue-masthead {
+  position: relative;
+  width: 100%;
+  max-width: 1120px;
+  aspect-ratio: 3300 / 1700;
+  margin-top: -2rem;
+  margin-right: auto;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+  margin-left: auto;
+  overflow: hidden;
+}
+.rogue-masthead img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  display: block;
+  width: 116%;
+  max-width: none;
+  height: auto;
+  transform: translateX(-50%);
+}
+.rogue-lesson {
+  max-width: 780px;
+  margin: 2rem 0 0;
+  color: var(--neon-muted);
+  font-size: .95rem;
+  line-height: 1.75;
+}
+
+@media (max-width: 640px) {
+  .rogue-masthead {
+    margin-top: -1rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
 /* Keep interaction feedback calm and professional. */
 .main-menu nav.md\:flex a:hover > p,
 .main-menu nav.md\:flex a:focus-visible > p,

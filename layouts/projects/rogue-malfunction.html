@@ -1,0 +1,179 @@
+{{ define "main" }}
+  {{ $hero := .Resources.GetMatch "rogue-malfunction-hero.png" }}
+
+  <article class="neon-case-study rogue-case-study">
+    <header class="rogue-masthead">
+      <h1 class="neon-visually-hidden">Rogue Malfunction</h1>
+      {{ with $hero }}
+        <img
+          src="{{ .RelPermalink }}"
+          width="{{ .Width }}"
+          height="{{ .Height }}"
+          alt="Rogue Malfunction"
+          decoding="async"
+          fetchpriority="high">
+      {{ end }}
+    </header>
+
+    <section class="neon-section neon-split" aria-labelledby="rogue-overview-title">
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Project overview</p>
+        <h2 id="rogue-overview-title">A puzzle game where the controls work against you</h2>
+        <p>
+          Rogue Malfunction is an isometric puzzle adventure about a robot trying to escape its creator, the Overlord. As the robot moves through the facility, the Overlord interferes by changing how its directional controls behave.
+        </p>
+        <p>
+          Each room asks the player to understand the new input mapping, navigate environmental hazards, solve the puzzle, and reach the exit. I created the central concept because I wanted the game jam theme, Going Rogue, to affect how the game played instead of existing only in the story.
+        </p>
+
+        <dl class="neon-metadata">
+          <div><dt>Role</dt><dd>Programmer and Game Designer</dd></div>
+          <div><dt>Team</dt><dd>Four people</dd></div>
+          <div><dt>Development</dt><dd>December 27, 2025 to February 16, 2026</dd></div>
+          <div><dt>Game jam</dt><dd>Approximately 103 hours</dd></div>
+          <div><dt>Engine</dt><dd>Unity and C#</dd></div>
+          <div><dt>Status</dt><dd>Released, version 0.9.0.2</dd></div>
+        </dl>
+
+        <div class="rolling-actions">
+          <a class="btn btn-primary" href="https://arian-shahrabi.itch.io/rogue" target="_blank" rel="noopener noreferrer">Play on itch.io</a>
+        </div>
+      </div>
+
+      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+    </section>
+
+    <section class="neon-section neon-split" aria-labelledby="rogue-controls-title">
+      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Control remapping</p>
+        <h2 id="rogue-controls-title">Keeping a shared foundation without blocking the team</h2>
+        <p>
+          We initially planned to use one player controller across every level. That became impractical once three programmers needed different movement and balancing changes at the same time. It also created a clear risk of frequent merge conflicts.
+        </p>
+        <p>
+          We replaced that approach with a shared master controller foundation. Each programmer created a level specific controller from that base and tuned it for their puzzle while keeping the common movement behaviour consistent.
+        </p>
+        <p>
+          My Sequence level used faster and more demanding parkour, so I increased its movement speed to give players a better chance of completing the jumps. The remapping itself remained authored for each room rather than random or procedurally generated.
+        </p>
+
+        <div class="neon-scope-groups">
+          <div>
+            <h3>Programming and interface</h3>
+            <p>I built the menus, UI functionality, UX flow, door puzzles, and the level specific controller used by the Sequence puzzle.</p>
+          </div>
+          <div>
+            <h3>Design work</h3>
+            <p>I created the original remapping and Overlord concept, designed the Sequence level, and iterated on its parkour layout and difficulty through playtesting.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="neon-section neon-split" aria-labelledby="rogue-levels-title">
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Game jam and playable content</p>
+        <h2 id="rogue-levels-title">Four puzzle rooms built into one release</h2>
+        <p>
+          The original jam ran from December 27 to December 31, 2025. We continued working afterward and combined all four puzzle levels into one release by February 16, 2026.
+        </p>
+        <p>
+          The final build includes Ethan Ticar's Three B's Puzzle, Phillip's Sokoban and Tiles puzzles, and my Sequence Puzzle. Together they cover movement remapping, jumping, parkour, door sequences, object puzzles, tile navigation, hazards, interaction, and level specific Overlord voice work.
+        </p>
+        <p>
+          Alice created the UI artwork and the robot model and rig. Animation integration problems prevented us from using the model as the playable character, so we reduced the scope and placed it in the opening environment instead of delaying the release.
+        </p>
+      </div>
+
+      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+    </section>
+
+    <section class="neon-section neon-split" aria-labelledby="rogue-testing-title">
+      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Playtesting and iteration</p>
+        <h2 id="rogue-testing-title">Adjusting the Sequence level without removing its challenge</h2>
+        <p>
+          Playtesters repeatedly identified the Sequence level as too difficult. I revised its layout three times, shortened several jump distances, and increased the movement speed for that room.
+        </p>
+        <p>
+          The level was still intended to be demanding, so I added a clear Extremely Hard label before entry. Once players knew what to expect, I stopped receiving complaints about its difficulty.
+        </p>
+        <p>
+          Post jam updates also addressed progression bugs and edge cases while adding a pause menu, control reference, improved settings, updated menu presentation, button animations, lighting refinements, level selection, and level specific voice work.
+        </p>
+      </div>
+    </section>
+
+    <section class="neon-section neon-results" aria-labelledby="rogue-results-title">
+      <div class="neon-section-heading">
+        <p class="neon-eyebrow">Release results</p>
+        <h2 id="rogue-results-title">From game jam build to public release</h2>
+      </div>
+
+      <div class="neon-results-grid rolling-results-grid">
+        <div><strong>800+</strong><span>Browser plays on itch.io</span></div>
+        <div><strong>4.8/5</strong><span>Average across 14 ratings</span></div>
+        <div><strong>4</strong><span>Completed puzzle levels</span></div>
+        <div><strong>103</strong><span>Hours in the original game jam</span></div>
+      </div>
+
+      <div class="neon-results-notes">
+        <p>
+          Rogue Malfunction is available in the browser and as Windows and Linux downloads. Development continued beyond the limited jam build until all four puzzle levels were integrated.
+        </p>
+        <p>
+          Public comments highlighted the unusual control concept and described the game as innovative and mentally challenging.
+        </p>
+      </div>
+    </section>
+
+    <section class="neon-section" aria-labelledby="rogue-retrospective-title">
+      <div class="neon-section-heading">
+        <p class="neon-eyebrow">Retrospective</p>
+        <h2 id="rogue-retrospective-title">What I would change next time</h2>
+      </div>
+
+      <div class="rolling-closing-grid">
+        <div>
+          <h3>Development workflow</h3>
+          <p>
+            I would establish protected main and development branches with separate feature branches from the beginning. That would make collaboration between three programmers more predictable and reduce integration problems.
+          </p>
+        </div>
+        <div>
+          <h3>Level cohesion</h3>
+          <p>
+            I would plan stronger connections between the four rooms so their environments gradually reveal more about the robot, the Overlord, and the reason for the escape.
+          </p>
+        </div>
+      </div>
+
+      <p class="rogue-lesson">
+        The strongest lesson was that communicating difficulty can matter as much as adjusting it. The Sequence level remained deliberately challenging, but setting that expectation changed how players approached it.
+      </p>
+
+      <div class="rolling-tools" aria-label="Tools and technologies">
+        {{ range slice "Unity" "C#" "Git" "GitHub" "WebGL" "HTML5" "itch.io" }}
+          <span>{{ . }}</span>
+        {{ end }}
+      </div>
+
+      <p class="rolling-asset-note">
+        The project combines original team work with an external environment asset pack and additional sourced textures. Alice created the UI artwork and robot model. No generative AI was used.
+      </p>
+    </section>
+
+    <section class="neon-section neon-download" aria-labelledby="rogue-play-title">
+      <div>
+        <p class="neon-eyebrow">Available now</p>
+        <h2 id="rogue-play-title">Play Rogue Malfunction</h2>
+        <p>Play in a browser or download the Windows and Linux versions through itch.io.</p>
+      </div>
+      <a class="btn btn-primary neon-download-button" href="https://arian-shahrabi.itch.io/rogue" target="_blank" rel="noopener noreferrer">Play or download</a>
+    </section>
+  </article>
+{{ end }}
