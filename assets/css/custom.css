@@ -645,11 +645,12 @@ html.dark .neon-case-study {
 .neon-masthead {
   display: grid;
   place-items: center;
-  padding: clamp(3rem, 8vw, 6rem) 0 clamp(2.25rem, 5vw, 4rem);
+  margin-top: -2.5rem;
+  padding: clamp(.75rem, 2vw, 1.75rem) 0 clamp(1.5rem, 4vw, 3rem);
 }
 .neon-logo {
   display: block;
-  width: min(100%, 680px);
+  width: min(100%, 860px);
   height: auto;
 }
 .neon-trailer {
@@ -756,7 +757,7 @@ html.dark .neon-eyebrow { color: rgb(var(--color-primary-300)); }
   text-align: center;
 }
 .neon-production {
-  grid-template-columns: minmax(300px, .9fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(340px, 1.05fr) minmax(0, .95fr);
   align-items: start;
 }
 .neon-production-visuals {
@@ -787,7 +788,7 @@ html.dark .neon-placeholder { border-color: rgb(var(--color-neutral-600)); }
   color: var(--neon-muted);
   font-size: .8rem;
 }
-.neon-placeholder-landscape,
+.neon-placeholder-landscape { aspect-ratio: 16 / 10; }
 .neon-placeholder-gallery,
 .neon-placeholder-hud { aspect-ratio: 16 / 9; }
 .neon-workflows {
@@ -806,31 +807,15 @@ html.dark .neon-placeholder { border-color: rgb(var(--color-neutral-600)); }
   font-size: .92rem;
   font-weight: 800;
 }
-.neon-workflow ol {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: .35rem;
-  margin: .75rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-.neon-workflow li {
-  display: flex;
-  align-items: center;
-  gap: .35rem;
+.neon-workflow p {
+  margin: .55rem 0 0;
   color: var(--neon-muted);
-  font-size: .72rem;
-  font-weight: 600;
-  line-height: 1.4;
-}
-.neon-workflow li:not(:last-child)::after {
-  content: "\2192";
-  color: rgb(var(--color-primary-600));
+  font-size: .8rem;
+  line-height: 1.6;
 }
 .neon-scope-groups {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.25rem;
   margin-top: 1.75rem;
 }
@@ -887,11 +872,13 @@ html.dark .neon-placeholder { border-color: rgb(var(--color-neutral-600)); }
 .neon-results-grid > div {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: .55rem;
   padding: 1.6rem;
   border-right: 1px solid var(--neon-line);
+  text-align: center;
 }
-.neon-results-grid > div:first-child { padding-left: 0; }
+.neon-results-grid > div:first-child { padding-left: 1.6rem; }
 .neon-results-grid > div:last-child { border-right: 0; }
 .neon-results-grid strong {
   font-size: clamp(1.65rem, 3vw, 2.35rem);
@@ -943,42 +930,25 @@ html.dark .neon-placeholder { border-color: rgb(var(--color-neutral-600)); }
 .neon-social-links a {
   display: grid;
   place-items: center;
-  width: 3.25rem;
-  height: 3.25rem;
-  border: 1px solid var(--neon-line);
-  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  border: 0;
+  border-radius: 10px;
   color: inherit;
-  background: var(--neon-surface);
+  background: transparent;
   text-decoration: none;
-  transition: transform .15s ease, border-color .2s ease, background-color .2s ease;
+  transition: transform .15s ease, background-color .2s ease;
 }
 .neon-social-links a:hover,
 .neon-social-links a:focus-visible {
   transform: translateY(-2px);
-  border-color: rgb(var(--color-primary-500));
   background: rgba(var(--color-primary-500), .1);
 }
 .neon-social-links .icon,
 .neon-social-links .icon svg {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-.neon-social-wordmark {
-  font-size: .67rem;
-  font-weight: 800;
-  letter-spacing: -.02em;
-}
-.neon-social-wordmark-imdb {
-  padding: .12rem .25rem;
-  border-radius: 3px;
-  color: #111;
-  background: #f5c518;
-  font-size: .72rem;
-  letter-spacing: 0;
-}
-.neon-social-wordmark-igdb {
-  font-size: .7rem;
-  letter-spacing: .04em;
+  width: 1.75rem;
+  height: 1.75rem;
+  fill: currentColor;
 }
 
 @media (max-width: 900px) {
@@ -997,12 +967,12 @@ html.dark .neon-placeholder { border-color: rgb(var(--color-neutral-600)); }
     border-bottom: 1px solid var(--neon-line);
   }
   .neon-results-grid > div:nth-child(2) { border-right: 0; }
-  .neon-results-grid > div:nth-child(3) { padding-left: 0; border-bottom: 0; }
+  .neon-results-grid > div:nth-child(3) { padding-left: 1.6rem; border-bottom: 0; }
   .neon-results-grid > div:nth-child(4) { border-right: 0; border-bottom: 0; }
 }
 
 @media (max-width: 640px) {
-  .neon-masthead { padding-top: 2.5rem; }
+  .neon-masthead { margin-top: -1.5rem; padding-top: .75rem; }
   .neon-trailer { margin-bottom: 4rem; }
   .neon-section { padding: 4rem 0; }
   .neon-metadata,
