@@ -779,15 +779,6 @@ html.dark .neon-eyebrow { color: rgb(var(--color-primary-300)); }
   text-align: center;
 }
 html.dark .neon-placeholder { border-color: rgb(var(--color-neutral-600)); }
-.neon-placeholder strong {
-  font-size: 1rem;
-  line-height: 1.35;
-}
-.neon-placeholder span {
-  margin-top: .35rem;
-  color: var(--neon-muted);
-  font-size: .8rem;
-}
 .neon-placeholder-landscape { aspect-ratio: 16 / 10; }
 .neon-placeholder-gallery,
 .neon-placeholder-hud { aspect-ratio: 16 / 9; }
@@ -852,12 +843,6 @@ html.dark .neon-placeholder { border-color: rgb(var(--color-neutral-600)); }
 .neon-hud-comparison {
   display: grid;
   gap: 1.25rem;
-}
-.neon-hud-comparison > div > p {
-  margin: .55rem 0 0;
-  color: var(--neon-muted);
-  font-size: .78rem;
-  text-align: center;
 }
 .neon-section-heading {
   max-width: 660px;
@@ -997,6 +982,92 @@ html.dark .neon-placeholder { border-color: rgb(var(--color-neutral-600)); }
   .neon-social-links a { transition: none; }
   .neon-social-links a:hover,
   .neon-social-links a:focus-visible { transform: none; }
+}
+
+/* The Rolling Stone case study */
+.rolling-masthead {
+  margin-top: -1rem;
+  padding: clamp(2rem, 5vw, 4rem) 0 clamp(2rem, 5vw, 4rem);
+  text-align: center;
+}
+.rolling-masthead h1 {
+  margin: 0;
+  color: inherit;
+  font-size: clamp(3.25rem, 9vw, 7rem);
+  font-weight: 900;
+  line-height: .95;
+  letter-spacing: -.065em;
+}
+.rolling-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+.rolling-text-section .neon-copy {
+  max-width: 780px;
+}
+.rolling-actions {
+  margin-top: 2rem;
+}
+.rolling-results-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.rolling-closing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 5vw, 4rem);
+}
+.rolling-closing-grid > div {
+  padding-top: 1rem;
+  border-top: 2px solid rgb(var(--color-primary-500));
+}
+.rolling-closing-grid h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+}
+.rolling-closing-grid p,
+.rolling-asset-note {
+  margin: .7rem 0 0;
+  color: var(--neon-muted);
+  font-size: .92rem;
+  line-height: 1.7;
+}
+.rolling-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-top: 2.25rem;
+}
+.rolling-tools span {
+  padding: .35rem .7rem;
+  border: 1px solid var(--neon-line);
+  border-radius: 999px;
+  background: var(--neon-surface);
+  font-size: .75rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.rolling-asset-note {
+  max-width: 760px;
+  margin-top: 1.5rem;
+  font-size: .8rem;
+}
+
+@media (max-width: 900px) {
+  .rolling-results-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rolling-results-grid > div:nth-child(2) { border-right: 0; }
+  .rolling-results-grid > div:nth-child(-n+2) { border-bottom: 1px solid var(--neon-line); }
+}
+
+@media (max-width: 640px) {
+  .rolling-masthead {
+    margin-top: -.5rem;
+    padding: 2rem 0 2.5rem;
+  }
+  .rolling-masthead h1 { font-size: clamp(3rem, 16vw, 4.5rem); }
+  .rolling-results-grid,
+  .rolling-closing-grid { grid-template-columns: 1fr; }
+  .rolling-results-grid > div:nth-child(2) { border-bottom: 1px solid var(--neon-line); }
 }
 
 /* Keep interaction feedback calm and professional. */
