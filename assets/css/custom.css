@@ -30,6 +30,12 @@ body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Sora', sans-serif;
 }
 
+@media (min-width: 1024px) {
+  .article-toc-column {
+    padding-inline-start: 3rem;
+  }
+}
+
 /* Make strong/b tags use ExtraBold weight */
 b, strong {
   font-weight: 800;
