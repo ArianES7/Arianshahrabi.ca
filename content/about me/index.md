@@ -8,7 +8,7 @@ showZenMode: false
 showDate: false
 showAuthor: false
 showReadingTime: false
-showTableOfContents: false
+showTableOfContents: true
 showPagination: false
 showRelatedContent: false
 showHeadingAnchors: false
