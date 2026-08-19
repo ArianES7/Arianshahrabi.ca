@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <section class="contact-page">
+    <div class="contact-intro">
+      <h1>Contact</h1>
+      <p>Feel free to reach out</p>
+    </div>
+
+    <div class="contact-methods">
+      <a class="contact-email" href="mailto:{{ .Site.Params.Author.email }}">{{ .Site.Params.Author.email }}</a>
+      <div class="contact-socials" aria-label="Social links">
+        {{ partialCached "author-links.html" . }}
+      </div>
+    </div>
+
+    <p class="contact-copyright">&copy; {{ now.Format "2006" }} {{ .Site.Params.Author.name }}</p>
+  </section>
+{{ end }}
