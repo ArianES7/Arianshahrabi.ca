@@ -3,13 +3,13 @@
 
   {{/* Respect per-page boolean overrides (explicit false should stay false). */}}
   {{ $showHero := (.Site.Params.article.showHero | default false) }}
-  {{ if isset .Params "showHero" }}{{ $showHero = .Params.showHero }}{{ end }}
+  {{ if isset .Params "showhero" }}{{ $showHero = .Params.showHero }}{{ end }}
 
   {{ $showBreadcrumbs := (.Site.Params.article.showBreadcrumbs | default false) }}
-  {{ if isset .Params "showBreadcrumbs" }}{{ $showBreadcrumbs = .Params.showBreadcrumbs }}{{ end }}
+  {{ if isset .Params "showbreadcrumbs" }}{{ $showBreadcrumbs = .Params.showBreadcrumbs }}{{ end }}
 
   {{ $showTOC := (.Site.Params.article.showTableOfContents | default false) }}
-  {{ if isset .Params "showTableOfContents" }}{{ $showTOC = .Params.showTableOfContents }}{{ end }}
+  {{ if isset .Params "showtableofcontents" }}{{ $showTOC = .Params.showTableOfContents }}{{ end }}
 
   <article>
     {{ if $showHero }}
@@ -85,7 +85,7 @@
 
     <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
       {{ if and $showTOC (in .TableOfContents "<ul") }}
-        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-12 rtl:lg:pr-12">
           <div
             class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky {{ if hasPrefix .Site.Params.header.layout "fixed" -}}
               lg:top-[140px]
