@@ -1,13 +1,13 @@
 {{ define "main" }}
   {{ $wordmark := .Resources.GetMatch "Wordmark.png" }}
-  {{ $cover := .Resources.GetMatch "Cover 2.png" }}
+  {{ $cover := .Resources.GetMatch "*Cover*2.png" }}
   {{ $gameplay := .Resources.GetMatch "Gameplay.png" }}
-  {{ $gameplayTwo := .Resources.GetMatch "Gameplay 2.png" }}
+  {{ $gameplayTwo := .Resources.GetMatch "*Gameplay*2.png" }}
   {{ $customAssets := .Resources.GetMatch "Custom_Assets.png" }}
-  {{ $layoutOne := .Resources.GetMatch "Layout 1.png" }}
-  {{ $layoutThree := .Resources.GetMatch "Layout 3.png" }}
-  {{ $wordmarkDraftThree := .Resources.GetMatch "Wordmark Draft 3.jpg" }}
-  {{ $wordmarkDraftFour := .Resources.GetMatch "Wordmark Draft 4.jpg" }}
+  {{ $layoutOne := .Resources.GetMatch "*Layout*1.png" }}
+  {{ $layoutThree := .Resources.GetMatch "*Layout*3.png" }}
+  {{ $wordmarkDraftThree := .Resources.GetMatch "*Wordmark*Draft*3.jpg" }}
+  {{ $wordmarkDraftFour := .Resources.GetMatch "*Wordmark*Draft*4.jpg" }}
 
   <article class="neon-case-study eclipsed-case-study">
     <header class="eclipsed-masthead">
