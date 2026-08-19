@@ -1,0 +1,225 @@
+{{ define "main" }}
+  {{ $wordmark := .Resources.GetMatch "Wordmark.png" }}
+  {{ $cover := .Resources.GetMatch "Cover 2.png" }}
+  {{ $gameplay := .Resources.GetMatch "Gameplay.png" }}
+  {{ $gameplayTwo := .Resources.GetMatch "Gameplay 2.png" }}
+  {{ $customAssets := .Resources.GetMatch "Custom_Assets.png" }}
+  {{ $layoutOne := .Resources.GetMatch "Layout 1.png" }}
+  {{ $layoutThree := .Resources.GetMatch "Layout 3.png" }}
+  {{ $wordmarkDraftThree := .Resources.GetMatch "Wordmark Draft 3.jpg" }}
+  {{ $wordmarkDraftFour := .Resources.GetMatch "Wordmark Draft 4.jpg" }}
+
+  <article class="neon-case-study eclipsed-case-study">
+    <header class="eclipsed-masthead">
+      <h1 class="neon-visually-hidden">Eclipsed</h1>
+      {{ with $wordmark }}
+        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Eclipsed" decoding="async" fetchpriority="high">
+      {{ end }}
+    </header>
+
+    <section class="neon-section neon-split" aria-labelledby="eclipsed-overview-title">
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Project overview</p>
+        <h2 id="eclipsed-overview-title">My first complete game built from the ground up</h2>
+        <p>
+          Eclipsed started as an individual school project and became a complete 2D action platformer. I handled the game design, programming, level construction, implementation, UI, and most of the custom assets, with support from three contributors.
+        </p>
+        <p>
+          You play as Quinn, who enters an infected underground cave to rescue Zoe from a laboratory. Reaching her means fighting through enemies, managing health and ammunition, defeating the boss for a key, and navigating the full level.
+        </p>
+
+        <dl class="neon-metadata">
+          <div><dt>Role</dt><dd>Lead Developer and Game Designer</dd></div>
+          <div><dt>Project</dt><dd>Individual school project with three contributors</dd></div>
+          <div><dt>Development</dt><dd>January to April 2025</dd></div>
+          <div><dt>Final release pass</dt><dd>February 2026</dd></div>
+          <div><dt>Engine</dt><dd>Construct 3</dd></div>
+          <div><dt>Platforms</dt><dd>HTML5, Windows, and Linux</dd></div>
+          <div class="eclipsed-metadata-status"><dt>Status</dt><dd>Released v0.9.2, development complete</dd></div>
+        </dl>
+
+        <div class="rolling-actions">
+          <a class="btn btn-primary" href="https://arian-shahrabi.itch.io/eclipsed" target="_blank" rel="noopener noreferrer">Play on itch.io</a>
+        </div>
+      </div>
+
+      {{ with $cover }}
+        <figure class="eclipsed-cover">
+          <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Grayscale eclipse artwork created for Eclipsed" loading="lazy" decoding="async">
+        </figure>
+      {{ end }}
+    </section>
+
+    <section class="neon-section neon-split" aria-labelledby="eclipsed-aim-title">
+      {{ with $gameplay }}
+        <figure class="eclipsed-media eclipsed-media-left">
+          <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Quinn shooting infected enemies in Eclipsed" loading="lazy" decoding="async">
+        </figure>
+      {{ end }}
+
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Character and mouse aiming</p>
+        <h2 id="eclipsed-aim-title">Rebuilding the character around the aiming system</h2>
+        <p>
+          The character pack I originally purchased was not made for mouse aiming. Its animations treated the character as one complete sprite, which meant the weapon could not follow the cursor independently.
+        </p>
+        <p>
+          I recreated the character in Photoshop and separated the body and arm into different sprites. The body could keep playing its movement animations while the arm rotated toward the cursor. That made it possible to aim and shoot in any direction while moving through the platforming sections.
+        </p>
+      </div>
+    </section>
+
+    <section class="neon-section neon-split" aria-labelledby="eclipsed-systems-title">
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Gameplay systems</p>
+        <h2 id="eclipsed-systems-title">Combat, navigation, and progression in one level</h2>
+        <p>
+          I built the movement, platforming, shooting, ammunition, reloading, health, damage, pickups, enemy behaviour, checkpoints, and boss encounter. The boss fires acid projectiles and drops the key needed to enter the laboratory.
+        </p>
+        <p>
+          The game also includes an in-game map with a player tracker, one-slot quick saving, five checkpoints, menus, settings, controls, a death screen, and a complete opening and ending sequence.
+        </p>
+        <p>
+          Twelve Nuclear Artifacts are hidden throughout the level. The HUD sets ten as the normal target, while two additional artifacts reward players who explore more thoroughly.
+        </p>
+      </div>
+
+      {{ with $gameplayTwo }}
+        <figure class="eclipsed-media">
+          <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Quinn aiming near a mushroom hazard in Eclipsed" loading="lazy" decoding="async">
+        </figure>
+      {{ end }}
+    </section>
+
+    <section class="neon-section eclipsed-levels" aria-labelledby="eclipsed-levels-title">
+      <div class="neon-section-heading">
+        <p class="neon-eyebrow">Level construction</p>
+        <h2 id="eclipsed-levels-title">Building the route from the cave to the laboratory</h2>
+        <p class="eclipsed-section-intro">
+          I built the level, obstacle layouts, encounter placement, checkpoints, hazards, and objective route. The level moves from the infected cave into the surface and interior spaces before the player reaches Zoe.
+        </p>
+      </div>
+
+      <div class="eclipsed-layout-gallery">
+        {{ with $layoutOne }}
+          <figure><img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Full cave and surface level layout for Eclipsed" loading="lazy" decoding="async"></figure>
+        {{ end }}
+        {{ with $layoutThree }}
+          <figure><img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Interior and laboratory level layout for Eclipsed" loading="lazy" decoding="async"></figure>
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="neon-section eclipsed-assets" aria-labelledby="eclipsed-assets-title">
+      <div class="neon-section-heading">
+        <p class="neon-eyebrow">Custom assets</p>
+        <h2 id="eclipsed-assets-title">Creating the pieces the game needed</h2>
+        <p class="eclipsed-section-intro">
+          I created the separated player animations, logos, save icon, controls screen, blood effects, death animation, rat death sprites, checkpoints, damage voice lines, mushroom and spike hazards, and UI elements.
+        </p>
+      </div>
+
+      {{ with $customAssets }}
+        <figure class="eclipsed-asset-board">
+          <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Collection of custom visual and interface assets created for Eclipsed" loading="lazy" decoding="async">
+        </figure>
+      {{ end }}
+
+      <div class="eclipsed-wordmark-process" aria-label="Eclipsed wordmark design process">
+        <div class="eclipsed-process-copy">
+          <h3>Wordmark process</h3>
+          <p>I sketched the title by hand before developing its distressed final treatment for the game.</p>
+        </div>
+        {{ with $wordmarkDraftThree }}
+          <figure><img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Early pencil outline for the Eclipsed wordmark" loading="lazy" decoding="async"></figure>
+        {{ end }}
+        {{ with $wordmarkDraftFour }}
+          <figure><img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Shaded pencil draft of the Eclipsed wordmark" loading="lazy" decoding="async"></figure>
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="neon-section neon-split eclipsed-testing" aria-labelledby="eclipsed-testing-title">
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Playtesting and final cleanup</p>
+        <h2 id="eclipsed-testing-title">Using feedback to improve the full experience</h2>
+        <p>
+          Three playtest forms from March 2025 highlighted the mouse aiming, shooting, animation, damage sounds, sprites, and overall gameplay. They also identified frame drops after enemy kills, reload animation problems, collision issues, crouching problems, unclear navigation, a long artifact route, and the lack of a map and music.
+        </p>
+        <p>
+          I used that feedback to add the map and player tracker, bring music into the game, and complete another cleanup pass. The final February 2026 pass prepared version 0.9.2 for its public browser and downloadable releases.
+        </p>
+      </div>
+
+      <div class="eclipsed-testing-notes">
+        <div><strong>Starting ammunition</strong><span>7 loaded and 14 in reserve</span></div>
+        <div><strong>Checkpoint structure</strong><span>5 checkpoints across the full route</span></div>
+        <div><strong>Navigation</strong><span>Map, player tracker, and one-slot quick save</span></div>
+      </div>
+    </section>
+
+    <section class="neon-section neon-results" aria-labelledby="eclipsed-results-title">
+      <div class="neon-section-heading">
+        <p class="neon-eyebrow">Results</p>
+        <h2 id="eclipsed-results-title">A complete public release</h2>
+      </div>
+
+      <div class="neon-results-grid rolling-results-grid">
+        <div><strong>300+</strong><span>Browser plays</span></div>
+        <div><strong>4.9/5</strong><span>Average rating</span></div>
+        <div><strong>11</strong><span>Player ratings</span></div>
+        <div><strong>3</strong><span>Release platforms</span></div>
+      </div>
+
+      <div class="neon-results-notes">
+        <p>
+          Eclipsed is available in the browser and as Windows and Linux downloads. The current release is version 0.9.2, and development is complete.
+        </p>
+        <p>
+          Public comments were positive about the project and its gameplay, while the rating gave me a clear measure of how the finished release was received.
+        </p>
+      </div>
+    </section>
+
+    <section class="neon-section" aria-labelledby="eclipsed-retrospective-title">
+      <div class="neon-section-heading">
+        <p class="neon-eyebrow">Retrospective</p>
+        <h2 id="eclipsed-retrospective-title">What the project taught me</h2>
+      </div>
+
+      <div class="rolling-closing-grid">
+        <div>
+          <h3>Full-game integration</h3>
+          <p>
+            Eclipsed taught me how much work sits between building individual mechanics and finishing a complete game. I had to connect combat, progression, navigation, saving, UI, level events, and release preparation into one playable experience.
+          </p>
+        </div>
+        <div>
+          <h3>Project structure</h3>
+          <p>
+            If I started it again, I would use Git and regular backups from the beginning. I would also split the large event sheet into separate groups for the player, combat, enemies, UI and saving, and level events so the project would be easier to maintain.
+          </p>
+        </div>
+      </div>
+
+      <div class="rolling-tools" aria-label="Tools and technologies">
+        {{ range slice "Construct 3" "Photoshop" "Illustrator" "Audacity" "HTML5" "itch.io" }}
+          <span>{{ . }}</span>
+        {{ end }}
+      </div>
+
+      <p class="rolling-asset-note">
+        The game combines my original programming, level design, UI, and custom visual work with third-party asset packs. Alice Belle created the Nuclear Artifact image, Brandon Bennie found and provided external asset packs, and Marshall Zage provided an existing song.
+      </p>
+    </section>
+
+    <section class="neon-section neon-download" aria-labelledby="eclipsed-play-title">
+      <div>
+        <p class="neon-eyebrow">Available now</p>
+        <h2 id="eclipsed-play-title">Play Eclipsed</h2>
+        <p>Play in a browser or download the Windows and Linux versions through itch.io.</p>
+      </div>
+      <a class="btn btn-primary neon-download-button" href="https://arian-shahrabi.itch.io/eclipsed" target="_blank" rel="noopener noreferrer">Play or download</a>
+    </section>
+  </article>
+{{ end }}
