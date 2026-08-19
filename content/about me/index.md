@@ -8,17 +8,19 @@ showZenMode: false
 showDate: false
 showAuthor: false
 showReadingTime: false
-showTableOfContents: true
+showTableOfContents: false
 showPagination: false
 showRelatedContent: false
 showHeadingAnchors: false
 ---
 
+{{< section bg="none" max="prose" pad="lg" >}}
+
 I'm a game producer with practical programming experience. I focus on planning and organizing development while understanding technical work well enough to communicate clearly with programmers, designers, artists, and other disciplines.
 
 ## Background
 
-I'm based in Toronto, Ontario, and I'm open to onsite, hybrid, and remote opportunities.
+I'm based in Toronto, Ontario.
 
 I completed an Advanced Diploma in Video Game Design & Development at Toronto Film School from January 2025 to June 2026. I also hold an Advanced Diploma in Business Administration, Project Management from George Brown Polytechnic.
 
@@ -47,7 +49,9 @@ I keep development organized and moving. My work includes scope management, spri
 ## Further details
 
 <div class="about-actions not-prose">
-  <a class="btn btn-secondary" href="https://arianshahrabi.ca/Resume/Arian%20Shahrabi%20Resume.pdf" target="_blank" rel="noopener noreferrer">View resume</a>
-  <a class="btn btn-secondary" href="/#work">View projects</a>
+  <a class="btn btn-secondary" href="/resume/">View resume</a>
+  <a class="btn btn-secondary" href="/projects/">View projects</a>
   <a class="btn btn-primary" href="/contact/">Contact me</a>
 </div>
+
+{{< /section >}}
