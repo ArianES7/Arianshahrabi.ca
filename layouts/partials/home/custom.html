@@ -30,24 +30,22 @@
   <section id="work" class="work-section w-full max-w-6xl px-4 scroll-mt-32" aria-labelledby="work-heading">
     <div class="section-head">
       <h2 id="work-heading" class="section-title">Projects I’ve worked on</h2>
-      <p class="section-sub">Games and systems I’ve helped bring to life.</p>
+      <p class="section-sub">Released games, team projects, and technical work.</p>
     </div>
 
     {{ if gt (len $projects) 0 }}
       <div class="featured-grid">
-        {{ range first 3 $projects }}
+        {{ range $index, $project := $projects }}
           <a class="project-card" href="{{ .RelPermalink }}">
-            <div class="project-title">{{ .Title }}</div>
+            <span class="project-index" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
+            <h3 class="project-title">{{ .Title }}</h3>
             {{ with .Params.badges }}
               <div class="project-badges">{{ range . }}<span class="badge">{{ . }}</span>{{ end }}</div>
             {{ end }}
-            <div class="project-summary">{{ .Summary | plainify }}</div>
-            <div class="project-cta">View project →</div>
+            <p class="project-summary">{{ .Description | plainify }}</p>
+            <span class="project-cta">View project <span aria-hidden="true">&rarr;</span></span>
           </a>
         {{ end }}
-      </div>
-      <div class="projects-cta">
-        <a class="btn btn-secondary" href="{{ "/projects/" | relURL }}">All projects</a>
       </div>
     {{ else }}
       <p class="prose dark:prose-invert mx-auto max-w-prose">Project details are coming soon.</p>

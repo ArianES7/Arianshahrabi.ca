@@ -3,7 +3,7 @@ title: "Neon Steel"
 description: "A production and UI/UX case study for Neon Steel, a capstone project released by a team of 20 at BloodFeather Studio."
 layout: "neon-steel"
 featured: true
-weight: 5
+weight: 1
 showHero: false
 showDate: false
 showAuthor: false

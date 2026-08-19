@@ -3,7 +3,7 @@ title: "The Rolling Stone"
 description: "A 3D endless runner developed independently with flexible browser controls, persistent progression, and global leaderboards."
 layout: "rolling-stone"
 featured: true
-weight: 6
+weight: 2
 showHero: false
 showDate: false
 showAuthor: false

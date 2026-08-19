@@ -2,7 +2,7 @@
 title: "Rogue Malfunction"
 description: "Puzzle adventure where the game remaps your controls room-by-room, turning movement itself into the main obstacle."
 date: 2026-01-30
-weight: 2
+weight: 3
 badges: ["Unity", "c#"]
 showDate: false
 showAuthor: false
