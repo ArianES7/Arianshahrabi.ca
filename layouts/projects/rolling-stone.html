@@ -25,7 +25,7 @@
           The Rolling Stone is a 3D endless runner built around responsive movement, increasingly difficult obstacle sequences, persistent progression, and global leaderboards.
         </p>
         <p>
-          The stone moves forward automatically while the player steers, jumps, collects coins, and uses temporary power ups. I made the game as a solo project because I wanted to build something that could work naturally with desktop, controller, and mobile browser controls.
+          The stone moves forward automatically while the player steers, jumps, collects coins, and uses temporary power ups. I made the game as a solo project because I wanted to build something that could work naturally with desktop, and mobile controls.
         </p>
 
         <dl class="neon-metadata">
@@ -58,7 +58,7 @@
           The controller combines steering smoothing, air control, jump buffering, coyote time, and separate acceleration and response tuning. The HTML5 release supports rebindable keyboard controls, controllers, touchscreen input, and accelerometer steering.
         </p>
         <p>
-          A run ends when the stone falls from the track or hits an obstacle without an active Phase Shield. Distance is the primary score, while collected coins become persistent currency.
+          A run ends when the stone falls from the track or hits an obstacle without an active Phase Shield. Distance is the primary score, while collected coins become currency.
         </p>
       </div>
     </section>
@@ -74,7 +74,7 @@
           A segment director manages weighted selection, difficulty tiers, minimum distance rules, repeat cooldowns, difficult segment streak limits, and recovery sections. Object pooling lets segments be recycled as the run continues.
         </p>
         <p>
-          Difficulty rises in two ways. Forward speed follows a tuned progression curve, and harder segments become available as the player reaches greater distances.
+          Difficulty rises in two ways. Forward speed follows a tuned progression curve, and harder segments become more common as the player reaches greater distances.
         </p>
       </div>
 
@@ -91,10 +91,10 @@
           Coins earned during runs can be spent on visual customization. The current build includes 16 completed cosmetic choices across stone skins, trails, and obstacle themes. Cosmetics do not provide gameplay advantages, and there are no permanent mechanical upgrades.
         </p>
         <p>
-          I also built 15 achievements and 24 daily and weekly mission definitions. These systems reward distance milestones, completed runs, coin collection, power up use, and cosmetic unlocks while giving players both immediate and longer term goals.
+          I also built 15 achievements and 24 daily and weekly mission that the player can complete. These systems reward distance milestones, completed runs, coin collection, power up use, and cosmetic unlocks while giving players both immediate and longer term goals.
         </p>
         <p>
-          Coin Magnet, Phase Shield, and Speed Rush are the three temporary power ups currently available during runs.
+          Coin Magnet, Phase Shield, and Speed Rush are the three power ups currently available during runs.
         </p>
       </div>
     </section>
@@ -113,7 +113,7 @@
           I implemented layered leaderboard protection using local currency integrity checks and Cloud Code validation. Run submissions are checked before trusted distance and lifetime coin totals are committed, with invalid or duplicate submissions rejected.
         </p>
         <p>
-          Players can also hide their identity, cosmetics, and achievement count while keeping their score and ranking visible.
+          Players also have the option to hide their identity by going to the settings and checking off Leaderboard Privacy, cosmetics, and achievement count while keeping their score and ranking visible.
         </p>
       </div>
 
@@ -125,10 +125,10 @@
         <p class="neon-eyebrow">Playtesting and iteration</p>
         <h2 id="rolling-testing-title">Using player feedback to shape the game</h2>
         <p>
-          Repeated playtests identified slow early pacing, inconsistent jump control, frustrating obstacle combinations, and limited replay motivation.
+          Repeated playtests identified slow early pacing, inconsistent jump control, frustrating obstacle combinations, and limited replay ability.
         </p>
         <p>
-          I responded with variable jump height, a faster opening pace, smoother steering, jump buffering, coyote time, distance gated obstacles, repeat prevention, and recovery segments. I also added clearer controls, an interactive tutorial, cosmetics, achievements, missions, and global leaderboards.
+          I responded with implementing variable jump height, a faster initial game pace, smoother steering, jump buffering, coyote time, distance gated obstacles, repeat obstacle prevention, and recovery segments. I also added clearer controls, an interactive tutorial, cosmetics, achievements, missions, and global leaderboards.
         </p>
         <p>
           Because the controller affects obstacle timing, speed, and the overall difficulty curve, each movement change had to be tested against the rest of the game rather than tuned in isolation.
@@ -146,15 +146,15 @@
         <div><strong>2,000+</strong><span>Browser plays on itch.io</span></div>
         <div><strong>4.7/5</strong><span>Average across 19 ratings</span></div>
         <div><strong>14</strong><span>Active handcrafted obstacle segments</span></div>
-        <div><strong>24</strong><span>Daily and weekly mission definitions</span></div>
+        <div><strong>24</strong><span>Daily and weekly missions</span></div>
       </div>
 
       <div class="neon-results-notes">
         <p>
-          The current build also includes 15 achievements, 16 completed cosmetic choices, three temporary power ups, and two global leaderboards.
+          The current build also includes 15 achievements, 16 completed cosmetic choices, three power ups, and two global leaderboards.
         </p>
         <p>
-          Public feedback highlighted the game's reaction based obstacle avoidance, music, engaging gameplay, and replayability.
+          Public feedback to the game highlighted the game's reaction based obstacle avoidance, the music, engaging gameplay, and replayability.
         </p>
       </div>
     </section>
