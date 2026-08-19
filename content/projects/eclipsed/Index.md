@@ -2,7 +2,7 @@
 title: "Eclipsed"
 description: "2D action platformer with mouse-aim shooting. Play as Quinn, push through infected hordes, and retrieve a trapped scientist."
 date: 2026-02-01
-weight: 1
+weight: 4
 badges: ["Construct 3", "HTML5"]
 showDate: false
 showAuthor: false
