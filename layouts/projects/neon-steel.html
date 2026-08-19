@@ -1,0 +1,248 @@
+{{ define "main" }}
+  {{ $logo := .Resources.GetMatch "Neon Steel logo.png" }}
+  {{ $poster := .Resources.GetMatch "neon-steel-poster-1200x1600.jpg" }}
+
+  <article class="neon-case-study">
+    <header class="neon-masthead">
+      <h1 class="neon-visually-hidden">Neon Steel</h1>
+      {{ with $logo }}
+        <img
+          class="neon-logo"
+          src="{{ .RelPermalink }}"
+          width="960"
+          height="400"
+          alt="Neon Steel"
+          decoding="async"
+          fetchpriority="high">
+      {{ end }}
+    </header>
+
+    <section class="neon-trailer" aria-labelledby="neon-trailer-title">
+      <h2 id="neon-trailer-title" class="neon-visually-hidden">Official trailer</h2>
+      <div class="neon-video-frame">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/2x1Qo6xWw9Q"
+          title="Neon Steel official trailer"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="neon-section neon-split neon-overview" aria-labelledby="neon-overview-title">
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Project overview</p>
+        <h2 id="neon-overview-title">From capstone to release</h2>
+        <p>
+          Neon Steel is a third person action game created by BloodFeather Studio. I worked as the Executive Producer and UI/UX Developer, which meant keeping production moving while also designing and building parts of the interface.
+        </p>
+        <p>
+          We released the game on June 19, 2026. Since launch, the team has continued to support it with occasional updates.
+        </p>
+
+        <dl class="neon-metadata">
+          <div><dt>Role</dt><dd>Executive Producer and UI/UX Developer</dd></div>
+          <div><dt>Team</dt><dd>20 people</dd></div>
+          <div><dt>Development</dt><dd>July 2025 to June 2026</dd></div>
+          <div><dt>Released</dt><dd>June 19, 2026</dd></div>
+          <div><dt>Engine</dt><dd>Unreal Engine 5.6.1</dd></div>
+          <div><dt>Status</dt><dd>Released with occasional updates</dd></div>
+        </dl>
+      </div>
+
+      {{ with $poster }}
+        <figure class="neon-poster">
+          <img
+            src="{{ .RelPermalink }}"
+            width="1200"
+            height="1600"
+            alt="Neon Steel promotional poster"
+            loading="lazy"
+            decoding="async">
+          <figcaption>Official Neon Steel poster</figcaption>
+        </figure>
+      {{ end }}
+    </section>
+
+    <section class="neon-section neon-split neon-production" aria-labelledby="neon-production-title">
+      <div class="neon-production-visuals">
+        <div class="neon-placeholder neon-placeholder-landscape" role="img" aria-label="Placeholder for a Trello production board screenshot">
+          <strong>Trello production board</strong>
+          <span>Final screenshot will be added here</span>
+        </div>
+
+        <div class="neon-workflows" aria-label="Trello task workflows">
+          <div class="neon-workflow">
+            <h3>Development</h3>
+            <ol>
+              <li>In progress</li>
+              <li>Testing</li>
+              <li>Debugging when required</li>
+              <li>Completed</li>
+              <li>Archived</li>
+            </ol>
+          </div>
+          <div class="neon-workflow">
+            <h3>Art</h3>
+            <ol>
+              <li>In progress</li>
+              <li>Art evaluation</li>
+              <li>Completed</li>
+              <li>Archived</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Production and workflow</p>
+        <h2 id="neon-production-title">Keeping 20 people moving in the same direction</h2>
+        <p>
+          With people working across programming, design, art, animation, audio, narrative, and UI, a large part of my job was making sure everyone knew what needed to happen next. I planned milestones, set priorities, tracked dependencies, followed up on blockers, ran reviews, coordinated playtests, and organized the work around launch.
+        </p>
+        <p>
+          Scope changed as the project developed. I worked with the discipline leads to compare the cost of each feature with the time and people we had available. That let us protect the core experience and complete the approved release scope two weeks before launch.
+        </p>
+        <p>
+          I also worked with the art leads and Carl Spidla to plan when combat, tutorials, enemies, weapons, dialogue, and new mechanics would appear. The pacing board helped us connect the rise in gameplay pressure with Kade's characterization instead of treating those as separate tracks.
+        </p>
+
+        <div class="neon-scope-groups">
+          <div>
+            <h3>Approved release scope</h3>
+            <p>Core combat, HUD, save and load, grappling hook, weapons, pickups, settings, hazards, and enemy navigation.</p>
+          </div>
+          <div>
+            <h3>Deferred features</h3>
+            <p>Codex and audio log pickups, a more interactive Neon interface, an animated liquid Neon bar, a specialized mech HUD, additional accessibility options, and other secondary mechanics.</p>
+          </div>
+        </div>
+
+        <p>
+          To make the daily workflow easier to manage, I spent about 20 hours researching Trello automation and building separate pipelines for development and art. The automations created and updated checklists, moved cards, applied labels, handled evaluation and testing states, and prepared completed work for archival. This reduced recurring board administration and gave each discipline a consistent path from active work to completion.
+        </p>
+      </div>
+    </section>
+
+    <section class="neon-section neon-split neon-hud" aria-labelledby="neon-hud-title">
+      <div class="neon-copy">
+        <p class="neon-eyebrow">HUD redesign</p>
+        <h2 id="neon-hud-title">Putting essential information in one place</h2>
+        <dl class="neon-decision-list">
+          <div>
+            <dt>Problem</dt>
+            <dd>The original HUD spread vital information across several areas of the screen.</dd>
+          </div>
+          <div>
+            <dt>Decision</dt>
+            <dd>I consolidated health, ammunition, abilities, and Neon into one shared interface area.</dd>
+          </div>
+          <div>
+            <dt>Implementation</dt>
+            <dd>I designed and built the revised HUD in Unreal Engine using Blueprints.</dd>
+          </div>
+          <div>
+            <dt>Result</dt>
+            <dd>Players could check the information they needed without searching across the viewport.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="neon-hud-comparison">
+        <div>
+          <div class="neon-placeholder neon-placeholder-hud" role="img" aria-label="Placeholder for the original Neon Steel HUD">
+            <strong>Original HUD</strong>
+            <span>Development still will be added here</span>
+          </div>
+          <p>Early interface</p>
+        </div>
+        <div>
+          <div class="neon-placeholder neon-placeholder-hud" role="img" aria-label="Placeholder for the released Neon Steel HUD">
+            <strong>Released HUD</strong>
+            <span>Final screenshot will be added here</span>
+          </div>
+          <p>Released interface</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="neon-section neon-results" aria-labelledby="neon-results-title">
+      <div class="neon-section-heading">
+        <p class="neon-eyebrow">Results</p>
+        <h2 id="neon-results-title">What the team delivered</h2>
+      </div>
+
+      <div class="neon-results-grid">
+        <div><strong>20</strong><span>People on the multidisciplinary team</span></div>
+        <div><strong>2 weeks</strong><span>Approved scope completed before launch</span></div>
+        <div><strong>4</strong><span>Closed playtests with 10 to 15 participants per session</span></div>
+        <div><strong>28,286</strong><span>Social views before launch</span></div>
+      </div>
+
+      <div class="neon-results-notes">
+        <p>
+          The campaign generated 203 followers across its social accounts. Fourteen YouTube videos produced more than 14,000 views, 22.4 watch hours, and 40 subscribers. Six LinkedIn posts produced more than 2,500 views, more than 200 page visits, and 68 followers.
+        </p>
+        <p>
+          The itch.io page received more than 150 views before release, and two GRID attendees recognized the project from its online marketing. These campaign figures were recorded on June 19, 2026. The platform numbers are included in the combined social view total above.
+        </p>
+      </div>
+    </section>
+
+    <section class="neon-section neon-media" aria-labelledby="neon-media-title">
+      <div class="neon-section-heading">
+        <p class="neon-eyebrow">Media gallery</p>
+        <h2 id="neon-media-title">Gameplay and interface work</h2>
+      </div>
+
+      <div class="neon-video-frame neon-gameplay-video">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/JL1Hxlsr3Wo"
+          title="Neon Steel gameplay video"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+
+      <div class="neon-gallery-grid">
+        {{ range slice "Representative combat" "Mech gameplay" "HUD during gameplay" "Main or pause menu" "Graphics or display settings" "Additional interface work" }}
+          <div class="neon-placeholder neon-placeholder-gallery" role="img" aria-label="Placeholder for {{ . }} screenshot">
+            <strong>{{ . }}</strong>
+            <span>Screenshot will be added here</span>
+          </div>
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="neon-section neon-download" aria-labelledby="neon-download-title">
+      <div>
+        <p class="neon-eyebrow">Available now</p>
+        <h2 id="neon-download-title">Play Neon Steel</h2>
+        <p>The released build is available through BloodFeather Studio on itch.io.</p>
+      </div>
+      <a class="btn btn-primary neon-download-button" href="https://bloodfeatherstudios.itch.io/neon-steel" target="_blank" rel="noopener noreferrer">
+        Download on itch.io
+      </a>
+    </section>
+
+    <section class="neon-socials" aria-labelledby="neon-socials-title">
+      <h2 id="neon-socials-title">Neon Steel Socials</h2>
+      <div class="neon-social-links">
+        <a href="https://www.igdb.com/games/neon-steel" target="_blank" rel="noopener noreferrer" aria-label="Neon Steel on IGDB" title="IGDB">
+          <span class="neon-social-wordmark neon-social-wordmark-igdb">IGDB</span>
+        </a>
+        <a href="https://www.imdb.com/title/tt43589769/?ref_=ttfc_ov_bk" target="_blank" rel="noopener noreferrer" aria-label="Neon Steel on IMDb" title="IMDb">
+          <span class="neon-social-wordmark neon-social-wordmark-imdb">IMDb</span>
+        </a>
+        <a href="https://www.youtube.com/@BloodFeatherStudios" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studios on YouTube" title="YouTube">{{ partial "icon.html" "youtube" }}</a>
+        <a href="https://instagram.com/bloodfeatherstudio" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studio on Instagram" title="Instagram">{{ partial "icon.html" "instagram" }}</a>
+        <a href="https://www.tiktok.com/@bloodfeatherstudio" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studio on TikTok" title="TikTok">{{ partial "icon.html" "tiktok" }}</a>
+        <a href="https://discord.com/invite/dUX3umB2N2" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studio Discord" title="Discord">{{ partial "icon.html" "discord" }}</a>
+        <a href="https://www.linkedin.com/company/bloodfeather-studio/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studio on LinkedIn" title="LinkedIn">{{ partial "icon.html" "linkedin" }}</a>
+        <a href="https://bloodfeather-studio.github.io/BloodFeather.ca/" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studio website" title="Website">{{ partial "icon.html" "globe" }}</a>
+      </div>
+    </section>
+  </article>
+{{ end }}
