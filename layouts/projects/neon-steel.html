@@ -67,10 +67,7 @@
 
     <section class="neon-section neon-split neon-production" aria-labelledby="neon-production-title">
       <div class="neon-production-visuals">
-        <div class="neon-placeholder neon-placeholder-landscape" role="img" aria-label="Placeholder for a Trello production board screenshot">
-          <strong>Trello production board</strong>
-          <span>Final screenshot will be added here</span>
-        </div>
+        <div class="neon-placeholder neon-placeholder-landscape" aria-hidden="true"></div>
 
         <div class="neon-workflows" aria-label="Trello task workflows">
           <div class="neon-workflow">
@@ -140,18 +137,10 @@
 
       <div class="neon-hud-comparison">
         <div>
-          <div class="neon-placeholder neon-placeholder-hud" role="img" aria-label="Placeholder for the original Neon Steel HUD">
-            <strong>Original HUD</strong>
-            <span>Development still will be added here</span>
-          </div>
-          <p>Early interface</p>
+          <div class="neon-placeholder neon-placeholder-hud" aria-hidden="true"></div>
         </div>
         <div>
-          <div class="neon-placeholder neon-placeholder-hud" role="img" aria-label="Placeholder for the released Neon Steel HUD">
-            <strong>Released HUD</strong>
-            <span>Final screenshot will be added here</span>
-          </div>
-          <p>Released interface</p>
+          <div class="neon-placeholder neon-placeholder-hud" aria-hidden="true"></div>
         </div>
       </div>
     </section>
@@ -170,7 +159,7 @@
 
       <div class="neon-results-notes">
         <p>
-          The campaign generated 203 followers across all social accounts. Fourteen YouTube Shorts produced more than 14,000 views, 22.4 watch hours, and 40 subscribers. Six LinkedIn posts produced more than 9,000 impressions, more than 200 page visits, and 79 followers.
+          The campaign generated 203 followers across all social accounts. Fourteen YouTube Shorts produced more than 14,000 views, 22.4 watch hours, and 40 subscribers. Six LinkedIn posts produced more than 9,000 impressions, more than 600 page visits, and 79 followers.
         </p>
         <p>
           The itch.io page received more than 150 views before release, and two GRID attendees recognized the project from its online marketing. These campaign figures were recorded on June 19, 2026. The platform numbers are included in the combined social view total above.
@@ -195,11 +184,8 @@
       </div>
 
       <div class="neon-gallery-grid">
-        {{ range slice "Representative combat" "Mech gameplay" "HUD during gameplay" "Main or pause menu" "Graphics or display settings" "Additional interface work" }}
-          <div class="neon-placeholder neon-placeholder-gallery" role="img" aria-label="Placeholder for {{ . }} screenshot">
-            <strong>{{ . }}</strong>
-            <span>Screenshot will be added here</span>
-          </div>
+        {{ range seq 6 }}
+          <div class="neon-placeholder neon-placeholder-gallery" aria-hidden="true"></div>
         {{ end }}
       </div>
     </section>

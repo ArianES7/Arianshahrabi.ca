@@ -1,0 +1,203 @@
+{{ define "main" }}
+  <article class="neon-case-study rolling-case-study">
+    <header class="rolling-masthead">
+      <h1>The Rolling Stone</h1>
+    </header>
+
+    <section class="neon-trailer" aria-labelledby="rolling-trailer-title">
+      <h2 id="rolling-trailer-title" class="neon-visually-hidden">Gameplay trailer</h2>
+      <div class="neon-video-frame">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/wNbm7sVQRAA"
+          title="The Rolling Stone gameplay trailer"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="neon-section neon-split" aria-labelledby="rolling-overview-title">
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Project overview</p>
+        <h2 id="rolling-overview-title">Built for quick runs on different devices</h2>
+        <p>
+          The Rolling Stone is a 3D endless runner built around responsive movement, increasingly difficult obstacle sequences, persistent progression, and global leaderboards.
+        </p>
+        <p>
+          The stone moves forward automatically while the player steers, jumps, collects coins, and uses temporary power ups. I made the game as a solo project because I wanted to build something that could work naturally with desktop, controller, and mobile browser controls.
+        </p>
+
+        <dl class="neon-metadata">
+          <div><dt>Role</dt><dd>Solo Developer</dd></div>
+          <div><dt>Development</dt><dd>January 2026 to present</dd></div>
+          <div><dt>First release</dt><dd>April 15, 2026</dd></div>
+          <div><dt>Current build</dt><dd>0.9.6.5</dd></div>
+          <div><dt>Engine</dt><dd>Unity 6</dd></div>
+          <div><dt>Status</dt><dd>Public beta</dd></div>
+        </dl>
+
+        <div class="rolling-actions">
+          <a class="btn btn-primary" href="https://arian-shahrabi.itch.io/the-rolling-stone" target="_blank" rel="noopener noreferrer">Play on itch.io</a>
+        </div>
+      </div>
+
+      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+    </section>
+
+    <section class="neon-section neon-split" aria-labelledby="rolling-controls-title">
+      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Controls and game feel</p>
+        <h2 id="rolling-controls-title">Movement that works across browser inputs</h2>
+        <p>
+          Instead of fixed lanes, the player has free lateral steering and direct control over jump height. Holding jump produces a higher arc, while releasing it early creates a shorter hop.
+        </p>
+        <p>
+          The controller combines steering smoothing, air control, jump buffering, coyote time, and separate acceleration and response tuning. The HTML5 release supports rebindable keyboard controls, controllers, touchscreen input, and accelerometer steering.
+        </p>
+        <p>
+          A run ends when the stone falls from the track or hits an obstacle without an active Phase Shield. Distance is the primary score, while collected coins become persistent currency.
+        </p>
+      </div>
+    </section>
+
+    <section class="neon-section neon-split" aria-labelledby="rolling-difficulty-title">
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Segments and difficulty</p>
+        <h2 id="rolling-difficulty-title">Handcrafted obstacles arranged for each run</h2>
+        <p>
+          The track is assembled from 14 handcrafted segment prefabs rather than procedurally generated geometry. The current set includes rotating and lateral obstacles, underpasses, crushers, falling hazards, jump sections, recovery areas, and safe floor sections.
+        </p>
+        <p>
+          A segment director manages weighted selection, difficulty tiers, minimum distance rules, repeat cooldowns, difficult segment streak limits, and recovery sections. Object pooling lets segments be recycled as the run continues.
+        </p>
+        <p>
+          Difficulty rises in two ways. Forward speed follows a tuned progression curve, and harder segments become available as the player reaches greater distances.
+        </p>
+      </div>
+
+      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+    </section>
+
+    <section class="neon-section neon-split" aria-labelledby="rolling-progression-title">
+      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Progression</p>
+        <h2 id="rolling-progression-title">Reasons to return beyond one high score</h2>
+        <p>
+          Coins earned during runs can be spent on visual customization. The current build includes 16 completed cosmetic choices across stone skins, trails, and obstacle themes. Cosmetics do not provide gameplay advantages, and there are no permanent mechanical upgrades.
+        </p>
+        <p>
+          I also built 15 achievements and 24 daily and weekly mission definitions. These systems reward distance milestones, completed runs, coin collection, power up use, and cosmetic unlocks while giving players both immediate and longer term goals.
+        </p>
+        <p>
+          Coin Magnet, Phase Shield, and Speed Rush are the three temporary power ups currently available during runs.
+        </p>
+      </div>
+    </section>
+
+    <section class="neon-section neon-split" aria-labelledby="rolling-online-title">
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Connected systems</p>
+        <h2 id="rolling-online-title">Saving progress and protecting global rankings</h2>
+        <p>
+          Unity Gaming Services handles anonymous authentication, moderated display names, Cloud Save, and two global leaderboards. Best Runs ranks each player's best distance, while Richest Players ranks lifetime coins earned.
+        </p>
+        <p>
+          Progress is stored locally and synchronized with the cloud. The browser release uses a cloud backed anonymous profile, but it does not promise recoverable progress across devices because Unity Player Account linking is not supported in the current WebGL build.
+        </p>
+        <p>
+          I implemented layered leaderboard protection using local currency integrity checks and Cloud Code validation. Run submissions are checked before trusted distance and lifetime coin totals are committed, with invalid or duplicate submissions rejected.
+        </p>
+        <p>
+          Players can also hide their identity, cosmetics, and achievement count while keeping their score and ranking visible.
+        </p>
+      </div>
+
+      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+    </section>
+
+    <section class="neon-section rolling-text-section" aria-labelledby="rolling-testing-title">
+      <div class="neon-copy">
+        <p class="neon-eyebrow">Playtesting and iteration</p>
+        <h2 id="rolling-testing-title">Using player feedback to shape the game</h2>
+        <p>
+          Repeated playtests identified slow early pacing, inconsistent jump control, frustrating obstacle combinations, and limited replay motivation.
+        </p>
+        <p>
+          I responded with variable jump height, a faster opening pace, smoother steering, jump buffering, coyote time, distance gated obstacles, repeat prevention, and recovery segments. I also added clearer controls, an interactive tutorial, cosmetics, achievements, missions, and global leaderboards.
+        </p>
+        <p>
+          Because the controller affects obstacle timing, speed, and the overall difficulty curve, each movement change had to be tested against the rest of the game rather than tuned in isolation.
+        </p>
+      </div>
+    </section>
+
+    <section class="neon-section neon-results" aria-labelledby="rolling-results-title">
+      <div class="neon-section-heading">
+        <p class="neon-eyebrow">Release results</p>
+        <h2 id="rolling-results-title">The public beta so far</h2>
+      </div>
+
+      <div class="neon-results-grid rolling-results-grid">
+        <div><strong>2,000+</strong><span>Browser plays on itch.io</span></div>
+        <div><strong>4.7/5</strong><span>Average across 19 ratings</span></div>
+        <div><strong>14</strong><span>Active handcrafted obstacle segments</span></div>
+        <div><strong>24</strong><span>Daily and weekly mission definitions</span></div>
+      </div>
+
+      <div class="neon-results-notes">
+        <p>
+          The current build also includes 15 achievements, 16 completed cosmetic choices, three temporary power ups, and two global leaderboards.
+        </p>
+        <p>
+          Public feedback highlighted the game's reaction based obstacle avoidance, music, engaging gameplay, and replayability.
+        </p>
+      </div>
+    </section>
+
+    <section class="neon-section" aria-labelledby="rolling-retrospective-title">
+      <div class="neon-section-heading">
+        <p class="neon-eyebrow">Retrospective</p>
+        <h2 id="rolling-retrospective-title">What I would improve next</h2>
+      </div>
+
+      <div class="rolling-closing-grid">
+        <div>
+          <h3>Development structure</h3>
+          <p>
+            If I rebuilt the project, I would establish main, development, and feature branches from the start and use pull requests for integration. I would also split the player controller into smaller systems for input, lateral movement, jumping, forward speed progression, difficulty, and temporary modifiers.
+          </p>
+        </div>
+        <div>
+          <h3>Active development</h3>
+          <p>
+            Future updates are planned for the UI and UX, additional obstacle segments, more cosmetics, environment themes, new gameplay features, and game modes beyond the current endless mode.
+          </p>
+        </div>
+      </div>
+
+      <div class="rolling-tools" aria-label="Tools and technologies">
+        {{ range slice "Unity 6" "C#" "Universal Render Pipeline" "Unity Input System" "Unity Authentication" "Unity Cloud Save" "Unity Cloud Code" "Unity Leaderboards" "Unity Analytics" "Git" "GitHub" }}
+          <span>{{ . }}</span>
+        {{ end }}
+      </div>
+
+      <p class="rolling-asset-note">
+        Developed using a combination of original gameplay, UI, level design, and systems work with licensed third party models, audio, and visual effects.
+      </p>
+    </section>
+
+    <section class="neon-section neon-download" aria-labelledby="rolling-play-title">
+      <div>
+        <p class="neon-eyebrow">Available now</p>
+        <h2 id="rolling-play-title">Play The Rolling Stone</h2>
+        <p>The current public beta runs directly in a desktop or mobile browser on itch.io.</p>
+      </div>
+      <a class="btn btn-primary neon-download-button" href="https://arian-shahrabi.itch.io/the-rolling-stone" target="_blank" rel="noopener noreferrer">Play on itch.io</a>
+    </section>
+  </article>
+{{ end }}
