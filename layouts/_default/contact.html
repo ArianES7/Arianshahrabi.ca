@@ -1,14 +1,13 @@
 {{ define "main" }}
   <section class="contact-page">
-    <div class="contact-intro">
-      <h1>Contact</h1>
-      <p>Feel free to reach out</p>
-    </div>
+    <div class="contact-content">
+      <p class="contact-prompt">Feel free to reach out</p>
 
-    <div class="contact-methods">
-      <span class="contact-email">{{ .Site.Params.Author.email }}</span>
-      <div class="contact-socials" aria-label="Social links">
-        {{ partialCached "author-links.html" . }}
+      <div class="contact-methods">
+        <span class="contact-email">{{ .Site.Params.Author.email }}</span>
+        <div class="contact-socials" aria-label="Social links">
+          {{ partialCached "author-links.html" . }}
+        </div>
       </div>
     </div>
 
