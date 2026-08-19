@@ -14,8 +14,6 @@ showRelatedContent: false
 showHeadingAnchors: false
 ---
 
-{{< section bg="none" max="prose" pad="lg" >}}
-
 I'm a game producer with practical programming experience. I focus on planning and organizing development while understanding technical work well enough to communicate clearly with programmers, designers, artists, and other disciplines.
 
 ## Background
@@ -53,5 +51,3 @@ I keep development organized and moving. My work includes scope management, spri
   <a class="btn btn-secondary" href="/projects/">View projects</a>
   <a class="btn btn-primary" href="/contact/">Contact me</a>
 </div>
-
-{{< /section >}}
