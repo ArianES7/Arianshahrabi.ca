@@ -49,8 +49,8 @@ I keep development organized and moving. My work includes scope management, spri
 ## Further details
 
 <div class="about-actions not-prose">
-  <a class="btn btn-secondary" href="/resume/">View resume</a>
-  <a class="btn btn-secondary" href="/projects/">View projects</a>
+  <a class="btn btn-secondary" href="/Resume/Arian%20Shahrabi%20Resume.pdf" target="_blank" rel="noopener noreferrer">View resume</a>
+  <a class="btn btn-secondary" href="/#work">View projects</a>
   <a class="btn btn-primary" href="/contact/">Contact me</a>
 </div>
 
