@@ -6,7 +6,7 @@
     </div>
 
     <div class="contact-methods">
-      <a class="contact-email" href="mailto:{{ .Site.Params.Author.email }}">{{ .Site.Params.Author.email }}</a>
+      <span class="contact-email">{{ .Site.Params.Author.email }}</span>
       <div class="contact-socials" aria-label="Social links">
         {{ partialCached "author-links.html" . }}
       </div>
