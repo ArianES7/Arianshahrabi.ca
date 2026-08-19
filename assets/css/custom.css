@@ -1134,19 +1134,80 @@ html.dark .neon-placeholder { border-color: rgb(var(--color-neutral-600)); }
   height: auto;
   transform: translateX(-50%);
 }
-.rogue-lesson {
-  max-width: 780px;
-  margin: 2rem 0 0;
-  color: var(--neon-muted);
-  font-size: .95rem;
-  line-height: 1.75;
+.rogue-metadata-status { grid-column: 1 / -1; }
+.rogue-controls { align-items: start; }
+.rogue-subheading {
+  margin: 2rem 0 .85rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--neon-line);
+  font-size: 1.05rem;
+  font-weight: 800;
 }
+.rogue-door-timings {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .75rem;
+  margin: 1.5rem 0;
+}
+.rogue-door-timings > div {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  padding: .9rem;
+  border: 1px solid var(--neon-line);
+  border-radius: 12px;
+  background: var(--neon-surface);
+}
+.rogue-door-timings strong {
+  font-size: .82rem;
+}
+.rogue-door-timings span {
+  color: var(--neon-muted);
+  font-size: .75rem;
+  line-height: 1.45;
+}
+.rogue-contribution-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 5vw, 4rem);
+}
+.rogue-contribution-grid > div {
+  padding-top: 1rem;
+  border-top: 2px solid rgb(var(--color-primary-500));
+}
+.rogue-contribution-grid h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+}
+.rogue-contribution-grid ul {
+  margin: 1rem 0 0;
+  padding-left: 1.15rem;
+  color: var(--neon-muted);
+}
+.rogue-contribution-grid li {
+  margin-top: .5rem;
+  font-size: .88rem;
+  line-height: 1.55;
+}
+.rogue-attribution-note {
+  max-width: 780px;
+  margin: 1.75rem 0 0;
+  color: var(--neon-muted);
+  font-size: .9rem;
+  line-height: 1.7;
+}
+.rogue-retrospective-grid { row-gap: 2.5rem; }
+.rogue-tools { gap: .75rem; }
+.rogue-tools span { padding: .45rem .8rem; }
 
 @media (max-width: 640px) {
   .rogue-masthead {
     margin-top: -1rem;
     margin-bottom: 2.5rem;
   }
+  .rogue-door-timings,
+  .rogue-contribution-grid { grid-template-columns: 1fr; }
 }
 
 /* Keep interaction feedback calm and professional. */
