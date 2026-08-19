@@ -69,6 +69,37 @@ h5 { font-size: 1rem; }
 h6 { font-size: 0.85rem; }
 p  { font-size: 1rem; }
 
+/* Center the primary desktop navigation independently of utility controls. */
+@media (min-width: 768px) {
+  .main-menu > .flex.items-center.ms-auto,
+  .main-menu > .flex.items-center.ms-auto > .hidden.md\:flex {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .centered-desktop-nav {
+    position: relative;
+    display: grid;
+    width: 100%;
+    height: 3rem;
+    place-items: center;
+  }
+
+  .centered-desktop-nav-links,
+  .centered-desktop-nav-utilities {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .centered-desktop-nav-utilities {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}
+
 
 
 /* --------------------------------
