@@ -667,7 +667,19 @@ html.dark .contact-prompt { color: rgb(var(--color-neutral-300)); }
   font-size: clamp(1rem, 1.8vw, 1.2rem);
   font-weight: 600;
   overflow-wrap: anywhere;
+  text-decoration-color: transparent;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .25rem;
+  transition: color .2s ease, text-decoration-color .2s ease;
 }
+.contact-email:hover,
+.contact-email:focus-visible {
+  color: rgb(var(--color-primary-600));
+  text-decoration-color: currentColor;
+}
+html.dark .contact-email:hover,
+html.dark .contact-email:focus-visible { color: rgb(var(--color-primary-300)); }
 .contact-socials {
   flex: 0 0 auto;
   font-size: 1.75rem;

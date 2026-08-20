@@ -20,18 +20,16 @@ I'm a game producer with practical programming experience. I focus on planning a
 
 ## Background
 
-I'm based in Toronto, Ontario.
-
-I completed an Advanced Diploma in Video Game Design & Development at Toronto Film School from January 2025 to June 2026. I also hold an Advanced Diploma in Business Administration, Project Management from George Brown Polytechnic.
+I’m based in Toronto and open to onsite, hybrid, and remote opportunities.
 
 ## How I lead
 
-I keep development organized and moving. My work includes scope management, sprint and milestone planning, task prioritization, dependency tracking, risk and blocker management, communication across disciplines, playtest coordination, bug triage, release coordination, documentation, and workflow organization.
+I focus on keeping the team organized and making sure people know what needs to be done next. That includes planning milestones, managing scope, tracking blockers, running playtests, and helping different disciplines stay on the same page.
 
 ## Experience
 
-- Led a multidisciplinary team of approximately 20 people through development and release.
-- Currently lead production and programming for a three person independent Unity project.
+- Led a multidisciplinary team of 20 through development and release.
+- Currently lead production and programming for a three-person independent Unity project.
 
 ## Education
 
