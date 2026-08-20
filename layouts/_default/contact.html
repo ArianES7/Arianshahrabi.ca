@@ -1,10 +1,10 @@
 {{ define "main" }}
   <section class="contact-page">
     <div class="contact-content">
-      <p class="contact-prompt">Feel free to reach out</p>
+      <h1 class="contact-prompt">Feel free to reach out</h1>
 
       <div class="contact-methods">
-        <span class="contact-email">{{ .Site.Params.Author.email }}</span>
+        <a class="contact-email" href="mailto:arian.e.shahrabi@gmail.com">{{ .Site.Params.Author.email }}</a>
         <div class="contact-socials" aria-label="Social links">
           {{ partialCached "author-links.html" . }}
         </div>
