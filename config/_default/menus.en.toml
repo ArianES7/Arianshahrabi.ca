@@ -18,12 +18,6 @@ url = "/"
 weight = 1
 
 [[main]]
-identifier = "about"
-name = "About"
-pageRef = "about me"
-weight = 2
-
-[[main]]
 identifier = "resume"
 name = "Resume"
 url = "https://arianshahrabi.ca/Resume/Arian%20Shahrabi%20Resume.pdf"
