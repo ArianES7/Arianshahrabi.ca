@@ -351,9 +351,41 @@ html:not(.dark) .logo-wrap{
 /* Better type rendering */
 html { -webkit-text-size-adjust: 100%; }
 body {
+  background-color: rgb(var(--color-bg-light));
+  background-image:
+    radial-gradient(ellipse 70rem 42rem at 12% -8%, rgba(var(--color-primary-500), .11), transparent 68%),
+    radial-gradient(ellipse 54rem 36rem at 100% 18%, rgba(var(--color-primary-400), .07), transparent 72%),
+    linear-gradient(180deg, rgba(var(--color-surface-light), .55) 0, transparent 44rem);
+  background-repeat: no-repeat;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+html.dark body {
+  background-color: rgb(var(--color-bg-dark));
+  background-image:
+    radial-gradient(ellipse 70rem 42rem at 12% -8%, rgba(var(--color-primary-500), .2), transparent 68%),
+    radial-gradient(ellipse 54rem 36rem at 100% 18%, rgba(var(--color-primary-400), .09), transparent 72%),
+    linear-gradient(180deg, rgba(var(--color-surface-dark), .35) 0, transparent 44rem);
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: .018;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.35'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  mix-blend-mode: multiply;
+}
+html.dark body::before {
+  opacity: .025;
+  mix-blend-mode: screen;
+}
+@media print {
+  body::before { display: none; }
 }
 
 /* Accessible focus rings (only when keyboarding) */
@@ -387,7 +419,7 @@ body {
 .btn-primary:hover { background: rgb(var(--color-primary-600)); }
 
 .btn-secondary {
-  background: rgba(255,255,255,.7);
+  background: rgba(var(--color-surface-light), .76);
   border-color: rgb(var(--color-neutral-300));
   color: rgb(var(--color-neutral-900));
 }
@@ -397,7 +429,7 @@ html.dark .btn-secondary {
   color: rgb(var(--color-neutral-50));
 }
 .btn-secondary:hover {
-  background: rgba(255,255,255,.9);
+  background: rgba(var(--color-surface-light), .96);
 }
 html.dark .btn-secondary:hover {
   background: rgba(0,0,0,.35);
@@ -414,16 +446,16 @@ html.dark .btn-secondary:hover {
   padding: clamp(3rem, 8vw, 5.5rem) 1.5rem;
   border: 1px solid rgb(var(--color-neutral-200));
   background:
-    radial-gradient(1200px 400px at 20% 0%, rgba(0,71,171,0.12), transparent 60%),
-    linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.6));
+    radial-gradient(1200px 400px at 20% 0%, rgba(var(--color-primary-500), .13), transparent 60%),
+    linear-gradient(to bottom, rgba(var(--color-surface-light), .92), rgba(var(--color-surface-light), .62));
   box-shadow: 0 14px 40px rgba(0,0,0,.08);
   overflow: hidden;
 }
 html.dark .hero-shell {
   border-color: rgb(var(--color-neutral-700));
   background:
-    radial-gradient(1200px 400px at 20% 0%, rgba(0,71,171,0.22), transparent 60%),
-    linear-gradient(to bottom, rgba(17,17,17,0.65), rgba(17,17,17,0.35));
+    radial-gradient(1200px 400px at 20% 0%, rgba(var(--color-primary-500), .22), transparent 60%),
+    linear-gradient(to bottom, rgba(var(--color-surface-dark), .68), rgba(var(--color-surface-dark), .38));
   box-shadow: 0 14px 40px rgba(0,0,0,.32);
 }
 .hero-title {
@@ -704,7 +736,7 @@ html.dark .contact-copyright { border-top-color: rgb(var(--color-neutral-700)); 
 /* Neon Steel case study */
 .neon-case-study {
   --neon-line: rgb(var(--color-neutral-200));
-  --neon-surface: rgba(255, 255, 255, .52);
+  --neon-surface: rgba(var(--color-surface-light), .56);
   --neon-muted: rgb(var(--color-neutral-600));
   width: 100%;
   max-width: 1120px;
