@@ -1117,6 +1117,88 @@ html.dark .neon-placeholder { border-color: rgb(var(--color-neutral-600)); }
   width: 100%;
   aspect-ratio: 16 / 10;
 }
+.rolling-media,
+.rolling-progression-gallery figure {
+  width: 100%;
+  margin: 0;
+}
+.rolling-media img,
+.rolling-progression-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--neon-line);
+  border-radius: 14px;
+  background: rgb(var(--color-neutral-900));
+  object-fit: cover;
+}
+.rolling-progression-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-self: center;
+  gap: .8rem;
+  min-width: 0;
+}
+.rolling-progression-featured {
+  grid-column: 1 / -1;
+}
+.rolling-progression-gallery figcaption {
+  margin-top: .45rem;
+  color: var(--neon-muted);
+  font-size: .72rem;
+  line-height: 1.4;
+  text-align: center;
+}
+.rolling-input-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-self: center;
+  gap: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--neon-line);
+  border-radius: 14px;
+  background: var(--neon-surface);
+  list-style: none;
+  overflow: hidden;
+}
+.rolling-input-panel li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: .8rem;
+  min-height: 8rem;
+  padding: 1.25rem;
+  border-right: 1px solid var(--neon-line);
+  border-bottom: 1px solid var(--neon-line);
+}
+.rolling-input-panel li:nth-child(2n) { border-right: 0; }
+.rolling-input-panel li:nth-last-child(-n+2) { border-bottom: 0; }
+.rolling-input-panel li > span {
+  color: rgb(var(--color-primary-600));
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+html.dark .rolling-input-panel li > span {
+  color: rgb(var(--color-primary-300));
+}
+.rolling-input-panel strong,
+.rolling-input-panel small {
+  display: block;
+}
+.rolling-input-panel strong {
+  font-size: .92rem;
+  line-height: 1.3;
+}
+.rolling-input-panel small {
+  margin-top: .3rem;
+  color: var(--neon-muted);
+  font-size: .75rem;
+  line-height: 1.4;
+}
 .rolling-text-section .neon-copy {
   max-width: 780px;
 }
@@ -1183,6 +1265,17 @@ html.dark .neon-placeholder { border-color: rgb(var(--color-neutral-600)); }
   .rolling-results-grid,
   .rolling-closing-grid { grid-template-columns: 1fr; }
   .rolling-results-grid > div:nth-child(2) { border-bottom: 1px solid var(--neon-line); }
+  .rolling-progression-gallery,
+  .rolling-input-panel { grid-template-columns: 1fr; }
+  .rolling-progression-featured { grid-column: auto; }
+  .rolling-input-panel li,
+  .rolling-input-panel li:nth-child(2n),
+  .rolling-input-panel li:nth-last-child(-n+2) {
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--neon-line);
+  }
+  .rolling-input-panel li:last-child { border-bottom: 0; }
 }
 
 /* Rogue Malfunction case study */

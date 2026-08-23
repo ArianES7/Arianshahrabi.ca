@@ -1,4 +1,11 @@
 {{ define "main" }}
+  {{ $overviewOne := .Resources.GetMatch "overview-gameplay 1.png" }}
+  {{ $overviewTwo := .Resources.GetMatch "overview-gameplay 2.png" }}
+  {{ $achievements := .Resources.GetMatch "Achievements.png" }}
+  {{ $leaderboard := .Resources.GetMatch "Leaderboard.png" }}
+  {{ $mainMenu := .Resources.GetMatch "MainMenu.png" }}
+  {{ $shop := .Resources.GetMatch "Shop-ObstacleSkins.png" }}
+
   <article class="neon-case-study rolling-case-study">
     <header class="rolling-masthead">
       <h1>The Rolling Stone</h1>
@@ -42,11 +49,21 @@
         </div>
       </div>
 
-      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+      {{ with $overviewOne }}
+        {{ $image := .Resize "1400x" }}
+        <figure class="rolling-media">
+          <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="The stone travelling along an obstacle track during a run" loading="lazy" decoding="async">
+        </figure>
+      {{ end }}
     </section>
 
     <section class="neon-section neon-split" aria-labelledby="rolling-controls-title">
-      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+      <ul class="rolling-input-panel" aria-label="Supported input methods">
+        <li><span aria-hidden="true">01</span><div><strong>Keyboard</strong><small>Rebindable controls</small></div></li>
+        <li><span aria-hidden="true">02</span><div><strong>Controller</strong><small>Analog steering</small></div></li>
+        <li><span aria-hidden="true">03</span><div><strong>Touchscreen</strong><small>On-screen input</small></div></li>
+        <li><span aria-hidden="true">04</span><div><strong>Accelerometer</strong><small>Tilt steering</small></div></li>
+      </ul>
 
       <div class="neon-copy">
         <p class="neon-eyebrow">Controls and game feel</p>
@@ -78,11 +95,38 @@
         </p>
       </div>
 
-      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+      {{ with $overviewTwo }}
+        {{ $image := .Resize "1400x" }}
+        <figure class="rolling-media">
+          <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="The stone approaching coins, rotating rings, and moving obstacles" loading="lazy" decoding="async">
+        </figure>
+      {{ end }}
     </section>
 
     <section class="neon-section neon-split" aria-labelledby="rolling-progression-title">
-      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+      <div class="rolling-progression-gallery">
+        {{ with $shop }}
+          {{ $image := .Resize "1400x" }}
+          <figure class="rolling-progression-featured">
+            <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Obstacle skins available in The Rolling Stone cosmetic shop" loading="lazy" decoding="async">
+            <figcaption>Cosmetic shop</figcaption>
+          </figure>
+        {{ end }}
+        {{ with $achievements }}
+          {{ $image := .Resize "900x" }}
+          <figure>
+            <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Achievement screen showing all 15 achievements unlocked" loading="lazy" decoding="async">
+            <figcaption>Achievements</figcaption>
+          </figure>
+        {{ end }}
+        {{ with $mainMenu }}
+          {{ $image := .Resize "900x" }}
+          <figure>
+            <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Main menu showing the daily mission panel" loading="lazy" decoding="async">
+            <figcaption>Daily and weekly missions</figcaption>
+          </figure>
+        {{ end }}
+      </div>
 
       <div class="neon-copy">
         <p class="neon-eyebrow">Progression</p>
@@ -117,7 +161,12 @@
         </p>
       </div>
 
-      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+      {{ with $leaderboard }}
+        {{ $image := .Resize "1400x" }}
+        <figure class="rolling-media">
+          <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Global best run and richest player leaderboards with the player's current statistics" loading="lazy" decoding="async">
+        </figure>
+      {{ end }}
     </section>
 
     <section class="neon-section rolling-text-section" aria-labelledby="rolling-testing-title">
