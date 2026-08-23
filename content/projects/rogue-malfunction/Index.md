@@ -1,6 +1,6 @@
 ---
 title: "Rogue Malfunction"
-description: "A four-person puzzle adventure where each room interferes with the player's movement controls."
+description: "A four-person puzzle game built around changing controls, platforming, and environmental puzzles."
 layout: "rogue-malfunction"
 weight: 3
 badges: ["Unity", "C#", "Game Jam"]

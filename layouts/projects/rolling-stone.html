@@ -29,10 +29,10 @@
         <p class="neon-eyebrow">Project overview</p>
         <h2 id="rolling-overview-title">Built for quick runs on different devices</h2>
         <p>
-          The Rolling Stone is a 3D endless runner built around responsive movement, increasingly difficult obstacle sequences, persistent progression, and global leaderboards.
+          The Rolling Stone is a 3D endless runner where the player steers, jumps, collects coins, and avoids increasingly difficult obstacles. Progress carries between runs, and players can compete on global leaderboards.
         </p>
         <p>
-          The stone moves forward automatically while the player steers, jumps, collects coins, and uses temporary power ups. I made the game as a solo project because I wanted to build something that could work naturally with desktop and mobile controls.
+          The stone moves forward automatically while the player steers, jumps, collects coins, and uses temporary power ups. I made it as a solo project because I wanted something that would be easy to play on both desktop and mobile.
         </p>
 
         <dl class="neon-metadata">
@@ -67,7 +67,7 @@
 
       <div class="neon-copy">
         <p class="neon-eyebrow">Controls and game feel</p>
-        <h2 id="rolling-controls-title">Movement that works across browser inputs</h2>
+        <h2 id="rolling-controls-title">Controls for desktop and mobile</h2>
         <p>
           Instead of fixed lanes, the player has free lateral steering and direct control over jump height. Holding jump produces a higher arc, while releasing it early creates a shorter hop.
         </p>
@@ -135,7 +135,7 @@
           Coins earned during runs can be spent on visual customization. The current build includes 16 completed cosmetic choices across stone skins, trails, and obstacle themes. Cosmetics do not provide gameplay advantages, and there are no permanent mechanical upgrades.
         </p>
         <p>
-          I also built 15 achievements and 24 daily and weekly missions that the player can complete. These systems reward distance milestones, completed runs, coin collection, power up use, and cosmetic unlocks while giving players both immediate and longer term goals.
+          I also built 15 achievements and 24 daily and weekly missions that the player can complete. Achievements and missions give players extra goals, such as reaching distance milestones, collecting coins, using power-ups, and unlocking cosmetics.
         </p>
         <p>
           Coin Magnet, Phase Shield, and Speed Rush are the three power ups currently available during runs.
@@ -151,13 +151,13 @@
           Unity Gaming Services handles anonymous authentication, moderated display names, Cloud Save, and two global leaderboards. Best Runs ranks each player's best distance, while Richest Players ranks lifetime coins earned.
         </p>
         <p>
-          Progress is stored locally and synchronized with the cloud. The browser release uses a cloud backed anonymous profile, but it does not promise recoverable progress across devices because Unity Player Account linking is not supported in the current WebGL build.
+          Progress is saved locally and synced to the cloud. Because the current WebGL build does not support Unity Player Account linking, progress may not carry between devices.
         </p>
         <p>
-          I implemented layered leaderboard protection using local currency integrity checks and Cloud Code validation. Run submissions are checked before trusted distance and lifetime coin totals are committed, with invalid or duplicate submissions rejected.
+          I added checks on both the device and through Cloud Code. Impossible or duplicate submissions are rejected before they reach the leaderboards.
         </p>
         <p>
-          Players also have the option to hide their identity by going to the settings and checking off Leaderboard Privacy, cosmetics, and achievement count while keeping their score and ranking visible.
+          Players can turn on Leaderboard Privacy in the settings. Their score and rank remain visible, but their display name, cosmetics, and achievement count are hidden.
         </p>
       </div>
 
@@ -172,12 +172,12 @@
     <section class="neon-section rolling-text-section" aria-labelledby="rolling-testing-title">
       <div class="neon-copy">
         <p class="neon-eyebrow">Playtesting and iteration</p>
-        <h2 id="rolling-testing-title">Using player feedback to shape the game</h2>
+        <h2 id="rolling-testing-title">What changed after playtesting</h2>
         <p>
           Repeated playtests identified slow early pacing, inconsistent jump control, frustrating obstacle combinations, and limited replay ability.
         </p>
         <p>
-          I responded by implementing variable jump height, a faster initial game pace, smoother steering, jump buffering, coyote time, distance gated obstacles, repeat obstacle prevention, and recovery segments. I also added clearer controls, an interactive tutorial, cosmetics, achievements, missions, and global leaderboards.
+          Based on that feedback, I added variable jump height, sped up the beginning of each run, smoothed the steering, and changed how obstacle segments were selected. I also added clearer controls and an interactive tutorial. Cosmetics, achievements, missions, and global leaderboards gave players more reasons to return.
         </p>
         <p>
           Because the controller affects obstacle timing, speed, and the overall difficulty curve, each movement change had to be tested against the rest of the game rather than tuned in isolation.
@@ -203,7 +203,7 @@
           The current build also includes 15 achievements, 16 completed cosmetic choices, three power ups, and two global leaderboards.
         </p>
         <p>
-          Public feedback to the game highlighted the game's reaction based obstacle avoidance, the music, engaging gameplay, and replayability.
+          Players praised the music, obstacle dodging, and replayability.
         </p>
       </div>
     </section>
@@ -236,7 +236,7 @@
       </div>
 
       <p class="rolling-asset-note">
-        Developed using a combination of original gameplay, UI, level design, and systems work with licensed third party models, audio, and visual effects.
+        I built the gameplay, UI, levels, and systems. The project also uses licensed third-party models, audio, and visual effects.
       </p>
     </section>
 
