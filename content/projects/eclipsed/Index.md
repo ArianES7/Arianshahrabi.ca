@@ -5,6 +5,9 @@ date: 2026-02-01
 weight: 4
 badges: ["Construct 3", "HTML5"]
 layout: "eclipsed"
+cardTheme: "eclipsed"
+cardRole: "Programmer / Designer"
+cardEngine: "Construct 3"
 showDate: false
 showAuthor: false
 showReadingTime: false

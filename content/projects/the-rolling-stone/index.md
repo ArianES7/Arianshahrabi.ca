@@ -2,6 +2,9 @@
 title: "The Rolling Stone"
 description: "A solo endless runner with desktop and mobile controls, progression between runs, and global leaderboards."
 layout: "rolling-stone"
+cardTheme: "rolling"
+cardRole: "Solo Developer"
+cardEngine: "Unity"
 featured: true
 weight: 2
 showHero: false

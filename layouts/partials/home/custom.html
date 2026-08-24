@@ -30,20 +30,54 @@
   <section id="work" class="work-section w-full max-w-6xl px-4 scroll-mt-32" aria-labelledby="work-heading">
     <div class="section-head">
       <h2 id="work-heading" class="section-title">Projects I’ve worked on</h2>
-      <p class="section-sub">Released games, team projects, and technical work.</p>
     </div>
 
     {{ if gt (len $projects) 0 }}
-      <div class="featured-grid">
-        {{ range $index, $project := $projects }}
-          <a class="project-card" href="{{ .RelPermalink }}">
-            <span class="project-index" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
-            <h3 class="project-title">{{ .Title }}</h3>
-            {{ with .Params.badges }}
-              <div class="project-badges">{{ range . }}<span class="badge">{{ . }}</span>{{ end }}</div>
+      <div class="featured-grid" aria-label="Portfolio projects">
+        {{ range $projects }}
+          {{ $cardTheme := .Params.cardTheme | default .Params.layout }}
+          <a class="project-card project-card--{{ $cardTheme }}" href="{{ .RelPermalink }}" aria-label="View {{ .Title }} project">
+            <span class="project-card-background" aria-hidden="true"></span>
+
+            {{ if eq $cardTheme "neon" }}
+              <span class="project-card-visual" aria-hidden="true">
+                <img class="neon-street-base" src="{{ "images/cards/neon-steel-street.jpg" | relURL }}" alt="">
+                <img class="neon-street-signs" src="{{ "images/cards/neon-steel-street.jpg" | relURL }}" alt="">
+                <span class="neon-card-glow"></span>
+              </span>
+            {{ else if eq $cardTheme "rolling" }}
+              <span class="project-card-visual" aria-hidden="true">
+                <span class="rolling-card-ground"></span>
+                <span class="rolling-card-trail"></span>
+                <span class="rolling-card-ball"></span>
+              </span>
+            {{ else if eq $cardTheme "rogue" }}
+              <span class="project-card-visual" aria-hidden="true">
+                <span class="rogue-input-error">Input mismatch</span>
+                <span class="rogue-inputs">
+                  <span class="rogue-key rogue-key--w"><span class="key-normal">W</span><span class="key-swapped">S</span></span>
+                  <span class="rogue-key rogue-key--a"><span class="key-normal">A</span><span class="key-swapped">D</span></span>
+                  <span class="rogue-key rogue-key--s"><span class="key-normal">S</span><span class="key-swapped">W</span></span>
+                  <span class="rogue-key rogue-key--d"><span class="key-normal">D</span><span class="key-swapped">A</span></span>
+                </span>
+              </span>
+            {{ else if eq $cardTheme "eclipsed" }}
+              <span class="project-card-visual" aria-hidden="true">
+                <span class="eclipsed-blood-mask">
+                  <img src="{{ "images/cards/eclipsed-card-splatter.png" | relURL }}" alt="">
+                </span>
+              </span>
             {{ end }}
-            <p class="project-summary">{{ .Description | plainify }}</p>
-            <span class="project-cta">View project <span aria-hidden="true">&rarr;</span></span>
+
+            <span class="project-card-scrim" aria-hidden="true"></span>
+            <span class="project-card-copy">
+              <span class="project-card-title">{{ .Title }}</span>
+              <span class="project-card-role">{{ .Params.cardRole }}</span>
+            </span>
+            <span class="project-card-footer">
+              <span class="project-card-engine">{{ .Params.cardEngine }}</span>
+              <span class="project-card-link">View project <span class="project-card-arrow" aria-hidden="true">&rarr;</span></span>
+            </span>
           </a>
         {{ end }}
       </div>

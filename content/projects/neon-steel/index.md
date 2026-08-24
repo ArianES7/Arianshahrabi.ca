@@ -2,6 +2,9 @@
 title: "Neon Steel"
 description: "I led a 20-person team through the development and release of Neon Steel while also working on its UI and UX."
 layout: "neon-steel"
+cardTheme: "neon"
+cardRole: "Executive Producer / UI/UX Developer"
+cardEngine: "Unreal"
 featured: true
 weight: 1
 showHero: false
