@@ -2,6 +2,9 @@
 title: "Rogue Malfunction"
 description: "A four-person puzzle game built around changing controls, platforming, and environmental puzzles."
 layout: "rogue-malfunction"
+cardTheme: "rogue"
+cardRole: "Programmer / Game Designer"
+cardEngine: "Unity"
 weight: 3
 badges: ["Unity", "C#", "Game Jam"]
 showHero: false

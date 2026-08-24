@@ -512,103 +512,414 @@ html.dark .hero-shell {
   font-size: 1.6rem;
   font-weight: 800;
 }
-.section-sub {
-  margin: 0.35rem 0 0;
-  opacity: 0.75;
-  line-height: 1.6;
+/* Featured projects */
+@property --blood-reveal {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
 }
 
-/* Featured projects */
 .work-section {
   padding-bottom: clamp(3.5rem, 8vw, 6rem);
 }
 .featured-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1.5rem, 4vw, 3.5rem);
+  gap: clamp(1.25rem, 2.4vw, 2rem);
 }
 .project-card {
   position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   min-height: 260px;
-  padding: 1.4rem 0 1.2rem;
-  border: 0;
-  border-top: 1px solid rgb(var(--color-neutral-300));
-  border-radius: 0;
-  background: transparent;
+  overflow: hidden;
+  padding: 1.8rem;
+  border: 1px solid rgba(174, 196, 201, .2);
+  border-radius: 19px;
+  outline: none;
+  background: linear-gradient(145deg, #192329, #11191e);
+  color: #eef2f1;
   text-align: left;
   text-decoration: none;
-  transition: border-color .2s ease;
+  transition: color 150ms ease, border-color 150ms ease;
 }
-html.dark .project-card {
-  border-color: rgb(var(--color-neutral-600));
-}
-.project-card::before {
+.project-card-background,
+.project-card-visual,
+.project-card-scrim {
   position: absolute;
-  top: -1px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: rgb(var(--color-primary-500));
-  content: "";
-  transition: width .25s ease;
+  inset: 0;
+  pointer-events: none;
 }
-.project-card:hover,
-.project-card:focus-visible {
-  border-color: rgb(var(--color-primary-500));
+.project-card-background {
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 150ms ease 20ms;
 }
-.project-card:hover::before,
-.project-card:focus-visible::before {
-  width: 100%;
+.project-card-visual {
+  z-index: 1;
+  opacity: 0;
 }
-.project-index {
-  color: rgb(var(--color-primary-600));
-  font-size: .76rem;
+.project-card-scrim {
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 130ms ease 30ms;
+}
+.project-card-copy,
+.project-card-footer {
+  position: relative;
+  z-index: 3;
+}
+.project-card-copy {
+  display: grid;
+  gap: .5rem;
+}
+.project-card-title {
+  font-size: clamp(1.7rem, 3vw, 2.15rem);
   font-weight: 800;
-  letter-spacing: .1em;
+  line-height: 1.05;
+  letter-spacing: -.04em;
 }
-html.dark .project-index {
-  color: rgb(var(--color-primary-300));
+.project-card-role {
+  color: #9babb0;
+  font-size: .82rem;
+  font-weight: 600;
+  transition: color 130ms ease;
 }
-.project-title {
-  margin: .75rem 0 .65rem;
-  color: inherit;
-  font-weight: 800;
-  font-size: clamp(1.45rem, 3vw, 2rem);
-  line-height: 1.15;
-  letter-spacing: -.03em;
-}
-.project-badges {
+.project-card-footer {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 1rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
 }
-.project-summary {
-  margin: 0;
-  color: rgb(var(--color-neutral-600));
-  font-size: .95rem;
-  line-height: 1.65;
-}
-html.dark .project-summary {
-  color: rgb(var(--color-neutral-300));
-}
-.project-cta {
-  display: inline-flex;
-  gap: .4rem;
-  align-items: center;
-  align-self: flex-start;
-  margin-top: auto;
-  padding-top: 1.5rem;
+.project-card-engine,
+.project-card-link {
+  padding: .5rem .68rem;
+  border: 1px solid rgba(174, 196, 201, .2);
+  border-radius: 999px;
+  background: rgba(7, 13, 17, .58);
+  color: #d2dcdd;
+  font-size: .64rem;
   font-weight: 700;
-  font-size: .88rem;
+  letter-spacing: .06em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: color 130ms ease, background-color 130ms ease, border-color 130ms ease;
+}
+.project-card-link {
+  border-radius: 8px;
+  font-size: .75rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.project-card-arrow {
+  display: inline-flex;
+  margin-left: .2rem;
+  transition: transform 150ms ease;
+}
+.project-card:is(:hover, :focus-visible, :active) {
+  color: #f6f7f6;
+}
+.project-card:is(:hover, :focus-visible, :active) .project-card-background,
+.project-card:is(:hover, :focus-visible, :active) .project-card-scrim {
+  opacity: 1;
+}
+.project-card:is(:hover, :focus-visible, :active) .project-card-role {
+  color: #cad1d0;
+}
+.project-card:is(:hover, :focus-visible, :active) .project-card-engine,
+.project-card:is(:hover, :focus-visible, :active) .project-card-link {
+  border-color: rgba(191, 216, 220, .3);
+  background: rgba(7, 12, 16, .76);
+  color: #f4f6f5;
+}
+.project-card:is(:hover, :focus-visible, :active) .project-card-arrow {
+  transform: translateX(4px);
+}
+.project-card:focus-visible {
+  outline: 3px solid var(--project-card-focus, #8dd0cb);
+  outline-offset: 4px;
+}
+
+/* Neon Steel card */
+.project-card--neon { --project-card-focus: #70dfef; }
+.project-card--neon:is(:hover, :focus-visible, :active) { border-color: rgba(91, 222, 241, .68); }
+.project-card--neon .project-card-background { background: #080b18; }
+.neon-street-base,
+.neon-street-signs {
+  position: absolute;
+  inset: -7px;
+  width: calc(100% + 14px);
+  height: calc(100% + 14px);
+  object-fit: cover;
+  object-position: center 48%;
+}
+.neon-street-base { filter: blur(3px) brightness(.52) saturate(1.18) contrast(1.06); }
+.neon-street-signs {
+  opacity: 0;
+  filter: blur(.8px) brightness(1.12) saturate(1.42) contrast(1.05);
+  mix-blend-mode: screen;
+  -webkit-mask-image:
+    radial-gradient(ellipse 35% 72% at 16% 51%, #000 0 48%, transparent 82%),
+    radial-gradient(ellipse 37% 72% at 83% 48%, #000 0 48%, transparent 82%);
+  mask-image:
+    radial-gradient(ellipse 35% 72% at 16% 51%, #000 0 48%, transparent 82%),
+    radial-gradient(ellipse 37% 72% at 83% 48%, #000 0 48%, transparent 82%);
+}
+.neon-card-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse 27% 68% at 16% 52%, rgba(43, 244, 255, .28), transparent 68%),
+    radial-gradient(ellipse 26% 66% at 25% 45%, rgba(255, 34, 199, .28), transparent 70%),
+    radial-gradient(ellipse 29% 68% at 81% 47%, rgba(255, 26, 206, .3), transparent 70%);
+  mix-blend-mode: screen;
+}
+.project-card--neon .project-card-scrim {
+  background: linear-gradient(90deg, rgba(7, 8, 20, .91), rgba(7, 8, 20, .67) 38%, rgba(7, 8, 20, .16) 68%, transparent);
+}
+.project-card--neon:is(:hover, :focus-visible, :active) .project-card-visual { opacity: 1; }
+.project-card--neon:is(:hover, :focus-visible, :active) .neon-street-signs { animation: project-signs-on 340ms steps(1, end) forwards; }
+.project-card--neon:is(:hover, :focus-visible, :active) .neon-card-glow { animation: project-glow-on 340ms steps(1, end) forwards; }
+
+/* The Rolling Stone card */
+.project-card--rolling { --project-card-focus: #9cd4ee; }
+.project-card--rolling:is(:hover, :focus-visible, :active) { border-color: rgba(142, 204, 232, .72); }
+.project-card--rolling .project-card-background { background: linear-gradient(135deg, #4d6f84, #1d3342); }
+.rolling-card-ground {
+  position: absolute;
+  right: 24px;
+  bottom: 20px;
+  left: 24px;
+  height: 2px;
+  background: rgba(255, 255, 255, .3);
+}
+.rolling-card-trail,
+.rolling-card-trail::after {
+  position: absolute;
+  right: 36%;
+  bottom: 74px;
+  width: 92px;
+  height: 2px;
+  background: rgba(255, 255, 255, .22);
+  content: '';
+}
+.rolling-card-trail::after { right: 0; bottom: -18px; width: 58px; }
+.rolling-card-ball {
+  position: absolute;
+  bottom: 24px;
+  left: -132px;
+  width: 112px;
+  height: 112px;
+  border: 2px solid rgba(210, 239, 255, .52);
+  border-radius: 50%;
+  background: radial-gradient(circle at 36% 32%, #76b2d4, #4388b5 40%, #205b82 70%, #0c304a 100%);
+  box-shadow: inset -15px -17px 22px rgba(4, 22, 34, .42), inset 8px 7px 14px rgba(220, 246, 255, .18);
+}
+.project-card--rolling:is(:hover, :focus-visible, :active) .project-card-visual { opacity: 1; }
+.project-card--rolling:is(:hover, :focus-visible, :active) .rolling-card-ball { animation: project-stone-roll 760ms cubic-bezier(.2, .72, .22, 1) forwards; }
+.project-card--rolling:is(:hover, :focus-visible, :active) .rolling-card-trail { animation: project-trail-in 320ms ease-out 110ms both; }
+
+/* Rogue Malfunction card */
+.project-card--rogue { --project-card-focus: #72dce6; }
+.project-card--rogue:is(:hover, :focus-visible, :active) { border-color: rgba(98, 201, 212, .78); }
+.project-card--rogue .project-card-background {
+  background-color: #10191b;
+  background-image:
+    linear-gradient(rgba(98, 201, 212, .075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(98, 201, 212, .075) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.project-card--rogue .project-card-scrim {
+  background: linear-gradient(90deg, rgba(8, 17, 19, .92), rgba(8, 17, 19, .72) 40%, rgba(8, 17, 19, .18) 67%, transparent 86%);
+}
+.project-card--rogue .project-card-copy { max-width: 66%; }
+.rogue-inputs {
+  position: absolute;
+  top: 48px;
+  right: 34px;
+  display: grid;
+  grid-template-columns: repeat(3, 48px);
+  grid-template-rows: repeat(2, 48px);
+  gap: 8px;
+}
+.rogue-key {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(98, 201, 212, .7);
+  border-radius: 8px;
+  background: rgba(8, 27, 30, .9);
+  box-shadow: inset 0 0 0 1px rgba(135, 235, 244, .08), 0 0 12px rgba(66, 193, 206, .08);
+  color: #dffcff;
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.rogue-key--w { grid-column: 2; grid-row: 1; }
+.rogue-key--a { grid-column: 1; grid-row: 2; }
+.rogue-key--s { grid-column: 2; grid-row: 2; }
+.rogue-key--d { grid-column: 3; grid-row: 2; }
+.rogue-key span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+.rogue-key .key-swapped { opacity: 0; }
+.rogue-input-error {
+  position: absolute;
+  top: 22px;
+  right: 36px;
+  color: #df5664;
+  font-size: .56rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.project-card--rogue:is(:hover, :focus-visible, :active) .project-card-visual { opacity: 1; }
+.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--w .key-normal,
+.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--s .key-normal { animation: project-ws-normal 1.8s linear infinite; }
+.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--w .key-swapped,
+.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--s .key-swapped { animation: project-ws-swapped 1.8s linear infinite; }
+.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--a .key-normal,
+.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--d .key-normal { animation: project-ad-normal 1.8s linear infinite; }
+.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--a .key-swapped,
+.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--d .key-swapped { animation: project-ad-swapped 1.8s linear infinite; }
+.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--w,
+.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--s { animation: project-ws-key-flash 1.8s linear infinite; }
+.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--a,
+.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--d { animation: project-ad-key-flash 1.8s linear infinite; }
+
+/* Eclipsed card */
+.project-card--eclipsed { --project-card-focus: #8cb899; }
+.project-card--eclipsed:is(:hover, :focus-visible, :active) { border-color: rgba(94, 131, 105, .72); }
+.project-card--eclipsed .project-card-background {
+  background: radial-gradient(circle at 82% 72%, rgba(22, 62, 39, .52), transparent 45%), linear-gradient(135deg, #101713, #07100d 52%, #0e1613);
+}
+.eclipsed-blood-mask {
+  --blood-reveal: 0%;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  -webkit-mask-image: radial-gradient(circle at 86% 70%, #000 0%, #000 var(--blood-reveal), rgba(0, 0, 0, .86) calc(var(--blood-reveal) + 5%), transparent calc(var(--blood-reveal) + 11%));
+  mask-image: radial-gradient(circle at 86% 70%, #000 0%, #000 var(--blood-reveal), rgba(0, 0, 0, .86) calc(var(--blood-reveal) + 5%), transparent calc(var(--blood-reveal) + 11%));
+}
+.eclipsed-blood-mask img {
+  position: absolute;
+  inset: -7.5%;
+  width: 115%;
+  height: 115%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(1.2) saturate(1.14) contrast(1.04);
+}
+.project-card--eclipsed .project-card-scrim {
+  background: linear-gradient(92deg, rgba(7, 16, 13, .86), rgba(7, 16, 13, .62) 34%, rgba(7, 16, 13, .12) 62%, transparent 83%);
+}
+.project-card--eclipsed:is(:hover, :focus-visible, :active) .project-card-visual,
+.project-card--eclipsed:is(:hover, :focus-visible, :active) .eclipsed-blood-mask { opacity: 1; }
+.project-card--eclipsed:is(:hover, :focus-visible, :active) .eclipsed-blood-mask { animation: project-blood-impact 310ms linear forwards; }
+
+@keyframes project-signs-on {
+  0% { opacity: 0; }
+  12% { opacity: .78; }
+  22% { opacity: .2; }
+  34% { opacity: .96; }
+  45% { opacity: .48; }
+  61% { opacity: 1; }
+  72% { opacity: .74; }
+  100% { opacity: .88; }
+}
+@keyframes project-glow-on {
+  0% { opacity: 0; }
+  12% { opacity: .62; }
+  22% { opacity: .13; }
+  34% { opacity: .78; }
+  45% { opacity: .34; }
+  61% { opacity: .86; }
+  72% { opacity: .58; }
+  100% { opacity: .7; }
+}
+@keyframes project-stone-roll {
+  from { left: -132px; transform: rotate(0); }
+  to { left: calc(100% - 132px); transform: rotate(540deg); }
+}
+@keyframes project-trail-in {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes project-ws-normal {
+  0%, 18%, 63%, 100% { opacity: 1; }
+  19%, 62% { opacity: 0; }
+}
+@keyframes project-ws-swapped {
+  0%, 22%, 59%, 100% { opacity: 0; }
+  23%, 58% { opacity: 1; }
+}
+@keyframes project-ad-normal {
+  0%, 38%, 83%, 100% { opacity: 1; }
+  39%, 82% { opacity: 0; }
+}
+@keyframes project-ad-swapped {
+  0%, 42%, 79%, 100% { opacity: 0; }
+  43%, 78% { opacity: 1; }
+}
+@keyframes project-ws-key-flash {
+  0%, 18%, 23%, 58%, 63%, 100% { border-color: rgba(98, 201, 212, .7); box-shadow: inset 0 0 0 1px rgba(135, 235, 244, .08), 0 0 12px rgba(66, 193, 206, .08); }
+  19%, 22%, 59%, 62% { border-color: rgba(230, 62, 79, .9); box-shadow: 0 0 15px rgba(230, 62, 79, .34); }
+}
+@keyframes project-ad-key-flash {
+  0%, 38%, 43%, 78%, 83%, 100% { border-color: rgba(98, 201, 212, .7); box-shadow: inset 0 0 0 1px rgba(135, 235, 244, .08), 0 0 12px rgba(66, 193, 206, .08); }
+  39%, 42%, 79%, 82% { border-color: rgba(230, 62, 79, .9); box-shadow: 0 0 15px rgba(230, 62, 79, .34); }
+}
+@keyframes project-blood-impact {
+  0% { --blood-reveal: 0%; }
+  12% { --blood-reveal: 12%; }
+  34% { --blood-reveal: 34%; }
+  55% { --blood-reveal: 47%; }
+  76% { --blood-reveal: 70%; }
+  100% { --blood-reveal: 115%; }
 }
 
 @media (max-width: 700px) {
   .featured-grid { grid-template-columns: 1fr; }
-  .project-card { min-height: 0; }
-  .project-cta { margin-top: 1.25rem; padding-top: 0; }
+  .project-card { min-height: 230px; padding: 1.5rem; }
+}
+
+@media (max-width: 430px) {
+  .project-card { min-height: 220px; }
+  .project-card-title { font-size: 1.55rem; }
+  .project-card--rogue .project-card-copy { max-width: 62%; }
+  .rogue-inputs {
+    top: 62px;
+    right: 18px;
+    grid-template-columns: repeat(3, 40px);
+    grid-template-rows: repeat(2, 40px);
+    gap: 6px;
+  }
+  .rogue-input-error { top: 35px; right: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-card * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .project-card--neon:is(:hover, :focus-visible, :active) .neon-street-signs { opacity: .88; }
+  .project-card--neon:is(:hover, :focus-visible, :active) .neon-card-glow { opacity: .7; }
+  .project-card--rolling:is(:hover, :focus-visible, :active) .rolling-card-ball {
+    left: calc(100% - 132px);
+    transform: rotate(540deg);
+  }
+  .project-card--eclipsed:is(:hover, :focus-visible, :active) .eclipsed-blood-mask { --blood-reveal: 115%; }
+  .project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key .key-normal { opacity: 0; }
+  .project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key .key-swapped { opacity: 1; }
 }
 
 /* Compact footer sign-off */
@@ -1518,8 +1829,8 @@ html.dark .rolling-input-panel li > span {
 
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
-  .btn, .project-card, .project-card::before { transition: none; }
-  .btn:hover, .project-card:hover { transform: none; }
+  .btn { transition: none; }
+  .btn:hover { transform: none; }
 }
 
 /* Make badges feel "premium" (less playful) */
