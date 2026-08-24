@@ -770,16 +770,6 @@ html.dark .hero-shell {
   place-items: center;
 }
 .rogue-key .key-swapped { opacity: 0; }
-.rogue-input-error {
-  position: absolute;
-  top: 22px;
-  right: 36px;
-  color: #df5664;
-  font-size: .56rem;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
 .project-card--rogue:is(:hover, :focus-visible, :active) .project-card-visual { opacity: 1; }
 .project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--w .key-normal,
 .project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--s .key-normal { animation: project-ws-normal 1.8s linear infinite; }
@@ -902,7 +892,6 @@ html.dark .hero-shell {
     grid-template-rows: repeat(2, 40px);
     gap: 6px;
   }
-  .rogue-input-error { top: 35px; right: 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
