@@ -1,6 +1,12 @@
 {{ define "main" }}
   {{ $logo := .Resources.GetMatch "neon-steel-logo-web.png" }}
   {{ $poster := .Resources.GetMatch "neon-steel-poster-1200x1600.jpg" }}
+  {{ $trelloArt := .Resources.GetMatch "Trello Art Pipeline.gif" }}
+  {{ $trelloDev := .Resources.GetMatch "Trello Dev pipeline.gif" }}
+  {{ $trelloAutomation := .Resources.GetMatch "Trello Automation Rule Setup.gif" }}
+  {{ $hudConcept := .Resources.GetMatch "Hud Concept.png" }}
+  {{ $hudFinal := .Resources.GetMatch "Final HUD.gif" }}
+  {{ $hudGameplay := .Resources.GetMatch "HUD in game.png" }}
 
   <article class="neon-case-study">
     <header class="neon-masthead">
@@ -65,23 +71,8 @@
       {{ end }}
     </section>
 
-    <section class="neon-section neon-split neon-production" aria-labelledby="neon-production-title">
-      <div class="neon-production-visuals">
-        <div class="neon-placeholder neon-placeholder-landscape" aria-hidden="true"></div>
-
-        <div class="neon-workflows" aria-label="Trello task workflows">
-          <div class="neon-workflow">
-            <h3>Art</h3>
-            <p>Art cards were labelled, assigned a priority, and moved into In Progress. Automation added an Art Progress checklist with a Finished item. Completing it moved the card to Art Evaluation, replaced Finished with Evaluated, and added the To Be Evaluated label. Once the art producer or I approved it, the card moved to Completed with a Completed label and an Archive checklist item.</p>
-          </div>
-          <div class="neon-workflow">
-            <h3>Development</h3>
-            <p>Development cards used the same setup. Each card was labelled, assigned a priority, and moved into In Progress. From there, automation moved it through testing, debugging when needed, completion, and archival as each step was confirmed.</p>
-         </div>
-        </div>
-      </div>
-
-      <div class="neon-copy">
+    <section class="neon-section neon-production" aria-labelledby="neon-production-title">
+      <div class="neon-copy neon-production-copy">
         <p class="neon-eyebrow">Production and workflow</p>
         <h2 id="neon-production-title">Keeping 20 people moving in the same direction</h2>
         <p>
@@ -105,44 +96,103 @@
           </div>
         </div>
 
-        <p>
-          To make the daily workflow easier to manage, I spent about 20 hours researching Trello automation and building separate pipelines for development and art. The automations created and updated checklists, moved cards, applied labels, handled evaluation and testing states, and prepared completed work for archival. This cut down on manual Trello updates and made it clear what was in progress, waiting for review, or finished.
-        </p>
+      </div>
+
+      <div class="neon-pipeline-list" aria-label="Trello task workflows">
+        <div class="neon-pipeline-entry">
+          {{ with $trelloArt }}
+            <figure class="neon-project-figure neon-pipeline-figure">
+              <a href="{{ .RelPermalink }}" target="_blank" rel="noopener noreferrer" aria-label="Open the art pipeline screenshot at full size">
+                <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Neon Steel Trello board showing the art production pipeline" loading="lazy" decoding="async">
+              </a>
+              <figcaption>Art production pipeline</figcaption>
+            </figure>
+          {{ end }}
+          <div class="neon-workflow">
+            <h3>Art</h3>
+            <p>Art cards were labelled, assigned a priority, and moved into In Progress. Automation added an Art Progress checklist with a Finished item. Completing it moved the card to Art Evaluation, replaced Finished with Evaluated, and added the To Be Evaluated label. Once the art producer or I approved it, the card moved to Completed with a Completed label and an Archive checklist item.</p>
+          </div>
+        </div>
+
+        <div class="neon-pipeline-entry neon-pipeline-entry-reverse">
+          {{ with $trelloDev }}
+            <figure class="neon-project-figure neon-pipeline-figure">
+              <a href="{{ .RelPermalink }}" target="_blank" rel="noopener noreferrer" aria-label="Open the development pipeline screenshot at full size">
+                <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Neon Steel Trello board showing the development production pipeline" loading="lazy" decoding="async">
+              </a>
+              <figcaption>Development production pipeline</figcaption>
+            </figure>
+          {{ end }}
+          <div class="neon-workflow">
+            <h3>Development</h3>
+            <p>Development cards used the same setup. Each card was labelled, assigned a priority, and moved into In Progress. From there, automation moved it through testing, debugging when needed, completion, and archival as each step was confirmed.</p>
+          </div>
+        </div>
+
+        <div class="neon-automation-entry">
+          {{ with $trelloAutomation }}
+            <figure class="neon-project-figure neon-automation-figure">
+              <a href="{{ .RelPermalink }}" target="_blank" rel="noopener noreferrer" aria-label="Open the Trello automation rules screenshot at full size">
+                <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Trello automation rules created for the Neon Steel production board" loading="lazy" decoding="async">
+              </a>
+              <figcaption>Trello automation rules</figcaption>
+            </figure>
+          {{ end }}
+          <div class="neon-workflow neon-automation-copy">
+            <h3>Automation rules</h3>
+            <p>To make the daily workflow easier to manage, I spent about 20 hours researching Trello automation and building separate pipelines for development and art. The automations created and updated checklists, moved cards, applied labels, handled evaluation and testing states, and prepared completed work for archival. This cut down on manual Trello updates and made it clear what was in progress, waiting for review, or finished.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="neon-section neon-split neon-hud" aria-labelledby="neon-hud-title">
-      <div class="neon-copy">
-        <p class="neon-eyebrow">HUD redesign</p>
-        <h2 id="neon-hud-title">Putting essential information in one place</h2>
-        <dl class="neon-decision-list">
-          <div>
-            <dt>Problem</dt>
-            <dd>The original HUD spread important information across the corners of the screen. In a 2.5D game, that could obstruct platforms and make players look away from the action to check their status.</dd>
-          </div>
-          <div>
-            <dt>Decision</dt>
-            <dd>I decided to group health, ammunition, abilities, and Neon in one place, then worked with the UI artist on the new layout.</dd>
-          </div>
-          <div>
-            <dt>Implementation</dt>
-            <dd>The UI artist created the visual design from that direction. I then built the revised HUD in Unreal Engine using Blueprints.</dd>
-          </div>
-          <div>
-            <dt>Result</dt>
-            <dd>Players could check their status in one place while keeping more of the platforms and gameplay space visible.</dd>
-          </div>
-        </dl>
+    <section class="neon-section neon-hud" aria-labelledby="neon-hud-title">
+      <div class="neon-hud-layout">
+        <div class="neon-copy">
+          <p class="neon-eyebrow">HUD redesign</p>
+          <h2 id="neon-hud-title">Putting essential information in one place</h2>
+          <dl class="neon-decision-list">
+            <div>
+              <dt>Problem</dt>
+              <dd>The original HUD spread important information across the corners of the screen. In a 2.5D game, that could obstruct platforms and make players look away from the action to check their status.</dd>
+            </div>
+            <div>
+              <dt>Decision</dt>
+              <dd>I decided to group health, ammunition, abilities, and Neon in one place, then worked with the UI artist on the new layout.</dd>
+            </div>
+            <div>
+              <dt>Implementation</dt>
+              <dd>The UI artist created the visual design from that direction. I then built the revised HUD in Unreal Engine using Blueprints.</dd>
+            </div>
+            <div>
+              <dt>Result</dt>
+              <dd>Players could check their status in one place while keeping more of the platforms and gameplay space visible.</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="neon-hud-comparison">
+          {{ with $hudConcept }}
+            <figure class="neon-project-figure">
+              <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Early Neon Steel HUD concept with information spread around the screen" loading="lazy" decoding="async">
+              <figcaption>Early HUD concept</figcaption>
+            </figure>
+          {{ end }}
+          {{ with $hudFinal }}
+            <figure class="neon-project-figure">
+              <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Final Neon Steel HUD grouping health, ammunition, abilities, and Neon together" loading="lazy" decoding="async">
+              <figcaption>Final HUD</figcaption>
+            </figure>
+          {{ end }}
+        </div>
       </div>
 
-      <div class="neon-hud-comparison">
-        <div>
-          <div class="neon-placeholder neon-placeholder-hud" aria-hidden="true"></div>
-        </div>
-        <div>
-          <div class="neon-placeholder neon-placeholder-hud" aria-hidden="true"></div>
-        </div>
-      </div>
+      {{ with $hudGameplay }}
+        <figure class="neon-project-figure neon-hud-gameplay">
+          <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Final Neon Steel HUD implemented during gameplay" loading="lazy" decoding="async">
+          <figcaption>HUD in Game</figcaption>
+        </figure>
+      {{ end }}
     </section>
 
     <section class="neon-section neon-results" aria-labelledby="neon-results-title">
