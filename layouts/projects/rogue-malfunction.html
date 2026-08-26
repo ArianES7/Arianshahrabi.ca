@@ -1,5 +1,18 @@
 {{ define "main" }}
   {{ $hero := .Resources.GetMatch "rogue-malfunction-hero.png" }}
+  {{ $character := .Resources.GetMatch "rogue-malfunction-character.png" }}
+  {{ $sequenceOne := .Resources.GetMatch "*equence*1.png" }}
+  {{ $sequenceTwo := .Resources.GetMatch "*equence*2.png" }}
+  {{ $sequenceThree := .Resources.GetMatch "*equence*3.png" }}
+  {{ $sequenceFour := .Resources.GetMatch "*equence*4.png" }}
+  {{ $sequenceFive := .Resources.GetMatch "*equence*5.png" }}
+  {{ $sequenceSix := .Resources.GetMatch "*equence*6.png" }}
+  {{ $threeBsOne := .Resources.GetMatch "*hree*B*1.png" }}
+  {{ $threeBsThree := .Resources.GetMatch "*hree*B*3.png" }}
+  {{ $sokobanOne := .Resources.GetMatch "*okoban*1.png" }}
+  {{ $sokobanTwo := .Resources.GetMatch "*okoban*2.png" }}
+  {{ $tilesOne := .Resources.GetMatch "*ile*Level*1.png" }}
+  {{ $tilesTwo := .Resources.GetMatch "*iles*Level*2.png" }}
 
   <article class="neon-case-study rogue-case-study">
     <header class="rogue-masthead">
@@ -15,8 +28,8 @@
       {{ end }}
     </header>
 
-    <section class="neon-section neon-split" aria-labelledby="rogue-overview-title">
-      <div class="neon-copy">
+    <section class="neon-section rogue-overview" aria-labelledby="rogue-overview-title">
+      <div class="neon-copy rogue-overview-copy">
         <p class="neon-eyebrow">Project overview</p>
         <h2 id="rogue-overview-title">A puzzle game where the controls work against you</h2>
         <p>
@@ -32,23 +45,41 @@
         <dl class="neon-metadata">
           <div><dt>Role</dt><dd>Programmer and Game Designer</dd></div>
           <div><dt>Team</dt><dd>Four people</dd></div>
-          <div><dt>Development</dt><dd>December 27, 2025 to February 16, 2026</dd></div>
-          <div><dt>Game jam</dt><dd>Five-day Toronto Film School Game Jam</dd></div>
+          <div><dt>Development</dt><dd>5 days</dd></div>
           <div><dt>Engine</dt><dd>Unity 6</dd></div>
           <div><dt>Language</dt><dd>C#</dd></div>
-          <div class="rogue-metadata-status"><dt>Status</dt><dd>Released, development complete</dd></div>
+          <div class="rogue-metadata-status"><dt>Status</dt><dd>Released</dd></div>
         </dl>
 
         <div class="rolling-actions">
           <a class="btn btn-primary" href="https://arian-shahrabi.itch.io/rogue" target="_blank" rel="noopener noreferrer">Play on itch.io</a>
         </div>
       </div>
-
-      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
     </section>
 
     <section class="neon-section neon-split rogue-controls" aria-labelledby="rogue-controls-title">
-      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+      <div class="rogue-image-stack" aria-label="Sequence level progression">
+        {{ with $sequenceOne }}
+          <figure class="rolling-media">
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The opening area of the Sequence level in Rogue Malfunction" loading="lazy" decoding="async">
+          </figure>
+        {{ end }}
+        {{ with $sequenceTwo }}
+          <figure class="rolling-media">
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="An early platforming section in Sequence with the W and S controls swapped" loading="lazy" decoding="async">
+          </figure>
+        {{ end }}
+        {{ with $sequenceThree }}
+          <figure class="rolling-media">
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="A later Sequence platforming section with the A and D controls swapped" loading="lazy" decoding="async">
+          </figure>
+        {{ end }}
+        {{ with $sequenceFour }}
+          <figure class="rolling-media">
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="A timed door puzzle interface in the Sequence level" loading="lazy" decoding="async">
+          </figure>
+        {{ end }}
+      </div>
 
       <div class="neon-copy">
         <p class="neon-eyebrow">Player controllers</p>
@@ -121,28 +152,78 @@
       </p>
     </section>
 
-    <section class="neon-section neon-split" aria-labelledby="rogue-levels-title">
-      <div class="neon-copy">
-        <p class="neon-eyebrow">The four levels</p>
-        <h2 id="rogue-levels-title">Four different approaches to the same escape</h2>
-        <p>
-          The final build has four puzzle rooms. Ethan created The 3 B's, Phillip created Sokoban and Tiles, and I created Sequence.
-        </p>
-        <p>
-          Sequence uses timed door puzzles, control changes, parkour, moving obstacles, and falling hazards. The 3 B's uses movable objects, buttons, doors, and control inversions. Sokoban is built around moving boxes onto four pressure plates. Tiles asks the player to cross 25 tiles without stepping on one twice. If they do, the puzzle resets and sends them back to the checkpoint.
-        </p>
+    <section class="neon-section rogue-levels" aria-labelledby="rogue-levels-title">
+      <div class="neon-split rogue-levels-overview">
+        <div class="neon-copy">
+          <p class="neon-eyebrow">The four levels</p>
+          <h2 id="rogue-levels-title">Four different approaches to the same escape</h2>
+          <p>
+            The final build has four puzzle rooms. Ethan created The 3 B's, Phillip created Sokoban and Tiles, and I created Sequence.
+          </p>
+          <p>
+            Sequence uses timed door puzzles, control changes, parkour, moving obstacles, and falling hazards. The 3 B's uses movable objects, buttons, doors, and control inversions. Sokoban is built around moving boxes onto four pressure plates. Tiles asks the player to cross 25 tiles without stepping on one twice. If they do, the puzzle resets and sends them back to the checkpoint.
+          </p>
 
-        <h3 class="rogue-subheading">Robot character</h3>
-        <p>
-          Alice created and rigged the robot model after the jam. We had trouble getting the animations and player controller to work together. Rather than delay the release again, we used the robot as a non-playable character in the Sequence and Tiles scenes.
-        </p>
+          <h3 class="rogue-subheading">Robot character</h3>
+          <p>
+            Alice created and rigged the robot model after the jam. We had trouble getting the animations and player controller to work together. Rather than delay the release again, we used the robot as a non-playable character in the Sequence and Tiles scenes.
+          </p>
+        </div>
+
+        {{ with $character }}
+          <figure class="rolling-media">
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The robot character used as a non-playable character in Rogue Malfunction" loading="lazy" decoding="async">
+          </figure>
+        {{ end }}
       </div>
 
-      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+      <div class="rogue-game-gallery" aria-label="The 3 B's, Sokoban, and Tiles levels">
+        {{ with $threeBsOne }}
+          <figure class="rolling-media">
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="An early section of The 3 B's level in Rogue Malfunction" loading="lazy" decoding="async">
+          </figure>
+        {{ end }}
+        {{ with $threeBsThree }}
+          <figure class="rolling-media">
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The button puzzle in The 3 B's level" loading="lazy" decoding="async">
+          </figure>
+        {{ end }}
+        {{ with $sokobanOne }}
+          <figure class="rolling-media">
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The opening arrangement of boxes in the Sokoban level" loading="lazy" decoding="async">
+          </figure>
+        {{ end }}
+        {{ with $sokobanTwo }}
+          <figure class="rolling-media">
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="A later state of the Sokoban puzzle" loading="lazy" decoding="async">
+          </figure>
+        {{ end }}
+        {{ with $tilesOne }}
+          <figure class="rolling-media">
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The starting path through the Tiles level" loading="lazy" decoding="async">
+          </figure>
+        {{ end }}
+        {{ with $tilesTwo }}
+          <figure class="rolling-media">
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="A wider view of the path puzzle in the Tiles level" loading="lazy" decoding="async">
+          </figure>
+        {{ end }}
+      </div>
     </section>
 
-    <section class="neon-section neon-split" aria-labelledby="rogue-testing-title">
-      <div class="neon-placeholder rolling-placeholder" aria-hidden="true"></div>
+    <section class="neon-section neon-split rogue-testing" aria-labelledby="rogue-testing-title">
+      <div class="rogue-image-stack" aria-label="Final sections of the Sequence level">
+        {{ with $sequenceFive }}
+          <figure class="rolling-media">
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The revised final platforming route in the Sequence level" loading="lazy" decoding="async">
+          </figure>
+        {{ end }}
+        {{ with $sequenceSix }}
+          <figure class="rolling-media">
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The final timed door puzzle near the end of the Sequence level" loading="lazy" decoding="async">
+          </figure>
+        {{ end }}
+      </div>
 
       <div class="neon-copy">
         <p class="neon-eyebrow">Playtesting</p>
