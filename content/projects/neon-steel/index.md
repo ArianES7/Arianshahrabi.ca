@@ -1,9 +1,10 @@
 ---
 title: "Neon Steel"
-description: "I led a 20-person team through the development and release of Neon Steel while also working on its UI and UX."
+browserTitle: "Arian Shahrabi – Neon Steel"
+description: "I led a team of 20 through the development and release of Neon Steel while designing and building its interface systems."
 layout: "neon-steel"
 cardTheme: "neon"
-cardRole: "Executive Producer / UI/UX Developer"
+cardRole: "Executive Producer and UI/UX Developer"
 cardEngine: "Unreal"
 featured: true
 weight: 1
@@ -17,6 +18,6 @@ showZenMode: false
 badges: ["Unreal Engine 5.6.1", "Production", "UI/UX"]
 ---
 
-Neon Steel is a third person action game created by a multidisciplinary team of 20 at BloodFeather Studio. I led production and contributed as the UI/UX Developer from development through release.
+Neon Steel is a 2.5D action beat ’em up developed by a team of 20 at BloodFeather Studios. I worked as Executive Producer and UI/UX Developer, leading the team through development and release while building the game’s interface systems.
 
 <!--more-->
