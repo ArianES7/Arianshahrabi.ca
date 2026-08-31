@@ -32,6 +32,9 @@
           {{- partial "scroll-to-top.html" . -}}
         {{ end }}
       </main>
+      {{ if eq .Section "projects" }}
+        {{ partial "project-image-lightbox.html" . }}
+      {{ end }}
       {{ if not .Params.hideFooter }}
         {{- partial "footer.html" . -}}
       {{ end }}

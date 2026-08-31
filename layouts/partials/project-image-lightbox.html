@@ -1,0 +1,69 @@
+<dialog
+  id="project-image-lightbox"
+  class="project-image-lightbox"
+  aria-labelledby="project-image-lightbox-title"
+  aria-describedby="project-image-lightbox-caption">
+  <div class="project-image-lightbox-content">
+    <button class="project-image-lightbox-close" type="button" aria-label="Close expanded image">
+      Close
+    </button>
+    <h2 id="project-image-lightbox-title" class="sr-only">Expanded project image</h2>
+    <img id="project-image-lightbox-image" src="" alt="">
+    <p id="project-image-lightbox-caption"></p>
+  </div>
+</dialog>
+
+<script>
+  (() => {
+    const dialog = document.getElementById('project-image-lightbox');
+    if (!dialog) return;
+
+    const image = document.getElementById('project-image-lightbox-image');
+    const caption = document.getElementById('project-image-lightbox-caption');
+    const closeButton = dialog.querySelector('.project-image-lightbox-close');
+    let returnFocus = null;
+
+    const close = () => {
+      if (typeof dialog.close === 'function' && dialog.open) {
+        dialog.close();
+      } else {
+        dialog.removeAttribute('open');
+      }
+    };
+
+    const open = (trigger) => {
+      const source = trigger.querySelector('img');
+      if (!source) return;
+
+      const figure = trigger.closest('figure');
+      const figureCaption = figure?.querySelector('figcaption')?.textContent?.trim();
+      returnFocus = trigger;
+      image.src = source.currentSrc || source.src;
+      image.alt = source.alt;
+      caption.textContent = figureCaption || source.alt;
+
+      if (typeof dialog.showModal === 'function') {
+        dialog.showModal();
+      } else {
+        dialog.setAttribute('open', '');
+      }
+      closeButton.focus();
+    };
+
+    document.addEventListener('click', (event) => {
+      const trigger = event.target.closest('[data-project-lightbox]');
+      if (!trigger) return;
+      event.preventDefault();
+      open(trigger);
+    });
+
+    closeButton.addEventListener('click', close);
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) close();
+    });
+    dialog.addEventListener('close', () => {
+      returnFocus?.focus();
+      returnFocus = null;
+    });
+  })();
+</script>
