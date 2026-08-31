@@ -8,7 +8,7 @@
   {{ $hudFinal := .Resources.GetMatch "Final HUD.gif" }}
   {{ $hudGameplay := .Resources.GetMatch "HUD in game.png" }}
 
-  <article class="neon-case-study">
+  <article class="neon-case-study neon-steel-case-study">
     <header class="neon-masthead">
       <h1 class="neon-visually-hidden">Neon Steel</h1>
       {{ with $logo }}
@@ -36,49 +36,51 @@
       </div>
     </section>
 
-    <section class="neon-section neon-split neon-overview" aria-labelledby="neon-overview-title">
-      <div class="neon-copy">
-        <p class="neon-eyebrow">Project Overview</p>
-        <h2 id="neon-overview-title">What Is Neon Steel</h2>
-        <p>
-          Neon Steel is a 2.5D action beat ’em up made by a 20-person team at BloodFeather Studios. I worked as Executive Producer and UI/UX Developer, splitting my time between leading production and building the game’s interface systems.
-        </p>
-        <p>
-          I led the team through development and release. I planned milestones, managed scope, tracked blockers, coordinated playtests, and worked with the other leads to keep development moving.
-        </p>
-        <p>
-          I also worked directly on the interface. I organized the HUD information, gave the Neon Steel art team feedback and direction, and built the HUD and menu systems in Unreal Engine with Blueprints.
-        </p>
-        <p>
-          We released the downloadable Windows build on June 19, 2026. Future updates are planned.
-        </p>
+    <section class="neon-section neon-overview" aria-labelledby="neon-overview-title">
+      <div class="neon-overview-grid">
+        <div class="neon-copy">
+          <p class="neon-eyebrow">Project Overview</p>
+          <h2 id="neon-overview-title">What Is Neon Steel</h2>
+          <p>
+            Neon Steel is a 2.5D action beat ’em up made by a 20-person team at BloodFeather Studios. I worked as Executive Producer and UI/UX Developer, splitting my time between leading production and building the game’s interface systems.
+          </p>
+          <p>
+            I led the team through development and release. I planned milestones, managed scope, tracked blockers, coordinated playtests, and worked with the other leads to keep development moving.
+          </p>
+          <p>
+            I also worked directly on the interface. I organized the HUD information, gave the Neon Steel art team feedback and direction, and built the HUD and menu systems in Unreal Engine with Blueprints.
+          </p>
+          <p>
+            We released the downloadable Windows build on June 19, 2026. Future updates are planned.
+          </p>
+        </div>
 
-        <dl class="neon-metadata">
-          <div><dt>Role</dt><dd>Executive Producer and UI/UX Developer</dd></div>
-          <div><dt>Studio</dt><dd>BloodFeather Studios</dd></div>
-          <div><dt>Team</dt><dd>20 people</dd></div>
-          <div><dt>Genre</dt><dd>2.5D action beat ’em up</dd></div>
-          <div><dt>Development</dt><dd>July 2025 to June 2026</dd></div>
-          <div><dt>Feature complete</dt><dd>June 5, 2026</dd></div>
-          <div><dt>Released</dt><dd>June 19, 2026</dd></div>
-          <div><dt>Engine</dt><dd>Unreal Engine 5.6.1</dd></div>
-          <div><dt>Platform</dt><dd>Windows</dd></div>
-          <div><dt>Status</dt><dd>Released, with future updates planned</dd></div>
-        </dl>
+        {{ with $poster }}
+          <figure class="neon-poster">
+            <img
+              src="{{ .RelPermalink }}"
+              width="1200"
+              height="1600"
+              alt="Neon Steel promotional poster"
+              loading="lazy"
+              decoding="async">
+            <figcaption>Official Neon Steel poster</figcaption>
+          </figure>
+        {{ end }}
       </div>
 
-      {{ with $poster }}
-        <figure class="neon-poster">
-          <img
-            src="{{ .RelPermalink }}"
-            width="1200"
-            height="1600"
-            alt="Neon Steel promotional poster"
-            loading="lazy"
-            decoding="async">
-          <figcaption>Official Neon Steel poster</figcaption>
-        </figure>
-      {{ end }}
+      <dl class="neon-metadata">
+        <div><dt>Role</dt><dd>Executive Producer and UI/UX Developer</dd></div>
+        <div><dt>Studio</dt><dd>BloodFeather Studios</dd></div>
+        <div><dt>Team</dt><dd>20 people</dd></div>
+        <div><dt>Genre</dt><dd>2.5D action beat ’em up</dd></div>
+        <div><dt>Development</dt><dd>July 2025 to June 2026</dd></div>
+        <div><dt>Feature complete</dt><dd>June 5, 2026</dd></div>
+        <div><dt>Released</dt><dd>June 19, 2026</dd></div>
+        <div><dt>Engine</dt><dd>Unreal Engine 5.6.1</dd></div>
+        <div><dt>Platform</dt><dd>Windows</dd></div>
+        <div><dt>Status</dt><dd>Released, with future updates planned</dd></div>
+      </dl>
     </section>
 
     <section class="neon-section neon-production" aria-labelledby="neon-production-title">
@@ -94,12 +96,22 @@
         <p>
           We protected the features needed for release. The team reached feature complete on June 5, two weeks before launch. We used the remaining time for marketing, bug fixing, and playtesting.
         </p>
+      </div>
 
-        <h3>Story Beats Board</h3>
-        <p>
-          The Story Beats Board mapped what happened throughout the game, what the player would encounter, and when new elements appeared. It tracked:
-        </p>
-        <ul>
+      <div class="neon-story-panel">
+        <div class="neon-story-copy">
+          <h3>Story Beats Board</h3>
+          <p>
+            The Story Beats Board mapped what happened throughout the game, what the player would encounter, and when new elements appeared.
+          </p>
+          <p>
+            The narrative and art teams completed the board with input from Toronto Film School faculty. Narrative work had its own section, while the rest of the board showed how the story and gameplay progressed alongside each other.
+          </p>
+          <p>
+            I reviewed the pacing and paid close attention to when Kade gained new combat abilities. Kade begins as an ordinary construction worker, so he does not start with guns or a sword. He gains access to them as the story and threats escalate.
+          </p>
+        </div>
+        <ul class="neon-story-list" aria-label="Items tracked on the Story Beats Board">
           <li>Combat encounters</li>
           <li>Tutorials</li>
           <li>Enemy introductions</li>
@@ -110,18 +122,19 @@
           <li>Kade’s story</li>
           <li>Mech progression</li>
         </ul>
-        <p>
-          The narrative and art teams completed the board with input from Toronto Film School faculty. Narrative work had its own section, while the rest of the board showed how the story and gameplay progressed alongside each other.
-        </p>
-        <p>
-          I reviewed the pacing and paid close attention to when Kade gained new combat abilities. Kade begins as an ordinary construction worker, so he does not start with guns or a sword. He gains access to them as the story and threats escalate.
-        </p>
+      </div>
 
-        <div class="neon-scope-groups">
-          <div>
-            <h3>Release Scope</h3>
+      <div class="neon-details-grid">
+        <details class="neon-expandable">
+          <summary>
+            <span>
+              <strong>Release Scope</strong>
+              <small>View shipped systems and enemy types</small>
+            </span>
+          </summary>
+          <div class="neon-expandable-content">
             <p>The released build included:</p>
-            <ul>
+            <ul class="neon-feature-list">
               <li>Core combat</li>
               <li>Final HUD</li>
               <li>Save and load</li>
@@ -144,7 +157,16 @@
               <li>Three Mantis enemy types using the same basic composition, with access to ultimate attacks</li>
             </ul>
           </div>
-          <div>
+        </details>
+
+        <details class="neon-expandable">
+          <summary>
+            <span>
+              <strong>Interface Scope Decisions</strong>
+              <small>View shipped and deferred interface work</small>
+            </span>
+          </summary>
+          <div class="neon-expandable-content neon-system-decisions">
             <h3>Neon Bar</h3>
             <p>Enemies and crates dropped Neon orbs. Collecting these orbs filled the Neon bar. Once the bar was full, the player could activate the mech suit.</p>
             <p>The functional Neon bar shipped with the game. We deferred its animated liquid presentation to save development time and meet the release date.</p>
@@ -157,25 +179,30 @@
 
             <p>Accessibility settings were planned during development but deferred so the team could meet the June 19 release deadline.</p>
           </div>
+        </details>
+      </div>
+
+      <div class="neon-trello-intro">
+        <div class="neon-copy">
+          <h3>Trello Workflow</h3>
+          <p>I spent more than 20 hours researching, building, and adjusting the Trello automations.</p>
+          <p>
+            I created the development cards and tracked each assigned task daily. I also helped create art cards when I was responsible for supervising or tracking the work. Each card used the appropriate <code>Art</code> or <code>Dev</code> label and priority.
+          </p>
+          <p>
+            The automations used each card’s label, checklist state, and board location to keep the art and development workflows consistent.
+          </p>
         </div>
-
-        <h3>Trello Workflow</h3>
-        <p>I spent more than 20 hours researching, building, and adjusting the Trello automations.</p>
-        <p>
-          I created the development cards and tracked each assigned task daily. I also helped create art cards when I was responsible for supervising or tracking the work. Each card used the appropriate <code>Art</code> or <code>Dev</code> label and priority.
-        </p>
-        <p>
-          The automations used each card’s label, checklist state, and board location to keep the art and development workflows consistent.
-        </p>
-        <h4>Priority levels</h4>
-        <ul>
-          <li>P0: Highest</li>
-          <li>P1: High</li>
-          <li>P2: Medium</li>
-          <li>P3: Low</li>
-          <li>P4: Lowest</li>
-        </ul>
-
+        <div>
+          <h4>Priority levels</h4>
+          <ul class="neon-priority-list">
+            <li><strong>P0</strong><span>Highest</span></li>
+            <li><strong>P1</strong><span>High</span></li>
+            <li><strong>P2</strong><span>Medium</span></li>
+            <li><strong>P3</strong><span>Low</span></li>
+            <li><strong>P4</strong><span>Lowest</span></li>
+          </ul>
+        </div>
       </div>
 
       <div class="neon-pipeline-list" aria-label="Trello task workflows">
@@ -188,14 +215,19 @@
           {{ end }}
           <div class="neon-workflow">
             <h3>Art workflow</h3>
-            <ol>
-              <li>To Do</li>
-              <li>In Progress</li>
-              <li>Art Evaluation</li>
-              <li>Completed</li>
-            </ol>
             <p>An art card moved from To Do to In Progress with the <code>Art</code> label and a priority. Trello then added the <code>Art Progress</code> checklist.</p>
-            <p>When <code>Finished</code> was checked, the automation moved the card to Art Evaluation and changed the checklist item to <code>Evaluated</code>. The art lead, art producer, and I reviewed the work. Once we approved it, the card moved to Completed.</p>
+            <details class="neon-inline-details">
+              <summary>View the full art workflow</summary>
+              <div>
+                <ol aria-label="Art workflow stages">
+                  <li>To Do</li>
+                  <li>In Progress</li>
+                  <li>Art Evaluation</li>
+                  <li>Completed</li>
+                </ol>
+                <p>When <code>Finished</code> was checked, the automation moved the card to Art Evaluation and changed the checklist item to <code>Evaluated</code>. The art lead, art producer, and I reviewed the work. Once we approved it, the card moved to Completed.</p>
+              </div>
+            </details>
           </div>
         </div>
 
@@ -208,16 +240,21 @@
           {{ end }}
           <div class="neon-workflow">
             <h3>Development workflow</h3>
-            <ol>
-              <li>To Do</li>
-              <li>In Progress</li>
-              <li>Testing (Dev)</li>
-              <li>Completed if the pull request was approved and merged</li>
-              <li>Debugging (Dev) if the technical director requested changes</li>
-            </ol>
             <p>Each development card moved from To Do to In Progress with the <code>Dev</code> label and a priority. Trello then added the <code>Dev Progress</code> checklist.</p>
-            <p>When the work was ready, the card moved to Testing (Dev), where the technical director reviewed the pull request. If the technical director approved and merged it, I checked <code>Finished</code>. The automation then moved the card to Completed.</p>
-            <p>If the technical director left feedback that required more work, I selected the corresponding checklist item. The automation then moved the card to Debugging (Dev).</p>
+            <details class="neon-inline-details">
+              <summary>View the full development workflow</summary>
+              <div>
+                <ol aria-label="Development workflow stages">
+                  <li>To Do</li>
+                  <li>In Progress</li>
+                  <li>Testing (Dev)</li>
+                  <li>Completed if the pull request was approved and merged</li>
+                  <li>Debugging (Dev) if the technical director requested changes</li>
+                </ol>
+                <p>When the work was ready, the card moved to Testing (Dev), where the technical director reviewed the pull request. If the technical director approved and merged it, I checked <code>Finished</code>. The automation then moved the card to Completed.</p>
+                <p>If the technical director left feedback that required more work, I selected the corresponding checklist item. The automation then moved the card to Debugging (Dev).</p>
+              </div>
+            </details>
           </div>
         </div>
 
@@ -238,44 +275,43 @@
     </section>
 
     <section class="neon-section neon-hud" aria-labelledby="neon-hud-title">
-      <div class="neon-hud-layout">
-        <div class="neon-copy">
-          <p class="neon-eyebrow">HUD Redesign</p>
-          <h2 id="neon-hud-title">Why I Redesigned the HUD</h2>
-          <dl class="neon-decision-list">
-            <div>
-              <dt>Problem</dt>
-              <dd>The original HUD placed information in several corners of the screen, covering parts of the platforms and pulling attention away from the action.</dd>
-            </div>
-            <div>
-              <dt>Direction</dt>
-              <dd>I wanted the main player information grouped in one place. I decided how the HUD should be organized and gave the Neon Steel art team feedback and direction.</dd>
-            </div>
-            <div>
-              <dt>Art and implementation</dt>
-              <dd>The Neon Steel art team created the final visual design. I built it in Unreal Engine with Blueprints.</dd>
-            </div>
-            <div>
-              <dt>Result</dt>
-              <dd>The final layout leaves more of the play space visible.</dd>
-            </div>
-          </dl>
-        </div>
+      <div class="neon-section-heading neon-section-heading-wide">
+        <p class="neon-eyebrow">HUD Redesign</p>
+        <h2 id="neon-hud-title">Why I Redesigned the HUD</h2>
+      </div>
 
-        <div class="neon-hud-comparison">
-          {{ with $hudConcept }}
-            <figure class="neon-project-figure">
-              <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Early Neon Steel HUD concept with information placed in several corners" loading="lazy" decoding="async">
-              <figcaption>Early HUD concept</figcaption>
-            </figure>
-          {{ end }}
-          {{ with $hudFinal }}
-            <figure class="neon-project-figure">
-              <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Final Neon Steel HUD with health, ammunition, abilities, and the Neon bar grouped together" loading="lazy" decoding="async">
-              <figcaption>Final HUD</figcaption>
-            </figure>
-          {{ end }}
+      <dl class="neon-decision-list">
+        <div>
+          <dt>Problem</dt>
+          <dd>The original HUD placed information in several corners of the screen, covering parts of the platforms and pulling attention away from the action.</dd>
         </div>
+        <div>
+          <dt>Direction</dt>
+          <dd>I wanted the main player information grouped in one place. I decided how the HUD should be organized and gave the Neon Steel art team feedback and direction.</dd>
+        </div>
+        <div>
+          <dt>Art and implementation</dt>
+          <dd>The Neon Steel art team created the final visual design. I built it in Unreal Engine with Blueprints.</dd>
+        </div>
+        <div>
+          <dt>Result</dt>
+          <dd>The final layout leaves more of the play space visible.</dd>
+        </div>
+      </dl>
+
+      <div class="neon-hud-comparison">
+        {{ with $hudConcept }}
+          <figure class="neon-project-figure">
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Early Neon Steel HUD concept with information placed in several corners" loading="lazy" decoding="async">
+            <figcaption>Early HUD concept</figcaption>
+          </figure>
+        {{ end }}
+        {{ with $hudFinal }}
+          <figure class="neon-project-figure">
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Final Neon Steel HUD with health, ammunition, abilities, and the Neon bar grouped together" loading="lazy" decoding="async">
+            <figcaption>Final HUD</figcaption>
+          </figure>
+        {{ end }}
       </div>
 
       {{ with $hudGameplay }}
@@ -285,28 +321,46 @@
         </figure>
       {{ end }}
 
-      <div class="neon-copy">
-        <h3>Other Interface Work</h3>
-        <p>I designed and implemented:</p>
-        <ul>
-          <li>HUD Blueprints</li>
-          <li>Main menu</li>
-          <li>Settings menu shell</li>
-          <li>Graphics settings</li>
-          <li>Display settings</li>
-          <li>Audio settings</li>
-          <li>Advanced Graphics page</li>
-          <li>Information panels</li>
-          <li>Controller navigation across all main-menu pages</li>
-          <li>Credits screen</li>
-        </ul>
+      <div class="neon-interface-details">
+        <details class="neon-expandable">
+          <summary>
+            <span>
+              <strong>Other Interface Work</strong>
+              <small>View the interface systems I designed and implemented</small>
+            </span>
+          </summary>
+          <div class="neon-expandable-content">
+            <p>I designed and implemented:</p>
+            <ul class="neon-feature-list">
+              <li>HUD Blueprints</li>
+              <li>Main menu</li>
+              <li>Settings menu shell</li>
+              <li>Graphics settings</li>
+              <li>Display settings</li>
+              <li>Audio settings</li>
+              <li>Advanced Graphics page</li>
+              <li>Information panels</li>
+              <li>Controller navigation across all main-menu pages</li>
+              <li>Credits screen</li>
+            </ul>
+          </div>
+        </details>
 
-        <h3>Graphics Presets</h3>
-        <p>The graphics presets worked in both directions:</p>
-        <ul>
-          <li>Selecting a preset updated the individual graphics settings.</li>
-          <li>Changing an individual setting changed the selected preset to <code>Custom</code>.</li>
-        </ul>
+        <details class="neon-expandable">
+          <summary>
+            <span>
+              <strong>Graphics Presets</strong>
+              <small>View how preset and individual settings stayed in sync</small>
+            </span>
+          </summary>
+          <div class="neon-expandable-content">
+            <p>The graphics presets worked in both directions:</p>
+            <ul>
+              <li>Selecting a preset updated the individual graphics settings.</li>
+              <li>Changing an individual setting changed the selected preset to <code>Custom</code>.</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -343,11 +397,6 @@
           allowfullscreen></iframe>
       </div>
 
-      <div class="neon-gallery-grid">
-        {{ range seq 6 }}
-          <div class="neon-placeholder neon-placeholder-gallery" aria-hidden="true"></div>
-        {{ end }}
-      </div>
     </section>
 
     <section class="neon-section neon-download" aria-labelledby="neon-download-title">
