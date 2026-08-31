@@ -1,431 +1,117 @@
 {{ define "main" }}
   {{ $logo := .Resources.GetMatch "neon-steel-logo-web.png" }}
   {{ $poster := .Resources.GetMatch "neon-steel-poster-1200x1600.jpg" }}
-  {{ $trelloArt := .Resources.GetMatch "Trello Art Pipeline.gif" }}
-  {{ $trelloDev := .Resources.GetMatch "Trello Dev pipeline.gif" }}
-  {{ $trelloAutomation := .Resources.GetMatch "Trello Automation Rule Setup.gif" }}
+  {{ $trello := .Resources.GetMatch "Trello Automation Rule Setup.gif" }}
   {{ $hudConcept := .Resources.GetMatch "Hud Concept.png" }}
-  {{ $hudFinal := .Resources.GetMatch "Final HUD.gif" }}
   {{ $hudGameplay := .Resources.GetMatch "HUD in game.png" }}
 
-  <article class="neon-case-study neon-steel-case-study">
-    <header class="neon-masthead">
+  <article class="neon-case-study neon-v2-case-study">
+    <header class="neon-v2-masthead">
       <h1 class="neon-visually-hidden">Neon Steel</h1>
       {{ with $logo }}
-        <img
-          class="neon-logo"
-          src="{{ .RelPermalink }}"
-          width="909"
-          height="305"
-          alt="Neon Steel logo"
-          decoding="async"
-          fetchpriority="high">
+        <img class="neon-v2-logo" src="{{ .RelPermalink }}" width="909" height="305" alt="Neon Steel logo" decoding="async" fetchpriority="high">
       {{ end }}
     </header>
 
-    <section class="neon-trailer" aria-labelledby="neon-trailer-title">
-      <h2 id="neon-trailer-title" class="neon-visually-hidden">Full Trailer</h2>
-      <div class="neon-video-frame">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/2x1Qo6xWw9Q"
-          title="Neon Steel full trailer"
-          loading="lazy"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+    <section class="neon-v2-trailer" aria-label="Full trailer">
+      <div class="neon-v2-trailer-frame">
+        <button class="neon-v2-trailer-button" type="button" data-neon-trailer-trigger aria-label="Play the full Neon Steel trailer"><span>Play trailer</span></button>
+        <iframe data-neon-trailer title="Neon Steel full trailer" loading="lazy" hidden referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
     </section>
 
-    <section class="neon-section neon-overview" aria-labelledby="neon-overview-title">
-      <div class="neon-overview-grid">
-        <div class="neon-copy">
-          <p class="neon-eyebrow">Project Overview</p>
-          <h2 id="neon-overview-title">What Is Neon Steel</h2>
-          <p>
-            Neon Steel is a 2.5D action beat ’em up made by a 20-person team at BloodFeather Studios. I worked as Executive Producer and UI/UX Developer, splitting my time between leading production and building the game’s interface systems.
-          </p>
-          <p>
-            I led the team through development and release. I planned milestones, managed scope, tracked blockers, coordinated playtests, and worked with the other leads to keep development moving.
-          </p>
-          <p>
-            I also worked directly on the interface. I organized the HUD information, gave the Neon Steel art team feedback and direction, and built the HUD and menu systems in Unreal Engine with Blueprints.
-          </p>
-          <p>
-            We released the downloadable Windows build on June 19, 2026. Future updates are planned.
-          </p>
-        </div>
-
-        {{ with $poster }}
-          <figure class="neon-poster">
-            <img
-              src="{{ .RelPermalink }}"
-              width="1200"
-              height="1600"
-              alt="Neon Steel promotional poster"
-              loading="lazy"
-              decoding="async">
-            <figcaption>Official Neon Steel poster</figcaption>
-          </figure>
-        {{ end }}
+    <section class="neon-v2-section neon-v2-overview" aria-labelledby="neon-v2-overview-title">
+      <div class="neon-v2-overview-copy">
+        <h2 id="neon-v2-overview-title">What Is Neon Steel</h2>
+        <p class="neon-v2-lead">Neon Steel is a 2.5D action beat 'em up made at BloodFeather Studios. I worked as Executive Producer and UI/UX Developer, splitting my time between leading production and building the game's interface systems.</p>
+        <p>I led the team through development and release. I planned milestones, managed scope, tracked blockers, coordinated playtests, and worked with the other leads to keep development moving.</p>
+        <p>I also organized the HUD information, gave the art team feedback and direction, and built the HUD and menu systems in Unreal Engine with Blueprints.</p>
+        <p>We released the downloadable Windows build on June 19, 2026. Future updates are planned.</p>
       </div>
-
-      <dl class="neon-metadata">
-        <div><dt>Role</dt><dd>Executive Producer and UI/UX Developer</dd></div>
-        <div><dt>Studio</dt><dd>BloodFeather Studios</dd></div>
-        <div><dt>Team</dt><dd>20 people</dd></div>
-        <div><dt>Genre</dt><dd>2.5D action beat ’em up</dd></div>
-        <div><dt>Development</dt><dd>July 2025 to June 2026</dd></div>
-        <div><dt>Feature complete</dt><dd>June 5, 2026</dd></div>
-        <div><dt>Released</dt><dd>June 19, 2026</dd></div>
-        <div><dt>Engine</dt><dd>Unreal Engine 5.6.1</dd></div>
-        <div><dt>Platform</dt><dd>Windows</dd></div>
-        <div><dt>Status</dt><dd>Released, with future updates planned</dd></div>
-      </dl>
-    </section>
-
-    <section class="neon-section neon-production" aria-labelledby="neon-production-title">
-      <div class="neon-copy neon-production-copy">
-        <p class="neon-eyebrow">Production and Workflow</p>
-        <h2 id="neon-production-title">How I Led Production</h2>
-        <p>
-          The team covered programming, design, art, animation, audio, narrative, and UI. With 20 people involved, much of my work came down to making sure each discipline knew what it needed, what was blocking it, and what had to happen next.
-        </p>
-        <p>
-          I planned milestones, set priorities, tracked dependencies, followed up on blockers, ran reviews, and coordinated playtests. When the scope changed, I worked with the other leads to compare each feature against the time and people we had available.
-        </p>
-        <p>
-          We protected the features needed for release. The team reached feature complete on June 5, two weeks before launch. We used the remaining time for marketing, bug fixing, and playtesting.
-        </p>
-      </div>
-
-      <div class="neon-story-panel">
-        <div class="neon-story-copy">
-          <h3>Story Beats Board</h3>
-          <p>
-            The Story Beats Board mapped what happened throughout the game, what the player would encounter, and when new elements appeared.
-          </p>
-          <p>
-            The narrative and art teams completed the board with input from Toronto Film School faculty. Narrative work had its own section, while the rest of the board showed how the story and gameplay progressed alongside each other.
-          </p>
-          <p>
-            I reviewed the pacing and paid close attention to when Kade gained new combat abilities. Kade begins as an ordinary construction worker, so he does not start with guns or a sword. He gains access to them as the story and threats escalate.
-          </p>
-        </div>
-        <ul class="neon-story-list" aria-label="Items tracked on the Story Beats Board">
-          <li>Combat encounters</li>
-          <li>Tutorials</li>
-          <li>Enemy introductions</li>
-          <li>Weapon introductions</li>
-          <li>Dialogue</li>
-          <li>New mechanics</li>
-          <li>Level progression</li>
-          <li>Kade’s story</li>
-          <li>Mech progression</li>
-        </ul>
-      </div>
-
-      <div class="neon-details-grid">
-        <details class="neon-expandable">
-          <summary>
-            <span>
-              <strong>Release Scope</strong>
-              <small>View shipped systems and enemy types</small>
-            </span>
-          </summary>
-          <div class="neon-expandable-content">
-            <p>The released build included:</p>
-            <ul class="neon-feature-list">
-              <li>Core combat</li>
-              <li>Final HUD</li>
-              <li>Save and load</li>
-              <li>Grappling hook</li>
-              <li>Weapons</li>
-              <li>Pickups</li>
-              <li>Settings</li>
-              <li>Hazards</li>
-              <li>Enemy navigation</li>
-              <li>Chaos Physics breakable objects</li>
-              <li>Vertical traversal</li>
-              <li>Player shield</li>
-              <li>Sword ultimate attack</li>
-              <li>Gun ultimate attack</li>
-              <li>Shield ultimate attack</li>
-            </ul>
-            <p>The game shipped with six enemy types:</p>
-            <ul>
-              <li>Three coworker enemy types using fists, a melee weapon, or a gun</li>
-              <li>Three Mantis enemy types using the same basic composition, with access to ultimate attacks</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="neon-expandable">
-          <summary>
-            <span>
-              <strong>Interface Scope Decisions</strong>
-              <small>View shipped and deferred interface work</small>
-            </span>
-          </summary>
-          <div class="neon-expandable-content neon-system-decisions">
-            <h3>Neon Bar</h3>
-            <p>Enemies and crates dropped Neon orbs. Collecting these orbs filled the Neon bar. Once the bar was full, the player could activate the mech suit.</p>
-            <p>The functional Neon bar shipped with the game. We deferred its animated liquid presentation to save development time and meet the release date.</p>
-
-            <h3>Codex (Deferred)</h3>
-            <p>Codex was a planned pause-menu system for collecting audio logs that revealed more of the game’s backstory. We deferred it to keep the release on schedule.</p>
-
-            <h3>Mech HUD (Deferred)</h3>
-            <p>We planned the Mech HUD as a separate interface shown while the player controlled the mech. Leaving the mech would have restored the human HUD. We deferred the Mech HUD as a stretch goal.</p>
-
-            <p>Accessibility settings were planned during development but deferred so the team could meet the June 19 release deadline.</p>
-          </div>
-        </details>
-      </div>
-
-      <div class="neon-trello-intro">
-        <div class="neon-copy">
-          <h3>Trello Workflow</h3>
-          <p>I spent more than 20 hours researching, building, and adjusting the Trello automations.</p>
-          <p>
-            I created the development cards and tracked each assigned task daily. I also helped create art cards when I was responsible for supervising or tracking the work. Each card used the appropriate <code>Art</code> or <code>Dev</code> label and priority.
-          </p>
-          <p>
-            The automations used each card’s label, checklist state, and board location to keep the art and development workflows consistent.
-          </p>
-        </div>
-        <div>
-          <h4>Priority levels</h4>
-          <ul class="neon-priority-list">
-            <li><strong>P0</strong><span>Highest</span></li>
-            <li><strong>P1</strong><span>High</span></li>
-            <li><strong>P2</strong><span>Medium</span></li>
-            <li><strong>P3</strong><span>Low</span></li>
-            <li><strong>P4</strong><span>Lowest</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="neon-pipeline-list" aria-label="Trello task workflows">
-        <div class="neon-pipeline-entry">
-          {{ with $trelloArt }}
-            <figure class="neon-project-figure neon-pipeline-figure">
-              <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Neon Steel Trello board showing the art workflow" loading="lazy" decoding="async">
-              <figcaption>Art production pipeline</figcaption>
-            </figure>
-          {{ end }}
-          <div class="neon-workflow">
-            <h3>Art workflow</h3>
-            <p>An art card moved from To Do to In Progress with the <code>Art</code> label and a priority. Trello then added the <code>Art Progress</code> checklist.</p>
-            <details class="neon-inline-details">
-              <summary>View the full art workflow</summary>
-              <div>
-                <ol aria-label="Art workflow stages">
-                  <li>To Do</li>
-                  <li>In Progress</li>
-                  <li>Art Evaluation</li>
-                  <li>Completed</li>
-                </ol>
-                <p>When <code>Finished</code> was checked, the automation moved the card to Art Evaluation and changed the checklist item to <code>Evaluated</code>. The art lead, art producer, and I reviewed the work. Once we approved it, the card moved to Completed.</p>
-              </div>
-            </details>
-          </div>
-        </div>
-
-        <div class="neon-pipeline-entry neon-pipeline-entry-reverse">
-          {{ with $trelloDev }}
-            <figure class="neon-project-figure neon-pipeline-figure">
-              <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Neon Steel Trello board showing the development workflow" loading="lazy" decoding="async">
-              <figcaption>Development production pipeline</figcaption>
-            </figure>
-          {{ end }}
-          <div class="neon-workflow">
-            <h3>Development workflow</h3>
-            <p>Each development card moved from To Do to In Progress with the <code>Dev</code> label and a priority. Trello then added the <code>Dev Progress</code> checklist.</p>
-            <details class="neon-inline-details">
-              <summary>View the full development workflow</summary>
-              <div>
-                <ol aria-label="Development workflow stages">
-                  <li>To Do</li>
-                  <li>In Progress</li>
-                  <li>Testing (Dev)</li>
-                  <li>Completed if the pull request was approved and merged</li>
-                  <li>Debugging (Dev) if the technical director requested changes</li>
-                </ol>
-                <p>When the work was ready, the card moved to Testing (Dev), where the technical director reviewed the pull request. If the technical director approved and merged it, I checked <code>Finished</code>. The automation then moved the card to Completed.</p>
-                <p>If the technical director left feedback that required more work, I selected the corresponding checklist item. The automation then moved the card to Debugging (Dev).</p>
-              </div>
-            </details>
-          </div>
-        </div>
-
-        <div class="neon-automation-entry">
-          {{ with $trelloAutomation }}
-            <figure class="neon-project-figure neon-automation-figure">
-              <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Trello automation rules used on the Neon Steel production board" loading="lazy" decoding="async">
-              <figcaption>Trello automation rules</figcaption>
-            </figure>
-          {{ end }}
-          <div class="neon-workflow neon-automation-copy">
-            <h3>Automation rules</h3>
-            <p>The automations watched each card’s label, checklist state, and board location. They added and updated checklists and moved cards through the correct review and testing stages.</p>
-            <p>This reduced the amount of manual Trello work needed to keep each card current.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="neon-section neon-hud" aria-labelledby="neon-hud-title">
-      <div class="neon-section-heading neon-section-heading-wide">
-        <p class="neon-eyebrow">HUD Redesign</p>
-        <h2 id="neon-hud-title">Why I Redesigned the HUD</h2>
-      </div>
-
-      <dl class="neon-decision-list">
-        <div>
-          <dt>Problem</dt>
-          <dd>The original HUD placed information in several corners of the screen, covering parts of the platforms and pulling attention away from the action.</dd>
-        </div>
-        <div>
-          <dt>Direction</dt>
-          <dd>I wanted the main player information grouped in one place. I decided how the HUD should be organized and gave the Neon Steel art team feedback and direction.</dd>
-        </div>
-        <div>
-          <dt>Art and implementation</dt>
-          <dd>The Neon Steel art team created the final visual design. I built it in Unreal Engine with Blueprints.</dd>
-        </div>
-        <div>
-          <dt>Result</dt>
-          <dd>The final layout leaves more of the play space visible.</dd>
-        </div>
-      </dl>
-
-      <div class="neon-hud-comparison">
-        {{ with $hudConcept }}
-          <figure class="neon-project-figure">
-            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Early Neon Steel HUD concept with information placed in several corners" loading="lazy" decoding="async">
-            <figcaption>Early HUD concept</figcaption>
-          </figure>
-        {{ end }}
-        {{ with $hudFinal }}
-          <figure class="neon-project-figure">
-            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Final Neon Steel HUD with health, ammunition, abilities, and the Neon bar grouped together" loading="lazy" decoding="async">
-            <figcaption>Final HUD</figcaption>
-          </figure>
-        {{ end }}
-      </div>
-
-      {{ with $hudGameplay }}
-        <figure class="neon-project-figure neon-hud-gameplay">
-          <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Final Neon Steel HUD displayed during gameplay" loading="lazy" decoding="async">
-          <figcaption>HUD in game</figcaption>
+      {{ with $poster }}
+        <figure class="neon-v2-media neon-v2-media-pink neon-v2-poster">
+          <button class="neon-v2-media-button" type="button" data-project-lightbox aria-label="View official Neon Steel poster larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Neon Steel promotional poster" loading="lazy" decoding="async"></button>
+          <figcaption>Official Neon Steel poster</figcaption>
         </figure>
       {{ end }}
+    </section>
 
-      <div class="neon-interface-details">
-        <details class="neon-expandable">
-          <summary>
-            <span>
-              <strong>Other Interface Work</strong>
-              <small>View the interface systems I designed and implemented</small>
-            </span>
-          </summary>
-          <div class="neon-expandable-content">
-            <p>I designed and implemented:</p>
-            <ul class="neon-feature-list">
-              <li>HUD Blueprints</li>
-              <li>Main menu</li>
-              <li>Settings menu shell</li>
-              <li>Graphics settings</li>
-              <li>Display settings</li>
-              <li>Audio settings</li>
-              <li>Advanced Graphics page</li>
-              <li>Information panels</li>
-              <li>Controller navigation across all main-menu pages</li>
-              <li>Credits screen</li>
-            </ul>
-          </div>
-        </details>
+    <section class="neon-v2-section neon-v2-details" aria-labelledby="neon-v2-details-title">
+      <h2 id="neon-v2-details-title">Project Details</h2>
+      <dl class="neon-v2-details-grid">
+        <div><dt>Role</dt><dd>Executive Producer and<br>UI/UX Developer</dd></div><div><dt>Studio</dt><dd>BloodFeather Studios</dd></div>
+        <div><dt>Team</dt><dd>20 people</dd></div><div><dt>Genre</dt><dd>2.5D action beat 'em up</dd></div>
+        <div><dt>Development</dt><dd>11 months</dd></div><div><dt>Engine</dt><dd>Unreal Engine 5.6.1</dd></div>
+        <div><dt>Released</dt><dd>June 19, 2026</dd></div><div><dt>Platform</dt><dd>Windows</dd></div>
+        <div class="neon-v2-status"><dt>Status</dt><dd>Released, with future updates planned</dd></div>
+      </dl>
+    </section>
 
-        <details class="neon-expandable">
-          <summary>
-            <span>
-              <strong>Graphics Presets</strong>
-              <small>View how preset and individual settings stayed in sync</small>
-            </span>
-          </summary>
-          <div class="neon-expandable-content">
-            <p>The graphics presets worked in both directions:</p>
-            <ul>
-              <li>Selecting a preset updated the individual graphics settings.</li>
-              <li>Changing an individual setting changed the selected preset to <code>Custom</code>.</li>
-            </ul>
-          </div>
-        </details>
+    <section class="neon-v2-section neon-v2-copy-section" aria-labelledby="neon-v2-production-title">
+      <h2 id="neon-v2-production-title">How I Led Production</h2>
+      <div class="neon-v2-narrow-copy">
+        <p>The project brought together programming, design, art, animation, audio, narrative, and UI. Much of my work came down to making sure each discipline knew what it needed, what was blocking it, and what had to happen next.</p>
+        <p>I planned milestones, set priorities, tracked dependencies, followed up on blockers, ran reviews, and coordinated four closed playtests with 10 to 15 participants per session. When the scope changed, I worked with the other leads to compare each feature against the time and people we had available.</p>
+        <p>We protected the features needed for release. The team reached feature complete two weeks ahead of schedule and used the remaining time for marketing, bug fixing, and playtesting.</p>
       </div>
     </section>
 
-    <section class="neon-section neon-results" aria-labelledby="neon-results-title">
-      <div class="neon-section-heading">
-        <p class="neon-eyebrow">Results</p>
-        <h2 id="neon-results-title">What We Delivered</h2>
-      </div>
-
-      <div class="neon-results-grid">
-        <div><strong>20</strong><span>People on the team</span></div>
-        <div><strong>4</strong><span>Closed playtests with 10 to 15 participants per session</span></div>
-        <div><strong>28,286</strong><span>Views, impressions, and page visits across all platforms as of June 19, 2026</span></div>
-      </div>
-
-      <div class="neon-results-notes">
-        <p>203 total followers across all social accounts as of June 19, 2026.</p>
+    <section class="neon-v2-section" aria-labelledby="neon-v2-scope-title">
+      <h2 id="neon-v2-scope-title">Scope and Pacing</h2>
+      <div class="neon-v2-two-column">
+        <div><h3>Story beats board</h3><p>The Story Beats Board mapped what happened throughout the game, what the player would encounter, and when new elements appeared. I reviewed the pacing and paid close attention to when Kade gained new combat abilities.</p><p>Kade begins as an ordinary construction worker, so he does not start with guns or a sword. He gains access to them as the story and threats escalate.</p></div>
+        <div><h3>Release scope</h3><p>The released build included core combat, the final HUD, save and load, grappling, weapons, pickups, settings, hazards, enemy navigation, breakable objects, vertical traversal, a player shield, and ultimate attacks for the sword, gun, and shield.</p><p>The game shipped with six enemy types. Three Mantis variants had ultimate attacks.</p></div>
       </div>
     </section>
 
-    <section class="neon-section neon-media" aria-labelledby="neon-media-title">
-      <div class="neon-section-heading">
-        <p class="neon-eyebrow">Media Gallery</p>
-        <h2 id="neon-media-title">Gameplay and Interface</h2>
+    <section class="neon-v2-section neon-v2-workflow" aria-labelledby="neon-v2-workflow-title">
+      <div class="neon-v2-workflow-intro"><h2 id="neon-v2-workflow-title">Production Workflow</h2><div><p>I spent more than 20 hours researching, building, and adjusting the Trello automations. I created the development cards and tracked each assigned task daily. I also helped create art cards when I was responsible for supervising or tracking the work.</p><p>The automations used each card's label, checklist state, and board location to keep the art and development workflows consistent. This reduced the amount of manual Trello work needed to keep each card current.</p></div></div>
+      <div class="neon-v2-board-layout">
+        {{ with $trello }}
+          <figure class="neon-v2-media neon-v2-media-cyan"><button class="neon-v2-media-button" type="button" data-project-lightbox aria-label="View Trello automation rules larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Trello automation rules used on the Neon Steel production board" loading="lazy" decoding="async"></button><figcaption>Trello production board</figcaption></figure>
+        {{ end }}
+        <aside class="neon-v2-board-note"><h3>Board structure</h3><p>Cards used the appropriate Art or Dev label and a priority. The priority levels helped the team distinguish work that needed attention first.</p><dl class="neon-v2-priority-list"><div><dt>P0</dt><dd>Highest</dd></div><div><dt>P1</dt><dd>High</dd></div><div><dt>P2</dt><dd>Medium</dd></div><div><dt>P3</dt><dd>Low</dd></div><div><dt>P4</dt><dd>Lowest</dd></div></dl></aside>
       </div>
-
-      <div class="neon-video-frame neon-gameplay-video">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/JL1Hxlsr3Wo"
-          title="Neon Steel gameplay video"
-          loading="lazy"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
-      </div>
-
+      <div class="neon-v2-workflow-block"><div><h3>Art workflow</h3><p>An art card moved from To Do to In Progress with the Art label and a priority. Trello then added the Art Progress checklist.</p><p>When Finished was checked, the automation moved the card to Art Evaluation and changed the checklist item to Evaluated. The art lead, art producer, and I reviewed the work. Once we approved it, the card moved to Completed.</p></div><ol class="neon-v2-stage-list" aria-label="Art workflow stages"><li><span>1</span>To Do</li><li><span>2</span>In Progress</li><li><span>3</span>Art Evaluation</li><li><span>4</span>Completed</li></ol></div>
+      <div class="neon-v2-workflow-block neon-v2-workflow-block-reverse"><ol class="neon-v2-stage-list" aria-label="Development workflow stages"><li><span>1</span>To Do</li><li><span>2</span>In Progress</li><li><span>3</span>Testing (Dev)</li><li><span>4</span>Completed after an approved and merged pull request</li><li><span>5</span>Debugging (Dev) when changes were requested</li></ol><div><h3>Development workflow</h3><p>Each development card moved from To Do to In Progress with the Dev label and a priority. Trello then added the Dev Progress checklist.</p><p>When the work was ready, the card moved to Testing (Dev), where the technical director reviewed the pull request. If the pull request was approved and merged, I checked Finished and the automation moved the card to Completed. If changes were requested, I selected the corresponding checklist item and the automation moved the card to Debugging (Dev).</p></div></div>
     </section>
 
-    <section class="neon-section neon-download" aria-labelledby="neon-download-title">
-      <div>
-        <p class="neon-eyebrow">Windows Release</p>
-        <h2 id="neon-download-title">Download Neon Steel</h2>
-        <p>The downloadable Windows build is available from BloodFeather Studios on itch.io.</p>
+    <section class="neon-v2-section neon-v2-hud" aria-labelledby="neon-v2-hud-title">
+      <h2 id="neon-v2-hud-title">Why The HUD Was Redesigned</h2>
+      <div class="neon-v2-narrow-copy"><p class="neon-v2-lead">The original HUD placed information in several corners of the screen, covering parts of the platforms and pulling attention away from the action.</p><p>I wanted the main player information grouped in one place. I decided how the HUD should be organized and gave the Neon Steel art team feedback and direction. The art team created the final visual design, and I built it in Unreal Engine with Blueprints.</p></div>
+      <div class="neon-v2-hud-media">
+        {{ with $hudConcept }}<figure class="neon-v2-media neon-v2-media-pink"><button class="neon-v2-media-button" type="button" data-project-lightbox aria-label="View early HUD concept larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Early Neon Steel HUD concept" loading="lazy" decoding="async"></button><figcaption>Early HUD concept</figcaption></figure>{{ end }}
+        {{ with $hudGameplay }}<figure class="neon-v2-media neon-v2-media-cyan"><button class="neon-v2-media-button" type="button" data-project-lightbox aria-label="View HUD in game larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Neon Steel HUD implemented during gameplay" loading="lazy" decoding="async"></button><figcaption>HUD in game</figcaption></figure>{{ end }}
       </div>
-      <a class="btn btn-primary neon-download-button" href="https://bloodfeatherstudios.itch.io/neon-steel" target="_blank" rel="noopener noreferrer">
-        Download on itch.io
-      </a>
     </section>
 
-    <section class="neon-socials" aria-labelledby="neon-socials-title">
-      <h2 id="neon-socials-title">Game and Studio Links</h2>
-      <div class="neon-social-links">
-        <a href="https://www.igdb.com/games/neon-steel" target="_blank" rel="noopener noreferrer" aria-label="Neon Steel on IGDB" title="IGDB">
-          {{ partial "icon.html" "igdb" }}
-        </a>
-        <a href="https://www.imdb.com/title/tt43589769/?ref_=ttfc_ov_bk" target="_blank" rel="noopener noreferrer" aria-label="Neon Steel on IMDb" title="IMDb">
-          {{ partial "icon.html" "imdb" }}
-        </a>
-        <a href="https://www.youtube.com/@BloodFeatherStudios" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studios on YouTube" title="YouTube">{{ partial "icon.html" "youtube" }}</a>
-        <a href="https://instagram.com/bloodfeatherstudio" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studios on Instagram" title="Instagram">{{ partial "icon.html" "instagram" }}</a>
-        <a href="https://www.tiktok.com/@bloodfeatherstudio" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studios on TikTok" title="TikTok">{{ partial "icon.html" "tiktok" }}</a>
-        <a href="https://discord.com/invite/dUX3umB2N2" target="_blank" rel="noopener noreferrer" aria-label="Neon Steel Discord" title="Discord">{{ partial "icon.html" "discord" }}</a>
-        <a href="https://www.linkedin.com/company/bloodfeather-studio/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studios on LinkedIn" title="LinkedIn">{{ partial "icon.html" "linkedin" }}</a>
-        <a href="https://bloodfeather-studio.github.io/BloodFeather.ca/" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studios website" title="Website">{{ partial "icon.html" "globe" }}</a>
+    <section class="neon-v2-section neon-v2-interface" aria-labelledby="neon-v2-interface-title">
+      <h2 id="neon-v2-interface-title">Interface Systems I Built</h2>
+      <p class="neon-v2-interface-lead">I built the game's interface systems in Unreal Engine 5 using Blueprints. This included the main menu, HUD functionality, settings pages, information panels, controller navigation, and credits.</p>
+      <div class="neon-v2-interface-grid">
+        <div><h3>Main Menu and Navigation</h3><p>I created the main menu flow and made sure every primary page could be navigated with a controller. This covered moving between menus, selecting settings, and returning to the game without relying on a mouse.</p></div>
+        <div><h3>Settings Systems</h3><p>I implemented the graphics, display, audio, and advanced graphics settings pages. Graphics presets updated the related individual settings, while changing an individual setting switched the preset to Custom.</p></div>
+        <div><h3>Gameplay and Information Screens</h3><p>I built the functional HUD systems, information panels, and credits screen. For the HUD, I worked with the art team to organize the player information into one readable area, then implemented the final design in Unreal Engine.</p></div>
       </div>
     </section>
+
+    <section class="neon-v2-section neon-v2-results" aria-labelledby="neon-v2-results-title"><h2 id="neon-v2-results-title">Results</h2><div class="neon-v2-results-list"><div><strong>2 weeks ahead</strong><span>Feature complete before the planned release date</span></div><div><strong>4 closed playtests</strong><span>10 to 15 participants per session</span></div><div><strong>Windows release</strong><span>Released June 19, 2026</span></div><div><strong>28,286</strong><span>Views, impressions, and page visits across all platforms as of June 19, 2026</span></div><div><strong>203</strong><span>Total followers across all social accounts as of June 19, 2026</span></div></div></section>
+
+    <section class="neon-v2-section neon-v2-project-links" aria-labelledby="neon-v2-project-links-title"><h2 id="neon-v2-project-links-title">Neon Steel Links</h2><nav class="neon-v2-social-links" aria-label="Neon Steel and BloodFeather Studios links"><a href="https://www.igdb.com/games/neon-steel" target="_blank" rel="noopener noreferrer" aria-label="Neon Steel on IGDB" title="IGDB">{{ partial "icon.html" "igdb" }}</a><a href="https://www.imdb.com/title/tt43589769/?ref_=ttfc_ov_bk" target="_blank" rel="noopener noreferrer" aria-label="Neon Steel on IMDb" title="IMDb">{{ partial "icon.html" "imdb" }}</a><a href="https://www.youtube.com/@BloodFeatherStudios" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studios on YouTube" title="YouTube">{{ partial "icon.html" "youtube" }}</a><a href="https://instagram.com/bloodfeatherstudio" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studios on Instagram" title="Instagram">{{ partial "icon.html" "instagram" }}</a><a href="https://www.tiktok.com/@bloodfeatherstudio" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studios on TikTok" title="TikTok">{{ partial "icon.html" "tiktok" }}</a><a href="https://discord.com/invite/dUX3umB2N2" target="_blank" rel="noopener noreferrer" aria-label="Neon Steel Discord" title="Discord">{{ partial "icon.html" "discord" }}</a><a href="https://www.linkedin.com/company/bloodfeather-studio/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studios on LinkedIn" title="LinkedIn">{{ partial "icon.html" "linkedin" }}</a><a href="https://bloodfeather-studio.github.io/BloodFeather.ca/" target="_blank" rel="noopener noreferrer" aria-label="BloodFeather Studios website" title="Website">{{ partial "icon.html" "globe" }}</a></nav></section>
+
+    <section class="neon-v2-section neon-v2-download" aria-labelledby="neon-v2-download-title"><div><h2 id="neon-v2-download-title">Play Neon Steel</h2><p>The downloadable Windows build is available from BloodFeather Studios on itch.io.</p></div><a class="neon-v2-download-button" href="https://bloodfeatherstudios.itch.io/neon-steel" target="_blank" rel="noopener noreferrer">Download on itch.io</a></section>
   </article>
+
+  <script>
+    (() => {
+      const trigger = document.querySelector('[data-neon-trailer-trigger]');
+      const trailer = document.querySelector('[data-neon-trailer]');
+      if (!trigger || !trailer) return;
+      trigger.addEventListener('click', () => {
+        trailer.src = 'https://www.youtube-nocookie.com/embed/2x1Qo6xWw9Q?autoplay=1';
+        trailer.hidden = false;
+        trigger.hidden = true;
+      }, { once: true });
+    })();
+  </script>
 {{ end }}
