@@ -1,0 +1,23 @@
+{{ if .IsHome }}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "{{ .Permalink }}#arian-shahrabi",
+      "name": "Arian Shahrabi",
+      "url": "{{ .Permalink }}",
+      "jobTitle": "Game Producer and Programmer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Toronto",
+        "addressRegion": "Ontario",
+        "addressCountry": "CA"
+      },
+      "sameAs": [
+        "https://github.com/ArianES7",
+        "https://arian-shahrabi.itch.io/",
+        "https://www.linkedin.com/in/arian-shahrabi-927aa2186/"
+      ]
+    }
+  </script>
+{{ end }}
