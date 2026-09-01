@@ -6,247 +6,189 @@
   {{ $mainMenu := .Resources.GetMatch "MainMenu.png" }}
   {{ $shop := .Resources.GetMatch "Shop-ObstacleSkins.png" }}
 
-  <article class="neon-case-study rolling-case-study">
-    <header class="rolling-masthead">
+  <article class="rolling-v2-case-study">
+    <header class="rolling-v2-masthead">
       <h1>The Rolling Stone</h1>
+      <p>Solo Unity project</p>
     </header>
 
-    <section class="neon-trailer" aria-labelledby="rolling-trailer-title">
-      <h2 id="rolling-trailer-title" class="neon-visually-hidden">Gameplay trailer</h2>
-      <div class="neon-video-frame">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/wNbm7sVQRAA"
-          title="The Rolling Stone gameplay trailer"
-          loading="lazy"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
-      </div>
+    <section class="rolling-v2-trailer" aria-labelledby="rolling-trailer-title">
+      <h2 id="rolling-trailer-title" class="sr-only">Gameplay trailer</h2>
+      <button class="rolling-v2-trailer-play" type="button" data-rolling-trailer aria-label="Play The Rolling Stone gameplay trailer">
+        <span>Play trailer</span>
+      </button>
+      <iframe class="rolling-v2-trailer-video" title="The Rolling Stone gameplay trailer" data-src="https://www.youtube-nocookie.com/embed/wNbm7sVQRAA?autoplay=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
     </section>
 
-    <section class="neon-section neon-split" aria-labelledby="rolling-overview-title">
-      <div class="neon-copy">
-        <p class="neon-eyebrow">Project overview</p>
-        <h2 id="rolling-overview-title">Built for quick runs on different devices</h2>
-        <p>
-          The Rolling Stone is a 3D endless runner where the player steers, jumps, collects coins, and avoids increasingly difficult obstacles. Progress carries between runs, and players can compete on global leaderboards.
-        </p>
-        <p>
-          The stone moves forward automatically while the player steers, jumps, collects coins, and uses temporary power ups. I made it as a solo project because I wanted something that would be easy to play on both desktop and mobile.
-        </p>
-
-        <dl class="neon-metadata">
-          <div><dt>Role</dt><dd>Solo Developer</dd></div>
-          <div><dt>Development</dt><dd>January 2026 to present</dd></div>
-          <div><dt>First release</dt><dd>April 15, 2026</dd></div>
-          <div><dt>Current build</dt><dd>0.9.6.5</dd></div>
-          <div><dt>Engine</dt><dd>Unity 6</dd></div>
-          <div><dt>Status</dt><dd>Public beta</dd></div>
-        </dl>
-
-        <div class="rolling-actions">
-          <a class="btn btn-primary" href="https://arian-shahrabi.itch.io/the-rolling-stone" target="_blank" rel="noopener noreferrer">Play on itch.io</a>
-        </div>
+    <section class="rolling-v2-section rolling-v2-overview" aria-labelledby="rolling-overview-title">
+      <div>
+        <h2 id="rolling-overview-title">What Is The Rolling Stone</h2>
+        <p class="rolling-v2-lead">The Rolling Stone is a 3D endless runner where the player steers, jumps, collects coins, and avoids increasingly difficult obstacles. Progress carries between runs, and players can compete on global leaderboards.</p>
+        <p>The stone moves forward automatically while the player steers, jumps, collects coins, and uses temporary power ups. I made it as a solo project because I wanted something that would be easy to play on both desktop and mobile.</p>
       </div>
-
       {{ with $overviewOne }}
         {{ $image := .Resize "1400x" }}
-        <figure class="rolling-media">
-          <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="The stone travelling along an obstacle track during a run" loading="lazy" decoding="async">
+        <figure class="rolling-v2-media">
+          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View gameplay image larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="The stone travelling along an obstacle track during a run" loading="lazy" decoding="async"></button>
+          <figcaption>Gameplay</figcaption>
         </figure>
       {{ end }}
     </section>
 
-    <section class="neon-section neon-split" aria-labelledby="rolling-controls-title">
-      <ul class="rolling-input-panel" aria-label="Supported input methods">
-        <li><span aria-hidden="true">01</span><div><strong>Keyboard</strong><small>Rebindable controls</small></div></li>
-        <li><span aria-hidden="true">02</span><div><strong>Controller</strong><small>Analog steering</small></div></li>
-        <li><span aria-hidden="true">03</span><div><strong>Touchscreen</strong><small>On-screen input</small></div></li>
-        <li><span aria-hidden="true">04</span><div><strong>Accelerometer</strong><small>Tilt steering</small></div></li>
-      </ul>
+    <section class="rolling-v2-section rolling-v2-details" aria-labelledby="rolling-details-title">
+      <h2 id="rolling-details-title">Project Details</h2>
+      <dl class="rolling-v2-facts">
+        <div><dt>Role</dt><dd>Solo Developer</dd></div>
+        <div><dt>Engine</dt><dd>Unity 6</dd></div>
+        <div><dt>Development</dt><dd>January 2026 to present</dd></div>
+        <div><dt>First release</dt><dd>April 15, 2026</dd></div>
+        <div><dt>Current build</dt><dd>0.9.6.5</dd></div>
+        <div><dt>Status</dt><dd>Public beta</dd></div>
+      </dl>
+    </section>
 
-      <div class="neon-copy">
-        <p class="neon-eyebrow">Controls and game feel</p>
+    <section class="rolling-v2-section rolling-v2-two-column" aria-labelledby="rolling-controls-title">
+      <div class="rolling-v2-controls-side">
+        <div class="rolling-v2-control-grid" aria-label="Supported input methods">
+          <div><strong>Keyboard</strong><span>Rebindable controls</span></div>
+          <div><strong>Controller</strong><span>Analog steering</span></div>
+          <div><strong>Touchscreen</strong><span>On-screen input</span></div>
+          <div><strong>Accelerometer</strong><span>Tilt steering</span></div>
+        </div>
+        <div class="rolling-v2-control-summary" aria-label="Control design">
+          <p>Control design</p>
+          <dl>
+            <div><dt>Movement</dt><dd>Free lateral steering</dd></div>
+            <div><dt>Jump</dt><dd>Variable height</dd></div>
+            <div><dt>Score</dt><dd>Distance plus coins</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div>
         <h2 id="rolling-controls-title">Controls for desktop and mobile</h2>
-        <p>
-          Instead of fixed lanes, the player has free lateral steering and direct control over jump height. Holding jump produces a higher arc, while releasing it early creates a shorter hop.
-        </p>
-        <p>
-          The controller combines steering smoothing, air control, jump buffering, coyote time, and separate acceleration and response tuning. The HTML5 release supports rebindable keyboard controls, controllers, touchscreen input, and accelerometer steering.
-        </p>
-        <p>
-          A run ends when the stone falls from the track or hits an obstacle without an active Phase Shield. Distance is the primary score, while collected coins become currency.
-        </p>
+        <p>Instead of fixed lanes, the player has free lateral steering and direct control over jump height. Holding jump produces a higher arc, while releasing it early creates a shorter hop.</p>
+        <p>The controller combines steering smoothing, air control, jump buffering, coyote time, and separate acceleration and response tuning. The HTML5 release supports rebindable keyboard controls, controllers, touchscreen input, and accelerometer steering.</p>
+        <p>A run ends when the stone falls from the track or hits an obstacle without an active Phase Shield. Distance is the primary score, while collected coins become currency.</p>
       </div>
     </section>
 
-    <section class="neon-section neon-split" aria-labelledby="rolling-difficulty-title">
-      <div class="neon-copy">
-        <p class="neon-eyebrow">Segments and difficulty</p>
+    <section class="rolling-v2-section rolling-v2-two-column rolling-v2-two-column-reverse" aria-labelledby="rolling-difficulty-title">
+      <div>
         <h2 id="rolling-difficulty-title">Handcrafted obstacles arranged for each run</h2>
-        <p>
-          The track is assembled from 14 handcrafted segment prefabs rather than procedurally generated geometry. The current set includes rotating and lateral obstacles, underpasses, crushers, falling hazards, jump sections, recovery areas, and safe floor sections.
-        </p>
-        <p>
-          A segment director manages weighted selection, difficulty tiers, minimum distance rules, repeat cooldowns, difficult segment streak limits, and recovery sections. Object pooling lets segments be recycled as the run continues.
-        </p>
-        <p>
-          Difficulty rises in two ways. Forward speed follows a tuned progression curve, and harder segments become more common as the player reaches greater distances.
-        </p>
+        <p>The track is assembled from 14 handcrafted segment prefabs rather than procedurally generated geometry. The current set includes rotating and lateral obstacles, underpasses, crushers, falling hazards, jump sections, recovery areas, and safe floor sections.</p>
+        <p>A segment director manages weighted selection, difficulty tiers, minimum distance rules, repeat cooldowns, difficult segment streak limits, and recovery sections. Object pooling lets segments be recycled as the run continues.</p>
+        <p>Difficulty rises through forward speed and through harder segments appearing more often at greater distances.</p>
       </div>
-
       {{ with $overviewTwo }}
         {{ $image := .Resize "1400x" }}
-        <figure class="rolling-media">
-          <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="The stone approaching coins, rotating rings, and moving obstacles" loading="lazy" decoding="async">
+        <figure class="rolling-v2-media">
+          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View obstacle segments image larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="The stone approaching coins, rotating rings, and moving obstacles" loading="lazy" decoding="async"></button>
+          <figcaption>Obstacle segments</figcaption>
         </figure>
       {{ end }}
     </section>
 
-    <section class="neon-section neon-split" aria-labelledby="rolling-progression-title">
-      <div class="rolling-progression-gallery">
+    <section class="rolling-v2-section rolling-v2-progression" aria-labelledby="rolling-progression-title">
+      <div class="rolling-v2-gallery">
         {{ with $shop }}
           {{ $image := .Resize "1400x" }}
-          <figure class="rolling-progression-featured">
-            <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Obstacle skins available in The Rolling Stone cosmetic shop" loading="lazy" decoding="async">
+          <figure class="rolling-v2-media rolling-v2-media-wide">
+            <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View cosmetic shop image larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Obstacle skins available in The Rolling Stone cosmetic shop" loading="lazy" decoding="async"></button>
             <figcaption>Cosmetic shop</figcaption>
           </figure>
         {{ end }}
         {{ with $achievements }}
           {{ $image := .Resize "900x" }}
-          <figure>
-            <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Achievement screen showing all 15 achievements unlocked" loading="lazy" decoding="async">
+          <figure class="rolling-v2-media">
+            <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View achievements image larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Achievement screen showing all 15 achievements unlocked" loading="lazy" decoding="async"></button>
             <figcaption>Achievements</figcaption>
           </figure>
         {{ end }}
         {{ with $mainMenu }}
           {{ $image := .Resize "900x" }}
-          <figure>
-            <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Main menu showing the daily mission panel" loading="lazy" decoding="async">
+          <figure class="rolling-v2-media">
+            <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View daily and weekly missions image larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Main menu showing the daily mission panel" loading="lazy" decoding="async"></button>
             <figcaption>Daily and weekly missions</figcaption>
           </figure>
         {{ end }}
       </div>
-
-      <div class="neon-copy">
-        <p class="neon-eyebrow">Progression</p>
+      <div>
         <h2 id="rolling-progression-title">Reasons to return beyond one high score</h2>
-        <p>
-          Coins earned during runs can be spent on visual customization. The current build includes 16 completed cosmetic choices across stone skins, trails, and obstacle themes. Cosmetics do not provide gameplay advantages, and there are no permanent mechanical upgrades.
-        </p>
-        <p>
-          I also built 15 achievements and 24 daily and weekly missions that the player can complete. Achievements and missions give players extra goals, such as reaching distance milestones, collecting coins, using power-ups, and unlocking cosmetics.
-        </p>
-        <p>
-          Coin Magnet, Phase Shield, and Speed Rush are the three power ups currently available during runs.
-        </p>
+        <p>Coins earned during runs can be spent on visual customization. The current build includes 16 completed cosmetic choices across stone skins, trails, and obstacle themes. Cosmetics do not provide gameplay advantages.</p>
+        <p>I also built 15 achievements and 24 daily and weekly missions. They give players extra goals, such as reaching distance milestones, collecting coins, using power-ups, and unlocking cosmetics.</p>
+        <p>Coin Magnet, Phase Shield, and Speed Rush are the three power ups currently available during runs.</p>
       </div>
     </section>
 
-    <section class="neon-section neon-split" aria-labelledby="rolling-online-title">
-      <div class="neon-copy">
-        <p class="neon-eyebrow">Connected systems</p>
+    <section class="rolling-v2-section rolling-v2-two-column rolling-v2-two-column-reverse" aria-labelledby="rolling-online-title">
+      <div>
         <h2 id="rolling-online-title">Saving progress and protecting global rankings</h2>
-        <p>
-          Unity Gaming Services handles anonymous authentication, moderated display names, Cloud Save, and two global leaderboards. Best Runs ranks each player's best distance, while Richest Players ranks lifetime coins earned.
-        </p>
-        <p>
-          Progress is saved locally and synced to the cloud. Because the current WebGL build does not support Unity Player Account linking, progress may not carry between devices.
-        </p>
-        <p>
-          I added checks on both the device and through Cloud Code. Impossible or duplicate submissions are rejected before they reach the leaderboards.
-        </p>
-        <p>
-          Players can turn on Leaderboard Privacy in the settings. Their score and rank remain visible, but their display name, cosmetics, and achievement count are hidden.
-        </p>
+        <p>Unity Gaming Services handles anonymous authentication, moderated display names, Cloud Save, and two global leaderboards. Best Runs ranks each player's best distance, while Richest Players ranks lifetime coins earned.</p>
+        <p>Progress is saved locally and synced to the cloud. Because the current WebGL build does not support Unity Player Account linking, progress may not carry between devices.</p>
+        <p>I added checks on both the device and through Cloud Code. Impossible or duplicate submissions are rejected before they reach the leaderboards.</p>
       </div>
-
       {{ with $leaderboard }}
         {{ $image := .Resize "1400x" }}
-        <figure class="rolling-media">
-          <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Global best run and richest player leaderboards with the player's current statistics" loading="lazy" decoding="async">
+        <figure class="rolling-v2-media">
+          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View global leaderboards image larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Global best run and richest player leaderboards with the player's current statistics" loading="lazy" decoding="async"></button>
+          <figcaption>Global leaderboards</figcaption>
         </figure>
       {{ end }}
     </section>
 
-    <section class="neon-section rolling-text-section" aria-labelledby="rolling-testing-title">
-      <div class="neon-copy">
-        <p class="neon-eyebrow">Playtesting and iteration</p>
-        <h2 id="rolling-testing-title">What changed after playtesting</h2>
-        <p>
-          Repeated playtests identified slow early pacing, inconsistent jump control, frustrating obstacle combinations, and limited replay ability.
-        </p>
-        <p>
-          Based on that feedback, I added variable jump height, sped up the beginning of each run, smoothed the steering, and changed how obstacle segments were selected. I also added clearer controls and an interactive tutorial. Cosmetics, achievements, missions, and global leaderboards gave players more reasons to return.
-        </p>
-        <p>
-          Because the controller affects obstacle timing, speed, and the overall difficulty curve, each movement change had to be tested against the rest of the game rather than tuned in isolation.
-        </p>
+    <section class="rolling-v2-section rolling-v2-testing" aria-labelledby="rolling-testing-title">
+      <h2 id="rolling-testing-title">What changed after playtesting</h2>
+      <div>
+        <p>Repeated playtests identified slow early pacing, inconsistent jump control, frustrating obstacle combinations, and limited replay ability.</p>
+        <p>Based on that feedback, I added variable jump height, sped up the beginning of each run, smoothed the steering, and changed how obstacle segments were selected. I also added clearer controls and an interactive tutorial. Cosmetics, achievements, missions, and global leaderboards gave players more reasons to return.</p>
+        <p>Because the controller affects obstacle timing, speed, and the overall difficulty curve, each movement change had to be tested against the rest of the game rather than tuned in isolation.</p>
       </div>
     </section>
 
-    <section class="neon-section neon-results" aria-labelledby="rolling-results-title">
-      <div class="neon-section-heading">
-        <p class="neon-eyebrow">Release results</p>
-        <h2 id="rolling-results-title">The public beta so far</h2>
-      </div>
-
-      <div class="neon-results-grid rolling-results-grid">
+    <section class="rolling-v2-section rolling-v2-results" aria-labelledby="rolling-results-title">
+      <h2 id="rolling-results-title">Results</h2>
+      <div class="rolling-v2-results-list">
         <div><strong>2,000+</strong><span>Browser plays on itch.io</span></div>
         <div><strong>4.7/5</strong><span>Average across 19 ratings</span></div>
-        <div><strong>14</strong><span>Active handcrafted obstacle segments</span></div>
+        <div><strong>14</strong><span>Handcrafted obstacle segments</span></div>
         <div><strong>24</strong><span>Daily and weekly missions</span></div>
-      </div>
-
-      <div class="neon-results-notes">
-        <p>
-          The current build also includes 15 achievements, 16 completed cosmetic choices, three power ups, and two global leaderboards.
-        </p>
-        <p>
-          Players praised the music, obstacle dodging, and replayability.
-        </p>
+        <div><strong>15</strong><span>Achievements</span></div>
+        <div><strong>16</strong><span>Completed cosmetic choices</span></div>
+        <div><strong>3</strong><span>Power ups</span></div>
+        <div><strong>2</strong><span>Global leaderboards</span></div>
       </div>
     </section>
 
-    <section class="neon-section" aria-labelledby="rolling-retrospective-title">
-      <div class="neon-section-heading">
-        <p class="neon-eyebrow">Retrospective</p>
-        <h2 id="rolling-retrospective-title">What I would improve next</h2>
-      </div>
-
-      <div class="rolling-closing-grid">
-        <div>
-          <h3>Development structure</h3>
-          <p>
-            If I rebuilt the project, I would establish main, development, and feature branches from the start and use pull requests for integration. I would also split the player controller into smaller systems for input, lateral movement, jumping, forward speed progression, difficulty, and temporary modifiers.
-          </p>
-        </div>
-        <div>
-          <h3>Active development</h3>
-          <p>
-            Future updates are planned for the UI and UX, additional obstacle segments, more cosmetics, environment themes, new gameplay features, and game modes beyond the current endless mode.
-          </p>
-        </div>
-      </div>
-
-      <div class="rolling-tools" aria-label="Tools and technologies">
-        {{ range slice "Unity 6" "C#" "Universal Render Pipeline" "Unity Input System" "Unity Authentication" "Unity Cloud Save" "Unity Cloud Code" "Unity Leaderboards" "Unity Analytics" "Git" "GitHub" }}
-          <span>{{ . }}</span>
-        {{ end }}
-      </div>
-
-      <p class="rolling-asset-note">
-        I built the gameplay, UI, levels, and systems. The project also uses licensed third-party models, audio, and visual effects.
-      </p>
-    </section>
-
-    <section class="neon-section neon-download" aria-labelledby="rolling-play-title">
+    <section class="rolling-v2-section rolling-v2-next" aria-labelledby="rolling-next-title">
       <div>
-        <p class="neon-eyebrow">Available now</p>
+        <h2 id="rolling-next-title">What I would improve next</h2>
+        <p>Future updates are planned for the UI and UX, additional obstacle segments, more cosmetics, environment themes, new gameplay features, and game modes beyond the current endless mode.</p>
+      </div>
+      <aside>
+        <h3>Built with</h3>
+        <p>Unity 6, C#, Universal Render Pipeline, Unity Input System, Unity Authentication, Cloud Save, Cloud Code, Leaderboards, Analytics, Git, and GitHub.</p>
+      </aside>
+    </section>
+
+    <section class="rolling-v2-play" aria-labelledby="rolling-play-title">
+      <div>
         <h2 id="rolling-play-title">Play The Rolling Stone</h2>
         <p>The current public beta runs directly in a desktop or mobile browser on itch.io.</p>
       </div>
-      <a class="btn btn-primary neon-download-button" href="https://arian-shahrabi.itch.io/the-rolling-stone" target="_blank" rel="noopener noreferrer">Play on itch.io</a>
+      <a class="btn btn-primary rolling-v2-play-button" href="https://arian-shahrabi.itch.io/the-rolling-stone" target="_blank" rel="noopener noreferrer">Play on itch.io</a>
     </section>
   </article>
+
+  <script>
+    (() => {
+      const trigger = document.querySelector('[data-rolling-trailer]');
+      const video = document.querySelector('.rolling-v2-trailer-video');
+      if (!trigger || !video) return;
+      trigger.addEventListener('click', () => {
+        if (!video.src) video.src = video.dataset.src;
+        trigger.hidden = true;
+        video.focus();
+      });
+    })();
+  </script>
 {{ end }}
