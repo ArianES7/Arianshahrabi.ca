@@ -33,6 +33,28 @@
       </dl>
     </section>
 
+    <section class="rogue-v2-section rogue-v2-split rogue-v2-levels" aria-labelledby="rogue-levels-title">
+      <div>
+        <p class="rogue-v2-label">Four puzzle levels</p>
+        <h2 id="rogue-levels-title">How the four levels differ</h2>
+        <p>The final build has four puzzle levels. I created Sequencer. Other developers created The 3 B's, Sokoban, and Tiles.</p>
+        <ul class="rogue-v2-list">
+          <li><strong>Sequencer</strong> uses timed door puzzles, control changes, parkour, moving obstacles, and falling hazards.</li>
+          <li><strong>The 3 B's</strong> uses movable objects, buttons, doors, and control inversions.</li>
+          <li><strong>Sokoban</strong> asks the player to move boxes onto four pressure plates.</li>
+          <li><strong>Tiles</strong> asks the player to cross 25 tiles without stepping on the same tile twice. Repeating a tile resets the puzzle and returns the player to the checkpoint.</li>
+        </ul>
+        <h3>Robot character</h3>
+        <p>An artist created and rigged the robot model after the game jam. We had trouble getting the animations and player controller working together, so we used the robot as a non-playable character in the Sequencer and Tiles scenes instead of delaying the release again.</p>
+      </div>
+
+      {{ with $character }}
+        <figure class="rogue-v2-media">
+          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the Rogue Malfunction robot character larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The Rogue Malfunction robot character" loading="lazy" decoding="async"></button>
+        </figure>
+      {{ end }}
+    </section>
+
     <section class="rogue-v2-section rogue-v2-split rogue-v2-sequence" aria-labelledby="rogue-controller-title">
       {{ with $sequenceOne }}
         <figure class="rogue-v2-media rogue-v2-sequence-media">
@@ -101,28 +123,6 @@
       {{ with $levelSelection }}
         <figure class="rogue-v2-media rogue-v2-ui-media">
           <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the Rogue Malfunction level-selection screen larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Rogue Malfunction level-selection screen showing the Extremely Hard Sequencer label" loading="lazy" decoding="async"></button>
-        </figure>
-      {{ end }}
-    </section>
-
-    <section class="rogue-v2-section rogue-v2-split rogue-v2-levels" aria-labelledby="rogue-levels-title">
-      <div>
-        <p class="rogue-v2-label">Four puzzle levels</p>
-        <h2 id="rogue-levels-title">How the four levels differ</h2>
-        <p>The final build has four puzzle levels. I created Sequencer. Other developers created The 3 B's, Sokoban, and Tiles.</p>
-        <ul class="rogue-v2-list">
-          <li><strong>Sequencer</strong> uses timed door puzzles, control changes, parkour, moving obstacles, and falling hazards.</li>
-          <li><strong>The 3 B's</strong> uses movable objects, buttons, doors, and control inversions.</li>
-          <li><strong>Sokoban</strong> asks the player to move boxes onto four pressure plates.</li>
-          <li><strong>Tiles</strong> asks the player to cross 25 tiles without stepping on the same tile twice. Repeating a tile resets the puzzle and returns the player to the checkpoint.</li>
-        </ul>
-        <h3>Robot character</h3>
-        <p>An artist created and rigged the robot model after the game jam. We had trouble getting the animations and player controller working together, so we used the robot as a non-playable character in the Sequencer and Tiles scenes instead of delaying the release again.</p>
-      </div>
-
-      {{ with $character }}
-        <figure class="rogue-v2-media">
-          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the Rogue Malfunction robot character larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The Rogue Malfunction robot character" loading="lazy" decoding="async"></button>
         </figure>
       {{ end }}
     </section>
