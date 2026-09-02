@@ -2,324 +2,185 @@
   {{ $hero := .Resources.GetMatch "rogue-malfunction-hero.png" }}
   {{ $character := .Resources.GetMatch "rogue-malfunction-character.png" }}
   {{ $sequenceOne := .Resources.GetMatch "*equence*1.png" }}
-  {{ $sequenceTwo := .Resources.GetMatch "*equence*2.png" }}
-  {{ $sequenceThree := .Resources.GetMatch "*equence*3.png" }}
   {{ $sequenceFour := .Resources.GetMatch "*equence*4.png" }}
   {{ $sequenceFive := .Resources.GetMatch "*equence*5.png" }}
   {{ $sequenceSix := .Resources.GetMatch "*equence*6.png" }}
-  {{ $threeBsOne := .Resources.GetMatch "*hree*B*1.png" }}
-  {{ $threeBsThree := .Resources.GetMatch "*hree*B*3.png" }}
-  {{ $sokobanOne := .Resources.GetMatch "*okoban*1.png" }}
-  {{ $sokobanTwo := .Resources.GetMatch "*okoban*2.png" }}
-  {{ $tilesOne := .Resources.GetMatch "*ile*Level*1.png" }}
-  {{ $tilesTwo := .Resources.GetMatch "*iles*Level*2.png" }}
 
-  <article class="neon-case-study rogue-case-study">
-    <header class="rogue-masthead">
+  <article class="rogue-v2-case-study">
+    <header class="rogue-v2-masthead">
       <h1 class="neon-visually-hidden">Rogue Malfunction</h1>
       {{ with $hero }}
-        <img
-          src="{{ .RelPermalink }}"
-          width="{{ .Width }}"
-          height="{{ .Height }}"
-          alt="Rogue Malfunction"
-          decoding="async"
-          fetchpriority="high">
+        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Rogue Malfunction" decoding="async" fetchpriority="high">
       {{ end }}
     </header>
 
-    <section class="neon-section" aria-labelledby="rogue-overview-title">
-      <div class="neon-copy rogue-overview-copy">
-        <p class="neon-eyebrow">Project overview</p>
-        <h2 id="rogue-overview-title">A puzzle game where the controls work against you</h2>
-        <p>
-          Rogue Malfunction is an isometric puzzle adventure about a robot trying to escape its creator, the Overlord. In some levels, the Overlord changes the controls to make escaping harder.
-        </p>
-        <p>
-          The game has four puzzle rooms. Some change how movement works, while others focus on parkour, moving boxes, pressure plates, or finding a safe path through the room.
-        </p>
-        <p>
-          I came up with the control-remapping idea because I wanted the game jam theme, Going Rogue, to be part of the gameplay and not just the story.
-        </p>
+    <section class="rogue-v2-section rogue-v2-overview" aria-labelledby="rogue-overview-title">
+      <div>
+        <h2 id="rogue-overview-title">A puzzle game where the controls turn against you</h2>
+        <p class="rogue-v2-lead">Rogue Malfunction is an isometric puzzle adventure about a robot trying to escape the Overlord. In some levels, the Overlord changes the controls to make the escape harder.</p>
+        <p>The game has four puzzle levels built around remapped controls, parkour, moving boxes, pressure plates, and route-finding.</p>
+        <p>I came up with the control-remapping idea because I wanted the Going Rogue game jam theme to affect the gameplay, not just the story.</p>
+      </div>
 
-        <dl class="neon-metadata">
-          <div><dt>Role</dt><dd>Programmer and Game Designer</dd></div>
-          <div><dt>Team</dt><dd>Four people</dd></div>
-          <div><dt>Development</dt><dd>5 days</dd></div>
-          <div><dt>Engine</dt><dd>Unity 6</dd></div>
-          <div><dt>Language</dt><dd>C#</dd></div>
-          <div><dt>Status</dt><dd>Released</dd></div>
-        </dl>
+      <dl class="rogue-v2-facts" aria-label="Project details">
+        <div><dt>Role</dt><dd>Programmer and Game Designer</dd></div>
+        <div><dt>Team</dt><dd>Four people</dd></div>
+        <div><dt>Development</dt><dd>5 days</dd></div>
+        <div><dt>Engine</dt><dd>Unity 6</dd></div>
+        <div><dt>Language</dt><dd>C#</dd></div>
+        <div><dt>Status</dt><dd>Released</dd></div>
+      </dl>
+    </section>
 
-        <div class="rolling-actions">
-          <a class="btn btn-primary" href="https://arian-shahrabi.itch.io/rogue" target="_blank" rel="noopener noreferrer">Play on itch.io</a>
-        </div>
+    <section class="rogue-v2-section rogue-v2-split rogue-v2-sequence" aria-labelledby="rogue-controller-title">
+      {{ with $sequenceOne }}
+        <figure class="rogue-v2-media rogue-v2-sequence-media">
+          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the opening area of the Sequencer level larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The opening area of the Sequencer level" loading="lazy" decoding="async"></button>
+        </figure>
+      {{ end }}
+
+      <div>
+        <h2 id="rogue-controller-title">Why we split the player controller</h2>
+        <p>We began with one player controller that all three programmers would use. Since we were building different levels at the same time, that meant multiple people would be editing the same script.</p>
+        <p>We made separate copies of the controller so each programmer could work on their own level without constant merge conflicts. It worked for the game jam, but it also left the project with duplicate movement code across several scripts.</p>
+        <h3>Control remapping in Sequencer</h3>
+        <p>I built the Sequencer level around three timed door puzzles. Each door gives the player a WASD sequence to enter before the timer runs out.</p>
+        <p>The first door swaps W and S. The second swaps A and D. By the final door, both swaps are active.</p>
       </div>
     </section>
 
-    <section class="neon-section neon-split" aria-labelledby="rogue-controls-title">
-      <div class="rogue-image-stack" aria-label="Sequence level progression">
-        {{ with $sequenceOne }}
-          <figure class="rolling-media">
-            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The opening area of the Sequence level in Rogue Malfunction" loading="lazy" decoding="async">
-          </figure>
-        {{ end }}
-        {{ with $sequenceTwo }}
-          <figure class="rolling-media">
-            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="An early platforming section in Sequence with the W and S controls swapped" loading="lazy" decoding="async">
-          </figure>
-        {{ end }}
-        {{ with $sequenceThree }}
-          <figure class="rolling-media">
-            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="A later Sequence platforming section with the A and D controls swapped" loading="lazy" decoding="async">
-          </figure>
-        {{ end }}
-        {{ with $sequenceFour }}
-          <figure class="rolling-media">
-            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="A timed door puzzle interface in the Sequence level" loading="lazy" decoding="async">
-          </figure>
-        {{ end }}
+    <section class="rogue-v2-section rogue-v2-doors" aria-labelledby="rogue-doors-title">
+      <div class="rogue-v2-doors-copy">
+        <h2 id="rogue-doors-title">Three timed door puzzles</h2>
+        <p>I built a control manager that tracks what each movement key currently does. Before moving the robot, the player controller checks that manager for the active mapping.</p>
+        <p>I also built the door system, including the sequence prompt, timer, input feedback, failure state, control change, and exit.</p>
+        <p>Each door uses a fixed control change rather than a random one. For Sequencer, I updated the controller to read the current key mapping while keeping smoothed movement, full air control, grounded jumping, wall anti-stick logic, and input locking while a door puzzle is open.</p>
       </div>
 
-      <div class="neon-copy">
-        <p class="neon-eyebrow">Player controllers</p>
-        <h2 id="rogue-controls-title">Separating the controllers so we could work at the same time</h2>
-        <p>
-          We started with one player controller that all three programmers were going to use. That sounded fine at first, but each level needed different movement and balancing changes. Having three people changing the same script would have caused merge conflicts and slowed everyone down.
-        </p>
-        <p>
-          We made separate copies of the original controller for each programmer. That let us work on our levels without constantly touching the same file. It worked for the jam, but it also meant that we ended up with the same movement code in several scripts.
-        </p>
+      <ol class="rogue-v2-door-list" aria-label="Door puzzle timing">
+        <li><span>Door 1</span><strong>Three inputs</strong><small>Three seconds</small></li>
+        <li><span>Door 2</span><strong>Six inputs</strong><small>Five seconds</small></li>
+        <li><span>Door 3</span><strong>Nine inputs</strong><small>Eight seconds</small></li>
+      </ol>
 
-        <h3 class="rogue-subheading">My control-remapping system</h3>
-        <p>
-          My Sequence level has three timed door puzzles. Each door gives the player a WASD sequence that has to be entered before the timer runs out.
-        </p>
-        <p>
-          Finishing the first door swaps W and S. Finishing the second swaps A and D. The player then reaches the last door with both changes active.
-        </p>
-        <p>
-          I built a control manager that keeps track of what each movement key currently does. The player controller checks that manager whenever it reads movement. I also built the door system that handles the sequence, timer, input feedback, failure state, control change, and exit.
-        </p>
-
-        <div class="rogue-door-timings" aria-label="Door puzzle timing">
-          <div><strong>Door 1</strong><span>Three inputs in three seconds</span></div>
-          <div><strong>Door 2</strong><span>Six inputs in five seconds</span></div>
-          <div><strong>Door 3</strong><span>Nine inputs in eight seconds</span></div>
-        </div>
-
-        <p>
-          The remapping in the released game is set up by hand. It is not random. For Sequence, I changed the controller so it could read the current key mapping. It also uses smoothed movement, full air control, grounded jumping, wall anti-stick handling, and input locking while a door puzzle is open.
-        </p>
-      </div>
+      {{ with $sequenceFour }}
+        <figure class="rogue-v2-media rogue-v2-door-image">
+          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the timed door puzzle interface larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="A timed door puzzle interface in the Sequencer level" loading="lazy" decoding="async"></button>
+        </figure>
+      {{ end }}
     </section>
 
-    <section class="neon-section" aria-labelledby="rogue-contributions-title">
-      <div class="neon-section-heading">
-        <p class="neon-eyebrow">My contribution</p>
-        <h2 id="rogue-contributions-title">What I worked on</h2>
-      </div>
-
-      <div class="rogue-contribution-grid">
+    <section class="rogue-v2-section rogue-v2-work" aria-labelledby="rogue-work-title">
+      <h2 id="rogue-work-title">What I worked on</h2>
+      <div class="rogue-v2-work-grid">
         <div>
           <h3>Programming and UI</h3>
           <ul>
             <li>Built the control-remapping manager</li>
             <li>Built the timed door-puzzle system</li>
-            <li>Adapted the player controller for Sequence</li>
+            <li>Adapted the player controller for the Sequencer level</li>
             <li>Added moving obstacles and falling hazards</li>
-            <li>Built the main menu, level selection, settings, credits, pause menu, and controls page</li>
+            <li>Built the main menu, level-selection screen, settings, credits, pause menu, and controls page</li>
             <li>Added volume controls and saved volume settings</li>
-            <li>Prevented the pause menu and door interface from opening over each other</li>
-            <li>Set up the music and level specific Overlord voice lines</li>
           </ul>
         </div>
         <div>
           <h3>Game design</h3>
           <ul>
-            <li>Came up with the control-remapping and Overlord concept</li>
-            <li>Designed the Sequence level</li>
+            <li>Created the control-remapping and Overlord concept</li>
+            <li>Designed the Sequencer level</li>
             <li>Designed the three timed door puzzles</li>
             <li>Designed the parkour route</li>
-            <li>Changed the level three times after playtesting</li>
+            <li>Revised the level three times after playtesting</li>
             <li>Added the Extremely Hard label after players found the level harder than expected</li>
           </ul>
         </div>
       </div>
-
-      <p class="rogue-attribution-note">
-        Alice created the UI artwork. I brought those assets into Unity and built the menus, navigation, functionality, and overall flow.
-      </p>
+      <p class="rogue-v2-note">The artist created the UI artwork. I integrated it into Unity and built the menus, navigation, and functionality.</p>
     </section>
 
-    <section class="neon-section" aria-labelledby="rogue-levels-title">
-      <div class="neon-split">
-        <div class="neon-copy">
-          <p class="neon-eyebrow">The four levels</p>
-          <h2 id="rogue-levels-title">Four different approaches to the same escape</h2>
-          <p>
-            The final build has four puzzle rooms. Ethan created The 3 B's, Phillip created Sokoban and Tiles, and I created Sequence.
-          </p>
-          <p>
-            Sequence uses timed door puzzles, control changes, parkour, moving obstacles, and falling hazards. The 3 B's uses movable objects, buttons, doors, and control inversions. Sokoban is built around moving boxes onto four pressure plates. Tiles asks the player to cross 25 tiles without stepping on one twice. If they do, the puzzle resets and sends them back to the checkpoint.
-          </p>
-
-          <h3 class="rogue-subheading">Robot character</h3>
-          <p>
-            Alice created and rigged the robot model after the jam. We had trouble getting the animations and player controller to work together. Rather than delay the release again, we used the robot as a non-playable character in the Sequence and Tiles scenes.
-          </p>
-        </div>
-
-        {{ with $character }}
-          <figure class="rolling-media">
-            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The robot character used as a non-playable character in Rogue Malfunction" loading="lazy" decoding="async">
-          </figure>
-        {{ end }}
+    <section class="rogue-v2-section rogue-v2-split rogue-v2-levels" aria-labelledby="rogue-levels-title">
+      <div>
+        <p class="rogue-v2-label">Four puzzle levels</p>
+        <h2 id="rogue-levels-title">How the four levels differ</h2>
+        <p>The final build has four puzzle levels. I created Sequencer. Other developers created The 3 B's, Sokoban, and Tiles.</p>
+        <ul class="rogue-v2-list">
+          <li><strong>Sequencer</strong> uses timed door puzzles, control changes, parkour, moving obstacles, and falling hazards.</li>
+          <li><strong>The 3 B's</strong> uses movable objects, buttons, doors, and control inversions.</li>
+          <li><strong>Sokoban</strong> asks the player to move boxes onto four pressure plates.</li>
+          <li><strong>Tiles</strong> asks the player to cross 25 tiles without stepping on the same tile twice. Repeating a tile resets the puzzle and returns the player to the checkpoint.</li>
+        </ul>
+        <h3>Robot character</h3>
+        <p>An artist created and rigged the robot model after the game jam. We had trouble getting the animations and player controller working together, so we used the robot as a non-playable character in the Sequencer and Tiles scenes instead of delaying the release again.</p>
       </div>
 
-      <div class="rogue-game-gallery" aria-label="The 3 B's, Sokoban, and Tiles levels">
-        {{ with $threeBsOne }}
-          <figure class="rolling-media">
-            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="An early section of The 3 B's level in Rogue Malfunction" loading="lazy" decoding="async">
-          </figure>
-        {{ end }}
-        {{ with $threeBsThree }}
-          <figure class="rolling-media">
-            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The button puzzle in The 3 B's level" loading="lazy" decoding="async">
-          </figure>
-        {{ end }}
-        {{ with $sokobanOne }}
-          <figure class="rolling-media">
-            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The opening arrangement of boxes in the Sokoban level" loading="lazy" decoding="async">
-          </figure>
-        {{ end }}
-        {{ with $sokobanTwo }}
-          <figure class="rolling-media">
-            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="A later state of the Sokoban puzzle" loading="lazy" decoding="async">
-          </figure>
-        {{ end }}
-        {{ with $tilesOne }}
-          <figure class="rolling-media">
-            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The starting path through the Tiles level" loading="lazy" decoding="async">
-          </figure>
-        {{ end }}
-        {{ with $tilesTwo }}
-          <figure class="rolling-media">
-            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="A wider view of the path puzzle in the Tiles level" loading="lazy" decoding="async">
-          </figure>
-        {{ end }}
-      </div>
+      {{ with $character }}
+        <figure class="rogue-v2-media">
+          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the Rogue Malfunction robot character larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The Rogue Malfunction robot character" loading="lazy" decoding="async"></button>
+        </figure>
+      {{ end }}
     </section>
 
-    <section class="neon-section neon-split" aria-labelledby="rogue-testing-title">
-      <div class="rogue-image-stack" aria-label="Final sections of the Sequence level">
+    <section class="rogue-v2-section rogue-v2-split rogue-v2-testing" aria-labelledby="rogue-testing-title">
+      <div class="rogue-v2-final-media">
         {{ with $sequenceFive }}
-          <figure class="rolling-media">
-            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The revised final platforming route in the Sequence level" loading="lazy" decoding="async">
+          <figure class="rogue-v2-media">
+            <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the revised final platforming route larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The revised final platforming route in the Sequencer level" loading="lazy" decoding="async"></button>
           </figure>
         {{ end }}
         {{ with $sequenceSix }}
-          <figure class="rolling-media">
-            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The final timed door puzzle near the end of the Sequence level" loading="lazy" decoding="async">
+          <figure class="rogue-v2-media">
+            <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the final timed door puzzle larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The final timed door puzzle near the end of the Sequencer level" loading="lazy" decoding="async"></button>
           </figure>
         {{ end }}
       </div>
 
-      <div class="neon-copy">
-        <p class="neon-eyebrow">Playtesting</p>
-        <h2 id="rogue-testing-title">Making Sequence easier without removing the challenge</h2>
-        <p>
-          Playtesters kept telling me that Sequence was too difficult. I changed the parkour route three times and moved several of the jumping sections closer together.
-        </p>
-        <p>
-          I still wanted it to be the hardest level, so I added an Extremely Hard label to the level selection screen. Players knew what they were choosing before they entered, and I stopped getting complaints about the difficulty.
-        </p>
-        <p>
-          Playtesting also exposed progression bugs and edge cases that we fixed after the jam. During that time, I also built the pause menu, controls page, settings flow, updated menu navigation, and level selection screen.
-        </p>
+      <div>
+        <p class="rogue-v2-label">Playtesting</p>
+        <h2 id="rogue-testing-title">Adjusting Sequencer after playtesting</h2>
+        <p>Playtesters found the Sequencer level too difficult. I changed the parkour route three times and moved several jumping sections closer together.</p>
+        <p>I still wanted Sequencer to be the hardest level, so I added an Extremely Hard label to the level-selection screen. Players could see what they were getting into before entering.</p>
+        <p>Playtesting also exposed progression bugs and edge cases that we fixed after the game jam. During that work, I completed the remaining menus and improved navigation between them.</p>
       </div>
     </section>
 
-    <section class="neon-section neon-results" aria-labelledby="rogue-results-title">
-      <div class="neon-section-heading">
-        <p class="neon-eyebrow">Results</p>
-        <h2 id="rogue-results-title">Release results</h2>
-      </div>
-
-      <div class="neon-results-grid rolling-results-grid">
+    <section class="rogue-v2-section rogue-v2-results" aria-labelledby="rogue-results-title">
+      <p class="rogue-v2-label">Results</p>
+      <h2 id="rogue-results-title">Release results</h2>
+      <div class="rogue-v2-results-grid">
         <div><strong>800+</strong><span>Browser plays</span></div>
         <div><strong>4.8/5</strong><span>Average rating</span></div>
         <div><strong>14</strong><span>Player ratings</span></div>
-        <div><strong>4</strong><span>Completed puzzle rooms</span></div>
+        <div><strong>4</strong><span>Puzzle levels</span></div>
       </div>
-
-      <div class="neon-results-notes">
-        <p>
-          Rogue Malfunction is available in the browser and as Windows and Linux downloads. We continued working after the jam until all four levels were part of one release.
-        </p>
-        <p>
-          Players specifically called out the control-remapping idea as unique, funny, and challenging.
-        </p>
-      </div>
+      <p>Rogue Malfunction is available in the browser and as Windows and Linux downloads. After the game jam, we combined the four levels into one release and fixed issues found during post-jam testing.</p>
     </section>
 
-    <section class="neon-section" aria-labelledby="rogue-retrospective-title">
-      <div class="neon-section-heading">
-        <p class="neon-eyebrow">Retrospective</p>
-        <h2 id="rogue-retrospective-title">What I would change now</h2>
-      </div>
-
-      <div class="rolling-closing-grid rogue-retrospective-grid">
-        <div>
-          <h3>Player-controller setup</h3>
-          <p>
-            Making separate controllers solved a problem during the jam, but I would not build the system that way again. We ended up with the same movement code in several scripts.
-          </p>
-          <p>
-            If I rebuilt it, I would keep one movement controller for physics, jumping, and interaction. The control-remapping system would be separate, and each level would tell it which control setup to use.
-          </p>
-        </div>
-        <div>
-          <h3>GitHub workflow</h3>
-          <p>
-            I would set up main, development, and feature branches from the beginning. I would also make it clear who owns each shared script, scene, and prefab so we are not all changing the same files.
-          </p>
-        </div>
-        <div>
-          <h3>Connecting the levels</h3>
-          <p>
-            Each programmer made their level mostly on their own, so the four levels feel separate. If I made the game again, I would plan the full level order and story first.
-          </p>
-          <p>
-            I would use the environments to show more about the robot, the Overlord, and why the robot is trying to escape.
-          </p>
-        </div>
-        <div>
-          <h3>Communicating difficulty</h3>
-          <p>
-            I also learned that difficulty needs to be communicated clearly. I kept Sequence hard, but the Extremely Hard label told players what they were choosing before they entered.
-          </p>
-        </div>
-      </div>
-
-      <div class="rolling-tools rogue-tools" aria-label="Tools and technologies">
-        {{ range slice "Unity 6" "C#" "URP" "Git" "GitHub" "WebGL" "HTML5" "itch.io" }}
-          <span>{{ . }}</span>
-        {{ end }}
-      </div>
-
-      <p class="rolling-asset-note">
-        The game uses an external science-fiction environment kit and Gridbox Prototype Materials. Some additional textures and music were also sourced online. Alice created the UI artwork and robot model, while Phillip recorded the Overlord voice lines.
-      </p>
-    </section>
-
-    <section class="neon-section neon-download" aria-labelledby="rogue-play-title">
+    <section class="rogue-v2-section rogue-v2-next" aria-labelledby="rogue-next-title">
       <div>
-        <p class="neon-eyebrow">Available now</p>
+        <h2 id="rogue-next-title">What I would change</h2>
+        <h3>Player controller setup</h3>
+        <p>Separate controllers solved a short-term game jam problem, but I would not structure the system that way again. It left the project with the same movement code in several scripts.</p>
+        <p>If I rebuilt the game, I would keep one player controller for physics, jumping, and interaction. A separate system would handle control remapping, while each level would define the control setup it needs.</p>
+        <h3>GitHub workflow</h3>
+        <p>I would set up main, development, and feature branches from the start. I would also define ownership for shared scripts, scenes, and prefabs so multiple people are not changing the same files.</p>
+        <h3>Connecting the levels</h3>
+        <p>Each developer built their level mostly on their own, so the four levels feel separate. If I rebuilt the game, I would plan the full level order and story before production.</p>
+        <p>I would also use the environments to show more about the robot, the Overlord, and why the robot is trying to escape.</p>
+      </div>
+      <aside>
+        <h3>Built with</h3>
+        <p>Unity 6, C#, URP, Git, GitHub, WebGL, HTML5, and itch.io.</p>
+        <p class="rogue-v2-asset-note">The game uses an external science-fiction environment kit, Gridbox Prototype Materials, and additional third-party textures. The artist created the UI artwork and robot model. The released game uses no generative AI content.</p>
+      </aside>
+    </section>
+
+    <section class="rogue-v2-play" aria-labelledby="rogue-play-title">
+      <div>
         <h2 id="rogue-play-title">Play Rogue Malfunction</h2>
         <p>Play in a browser or download the Windows and Linux versions through itch.io.</p>
       </div>
-      <a class="btn btn-primary neon-download-button" href="https://arian-shahrabi.itch.io/rogue" target="_blank" rel="noopener noreferrer">Play or download</a>
+      <a class="btn btn-primary" href="https://arian-shahrabi.itch.io/rogue" target="_blank" rel="noopener noreferrer">Play or download</a>
     </section>
   </article>
 {{ end }}
