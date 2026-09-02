@@ -2624,16 +2624,7 @@ html.dark .rogue-v2-case-study {
   color: inherit !important;
   font-size: 1.125rem !important;
 }
-.rogue-v2-label {
-  margin-bottom: .85rem !important;
-  color: rgb(var(--color-primary-600)) !important;
-  font-size: .75rem !important;
-  font-weight: 800;
-  letter-spacing: .09em;
-  text-transform: uppercase;
-}
-html.dark .rogue-v2-label { color: rgb(var(--color-primary-300)) !important; }
-.rogue-v2-overview,
+.rogue-v2-overview { max-width: 70ch; }
 .rogue-v2-split {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(270px, .7fr);
@@ -2642,9 +2633,17 @@ html.dark .rogue-v2-label { color: rgb(var(--color-primary-300)) !important; }
 }
 .rogue-v2-sequence,
 .rogue-v2-testing { grid-template-columns: minmax(0, .95fr) minmax(0, 1fr); }
+.rogue-v2-sequence { grid-template-areas: "media copy"; }
+.rogue-v2-sequence-copy { grid-area: copy; }
+.rogue-v2-sequence-media { grid-area: media; }
+.rogue-v2-testing { grid-template-areas: "media copy"; }
+.rogue-v2-testing-copy { grid-area: copy; }
+.rogue-v2-testing .rogue-v2-final-media { grid-area: media; }
 .rogue-v2-levels { grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); }
+.rogue-v2-details { border-bottom: 1px solid var(--rogue-v2-line); }
 .rogue-v2-facts {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin: 0;
   border-top: 1px solid var(--rogue-v2-line);
 }
@@ -2652,8 +2651,10 @@ html.dark .rogue-v2-label { color: rgb(var(--color-primary-300)) !important; }
   display: grid;
   gap: .35rem;
   border-bottom: 1px solid var(--rogue-v2-line);
-  padding: .9rem 0;
+  padding: 1.25rem 0 1.35rem;
 }
+.rogue-v2-facts div:nth-child(odd) { padding-right: 2rem; }
+.rogue-v2-facts div:nth-child(even) { padding-left: 2rem; }
 .rogue-v2-facts dt,
 .rogue-v2-door-list span {
   color: var(--rogue-v2-muted);
@@ -2751,8 +2752,8 @@ html.dark .rogue-v2-label { color: rgb(var(--color-primary-300)) !important; }
   font-size: .9rem !important;
 }
 .rogue-v2-ui-media {
-  width: min(100%, 860px);
-  margin-top: 2rem;
+  width: min(100%, 960px);
+  margin: 2rem auto 0;
 }
 .rogue-v2-ui-media img { aspect-ratio: 16 / 9; }
 .rogue-v2-final-media {
@@ -2761,25 +2762,23 @@ html.dark .rogue-v2-label { color: rgb(var(--color-primary-300)) !important; }
   gap: 1.5rem;
 }
 .rogue-v2-final-media img { aspect-ratio: 16 / 9; }
+.rogue-v2-testing,
 .rogue-v2-results {
   border-top: 1px solid var(--rogue-v2-line);
   padding-top: clamp(3.25rem, 6vw, 4.5rem);
 }
 .rogue-v2-results-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin: 1.75rem 0 1.5rem;
   border-top: 1px solid var(--rogue-v2-line);
 }
 .rogue-v2-results-grid > div {
   display: grid;
-  gap: .45rem;
-  border-right: 1px solid var(--rogue-v2-line);
+  grid-template-columns: minmax(10rem, .5fr) minmax(0, 1fr);
+  gap: 1.25rem;
   border-bottom: 1px solid var(--rogue-v2-line);
-  padding: 1.25rem 1rem 1.25rem 0;
+  padding: 1.25rem 0;
 }
-.rogue-v2-results-grid > div + div { padding-left: 1rem; }
-.rogue-v2-results-grid > div:last-child { border-right: 0; }
 .rogue-v2-results-grid strong {
   font-size: clamp(1.45rem, 2.2vw, 1.8rem);
   line-height: 1.1;
@@ -2828,12 +2827,14 @@ html.dark .rogue-v2-label { color: rgb(var(--color-primary-300)) !important; }
 .rogue-v2-play .btn:focus-visible { transform: translateY(-1px); }
 
 @media (max-width: 800px) {
-  .rogue-v2-overview,
   .rogue-v2-split,
   .rogue-v2-sequence,
   .rogue-v2-testing,
   .rogue-v2-doors,
   .rogue-v2-next { grid-template-columns: 1fr; }
+  .rogue-v2-sequence,
+  .rogue-v2-testing { grid-template-areas: "copy" "media"; }
+  .rogue-v2-work-grid { grid-template-columns: 1fr; }
   .rogue-v2-door-image { grid-column: auto; }
   .rogue-v2-play { align-items: start; flex-direction: column; }
 }
@@ -2842,15 +2843,12 @@ html.dark .rogue-v2-label { color: rgb(var(--color-primary-300)) !important; }
   .rogue-v2-section { margin-top: 4rem; }
   .rogue-v2-section h2,
   .rogue-v2-play h2 { font-size: 2rem; }
-  .rogue-v2-work-grid,
-  .rogue-v2-final-media,
-  .rogue-v2-results-grid { grid-template-columns: 1fr; }
-  .rogue-v2-results-grid > div,
-  .rogue-v2-results-grid > div + div {
-    border-right: 0;
-    padding-right: 0;
-    padding-left: 0;
-  }
+  .rogue-v2-facts { grid-template-columns: 1fr; }
+  .rogue-v2-facts div,
+  .rogue-v2-facts div:nth-child(odd),
+  .rogue-v2-facts div:nth-child(even) { padding-right: 0; padding-left: 0; }
+  .rogue-v2-final-media { grid-template-columns: 1fr; }
+  .rogue-v2-results-grid > div { grid-template-columns: 1fr; gap: .45rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .rogue-v2-case-study *,
