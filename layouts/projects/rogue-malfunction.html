@@ -5,6 +5,7 @@
   {{ $sequenceFour := .Resources.GetMatch "*equence*4.png" }}
   {{ $sequenceFive := .Resources.GetMatch "*equence*5.png" }}
   {{ $sequenceSix := .Resources.GetMatch "*equence*6.png" }}
+  {{ $levelSelection := .Resources.GetMatch "Level Selection.png" }}
 
   <article class="rogue-v2-case-study">
     <header class="rogue-v2-masthead">
@@ -123,6 +124,11 @@
 
     <section class="rogue-v2-section rogue-v2-split rogue-v2-testing" aria-labelledby="rogue-testing-title">
       <div class="rogue-v2-final-media">
+        {{ with $levelSelection }}
+          <figure class="rogue-v2-media rogue-v2-level-selection">
+            <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the Rogue Malfunction level-selection screen larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Rogue Malfunction level-selection screen showing the Extremely Hard Sequencer label" loading="lazy" decoding="async"></button>
+          </figure>
+        {{ end }}
         {{ with $sequenceFive }}
           <figure class="rogue-v2-media">
             <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the revised final platforming route larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The revised final platforming route in the Sequencer level" loading="lazy" decoding="async"></button>
