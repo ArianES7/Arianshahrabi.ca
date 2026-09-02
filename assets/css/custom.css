@@ -2749,14 +2749,17 @@ html.dark .rogue-v2-label { color: rgb(var(--color-primary-300)) !important; }
   padding-top: 1rem;
   font-size: .9rem !important;
 }
+.rogue-v2-ui-media {
+  width: min(100%, 860px);
+  margin-top: 2rem;
+}
+.rogue-v2-ui-media img { aspect-ratio: 16 / 9; }
 .rogue-v2-levels > .rogue-v2-media { align-self: start; }
 .rogue-v2-final-media {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: .9rem;
 }
-.rogue-v2-level-selection { grid-column: 1 / -1; }
-.rogue-v2-level-selection img { aspect-ratio: 16 / 9; }
 .rogue-v2-final-media img { aspect-ratio: 4 / 5; }
 .rogue-v2-results {
   border-top: 1px solid var(--rogue-v2-line);
@@ -2850,8 +2853,6 @@ html.dark .rogue-v2-label { color: rgb(var(--color-primary-300)) !important; }
   }
   .rogue-v2-sequence-media img,
   .rogue-v2-final-media img { aspect-ratio: 16 / 10; }
-  .rogue-v2-level-selection { grid-column: auto; }
-  .rogue-v2-level-selection img { aspect-ratio: 16 / 9; }
 }
 @media (prefers-reduced-motion: reduce) {
   .rogue-v2-case-study *,

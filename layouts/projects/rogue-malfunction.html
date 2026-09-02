@@ -98,6 +98,11 @@
         </div>
       </div>
       <p class="rogue-v2-note">The artist created the UI artwork. I integrated it into Unity and built the menus, navigation, and functionality.</p>
+      {{ with $levelSelection }}
+        <figure class="rogue-v2-media rogue-v2-ui-media">
+          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the Rogue Malfunction level-selection screen larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Rogue Malfunction level-selection screen showing the Extremely Hard Sequencer label" loading="lazy" decoding="async"></button>
+        </figure>
+      {{ end }}
     </section>
 
     <section class="rogue-v2-section rogue-v2-split rogue-v2-levels" aria-labelledby="rogue-levels-title">
@@ -124,11 +129,6 @@
 
     <section class="rogue-v2-section rogue-v2-split rogue-v2-testing" aria-labelledby="rogue-testing-title">
       <div class="rogue-v2-final-media">
-        {{ with $levelSelection }}
-          <figure class="rogue-v2-media rogue-v2-level-selection">
-            <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the Rogue Malfunction level-selection screen larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Rogue Malfunction level-selection screen showing the Extremely Hard Sequencer label" loading="lazy" decoding="async"></button>
-          </figure>
-        {{ end }}
         {{ with $sequenceFive }}
           <figure class="rogue-v2-media">
             <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the revised final platforming route larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The revised final platforming route in the Sequencer level" loading="lazy" decoding="async"></button>
