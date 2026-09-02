@@ -2590,6 +2590,7 @@ html.dark .rogue-v2-case-study {
   display: block;
   width: min(100%, 980px);
   height: auto;
+  max-height: 430px;
   object-fit: contain;
 }
 .rogue-v2-section { margin-top: clamp(4rem, 8vw, 5.5rem); }
@@ -2640,7 +2641,8 @@ html.dark .rogue-v2-label { color: rgb(var(--color-primary-300)) !important; }
   gap: clamp(2rem, 6vw, 4.5rem);
 }
 .rogue-v2-sequence,
-.rogue-v2-testing { grid-template-columns: minmax(270px, .7fr) minmax(0, 1.1fr); }
+.rogue-v2-testing { grid-template-columns: minmax(0, .95fr) minmax(0, 1fr); }
+.rogue-v2-levels { grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); }
 .rogue-v2-facts {
   display: grid;
   margin: 0;
@@ -2674,6 +2676,7 @@ html.dark .rogue-v2-label { color: rgb(var(--color-primary-300)) !important; }
   border: 1px solid rgb(var(--color-primary-500));
   border-radius: 10px;
   background: var(--rogue-v2-surface);
+  padding: .6rem;
 }
 .rogue-v2-media img {
   display: block;
@@ -2682,9 +2685,6 @@ html.dark .rogue-v2-label { color: rgb(var(--color-primary-300)) !important; }
   border-radius: 4px;
   object-fit: cover;
 }
-.rogue-v2-sequence,
-.rogue-v2-levels,
-.rogue-v2-testing { grid-template-columns: minmax(0, 1fr); }
 .rogue-v2-sequence-media img { aspect-ratio: 16 / 9; }
 .rogue-v2-doors {
   display: grid;
@@ -2751,14 +2751,14 @@ html.dark .rogue-v2-label { color: rgb(var(--color-primary-300)) !important; }
   font-size: .9rem !important;
 }
 .rogue-v2-ui-media {
-  width: 100%;
+  width: min(100%, 860px);
   margin-top: 2rem;
 }
 .rogue-v2-ui-media img { aspect-ratio: 16 / 9; }
 .rogue-v2-final-media {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(2.5rem, 5vw, 4rem);
+  gap: 1.5rem;
 }
 .rogue-v2-final-media img { aspect-ratio: 16 / 9; }
 .rogue-v2-results {
