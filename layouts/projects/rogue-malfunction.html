@@ -11,18 +11,20 @@
     <header class="rogue-v2-masthead">
       <h1 class="neon-visually-hidden">Rogue Malfunction</h1>
       {{ with $hero }}
-        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Rogue Malfunction" decoding="async" fetchpriority="high">
+        {{ $image := .Resize "1800x" }}
+        <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Rogue Malfunction" decoding="async" fetchpriority="high">
       {{ end }}
     </header>
 
     <section class="rogue-v2-section rogue-v2-overview" aria-labelledby="rogue-overview-title">
-      <div>
-        <h2 id="rogue-overview-title">A puzzle game where the controls turn against you</h2>
-        <p class="rogue-v2-lead">Rogue Malfunction is an isometric puzzle adventure about a robot trying to escape the Overlord. In some levels, the Overlord changes the controls to make the escape harder.</p>
-        <p>The game has four puzzle levels built around remapped controls, parkour, moving boxes, pressure plates, and route-finding.</p>
-        <p>I came up with the control-remapping idea because I wanted the Going Rogue game jam theme to affect the gameplay, not just the story.</p>
-      </div>
+      <h2 id="rogue-overview-title">What Is Rogue Malfunction</h2>
+      <p class="rogue-v2-lead">Rogue Malfunction is an isometric puzzle adventure about a robot trying to escape the Overlord. In some levels, the Overlord changes the controls to make the escape harder.</p>
+      <p>The game has four puzzle levels built around remapped controls, parkour, moving boxes, pressure plates, and route-finding.</p>
+      <p>I came up with the control-remapping idea because I wanted the Going Rogue game jam theme to affect the gameplay, not just the story.</p>
+    </section>
 
+    <section class="rogue-v2-section rogue-v2-details" aria-labelledby="rogue-details-title">
+      <h2 id="rogue-details-title">Project Details</h2>
       <dl class="rogue-v2-facts" aria-label="Project details">
         <div><dt>Role</dt><dd>Programmer and Game Designer</dd></div>
         <div><dt>Team</dt><dd>Four people</dd></div>
@@ -31,66 +33,6 @@
         <div><dt>Language</dt><dd>C#</dd></div>
         <div><dt>Status</dt><dd>Released</dd></div>
       </dl>
-    </section>
-
-    <section class="rogue-v2-section rogue-v2-split rogue-v2-levels" aria-labelledby="rogue-levels-title">
-      <div>
-        <p class="rogue-v2-label">Four puzzle levels</p>
-        <h2 id="rogue-levels-title">How the four levels differ</h2>
-        <p>The final build has four puzzle levels. I created Sequencer. Other developers created The 3 B's, Sokoban, and Tiles.</p>
-        <ul class="rogue-v2-list">
-          <li><strong>Sequencer</strong> uses timed door puzzles, control changes, parkour, moving obstacles, and falling hazards.</li>
-          <li><strong>The 3 B's</strong> uses movable objects, buttons, doors, and control inversions.</li>
-          <li><strong>Sokoban</strong> asks the player to move boxes onto four pressure plates.</li>
-          <li><strong>Tiles</strong> asks the player to cross 25 tiles without stepping on the same tile twice. Repeating a tile resets the puzzle and returns the player to the checkpoint.</li>
-        </ul>
-        <h3>Robot character</h3>
-        <p>An artist created and rigged the robot model after the game jam. We had trouble getting the animations and player controller working together, so we used the robot as a non-playable character in the Sequencer and Tiles scenes instead of delaying the release again.</p>
-      </div>
-
-      {{ with $character }}
-        <figure class="rogue-v2-media">
-          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the Rogue Malfunction robot character larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The Rogue Malfunction robot character" loading="lazy" decoding="async"></button>
-        </figure>
-      {{ end }}
-    </section>
-
-    <section class="rogue-v2-section rogue-v2-split rogue-v2-sequence" aria-labelledby="rogue-controller-title">
-      {{ with $sequenceOne }}
-        <figure class="rogue-v2-media rogue-v2-sequence-media">
-          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the opening area of the Sequencer level larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The opening area of the Sequencer level" loading="lazy" decoding="async"></button>
-        </figure>
-      {{ end }}
-
-      <div>
-        <h2 id="rogue-controller-title">Why we split the player controller</h2>
-        <p>We began with one player controller that all three programmers would use. Since we were building different levels at the same time, that meant multiple people would be editing the same script.</p>
-        <p>We made separate copies of the controller so each programmer could work on their own level without constant merge conflicts. It worked for the game jam, but it also left the project with duplicate movement code across several scripts.</p>
-        <h3>Control remapping in Sequencer</h3>
-        <p>I built the Sequencer level around three timed door puzzles. Each door gives the player a WASD sequence to enter before the timer runs out.</p>
-        <p>The first door swaps W and S. The second swaps A and D. By the final door, both swaps are active.</p>
-      </div>
-    </section>
-
-    <section class="rogue-v2-section rogue-v2-doors" aria-labelledby="rogue-doors-title">
-      <div class="rogue-v2-doors-copy">
-        <h2 id="rogue-doors-title">Three timed door puzzles</h2>
-        <p>I built a control manager that tracks what each movement key currently does. Before moving the robot, the player controller checks that manager for the active mapping.</p>
-        <p>I also built the door system, including the sequence prompt, timer, input feedback, failure state, control change, and exit.</p>
-        <p>Each door uses a fixed control change rather than a random one. For Sequencer, I updated the controller to read the current key mapping while keeping smoothed movement, full air control, grounded jumping, wall anti-stick logic, and input locking while a door puzzle is open.</p>
-      </div>
-
-      <ol class="rogue-v2-door-list" aria-label="Door puzzle timing">
-        <li><span>Door 1</span><strong>Three inputs</strong><small>Three seconds</small></li>
-        <li><span>Door 2</span><strong>Six inputs</strong><small>Five seconds</small></li>
-        <li><span>Door 3</span><strong>Nine inputs</strong><small>Eight seconds</small></li>
-      </ol>
-
-      {{ with $sequenceFour }}
-        <figure class="rogue-v2-media rogue-v2-door-image">
-          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the timed door puzzle interface larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="A timed door puzzle interface in the Sequencer level" loading="lazy" decoding="async"></button>
-        </figure>
-      {{ end }}
     </section>
 
     <section class="rogue-v2-section rogue-v2-work" aria-labelledby="rogue-work-title">
@@ -121,38 +63,101 @@
       </div>
       <p class="rogue-v2-note">The artist created the UI artwork. I integrated it into Unity and built the menus, navigation, and functionality.</p>
       {{ with $levelSelection }}
+        {{ $image := .Resize "1600x" }}
         <figure class="rogue-v2-media rogue-v2-ui-media">
-          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the Rogue Malfunction level-selection screen larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Rogue Malfunction level-selection screen showing the Extremely Hard Sequencer label" loading="lazy" decoding="async"></button>
+          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the Rogue Malfunction level-selection screen larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Rogue Malfunction level-selection screen showing the Extremely Hard Sequencer label" loading="lazy" decoding="async"></button>
+        </figure>
+      {{ end }}
+    </section>
+
+    <section class="rogue-v2-section rogue-v2-split rogue-v2-levels" aria-labelledby="rogue-levels-title">
+      <div>
+        <h2 id="rogue-levels-title">How the four levels differ</h2>
+        <p>The final build has four puzzle levels. I created Sequencer. Other developers created The 3 B's, Sokoban, and Tiles.</p>
+        <ul class="rogue-v2-list">
+          <li><strong>Sequencer</strong> uses timed door puzzles, control changes, parkour, moving obstacles, and falling hazards.</li>
+          <li><strong>The 3 B's</strong> uses movable objects, buttons, doors, and control inversions.</li>
+          <li><strong>Sokoban</strong> asks the player to move boxes onto four pressure plates.</li>
+          <li><strong>Tiles</strong> asks the player to cross 25 tiles without stepping on the same tile twice. Repeating a tile resets the puzzle and returns the player to the checkpoint.</li>
+        </ul>
+        <h3>Robot character</h3>
+        <p>An artist created and rigged the robot model after the game jam. We had trouble getting the animations and player controller working together, so we used the robot as a non-playable character in the Sequencer and Tiles scenes instead of delaying the release again.</p>
+      </div>
+
+      {{ with $character }}
+        {{ $image := .Resize "1400x" }}
+        <figure class="rogue-v2-media">
+          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the Rogue Malfunction robot character larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="The Rogue Malfunction robot character" loading="lazy" decoding="async"></button>
+        </figure>
+      {{ end }}
+    </section>
+
+    <section class="rogue-v2-section rogue-v2-split rogue-v2-sequence" aria-labelledby="rogue-controller-title">
+      <div class="rogue-v2-sequence-copy">
+        <h2 id="rogue-controller-title">Why we split the player controller</h2>
+        <p>We began with one player controller that all three programmers would use. Since we were building different levels at the same time, that meant multiple people would be editing the same script.</p>
+        <p>We made separate copies of the controller so each programmer could work on their own level without constant merge conflicts. It worked for the game jam, but it also left the project with duplicate movement code across several scripts.</p>
+        <h3>Control remapping in Sequencer</h3>
+        <p>I built the Sequencer level around three timed door puzzles. Each door gives the player a WASD sequence to enter before the timer runs out.</p>
+        <p>The first door swaps W and S. The second swaps A and D. By the final door, both swaps are active.</p>
+      </div>
+
+      {{ with $sequenceOne }}
+        {{ $image := .Resize "1400x" }}
+        <figure class="rogue-v2-media rogue-v2-sequence-media">
+          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the opening area of the Sequencer level larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="The opening area of the Sequencer level" loading="lazy" decoding="async"></button>
+        </figure>
+      {{ end }}
+    </section>
+
+    <section class="rogue-v2-section rogue-v2-doors" aria-labelledby="rogue-doors-title">
+      <div class="rogue-v2-doors-copy">
+        <h2 id="rogue-doors-title">Three timed door puzzles</h2>
+        <p>I built a control manager that tracks what each movement key currently does. Before moving the robot, the player controller checks that manager for the active mapping.</p>
+        <p>I also built the door system, including the sequence prompt, timer, input feedback, failure state, control change, and exit.</p>
+        <p>Each door uses a fixed control change rather than a random one. For Sequencer, I updated the controller to read the current key mapping while keeping smoothed movement, full air control, grounded jumping, wall anti-stick logic, and input locking while a door puzzle is open.</p>
+      </div>
+
+      <ol class="rogue-v2-door-list" aria-label="Door puzzle timing">
+        <li><span>Door 1</span><strong>Three inputs</strong><small>Three seconds</small></li>
+        <li><span>Door 2</span><strong>Six inputs</strong><small>Five seconds</small></li>
+        <li><span>Door 3</span><strong>Nine inputs</strong><small>Eight seconds</small></li>
+      </ol>
+
+      {{ with $sequenceFour }}
+        {{ $image := .Resize "1600x" }}
+        <figure class="rogue-v2-media rogue-v2-door-image">
+          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the timed door puzzle interface larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="A timed door puzzle interface in the Sequencer level" loading="lazy" decoding="async"></button>
         </figure>
       {{ end }}
     </section>
 
     <section class="rogue-v2-section rogue-v2-split rogue-v2-testing" aria-labelledby="rogue-testing-title">
-      <div class="rogue-v2-final-media">
-        {{ with $sequenceFive }}
-          <figure class="rogue-v2-media">
-            <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the revised final platforming route larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The revised final platforming route in the Sequencer level" loading="lazy" decoding="async"></button>
-          </figure>
-        {{ end }}
-        {{ with $sequenceSix }}
-          <figure class="rogue-v2-media">
-            <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the final timed door puzzle larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="The final timed door puzzle near the end of the Sequencer level" loading="lazy" decoding="async"></button>
-          </figure>
-        {{ end }}
-      </div>
-
-      <div>
-        <p class="rogue-v2-label">Playtesting</p>
+      <div class="rogue-v2-testing-copy">
         <h2 id="rogue-testing-title">Adjusting Sequencer after playtesting</h2>
         <p>Playtesters found the Sequencer level too difficult. I changed the parkour route three times and moved several jumping sections closer together.</p>
         <p>I still wanted Sequencer to be the hardest level, so I added an Extremely Hard label to the level-selection screen. Players could see what they were getting into before entering.</p>
         <p>Playtesting also exposed progression bugs and edge cases that we fixed after the game jam. During that work, I completed the remaining menus and improved navigation between them.</p>
       </div>
+
+      <div class="rogue-v2-final-media">
+        {{ with $sequenceFive }}
+          {{ $image := .Resize "1400x" }}
+          <figure class="rogue-v2-media">
+            <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the revised final platforming route larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="The revised final platforming route in the Sequencer level" loading="lazy" decoding="async"></button>
+          </figure>
+        {{ end }}
+        {{ with $sequenceSix }}
+          {{ $image := .Resize "1400x" }}
+          <figure class="rogue-v2-media">
+            <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View the final timed door puzzle larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="The final timed door puzzle near the end of the Sequencer level" loading="lazy" decoding="async"></button>
+          </figure>
+        {{ end }}
+      </div>
     </section>
 
     <section class="rogue-v2-section rogue-v2-results" aria-labelledby="rogue-results-title">
-      <p class="rogue-v2-label">Results</p>
-      <h2 id="rogue-results-title">Release results</h2>
+      <h2 id="rogue-results-title">Results</h2>
       <div class="rogue-v2-results-grid">
         <div><strong>800+</strong><span>Browser plays</span></div>
         <div><strong>4.8/5</strong><span>Average rating</span></div>
