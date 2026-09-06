@@ -18,7 +18,7 @@
       <button
         id="search-button"
         aria-label="Search"
-        class="text-base bf-icon-color-hover"
+        class="inline-flex min-h-11 min-w-11 items-center justify-center text-base bf-icon-color-hover"
         title="{{ i18n "search.open_button_title" }}">
         {{ partial "icon.html" "search" }}
       </button>
@@ -27,9 +27,10 @@
     {{ if .Site.Params.footer.showAppearanceSwitcher | default false }}
       <button
         id="appearance-switcher"
-        aria-label="Dark mode switcher"
+        aria-label="Switch to dark mode"
+        aria-pressed="false"
         type="button"
-        class="text-base bf-icon-color-hover">
+        class="inline-flex min-h-11 min-w-11 items-center justify-center text-base bf-icon-color-hover">
         <span class="flex items-center justify-center dark:hidden">
           {{ partial "icon.html" "moon" }}
         </span>
@@ -94,13 +95,19 @@
       </div>
     </div>
   {{ else }}
+    {{ $opensNewTab := or (strings.HasPrefix .URL "http:") (strings.HasPrefix .URL "https:") }}
     <a
       href="{{ .URL }}"
-      {{ if or (strings.HasPrefix .URL "http:") (strings.HasPrefix .URL "https:") }}
+      {{ if $opensNewTab }}
         target="_blank"
       {{ end }}
       class="flex items-center bf-icon-color-hover"
-      {{ with or .Name .Pre }}aria-label="{{ . }}"{{ end }}
+      {{ if $opensNewTab }}
+        aria-label="{{ or .Name .Pre }} (opens in a new tab)"
+        rel="noopener noreferrer"
+      {{ else }}
+        {{ with or .Name .Pre }}aria-label="{{ . }}"{{ end }}
+      {{ end }}
       title="{{ .Title }}">
       {{ if .Pre }}
         <span {{ if and .Pre .Name }}class="mr-1"{{ end }}>

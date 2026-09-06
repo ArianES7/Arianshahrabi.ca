@@ -36,13 +36,13 @@
       <div class="featured-grid" aria-label="Portfolio projects">
         {{ range $projects }}
           {{ $cardTheme := .Params.cardTheme | default .Params.layout }}
-          <a class="project-card project-card--{{ $cardTheme }}" href="{{ .RelPermalink }}" aria-label="View {{ .Title }} project">
+          <a class="project-card project-card--{{ $cardTheme }}" href="{{ .RelPermalink }}">
             <span class="project-card-background" aria-hidden="true"></span>
 
             {{ if eq $cardTheme "neon" }}
               <span class="project-card-visual" aria-hidden="true">
-                <img class="neon-street-base" src="{{ "images/cards/neon-steel-street.jpg" | relURL }}" alt="">
-                <img class="neon-street-signs" src="{{ "images/cards/neon-steel-street.jpg" | relURL }}" alt="">
+                <img class="neon-street-base" src="{{ "images/cards/neon-steel-street.jpg" | relURL }}" width="1200" height="934" alt="" loading="lazy" decoding="async" fetchpriority="low">
+                <img class="neon-street-signs" src="{{ "images/cards/neon-steel-street.jpg" | relURL }}" width="1200" height="934" alt="" loading="lazy" decoding="async" fetchpriority="low">
                 <span class="neon-card-glow"></span>
               </span>
             {{ else if eq $cardTheme "rolling" }}
@@ -63,7 +63,7 @@
             {{ else if eq $cardTheme "eclipsed" }}
               <span class="project-card-visual" aria-hidden="true">
                 <span class="eclipsed-blood-mask">
-                  <img src="{{ "images/cards/eclipsed-card-splatter.png" | relURL }}" alt="">
+                  <img src="{{ "images/cards/eclipsed-card-splatter.png" | relURL }}" width="2048" height="1024" alt="" loading="lazy" decoding="async" fetchpriority="low">
                 </span>
               </span>
             {{ end }}
