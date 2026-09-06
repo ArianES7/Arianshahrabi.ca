@@ -1,0 +1,19 @@
+{{ with .Site.Params.Author.links }}
+  {{ $labels := dict "github" "GitHub" "itch-io" "itch.io" "linkedin" "LinkedIn" }}
+  <div class="flex flex-wrap text-neutral-600 dark:text-neutral-400">
+    {{ range $links := . }}
+      {{ range $name, $url := $links }}
+        {{ $label := index $labels $name | default ($name | title) }}
+        <a
+          class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg hover:text-primary-700 focus-visible:text-primary-700 dark:hover:text-primary-400 dark:focus-visible:text-primary-400"
+          href="{{ $url | safeURL }}"
+          target="_blank"
+          aria-label="Arian Shahrabi on {{ $label }} (opens in a new tab)"
+          title="{{ $label }}"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">{{ partial "icon.html" $name }}</span></a
+        >
+      {{ end }}
+    {{ end }}
+  </div>
+{{ end }}

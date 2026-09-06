@@ -616,23 +616,23 @@ html.dark .hero-shell {
   margin-left: .2rem;
   transition: transform 150ms ease;
 }
-.project-card:is(:hover, :focus-visible, :active) {
+.project-card:is(:hover, :focus-visible, :active, .is-active) {
   color: #f6f7f6;
 }
-.project-card:is(:hover, :focus-visible, :active) .project-card-background,
-.project-card:is(:hover, :focus-visible, :active) .project-card-scrim {
+.project-card:is(:hover, :focus-visible, :active, .is-active) .project-card-background,
+.project-card:is(:hover, :focus-visible, :active, .is-active) .project-card-scrim {
   opacity: 1;
 }
-.project-card:is(:hover, :focus-visible, :active) .project-card-role {
+.project-card:is(:hover, :focus-visible, :active, .is-active) .project-card-role {
   color: #cad1d0;
 }
-.project-card:is(:hover, :focus-visible, :active) .project-card-engine,
-.project-card:is(:hover, :focus-visible, :active) .project-card-link {
+.project-card:is(:hover, :focus-visible, :active, .is-active) .project-card-engine,
+.project-card:is(:hover, :focus-visible, :active, .is-active) .project-card-link {
   border-color: rgba(191, 216, 220, .3);
   background: rgba(7, 12, 16, .76);
   color: #f4f6f5;
 }
-.project-card:is(:hover, :focus-visible, :active) .project-card-arrow {
+.project-card:is(:hover, :focus-visible, :active, .is-active) .project-card-arrow {
   transform: translateX(4px);
 }
 .project-card:focus-visible {
@@ -642,7 +642,7 @@ html.dark .hero-shell {
 
 /* Neon Steel card */
 .project-card--neon { --project-card-focus: #70dfef; }
-.project-card--neon:is(:hover, :focus-visible, :active) { border-color: rgba(91, 222, 241, .68); }
+.project-card--neon:is(:hover, :focus-visible, :active, .is-active) { border-color: rgba(91, 222, 241, .68); }
 .project-card--neon .project-card-background { background: #080b18; }
 .neon-street-base,
 .neon-street-signs {
@@ -678,13 +678,13 @@ html.dark .hero-shell {
 .project-card--neon .project-card-scrim {
   background: linear-gradient(90deg, rgba(7, 8, 20, .91), rgba(7, 8, 20, .67) 38%, rgba(7, 8, 20, .16) 68%, transparent);
 }
-.project-card--neon:is(:hover, :focus-visible, :active) .project-card-visual { opacity: 1; }
-.project-card--neon:is(:hover, :focus-visible, :active) .neon-street-signs { animation: project-signs-on 340ms steps(1, end) forwards; }
-.project-card--neon:is(:hover, :focus-visible, :active) .neon-card-glow { animation: project-glow-on 340ms steps(1, end) forwards; }
+.project-card--neon:is(:hover, :focus-visible, :active, .is-active) .project-card-visual { opacity: 1; }
+.project-card--neon:is(:hover, :focus-visible, :active, .is-active) .neon-street-signs { animation: project-signs-on 340ms ease-out forwards; }
+.project-card--neon:is(:hover, :focus-visible, :active, .is-active) .neon-card-glow { animation: project-glow-on 340ms ease-out forwards; }
 
 /* The Rolling Stone card */
 .project-card--rolling { --project-card-focus: #9cd4ee; }
-.project-card--rolling:is(:hover, :focus-visible, :active) { border-color: rgba(142, 204, 232, .72); }
+.project-card--rolling:is(:hover, :focus-visible, :active, .is-active) { border-color: rgba(142, 204, 232, .72); }
 .project-card--rolling .project-card-background { background: linear-gradient(135deg, #4d6f84, #1d3342); }
 .rolling-card-ground {
   position: absolute;
@@ -716,13 +716,13 @@ html.dark .hero-shell {
   background: radial-gradient(circle at 36% 32%, #76b2d4, #4388b5 40%, #205b82 70%, #0c304a 100%);
   box-shadow: inset -15px -17px 22px rgba(4, 22, 34, .42), inset 8px 7px 14px rgba(220, 246, 255, .18);
 }
-.project-card--rolling:is(:hover, :focus-visible, :active) .project-card-visual { opacity: 1; }
-.project-card--rolling:is(:hover, :focus-visible, :active) .rolling-card-ball { animation: project-stone-roll 760ms cubic-bezier(.2, .72, .22, 1) forwards; }
-.project-card--rolling:is(:hover, :focus-visible, :active) .rolling-card-trail { animation: project-trail-in 320ms ease-out 110ms both; }
+.project-card--rolling:is(:hover, :focus-visible, :active, .is-active) .project-card-visual { opacity: 1; }
+.project-card--rolling:is(:hover, :focus-visible, :active, .is-active) .rolling-card-ball { animation: project-stone-roll 760ms cubic-bezier(.2, .72, .22, 1) forwards; }
+.project-card--rolling:is(:hover, :focus-visible, :active, .is-active) .rolling-card-trail { animation: project-trail-in 320ms ease-out 110ms both; }
 
 /* Rogue Malfunction card */
 .project-card--rogue { --project-card-focus: #72dce6; }
-.project-card--rogue:is(:hover, :focus-visible, :active) { border-color: rgba(98, 201, 212, .78); }
+.project-card--rogue:is(:hover, :focus-visible, :active, .is-active) { border-color: rgba(98, 201, 212, .78); }
 .project-card--rogue .project-card-background {
   background-color: #10191b;
   background-image:
@@ -768,23 +768,23 @@ html.dark .hero-shell {
   place-items: center;
 }
 .rogue-key .key-swapped { opacity: 0; }
-.project-card--rogue:is(:hover, :focus-visible, :active) .project-card-visual { opacity: 1; }
-.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--w .key-normal,
-.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--s .key-normal { animation: project-ws-normal 1.8s linear infinite; }
-.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--w .key-swapped,
-.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--s .key-swapped { animation: project-ws-swapped 1.8s linear infinite; }
-.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--a .key-normal,
-.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--d .key-normal { animation: project-ad-normal 1.8s linear infinite; }
-.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--a .key-swapped,
-.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--d .key-swapped { animation: project-ad-swapped 1.8s linear infinite; }
-.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--w,
-.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--s { animation: project-ws-key-flash 1.8s linear infinite; }
-.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--a,
-.project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key--d { animation: project-ad-key-flash 1.8s linear infinite; }
+.project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .project-card-visual { opacity: 1; }
+.project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key--w .key-normal,
+.project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key--s .key-normal { animation: project-ws-normal 1.8s linear forwards; }
+.project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key--w .key-swapped,
+.project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key--s .key-swapped { animation: project-ws-swapped 1.8s linear forwards; }
+.project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key--a .key-normal,
+.project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key--d .key-normal { animation: project-ad-normal 1.8s linear forwards; }
+.project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key--a .key-swapped,
+.project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key--d .key-swapped { animation: project-ad-swapped 1.8s linear forwards; }
+.project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key--w,
+.project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key--s { animation: project-ws-key-flash 1.8s linear forwards; }
+.project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key--a,
+.project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key--d { animation: project-ad-key-flash 1.8s linear forwards; }
 
 /* Eclipsed card */
 .project-card--eclipsed { --project-card-focus: #8cb899; }
-.project-card--eclipsed:is(:hover, :focus-visible, :active) { border-color: rgba(94, 131, 105, .72); }
+.project-card--eclipsed:is(:hover, :focus-visible, :active, .is-active) { border-color: rgba(94, 131, 105, .72); }
 .project-card--eclipsed .project-card-background {
   background: radial-gradient(circle at 82% 72%, rgba(22, 62, 39, .52), transparent 45%), linear-gradient(135deg, #101713, #07100d 52%, #0e1613);
 }
@@ -809,28 +809,20 @@ html.dark .hero-shell {
 .project-card--eclipsed .project-card-scrim {
   background: linear-gradient(92deg, rgba(7, 16, 13, .86), rgba(7, 16, 13, .62) 34%, rgba(7, 16, 13, .12) 62%, transparent 83%);
 }
-.project-card--eclipsed:is(:hover, :focus-visible, :active) .project-card-visual,
-.project-card--eclipsed:is(:hover, :focus-visible, :active) .eclipsed-blood-mask { opacity: 1; }
-.project-card--eclipsed:is(:hover, :focus-visible, :active) .eclipsed-blood-mask { animation: project-blood-impact 310ms linear forwards; }
+.project-card--eclipsed:is(:hover, :focus-visible, :active, .is-active) .project-card-visual,
+.project-card--eclipsed:is(:hover, :focus-visible, :active, .is-active) .eclipsed-blood-mask { opacity: 1; }
+.project-card--eclipsed:is(:hover, :focus-visible, :active, .is-active) .eclipsed-blood-mask { animation: project-blood-impact 310ms linear forwards; }
 
 @keyframes project-signs-on {
   0% { opacity: 0; }
-  12% { opacity: .78; }
-  22% { opacity: .2; }
-  34% { opacity: .96; }
-  45% { opacity: .48; }
-  61% { opacity: 1; }
-  72% { opacity: .74; }
+  52% { opacity: 1; }
+  70% { opacity: .7; }
   100% { opacity: .88; }
 }
 @keyframes project-glow-on {
   0% { opacity: 0; }
-  12% { opacity: .62; }
-  22% { opacity: .13; }
-  34% { opacity: .78; }
-  45% { opacity: .34; }
-  61% { opacity: .86; }
-  72% { opacity: .58; }
+  52% { opacity: .82; }
+  70% { opacity: .55; }
   100% { opacity: .7; }
 }
 @keyframes project-stone-roll {
@@ -898,15 +890,15 @@ html.dark .hero-shell {
     animation: none !important;
     transition: none !important;
   }
-  .project-card--neon:is(:hover, :focus-visible, :active) .neon-street-signs { opacity: .88; }
-  .project-card--neon:is(:hover, :focus-visible, :active) .neon-card-glow { opacity: .7; }
-  .project-card--rolling:is(:hover, :focus-visible, :active) .rolling-card-ball {
+  .project-card--neon:is(:hover, :focus-visible, :active, .is-active) .neon-street-signs { opacity: .88; }
+  .project-card--neon:is(:hover, :focus-visible, :active, .is-active) .neon-card-glow { opacity: .7; }
+  .project-card--rolling:is(:hover, :focus-visible, :active, .is-active) .rolling-card-ball {
     left: calc(100% - 132px);
     transform: rotate(540deg);
   }
-  .project-card--eclipsed:is(:hover, :focus-visible, :active) .eclipsed-blood-mask { --blood-reveal: 115%; }
-  .project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key .key-normal { opacity: 0; }
-  .project-card--rogue:is(:hover, :focus-visible, :active) .rogue-key .key-swapped { opacity: 1; }
+  .project-card--eclipsed:is(:hover, :focus-visible, :active, .is-active) .eclipsed-blood-mask { --blood-reveal: 115%; }
+  .project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key .key-normal { opacity: 0; }
+  .project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key .key-swapped { opacity: 1; }
 }
 
 /* Compact footer sign-off */

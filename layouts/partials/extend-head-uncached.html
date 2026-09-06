@@ -21,3 +21,14 @@
     }
   </script>
 {{ end }}
+
+{{ $siteAccessibility := resources.Get "JS/site-accessibility.js" | resources.Minify | resources.Fingerprint "sha512" }}
+<script
+  defer
+  src="{{ $siteAccessibility.RelPermalink }}"
+  integrity="{{ $siteAccessibility.Data.Integrity }}"></script>
+
+{{ if .IsHome }}
+  {{ $homeCards := resources.Get "JS/home-cards.js" | resources.Minify | resources.Fingerprint "sha512" }}
+  <script defer src="{{ $homeCards.RelPermalink }}" integrity="{{ $homeCards.Data.Integrity }}"></script>
+{{ end }}
