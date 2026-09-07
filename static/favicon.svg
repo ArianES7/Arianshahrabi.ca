@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="favicon-title">
+  <title id="favicon-title">Arian Shahrabi initials</title>
+  <defs>
+    <clipPath id="favicon-shape">
+      <rect width="100" height="100" rx="15" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#favicon-shape)">
+    <rect width="100" height="100" fill="#101416" />
+    <rect x="58" width="42" height="100" fill="#F2EFE7" />
+    <path
+      fill="#F2EFE7"
+      fill-rule="evenodd"
+      d="M7 73 22.7 28h15.1L54 73H41.6l-2.7-8.7H21.1L18.4 73H7Zm17.2-18.7h11.5l-5.8-18.2-5.7 18.2Z"
+    />
+    <path
+      fill="#101416"
+      transform="translate(4 0)"
+      d="M90.8 38.2c-3.8-6.7-10.1-10.7-17.6-10.7-9.4 0-15.8 5.1-15.8 13.2 0 8.5 6.6 11.2 14.8 13.5 6.3 1.8 9.5 3.1 9.5 6.4 0 3-2.8 4.8-7.2 4.8-5.2 0-9.3-2.4-12.4-7.1l-7.5 6c4.4 7.2 11.1 10.8 19.9 10.8 10.6 0 17.8-5.7 17.8-14.8 0-8.9-6.7-12.1-15.6-14.6-5.8-1.6-8.8-2.7-8.8-5.7 0-2.6 2.4-4.2 6.1-4.2 4.2 0 7.4 2 9.8 6.2l7-3.8Z"
+    />
+  </g>
+</svg>
