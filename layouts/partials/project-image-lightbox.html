@@ -38,7 +38,7 @@
       const figure = trigger.closest('figure');
       const figureCaption = figure?.querySelector('figcaption')?.textContent?.trim();
       returnFocus = trigger;
-      image.src = source.currentSrc || source.src;
+      image.src = trigger.dataset.fullSrc || source.currentSrc || source.src;
       image.alt = source.alt;
       caption.textContent = figureCaption || source.alt;
 

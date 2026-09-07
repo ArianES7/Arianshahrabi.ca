@@ -9,7 +9,14 @@
     <header class="neon-v2-masthead">
       <h1 class="neon-visually-hidden">Neon Steel</h1>
       {{ with $logo }}
-        <img class="neon-v2-logo" src="{{ .RelPermalink }}" width="909" height="305" alt="Neon Steel logo" decoding="async" fetchpriority="high">
+        {{ partial "responsive-project-image.html" (dict
+          "image" .
+          "widths" (slice 480 720 909)
+          "class" "neon-v2-logo"
+          "alt" "Neon Steel logo"
+          "sizes" "(min-width: 900px) 760px, 88vw"
+          "fetchpriority" "high"
+        ) }}
       {{ end }}
     </header>
 
@@ -30,7 +37,16 @@
       </div>
       {{ with $poster }}
         <figure class="neon-v2-media neon-v2-media-pink neon-v2-poster">
-          <button class="neon-v2-media-button" type="button" data-project-lightbox aria-label="View official Neon Steel poster larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Neon Steel promotional poster" loading="lazy" decoding="async"></button>
+          <button class="neon-v2-media-button" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View official Neon Steel poster larger">
+            {{ partial "responsive-project-image.html" (dict
+              "image" .
+              "widths" (slice 400 700 1000 1200)
+              "class" "nozoom"
+              "alt" "Neon Steel promotional poster"
+              "sizes" "(min-width: 1024px) 36vw, 92vw"
+              "loading" "lazy"
+            ) }}
+          </button>
           <figcaption>Official Neon Steel poster</figcaption>
         </figure>
       {{ end }}
@@ -80,8 +96,36 @@
       <h2 id="neon-v2-hud-title">Why The HUD Was Redesigned</h2>
       <div class="neon-v2-narrow-copy"><p class="neon-v2-lead">The original HUD placed information in several corners of the screen, covering parts of the platforms and pulling attention away from the action.</p><p>I wanted the main player information grouped in one place. I decided how the HUD should be organized and gave the Neon Steel art team feedback and direction. The art team created the final visual design, and I built it in Unreal Engine with Blueprints.</p></div>
       <div class="neon-v2-hud-media">
-        {{ with $hudConcept }}<figure class="neon-v2-media neon-v2-media-pink"><button class="neon-v2-media-button" type="button" data-project-lightbox aria-label="View early HUD concept larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Early Neon Steel HUD concept" loading="lazy" decoding="async"></button><figcaption>Early HUD concept</figcaption></figure>{{ end }}
-        {{ with $hudGameplay }}<figure class="neon-v2-media neon-v2-media-cyan"><button class="neon-v2-media-button" type="button" data-project-lightbox aria-label="View HUD in game larger"><img class="nozoom" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Neon Steel HUD implemented during gameplay" loading="lazy" decoding="async"></button><figcaption>HUD in game</figcaption></figure>{{ end }}
+        {{ with $hudConcept }}
+          <figure class="neon-v2-media neon-v2-media-pink">
+            <button class="neon-v2-media-button" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View early HUD concept larger">
+              {{ partial "responsive-project-image.html" (dict
+                "image" .
+                "widths" (slice 400 700 1014)
+                "class" "nozoom"
+                "alt" "Early Neon Steel HUD concept"
+                "sizes" "(min-width: 900px) 46vw, 92vw"
+                "loading" "lazy"
+              ) }}
+            </button>
+            <figcaption>Early HUD concept</figcaption>
+          </figure>
+        {{ end }}
+        {{ with $hudGameplay }}
+          <figure class="neon-v2-media neon-v2-media-cyan">
+            <button class="neon-v2-media-button" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View HUD in game larger">
+              {{ partial "responsive-project-image.html" (dict
+                "image" .
+                "widths" (slice 400 700 1027)
+                "class" "nozoom"
+                "alt" "Neon Steel HUD implemented during gameplay"
+                "sizes" "(min-width: 900px) 46vw, 92vw"
+                "loading" "lazy"
+              ) }}
+            </button>
+            <figcaption>HUD in game</figcaption>
+          </figure>
+        {{ end }}
       </div>
     </section>
 
