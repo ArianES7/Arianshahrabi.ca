@@ -27,9 +27,10 @@
         <p>The stone moves forward automatically while the player steers, jumps, collects coins, and uses temporary power ups. I made it as a solo project because I wanted something that would be easy to play on both desktop and mobile.</p>
       </div>
       {{ with $overviewOne }}
-        {{ $image := .Resize "1400x" }}
         <figure class="rolling-v2-media">
-          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View gameplay image larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="The stone travelling along an obstacle track during a run" loading="lazy" decoding="async"></button>
+          <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View gameplay image larger">
+            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "class" "nozoom" "alt" "The stone travelling along an obstacle track during a run" "sizes" "(min-width: 1024px) 58vw, 92vw" "loading" "lazy") }}
+          </button>
           <figcaption>Gameplay</figcaption>
         </figure>
       {{ end }}
@@ -80,9 +81,10 @@
         <p>Difficulty rises through forward speed and through harder segments appearing more often at greater distances.</p>
       </div>
       {{ with $overviewTwo }}
-        {{ $image := .Resize "1400x" }}
         <figure class="rolling-v2-media">
-          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View obstacle segments image larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="The stone approaching coins, rotating rings, and moving obstacles" loading="lazy" decoding="async"></button>
+          <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View obstacle segments image larger">
+            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "class" "nozoom" "alt" "The stone approaching coins, rotating rings, and moving obstacles" "sizes" "(min-width: 1024px) 58vw, 92vw" "loading" "lazy") }}
+          </button>
           <figcaption>Obstacle segments</figcaption>
         </figure>
       {{ end }}
@@ -91,23 +93,26 @@
     <section class="rolling-v2-section rolling-v2-progression" aria-labelledby="rolling-progression-title">
       <div class="rolling-v2-gallery">
         {{ with $shop }}
-          {{ $image := .Resize "1400x" }}
           <figure class="rolling-v2-media rolling-v2-media-wide">
-            <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View cosmetic shop image larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Obstacle skins available in The Rolling Stone cosmetic shop" loading="lazy" decoding="async"></button>
+            <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View cosmetic shop image larger">
+              {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "class" "nozoom" "alt" "Obstacle skins available in The Rolling Stone cosmetic shop" "sizes" "(min-width: 1024px) 58vw, 92vw" "loading" "lazy") }}
+            </button>
             <figcaption>Cosmetic shop</figcaption>
           </figure>
         {{ end }}
         {{ with $achievements }}
-          {{ $image := .Resize "900x" }}
           <figure class="rolling-v2-media">
-            <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View achievements image larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Achievement screen showing all 15 achievements unlocked" loading="lazy" decoding="async"></button>
+            <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View achievements image larger">
+              {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 320 600 900) "class" "nozoom" "alt" "Achievement screen showing all 15 achievements unlocked" "sizes" "(min-width: 1024px) 28vw, 92vw" "loading" "lazy") }}
+            </button>
             <figcaption>Achievements</figcaption>
           </figure>
         {{ end }}
         {{ with $mainMenu }}
-          {{ $image := .Resize "900x" }}
           <figure class="rolling-v2-media">
-            <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View daily and weekly missions image larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Main menu showing the daily mission panel" loading="lazy" decoding="async"></button>
+            <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View daily and weekly missions image larger">
+              {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 320 600 900) "class" "nozoom" "alt" "Main menu showing the daily mission panel" "sizes" "(min-width: 1024px) 28vw, 92vw" "loading" "lazy") }}
+            </button>
             <figcaption>Daily and weekly missions</figcaption>
           </figure>
         {{ end }}
@@ -128,9 +133,10 @@
         <p>I added checks on both the device and through Cloud Code. Impossible or duplicate submissions are rejected before they reach the leaderboards.</p>
       </div>
       {{ with $leaderboard }}
-        {{ $image := .Resize "1400x" }}
         <figure class="rolling-v2-media">
-          <button class="project-image-trigger" type="button" data-project-lightbox aria-label="View global leaderboards image larger"><img class="nozoom" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Global best run and richest player leaderboards with the player's current statistics" loading="lazy" decoding="async"></button>
+          <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View global leaderboards image larger">
+            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "class" "nozoom" "alt" "Global best run and richest player leaderboards with the player's current statistics" "sizes" "(min-width: 1024px) 58vw, 92vw" "loading" "lazy") }}
+          </button>
           <figcaption>Global leaderboards</figcaption>
         </figure>
       {{ end }}
