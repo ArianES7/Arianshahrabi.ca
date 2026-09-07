@@ -1,4 +1,17 @@
 (() => {
+  const demoReel = document.querySelector('[data-demo-reel]');
+  const demoReelButton = demoReel?.querySelector('.demo-reel-play');
+  const demoReelFrame = demoReel?.querySelector('iframe');
+
+  if (demoReelButton && demoReelFrame) {
+    demoReelButton.addEventListener('click', () => {
+      demoReelFrame.src = demoReelFrame.dataset.src;
+      demoReelFrame.hidden = false;
+      demoReelButton.hidden = true;
+      demoReelFrame.focus();
+    }, { once: true });
+  }
+
   const touchContext = window.matchMedia('(hover: none), (pointer: coarse)');
   if (!touchContext.matches || !('IntersectionObserver' in window)) return;
 

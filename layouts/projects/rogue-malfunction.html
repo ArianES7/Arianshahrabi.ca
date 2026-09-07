@@ -11,7 +11,7 @@
     <header class="rogue-v2-masthead">
       <h1 class="neon-visually-hidden">Rogue Malfunction</h1>
       {{ with $hero }}
-        {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 640 1000 1400 1800) "alt" "Rogue Malfunction" "sizes" "(min-width: 1200px) 1088px, 92vw" "fetchpriority" "high") }}
+        {{ partial "responsive-project-image.html" (dict "image" . "modernSrcset" "/images/projects/rogue-malfunction/rogue-malfunction-hero-640.webp 640w, /images/projects/rogue-malfunction/rogue-malfunction-hero-1000.webp 1000w, /images/projects/rogue-malfunction/rogue-malfunction-hero-1400.webp 1400w, /images/projects/rogue-malfunction/rogue-malfunction-hero-1800.webp 1800w" "widths" (slice 640 1000 1400 1800) "alt" "Rogue Malfunction" "sizes" "(min-width: 1200px) 1088px, 92vw" "fetchpriority" "high") }}
       {{ end }}
     </header>
 
@@ -64,7 +64,7 @@
       {{ with $levelSelection }}
         <figure class="rogue-v2-media rogue-v2-ui-media">
           <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View the Rogue Malfunction level-selection screen larger">
-            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1100 1600) "class" "nozoom" "alt" "Rogue Malfunction level-selection screen showing the Extremely Hard Sequencer label" "sizes" "(min-width: 1200px) 1088px, 92vw" "loading" "lazy") }}
+            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1100 1600) "format" "jpg" "quality" 86 "class" "nozoom" "alt" "Rogue Malfunction level-selection screen showing the Extremely Hard Sequencer label" "sizes" "(min-width: 1200px) 1088px, 92vw" "loading" "lazy") }}
           </button>
         </figure>
       {{ end }}
@@ -87,7 +87,7 @@
       {{ with $character }}
         <figure class="rogue-v2-media">
           <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View the Rogue Malfunction robot character larger">
-            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "class" "nozoom" "alt" "The Rogue Malfunction robot character" "sizes" "(min-width: 1024px) 48vw, 92vw" "loading" "lazy") }}
+            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "format" "jpg" "quality" 86 "class" "nozoom" "alt" "The Rogue Malfunction robot character" "sizes" "(min-width: 1024px) 48vw, 92vw" "loading" "lazy") }}
           </button>
         </figure>
       {{ end }}
@@ -106,7 +106,7 @@
       {{ with $sequenceOne }}
         <figure class="rogue-v2-media rogue-v2-sequence-media">
           <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View the opening area of the Sequencer level larger">
-            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "class" "nozoom" "alt" "The opening area of the Sequencer level" "sizes" "(min-width: 1024px) 48vw, 92vw" "loading" "lazy") }}
+            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "format" "jpg" "quality" 86 "class" "nozoom" "alt" "The opening area of the Sequencer level" "sizes" "(min-width: 1024px) 48vw, 92vw" "loading" "lazy") }}
           </button>
         </figure>
       {{ end }}
@@ -129,7 +129,7 @@
       {{ with $sequenceFour }}
         <figure class="rogue-v2-media rogue-v2-door-image">
           <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View the timed door puzzle interface larger">
-            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1100 1600) "class" "nozoom" "alt" "A timed door puzzle interface in the Sequencer level" "sizes" "(min-width: 1200px) 1088px, 92vw" "loading" "lazy") }}
+            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1100 1600) "format" "jpg" "quality" 86 "class" "nozoom" "alt" "A timed door puzzle interface in the Sequencer level" "sizes" "(min-width: 1200px) 1088px, 92vw" "loading" "lazy") }}
           </button>
         </figure>
       {{ end }}
@@ -147,14 +147,14 @@
         {{ with $sequenceFive }}
           <figure class="rogue-v2-media">
             <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View the revised final platforming route larger">
-              {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "class" "nozoom" "alt" "The revised final platforming route in the Sequencer level" "sizes" "(min-width: 1024px) 48vw, 92vw" "loading" "lazy") }}
+              {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "format" "jpg" "quality" 86 "class" "nozoom" "alt" "The revised final platforming route in the Sequencer level" "sizes" "(min-width: 1024px) 48vw, 92vw" "loading" "lazy") }}
             </button>
           </figure>
         {{ end }}
         {{ with $sequenceSix }}
           <figure class="rogue-v2-media">
             <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View the final timed door puzzle larger">
-              {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "class" "nozoom" "alt" "The final timed door puzzle near the end of the Sequencer level" "sizes" "(min-width: 1024px) 48vw, 92vw" "loading" "lazy") }}
+              {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "format" "jpg" "quality" 86 "class" "nozoom" "alt" "The final timed door puzzle near the end of the Sequencer level" "sizes" "(min-width: 1024px) 48vw, 92vw" "loading" "lazy") }}
             </button>
           </figure>
         {{ end }}

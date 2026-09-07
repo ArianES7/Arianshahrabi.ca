@@ -2,10 +2,17 @@
 {{- $widths := .widths -}}
 {{- $src := $image.RelPermalink -}}
 {{- $srcset := slice -}}
+{{- $format := .format | default "" -}}
+{{- $quality := .quality | default 84 -}}
+{{- $modernSrcset := .modernSrcset | default "" -}}
 
 {{- range $widths -}}
   {{- if le . $image.Width -}}
-    {{- $variant := $image.Resize (printf "%dx" .) -}}
+    {{- $resizeSpec := printf "%dx" . -}}
+    {{- if $format -}}
+      {{- $resizeSpec = printf "%dx %s q%d" . $format $quality -}}
+    {{- end -}}
+    {{- $variant := $image.Resize $resizeSpec -}}
     {{- if eq $src $image.RelPermalink -}}
       {{- $src = $variant.RelPermalink -}}
     {{- end -}}
@@ -13,6 +20,13 @@
   {{- end -}}
 {{- end -}}
 
+{{- if $modernSrcset }}
+<picture>
+  <source
+    type="image/webp"
+    srcset="{{ $modernSrcset }}"
+    {{ with .sizes }}sizes="{{ . }}"{{ end }}>
+{{- end }}
 <img
   {{ with .class }}class="{{ . }}"{{ end }}
   src="{{ $src }}"
@@ -24,3 +38,6 @@
   {{ with .loading }}loading="{{ . }}"{{ end }}
   decoding="async"
   {{ with .fetchpriority }}fetchpriority="{{ . }}"{{ end }}>
+{{- if $modernSrcset }}
+</picture>
+{{- end }}

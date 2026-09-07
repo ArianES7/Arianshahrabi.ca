@@ -11,6 +11,7 @@
       {{ with $logo }}
         {{ partial "responsive-project-image.html" (dict
           "image" .
+          "modernSrcset" "/images/projects/neon-steel/neon-steel-logo-480.webp 480w, /images/projects/neon-steel/neon-steel-logo-720.webp 720w, /images/projects/neon-steel/neon-steel-logo-909.webp 909w"
           "widths" (slice 480 720 909)
           "class" "neon-v2-logo"
           "alt" "Neon Steel logo"

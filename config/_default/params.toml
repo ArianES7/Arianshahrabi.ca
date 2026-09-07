@@ -19,6 +19,7 @@ mainSections = ["projects"]
 
 disableImageOptimization = false
 disableImageOptimizationMD = false
+disableImageZoom = true
 disableTextInHeader = true
 # backgroundImageWidth = 1200
 
