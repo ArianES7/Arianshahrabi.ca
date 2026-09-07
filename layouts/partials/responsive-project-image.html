@@ -1,0 +1,26 @@
+{{- $image := .image -}}
+{{- $widths := .widths -}}
+{{- $src := $image.RelPermalink -}}
+{{- $srcset := slice -}}
+
+{{- range $widths -}}
+  {{- if le . $image.Width -}}
+    {{- $variant := $image.Resize (printf "%dx" .) -}}
+    {{- if eq $src $image.RelPermalink -}}
+      {{- $src = $variant.RelPermalink -}}
+    {{- end -}}
+    {{- $srcset = $srcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
+  {{- end -}}
+{{- end -}}
+
+<img
+  {{ with .class }}class="{{ . }}"{{ end }}
+  src="{{ $src }}"
+  {{ with $srcset }}srcset="{{ delimit . ", " }}"{{ end }}
+  {{ with .sizes }}sizes="{{ . }}"{{ end }}
+  width="{{ $image.Width }}"
+  height="{{ $image.Height }}"
+  alt="{{ .alt }}"
+  {{ with .loading }}loading="{{ . }}"{{ end }}
+  decoding="async"
+  {{ with .fetchpriority }}fetchpriority="{{ . }}"{{ end }}>
