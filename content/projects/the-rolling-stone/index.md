@@ -1,6 +1,7 @@
 ---
 title: "The Rolling Stone"
 description: "A solo endless runner with desktop and mobile controls, progression between runs, and global leaderboards."
+images: ["/images/social/the-rolling-stone.jpg"]
 layout: "rolling-stone"
 cardTheme: "rolling"
 cardRole: "Solo Developer"

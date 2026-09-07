@@ -1,0 +1,86 @@
+{{- $language := .Site.LanguageCode | default "en" -}}
+{{- $personID := printf "%s#arian-shahrabi" .Site.Home.Permalink -}}
+{{- $websiteID := printf "%s#website" .Site.Home.Permalink -}}
+{{- $person := dict
+  "@type" "Person"
+  "@id" $personID
+  "name" .Site.Params.Author.name
+  "url" .Site.Home.Permalink
+-}}
+
+{{- if .IsHome -}}
+  {{- $schema := dict
+    "@context" "https://schema.org"
+    "@type" "WebSite"
+    "@id" $websiteID
+    "name" .Site.Title
+    "description" .Site.Params.description
+    "inLanguage" $language
+    "url" .Site.Home.Permalink
+    "publisher" $person
+  -}}
+  <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{- else if eq .Layout "contact" -}}
+  {{- $schema := dict
+    "@context" "https://schema.org"
+    "@type" "ContactPage"
+    "@id" (printf "%s#webpage" .Permalink)
+    "name" .Title
+    "description" .Description
+    "inLanguage" $language
+    "url" .Permalink
+    "isPartOf" (dict "@id" $websiteID)
+    "mainEntity" $person
+  -}}
+  <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{- else if eq .Section "projects" -}}
+  {{- $gameID := printf "%s#game" .Permalink -}}
+  {{- $imageURL := "" -}}
+  {{- with .Params.images -}}
+    {{- with index . 0 -}}
+      {{- $imageURL = . | absURL -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $game := dict
+    "@type" "VideoGame"
+    "@id" $gameID
+    "name" .Title
+    "description" .Description
+    "url" .Permalink
+    "contributor" $person
+  -}}
+  {{- with $imageURL -}}
+    {{- $game = merge $game (dict "image" .) -}}
+  {{- end -}}
+  {{- $page := dict
+    "@type" "WebPage"
+    "@id" (printf "%s#webpage" .Permalink)
+    "name" .Title
+    "description" .Description
+    "inLanguage" $language
+    "url" .Permalink
+    "isPartOf" (dict "@id" $websiteID)
+    "about" (dict "@id" $gameID)
+    "author" $person
+  -}}
+  {{- with $imageURL -}}
+    {{- $page = merge $page (dict "primaryImageOfPage" (dict "@type" "ImageObject" "url" .)) -}}
+  {{- end -}}
+  {{- $schema := dict
+    "@context" "https://schema.org"
+    "@graph" (slice $page $game)
+  -}}
+  <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{- else -}}
+  {{- $schema := dict
+    "@context" "https://schema.org"
+    "@type" "WebPage"
+    "@id" (printf "%s#webpage" .Permalink)
+    "name" .Title
+    "description" .Description
+    "inLanguage" $language
+    "url" .Permalink
+    "isPartOf" (dict "@id" $websiteID)
+  -}}
+  <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{- end -}}
