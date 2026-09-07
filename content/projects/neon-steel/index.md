@@ -2,6 +2,7 @@
 title: "Neon Steel"
 browserTitle: "Arian Shahrabi – Neon Steel"
 description: "I led a team of 20 through the development and release of Neon Steel while designing and building its interface systems."
+images: ["/images/social/neon-steel.jpg"]
 layout: "neon-steel"
 cardTheme: "neon"
 cardRole: "Executive Producer and UI/UX Developer"

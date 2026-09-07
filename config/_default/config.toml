@@ -33,12 +33,13 @@ enableEmoji = true
   series = "series"
 
 [sitemap]
-  changefreq = 'daily'
   filename = 'sitemap.xml'
-  priority = 0.5
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "JSON"]
+
+[frontmatter]
+  lastmod = ["lastmod"]
 
 [related]
   threshold = 0

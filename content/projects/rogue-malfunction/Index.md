@@ -1,6 +1,7 @@
 ---
 title: "Rogue Malfunction"
 description: "A four-person puzzle game built around changing controls, platforming, and environmental puzzles."
+images: ["/images/social/rogue-malfunction.jpg"]
 layout: "rogue-malfunction"
 cardTheme: "rogue"
 cardRole: "Programmer / Game Designer"
