@@ -13,7 +13,7 @@
     <header class="eclipsed-v2-masthead">
       <h1 class="neon-visually-hidden">Eclipsed</h1>
       {{ with $wordmark }}
-        {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000) "alt" "Eclipsed" "sizes" "(min-width: 900px) 700px, 88vw" "fetchpriority" "high") }}
+        {{ partial "responsive-project-image.html" (dict "image" . "modernSrcset" "/images/projects/eclipsed/eclipsed-wordmark-400.webp 400w, /images/projects/eclipsed/eclipsed-wordmark-700.webp 700w, /images/projects/eclipsed/eclipsed-wordmark-1000.webp 1000w" "widths" (slice 400 700 1000) "format" "jpg" "quality" 86 "alt" "Eclipsed" "sizes" "(min-width: 900px) 700px, 88vw" "fetchpriority" "high") }}
       {{ end }}
     </header>
 
@@ -28,7 +28,7 @@
       {{ with $cover }}
         <figure class="eclipsed-v2-media eclipsed-v2-cover">
           <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View the Eclipsed cover artwork larger">
-            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 900) "class" "nozoom" "alt" "Grayscale eclipse artwork created for Eclipsed" "sizes" "(min-width: 1024px) 40vw, 92vw" "loading" "lazy") }}
+            {{ partial "responsive-project-image.html" (dict "image" . "modernSrcset" "/images/projects/eclipsed/eclipsed-cover-400.webp 400w, /images/projects/eclipsed/eclipsed-cover-700.webp 700w, /images/projects/eclipsed/eclipsed-cover-900.webp 900w" "widths" (slice 400 700 900) "class" "nozoom" "alt" "Grayscale eclipse artwork created for Eclipsed" "sizes" "(min-width: 1024px) 40vw, 92vw" "loading" "lazy") }}
           </button>
         </figure>
       {{ end }}
@@ -80,7 +80,7 @@
       {{ with $gameplay }}
         <figure class="eclipsed-v2-media eclipsed-v2-aiming-media">
           <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View Eclipsed combat gameplay larger">
-            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1100 1600) "class" "nozoom" "alt" "Quinn shooting infected enemies in Eclipsed" "sizes" "(min-width: 1024px) 48vw, 92vw" "loading" "lazy") }}
+            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1100 1600) "format" "jpg" "quality" 86 "class" "nozoom" "alt" "Quinn shooting infected enemies in Eclipsed" "sizes" "(min-width: 1024px) 48vw, 92vw" "loading" "lazy") }}
           </button>
         </figure>
       {{ end }}
@@ -100,7 +100,7 @@
       {{ with $gameplayTwo }}
         <figure class="eclipsed-v2-media">
           <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View Eclipsed platforming gameplay larger">
-            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1100 1600) "class" "nozoom" "alt" "Quinn aiming near a mushroom hazard in Eclipsed" "sizes" "(min-width: 1024px) 48vw, 92vw" "loading" "lazy") }}
+            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1100 1600) "format" "jpg" "quality" 86 "class" "nozoom" "alt" "Quinn aiming near a mushroom hazard in Eclipsed" "sizes" "(min-width: 1024px) 48vw, 92vw" "loading" "lazy") }}
           </button>
         </figure>
       {{ end }}
@@ -114,10 +114,10 @@
 
       <div class="eclipsed-v2-layout-gallery">
         {{ with $layoutOne }}
-          <figure class="eclipsed-v2-media"><button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View the cave and surface level layout larger">{{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1100 1448) "class" "nozoom" "alt" "Full cave and surface level layout for Eclipsed" "sizes" "(min-width: 1200px) 1088px, 92vw" "loading" "lazy") }}</button></figure>
+          <figure class="eclipsed-v2-media"><button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View the cave and surface level layout larger">{{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1100 1448) "format" "jpg" "quality" 86 "class" "nozoom" "alt" "Full cave and surface level layout for Eclipsed" "sizes" "(min-width: 1200px) 1088px, 92vw" "loading" "lazy") }}</button></figure>
         {{ end }}
         {{ with $layoutThree }}
-          <figure class="eclipsed-v2-media"><button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View the interior and laboratory level layout larger">{{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1100 1376) "class" "nozoom" "alt" "Interior and laboratory level layout for Eclipsed" "sizes" "(min-width: 1200px) 1088px, 92vw" "loading" "lazy") }}</button></figure>
+          <figure class="eclipsed-v2-media"><button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View the interior and laboratory level layout larger">{{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1100 1376) "format" "jpg" "quality" 86 "class" "nozoom" "alt" "Interior and laboratory level layout for Eclipsed" "sizes" "(min-width: 1200px) 1088px, 92vw" "loading" "lazy") }}</button></figure>
         {{ end }}
       </div>
     </section>
@@ -131,7 +131,7 @@
       {{ with $customAssets }}
         <figure class="eclipsed-v2-media eclipsed-v2-asset-board">
           <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View the Eclipsed custom asset collection larger">
-            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1100 1800) "class" "nozoom" "alt" "Collection of custom visual and interface assets created for Eclipsed" "sizes" "(min-width: 1200px) 1088px, 92vw" "loading" "lazy") }}
+            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1100 1800) "format" "jpg" "quality" 86 "class" "nozoom" "alt" "Collection of custom visual and interface assets created for Eclipsed" "sizes" "(min-width: 1200px) 1088px, 92vw" "loading" "lazy") }}
           </button>
         </figure>
       {{ end }}

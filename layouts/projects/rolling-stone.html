@@ -29,7 +29,7 @@
       {{ with $overviewOne }}
         <figure class="rolling-v2-media">
           <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View gameplay image larger">
-            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "class" "nozoom" "alt" "The stone travelling along an obstacle track during a run" "sizes" "(min-width: 1024px) 58vw, 92vw" "loading" "lazy") }}
+            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "format" "jpg" "quality" 86 "class" "nozoom" "alt" "The stone travelling along an obstacle track during a run" "sizes" "(min-width: 1024px) 58vw, 92vw" "loading" "lazy") }}
           </button>
           <figcaption>Gameplay</figcaption>
         </figure>
@@ -83,7 +83,7 @@
       {{ with $overviewTwo }}
         <figure class="rolling-v2-media">
           <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View obstacle segments image larger">
-            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "class" "nozoom" "alt" "The stone approaching coins, rotating rings, and moving obstacles" "sizes" "(min-width: 1024px) 58vw, 92vw" "loading" "lazy") }}
+            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "format" "jpg" "quality" 86 "class" "nozoom" "alt" "The stone approaching coins, rotating rings, and moving obstacles" "sizes" "(min-width: 1024px) 58vw, 92vw" "loading" "lazy") }}
           </button>
           <figcaption>Obstacle segments</figcaption>
         </figure>
@@ -95,7 +95,7 @@
         {{ with $shop }}
           <figure class="rolling-v2-media rolling-v2-media-wide">
             <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View cosmetic shop image larger">
-              {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "class" "nozoom" "alt" "Obstacle skins available in The Rolling Stone cosmetic shop" "sizes" "(min-width: 1024px) 58vw, 92vw" "loading" "lazy") }}
+              {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "format" "jpg" "quality" 86 "class" "nozoom" "alt" "Obstacle skins available in The Rolling Stone cosmetic shop" "sizes" "(min-width: 1024px) 58vw, 92vw" "loading" "lazy") }}
             </button>
             <figcaption>Cosmetic shop</figcaption>
           </figure>
@@ -103,7 +103,7 @@
         {{ with $achievements }}
           <figure class="rolling-v2-media">
             <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View achievements image larger">
-              {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 320 600 900) "class" "nozoom" "alt" "Achievement screen showing all 15 achievements unlocked" "sizes" "(min-width: 1024px) 28vw, 92vw" "loading" "lazy") }}
+              {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 320 600 900) "format" "jpg" "quality" 88 "class" "nozoom" "alt" "Achievement screen showing all 15 achievements unlocked" "sizes" "(min-width: 1024px) 28vw, 92vw" "loading" "lazy") }}
             </button>
             <figcaption>Achievements</figcaption>
           </figure>
@@ -111,7 +111,7 @@
         {{ with $mainMenu }}
           <figure class="rolling-v2-media">
             <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View daily and weekly missions image larger">
-              {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 320 600 900) "class" "nozoom" "alt" "Main menu showing the daily mission panel" "sizes" "(min-width: 1024px) 28vw, 92vw" "loading" "lazy") }}
+              {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 320 600 900) "format" "jpg" "quality" 88 "class" "nozoom" "alt" "Main menu showing the daily mission panel" "sizes" "(min-width: 1024px) 28vw, 92vw" "loading" "lazy") }}
             </button>
             <figcaption>Daily and weekly missions</figcaption>
           </figure>
@@ -135,7 +135,7 @@
       {{ with $leaderboard }}
         <figure class="rolling-v2-media">
           <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View global leaderboards image larger">
-            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "class" "nozoom" "alt" "Global best run and richest player leaderboards with the player's current statistics" "sizes" "(min-width: 1024px) 58vw, 92vw" "loading" "lazy") }}
+            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1000 1400) "format" "jpg" "quality" 88 "class" "nozoom" "alt" "Global best run and richest player leaderboards with the player's current statistics" "sizes" "(min-width: 1024px) 58vw, 92vw" "loading" "lazy") }}
           </button>
           <figcaption>Global leaderboards</figcaption>
         </figure>
