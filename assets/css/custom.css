@@ -3,28 +3,32 @@
 ================================= */
 @font-face {
   font-family: 'Sora';
-  src: url('/fonts/Sora-Light.otf') format('opentype');
+  src: url('/fonts/Sora-Light.woff2') format('woff2'),
+       url('/fonts/Sora-Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Sora';
-  src: url('/fonts/Sora-Medium.otf') format('opentype');
+  src: url('/fonts/Sora-Medium.woff2') format('woff2'),
+       url('/fonts/Sora-Medium.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Sora';
-  src: url('/fonts/Sora-SemiBold.otf') format('opentype');
+  src: url('/fonts/Sora-SemiBold.woff2') format('woff2'),
+       url('/fonts/Sora-SemiBold.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Sora';
-  src: url('/fonts/Sora-ExtraBold.otf') format('opentype');
+  src: url('/fonts/Sora-ExtraBold.woff2') format('woff2'),
+       url('/fonts/Sora-ExtraBold.otf') format('opentype');
   font-weight: 800;
   font-style: normal;
   font-display: swap;

@@ -12,11 +12,50 @@
     }, { once: true });
   }
 
-  const touchContext = window.matchMedia('(hover: none), (pointer: coarse)');
-  if (!touchContext.matches || !('IntersectionObserver' in window)) return;
-
   const cards = Array.from(document.querySelectorAll('.project-card'));
   if (!cards.length) return;
+
+  const loadCardVisuals = (card) => {
+    if (card.dataset.visualsLoaded === 'true') return;
+
+    card.querySelectorAll('source[data-srcset]').forEach((source) => {
+      source.srcset = source.dataset.srcset;
+      source.removeAttribute('data-srcset');
+    });
+
+    card.querySelectorAll('img[data-src]').forEach((image) => {
+      if (image.dataset.srcset) {
+        image.srcset = image.dataset.srcset;
+        image.removeAttribute('data-srcset');
+      }
+      image.src = image.dataset.src;
+      image.removeAttribute('data-src');
+    });
+
+    card.dataset.visualsLoaded = 'true';
+  };
+
+  cards.forEach((card) => {
+    card.addEventListener('pointerenter', () => loadCardVisuals(card), { once: true });
+    card.addEventListener('focusin', () => loadCardVisuals(card), { once: true });
+  });
+
+  if ('IntersectionObserver' in window) {
+    const visualObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        loadCardVisuals(entry.target);
+        visualObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.01, rootMargin: '0px 0px 80px' });
+
+    cards.forEach((card) => visualObserver.observe(card));
+  } else {
+    cards.forEach(loadCardVisuals);
+  }
+
+  const touchContext = window.matchMedia('(hover: none), (pointer: coarse)');
+  if (!touchContext.matches || !('IntersectionObserver' in window)) return;
 
   const ratios = new Map(cards.map((card) => [card, 0]));
   let activeCard = null;

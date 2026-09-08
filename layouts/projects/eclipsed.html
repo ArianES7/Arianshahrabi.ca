@@ -13,7 +13,7 @@
     <header class="eclipsed-v2-masthead">
       <h1 class="neon-visually-hidden">Eclipsed</h1>
       {{ with $wordmark }}
-        {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 320 480 640 800 1000) "format" "jpg" "quality" 76 "alt" "Eclipsed" "sizes" "(min-width: 760px) 600px, calc(70vw - 2.1rem)" "fetchpriority" "high") }}
+        {{ partial "responsive-project-image.html" (dict "image" . "avifSrcset" "/images/projects/eclipsed/eclipsed-wordmark-320.avif 320w, /images/projects/eclipsed/eclipsed-wordmark-480.avif 480w, /images/projects/eclipsed/eclipsed-wordmark-640.avif 640w, /images/projects/eclipsed/eclipsed-wordmark-800.avif 800w" "modernSrcset" "/images/projects/eclipsed/eclipsed-wordmark-320.webp 320w, /images/projects/eclipsed/eclipsed-wordmark-480.webp 480w, /images/projects/eclipsed/eclipsed-wordmark-640.webp 640w, /images/projects/eclipsed/eclipsed-wordmark-800.webp 800w, /images/projects/eclipsed/eclipsed-wordmark-1000.webp 1000w" "widths" (slice 320 480 640 800 1000) "format" "jpg" "quality" 72 "alt" "Eclipsed" "sizes" "(min-width: 760px) 600px, calc(70vw - 2.1rem)" "fetchpriority" "high") }}
       {{ end }}
     </header>
 
