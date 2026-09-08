@@ -4,6 +4,7 @@
 {{- $srcset := slice -}}
 {{- $format := .format | default "" -}}
 {{- $quality := .quality | default 84 -}}
+{{- $avifSrcset := .avifSrcset | default "" -}}
 {{- $modernSrcset := .modernSrcset | default "" -}}
 
 {{- range $widths -}}
@@ -20,12 +21,20 @@
   {{- end -}}
 {{- end -}}
 
-{{- if $modernSrcset }}
+{{- if or $avifSrcset $modernSrcset }}
 <picture>
+  {{- with $avifSrcset }}
+  <source
+    type="image/avif"
+    srcset="{{ . }}"
+    {{ with $.sizes }}sizes="{{ . }}"{{ end }}>
+  {{- end }}
+  {{- with $modernSrcset }}
   <source
     type="image/webp"
-    srcset="{{ $modernSrcset }}"
-    {{ with .sizes }}sizes="{{ . }}"{{ end }}>
+    srcset="{{ . }}"
+    {{ with $.sizes }}sizes="{{ . }}"{{ end }}>
+  {{- end }}
 {{- end }}
 <img
   {{ with .class }}class="{{ . }}"{{ end }}
@@ -38,6 +47,6 @@
   {{ with .loading }}loading="{{ . }}"{{ end }}
   decoding="async"
   {{ with .fetchpriority }}fetchpriority="{{ . }}"{{ end }}>
-{{- if $modernSrcset }}
+{{- if or $avifSrcset $modernSrcset }}
 </picture>
 {{- end }}
