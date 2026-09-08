@@ -13,7 +13,7 @@
     <header class="eclipsed-v2-masthead">
       <h1 class="neon-visually-hidden">Eclipsed</h1>
       {{ with $wordmark }}
-        {{ partial "responsive-project-image.html" (dict "image" . "modernSrcset" "/images/projects/eclipsed/eclipsed-wordmark-400.webp 400w, /images/projects/eclipsed/eclipsed-wordmark-700.webp 700w, /images/projects/eclipsed/eclipsed-wordmark-1000.webp 1000w" "widths" (slice 400 700 1000) "format" "jpg" "quality" 86 "alt" "Eclipsed" "sizes" "(min-width: 900px) 700px, 88vw" "fetchpriority" "high") }}
+        {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 320 480 640 800 1000) "format" "jpg" "quality" 76 "alt" "Eclipsed" "sizes" "(min-width: 760px) 600px, calc(70vw - 2.1rem)" "fetchpriority" "high") }}
       {{ end }}
     </header>
 
@@ -28,7 +28,7 @@
       {{ with $cover }}
         <figure class="eclipsed-v2-media eclipsed-v2-cover">
           <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View the Eclipsed cover artwork larger">
-            {{ partial "responsive-project-image.html" (dict "image" . "modernSrcset" "/images/projects/eclipsed/eclipsed-cover-400.webp 400w, /images/projects/eclipsed/eclipsed-cover-700.webp 700w, /images/projects/eclipsed/eclipsed-cover-900.webp 900w" "widths" (slice 400 700 900) "class" "nozoom" "alt" "Grayscale eclipse artwork created for Eclipsed" "sizes" "(min-width: 1024px) 40vw, 92vw" "loading" "lazy") }}
+            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 320 480 640 720 900) "format" "jpg" "quality" 76 "class" "nozoom" "alt" "Grayscale eclipse artwork created for Eclipsed" "sizes" "(min-width: 1200px) 400px, (min-width: 800px) 34vw, calc(100vw - 4.5rem)" "loading" "lazy") }}
           </button>
         </figure>
       {{ end }}
@@ -80,7 +80,7 @@
       {{ with $gameplay }}
         <figure class="eclipsed-v2-media eclipsed-v2-aiming-media">
           <button class="project-image-trigger" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View Eclipsed combat gameplay larger">
-            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 400 700 1100 1600) "format" "jpg" "quality" 86 "class" "nozoom" "alt" "Quinn shooting infected enemies in Eclipsed" "sizes" "(min-width: 1024px) 48vw, 92vw" "loading" "lazy") }}
+            {{ partial "responsive-project-image.html" (dict "image" . "widths" (slice 320 480 640 960 1280 1600) "format" "jpg" "quality" 78 "class" "nozoom" "alt" "Quinn shooting infected enemies in Eclipsed" "sizes" "(min-width: 1200px) 500px, (min-width: 800px) 44vw, calc(100vw - 4.5rem)" "loading" "lazy") }}
           </button>
         </figure>
       {{ end }}
