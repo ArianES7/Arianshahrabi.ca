@@ -23,8 +23,8 @@
     <section class="rolling-v2-section rolling-v2-overview" aria-labelledby="rolling-overview-title">
       <div>
         <h2 id="rolling-overview-title">What Is The Rolling Stone</h2>
-        <p class="rolling-v2-lead">The Rolling Stone is a 3D endless runner where the player steers, jumps, collects coins, and avoids increasingly difficult obstacles. Progress carries between runs, and players can compete on global leaderboards.</p>
-        <p>The stone moves forward automatically while the player steers, jumps, collects coins, and uses temporary power ups. I made it as a solo project because I wanted something that would be easy to play on both desktop and mobile.</p>
+        <p class="rolling-v2-lead">The Rolling Stone is a 3D endless runner I built as a solo project. The stone moves forward automatically while players steer, jump, collect coins, and use temporary power ups to get past increasingly difficult obstacles.</p>
+        <p>I wanted the game to be easy to play on both desktop and mobile. Progress carries between runs, and players can compete on global leaderboards.</p>
       </div>
       {{ with $overviewOne }}
         <figure class="rolling-v2-media">
@@ -61,7 +61,7 @@
           <dl>
             <div><dt>Movement</dt><dd>Free lateral steering</dd></div>
             <div><dt>Jump</dt><dd>Variable height</dd></div>
-            <div><dt>Score</dt><dd>Distance plus coins</dd></div>
+            <div><dt>Score</dt><dd>Distance</dd></div>
           </dl>
         </div>
       </div>
@@ -69,7 +69,7 @@
         <h2 id="rolling-controls-title">Controls for desktop and mobile</h2>
         <p>Instead of fixed lanes, the player has free lateral steering and direct control over jump height. Holding jump produces a higher arc, while releasing it early creates a shorter hop.</p>
         <p>The controller combines steering smoothing, air control, jump buffering, coyote time, and separate acceleration and response tuning. The HTML5 release supports rebindable keyboard controls, controllers, touchscreen input, and accelerometer steering.</p>
-        <p>A run ends when the stone falls from the track or hits an obstacle without an active Phase Shield. Distance is the primary score, while collected coins become currency.</p>
+        <p>A run ends when the stone falls from the track or hits an obstacle without an active Phase Shield. The score is based on distance. Coins are tracked separately and can be spent on cosmetics.</p>
       </div>
     </section>
 
@@ -78,7 +78,7 @@
         <h2 id="rolling-difficulty-title">Handcrafted obstacles arranged for each run</h2>
         <p>The track is assembled from 14 handcrafted segment prefabs rather than procedurally generated geometry. The current set includes rotating and lateral obstacles, underpasses, crushers, falling hazards, jump sections, recovery areas, and safe floor sections.</p>
         <p>A segment director manages weighted selection, difficulty tiers, minimum distance rules, repeat cooldowns, difficult segment streak limits, and recovery sections. Object pooling lets segments be recycled as the run continues.</p>
-        <p>Difficulty rises through forward speed and through harder segments appearing more often at greater distances.</p>
+        <p>The stone speeds up during each run, and harder segments appear more often at greater distances.</p>
       </div>
       {{ with $overviewTwo }}
         <figure class="rolling-v2-media">
@@ -119,7 +119,7 @@
       </div>
       <div>
         <h2 id="rolling-progression-title">Reasons to return beyond one high score</h2>
-        <p>Coins earned during runs can be spent on visual customization. The current build includes 16 completed cosmetic choices across stone skins, trails, and obstacle themes. Cosmetics do not provide gameplay advantages.</p>
+        <p>Coins earned during runs can be spent on visual customization. The current build includes 16 cosmetic options across stone skins, trails, and obstacle themes. Cosmetics do not provide gameplay advantages.</p>
         <p>I also built 15 achievements and 24 daily and weekly missions. They give players extra goals, such as reaching distance milestones, collecting coins, using power-ups, and unlocking cosmetics.</p>
         <p>Coin Magnet, Phase Shield, and Speed Rush are the three power ups currently available during runs.</p>
       </div>
@@ -145,7 +145,7 @@
     <section class="rolling-v2-section rolling-v2-testing" aria-labelledby="rolling-testing-title">
       <h2 id="rolling-testing-title">What changed after playtesting</h2>
       <div>
-        <p>Repeated playtests identified slow early pacing, inconsistent jump control, frustrating obstacle combinations, and limited replay ability.</p>
+        <p>Playtests exposed a slow opening, inconsistent jump control, frustrating obstacle combinations, and few reasons to play again.</p>
         <p>Based on that feedback, I added variable jump height, sped up the beginning of each run, smoothed the steering, and changed how obstacle segments were selected. I also added clearer controls and an interactive tutorial. Cosmetics, achievements, missions, and global leaderboards gave players more reasons to return.</p>
         <p>Because the controller affects obstacle timing, speed, and the overall difficulty curve, each movement change had to be tested against the rest of the game rather than tuned in isolation.</p>
       </div>
@@ -159,7 +159,7 @@
         <div><strong>14</strong><span>Handcrafted obstacle segments</span></div>
         <div><strong>24</strong><span>Daily and weekly missions</span></div>
         <div><strong>15</strong><span>Achievements</span></div>
-        <div><strong>16</strong><span>Completed cosmetic choices</span></div>
+        <div><strong>16</strong><span>Cosmetic options</span></div>
         <div><strong>3</strong><span>Power ups</span></div>
         <div><strong>2</strong><span>Global leaderboards</span></div>
       </div>
