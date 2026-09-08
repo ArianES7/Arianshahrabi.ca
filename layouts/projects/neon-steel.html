@@ -41,7 +41,9 @@
           <button class="neon-v2-media-button" type="button" data-project-lightbox data-full-src="{{ .RelPermalink }}" aria-label="View official Neon Steel poster larger">
             {{ partial "responsive-project-image.html" (dict
               "image" .
-              "widths" (slice 400 700 1000 1200)
+              "widths" (slice 320 480 640 700 800 1000 1200)
+              "format" "jpg"
+              "quality" 72
               "class" "nozoom"
               "alt" "Neon Steel promotional poster"
               "sizes" "(min-width: 1024px) 36vw, 92vw"

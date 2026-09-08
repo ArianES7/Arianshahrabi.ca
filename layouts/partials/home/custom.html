@@ -1,6 +1,7 @@
 {{ $projectsSection := site.GetPage "section" "projects" }}
 {{ $projects := slice }}
 {{ with $projectsSection }}{{ $projects = .Pages.ByWeight }}{{ end }}
+{{ $demoThumbnail := resources.Get "images/home/demo-reel-thumbnail.jpg" }}
 
 <article class="home-page flex w-full flex-col items-center text-center">
   <header class="home-intro w-full max-w-4xl px-4">
@@ -16,7 +17,20 @@
       <div class="demo-reel">
         <div class="demo-reel-frame" data-demo-reel>
           <button class="demo-reel-play" type="button" aria-label="Play Arian Shahrabi's demo reel">
-            <span class="demo-reel-thumbnail" aria-hidden="true"></span>
+            {{ with $demoThumbnail }}
+              <span class="demo-reel-thumbnail" aria-hidden="true">
+                {{ partial "responsive-project-image.html" (dict
+                  "image" .
+                  "widths" (slice 400 640 832 1280)
+                  "format" "jpg"
+                  "quality" 80
+                  "class" "demo-reel-thumbnail-image"
+                  "alt" ""
+                  "sizes" "(min-width: 1280px) 832px, (min-width: 1024px) calc(100vw - 18rem), (min-width: 768px) calc(100vw - 14rem), (min-width: 640px) calc(100vw - 9rem), calc(100vw - 5rem)"
+                  "fetchpriority" "high"
+                ) }}
+              </span>
+            {{ end }}
             <span class="demo-reel-play-label">
               <span class="demo-reel-play-icon" aria-hidden="true"></span>
               Play demo reel

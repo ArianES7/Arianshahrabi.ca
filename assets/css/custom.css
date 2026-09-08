@@ -519,12 +519,21 @@ html.dark .hero-shell {
 .demo-reel-thumbnail {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .42)),
-    url('https://i.ytimg.com/vi/7vhCvBQkJVg/maxresdefault.jpg');
-  background-position: center;
-  background-size: cover;
+  display: block;
   transition: transform 180ms ease, filter 180ms ease;
+}
+.demo-reel-thumbnail picture,
+.demo-reel-thumbnail-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.demo-reel-thumbnail-image { object-fit: cover; }
+.demo-reel-thumbnail::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .42));
+  content: "";
 }
 .demo-reel-play-label {
   position: relative;
@@ -2930,13 +2939,15 @@ html.dark .eclipsed-v2-case-study {
 .eclipsed-v2-case-study ul { margin-top: 0; }
 .eclipsed-v2-masthead {
   display: grid;
-  min-height: clamp(10rem, 22vw, 17rem);
+  width: 100%;
+  height: clamp(8rem, 61vw, 18.125rem);
+  min-height: 0;
   place-items: center;
   margin: -1rem auto 1rem;
 }
 .eclipsed-v2-masthead img {
   display: block;
-  width: min(82%, 600px);
+  width: min(70%, 600px);
   height: auto;
   max-height: 290px;
   object-fit: contain;
@@ -3148,7 +3159,7 @@ html.dark .eclipsed-v2-case-study {
 
 @media (max-width: 520px) {
   .eclipsed-v2-case-study { padding-bottom: 4rem; }
-  .eclipsed-v2-masthead { min-height: 8rem; }
+  .eclipsed-v2-masthead { min-height: 0; }
   .eclipsed-v2-section { margin-top: 4rem; }
   .eclipsed-v2-section h2,
   .eclipsed-v2-play h2 { font-size: 2rem; }
