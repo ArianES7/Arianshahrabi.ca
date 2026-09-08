@@ -6,7 +6,20 @@
       <div class="contact-methods">
         <a class="contact-email" href="mailto:arian.e.shahrabi@gmail.com">{{ .Site.Params.Author.email }}</a>
         <div class="contact-socials" aria-label="Social links">
-          {{ partialCached "author-links.html" . }}
+          <div class="flex flex-wrap text-neutral-600 dark:text-neutral-400">
+            {{ range .Site.Params.Author.links }}
+              {{ with .linkedin }}
+                <a
+                  class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg hover:text-primary-700 focus-visible:text-primary-700 dark:hover:text-primary-400 dark:focus-visible:text-primary-400"
+                  href="{{ . | safeURL }}"
+                  target="_blank"
+                  aria-label="Arian Shahrabi on LinkedIn (opens in a new tab)"
+                  title="LinkedIn"
+                  rel="me noopener noreferrer"
+                  ><span class="inline-block align-text-bottom">{{ partial "icon.html" "linkedin" }}</span></a>
+              {{ end }}
+            {{ end }}
+          </div>
         </div>
       </div>
     </div>
