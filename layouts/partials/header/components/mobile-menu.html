@@ -68,13 +68,17 @@
         if (!openButton || !closeButton || !dialog) return;
 
         let previousFocus = null;
+        let previousOverflow = '';
+        const desktop = window.matchMedia('(min-width: 768px)');
 
         const focusableElements = () => Array.from(dialog.querySelectorAll(
           'a[href], button:not([disabled]), summary, [tabindex]:not([tabindex="-1"])'
         )).filter((element) => !element.hidden && element.getClientRects().length > 0);
 
         const openMenu = () => {
+          if (desktop.matches || !dialog.hidden) return;
           previousFocus = document.activeElement;
+          previousOverflow = document.body.style.overflow;
           dialog.hidden = false;
           openButton.setAttribute('aria-expanded', 'true');
           document.body.style.overflow = 'hidden';
@@ -82,11 +86,22 @@
         };
 
         const closeMenu = () => {
+          if (dialog.hidden) return;
+          const focusWasInside = dialog.contains(document.activeElement);
           dialog.hidden = true;
           openButton.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-          (previousFocus || openButton).focus();
+          document.body.style.overflow = previousOverflow;
+          if (focusWasInside) {
+            const target = desktop.matches
+              ? document.querySelector('.centered-desktop-nav-links a')
+              : (previousFocus || openButton);
+            target?.focus();
+          }
         };
+
+        desktop.addEventListener('change', event => {
+          if (event.matches) closeMenu();
+        });
 
         openButton.addEventListener('click', openMenu);
         closeButton.addEventListener('click', closeMenu);

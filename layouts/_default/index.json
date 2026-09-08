@@ -1,0 +1,29 @@
+{{- $index := slice -}}
+{{- range where .Site.Pages "Kind" "in" (slice "page" "home") -}}
+  {{- if not .Params.excludeFromSearch -}}
+    {{- $content := .Plain -}}
+    {{- if and (eq .Section "projects") .Layout -}}
+      {{- $rendered := partial (printf "project-content/%s.html" .Layout) . -}}
+      {{- with findRE `(?s)<article\b[^>]*>.*?</article>` $rendered 1 -}}
+        {{- $content = index . 0 | replaceRE `(?s)<(script|style)\b[^>]*>.*?</(script|style)>` " " | replaceRE `<[^>]+>` " " | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace -}}
+      {{- else -}}
+        {{- errorf "Search index could not read the project article for %s" .RelPermalink -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $section := .Site.GetPage "section" .Section -}}
+    {{- $entry := dict
+      "title" .Title
+      "section" $section.Title
+      "summary" (.Summary | plainify | htmlUnescape)
+      "content" $content
+      "permalink" .RelPermalink
+      "externalUrl" .Params.externalUrl
+      "type" .Type
+    -}}
+    {{- if not .Date.IsZero -}}
+      {{- $entry = merge $entry (dict "date" (.Date | time.Format (.Site.Language.Params.dateFormat | default ":date_long"))) -}}
+    {{- end -}}
+    {{- $index = $index | append $entry -}}
+  {{- end -}}
+{{- end -}}
+{{- $index | jsonify -}}
