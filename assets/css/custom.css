@@ -744,9 +744,9 @@ html.dark .hero-shell {
 .project-card--neon .project-card-scrim {
   background: linear-gradient(90deg, rgba(7, 8, 20, .91), rgba(7, 8, 20, .67) 38%, rgba(7, 8, 20, .16) 68%, transparent);
 }
-.project-card--neon:is(:hover, :focus-visible, :active, .is-active) .project-card-visual { opacity: 1; }
-.project-card--neon:is(:hover, :focus-visible, :active, .is-active) .neon-street-signs { animation: project-signs-on 340ms ease-out forwards; }
-.project-card--neon:is(:hover, :focus-visible, :active, .is-active) .neon-card-glow { animation: project-glow-on 340ms ease-out forwards; }
+.project-card--neon.visuals-ready:is(:hover, :focus-visible, :active, .is-active) .project-card-visual { opacity: 1; }
+.project-card--neon.visuals-ready:is(:hover, :focus-visible, :active, .is-active) .neon-street-signs { animation: project-signs-on 340ms ease-out forwards; }
+.project-card--neon.visuals-ready:is(:hover, :focus-visible, :active, .is-active) .neon-card-glow { animation: project-glow-on 340ms ease-out forwards; }
 
 /* The Rolling Stone card */
 .project-card--rolling { --project-card-focus: #9cd4ee; }
@@ -875,9 +875,9 @@ html.dark .hero-shell {
 .project-card--eclipsed .project-card-scrim {
   background: linear-gradient(92deg, rgba(7, 16, 13, .86), rgba(7, 16, 13, .62) 34%, rgba(7, 16, 13, .12) 62%, transparent 83%);
 }
-.project-card--eclipsed:is(:hover, :focus-visible, :active, .is-active) .project-card-visual,
-.project-card--eclipsed:is(:hover, :focus-visible, :active, .is-active) .eclipsed-blood-mask { opacity: 1; }
-.project-card--eclipsed:is(:hover, :focus-visible, :active, .is-active) .eclipsed-blood-mask { animation: project-blood-impact 310ms linear forwards; }
+.project-card--eclipsed.visuals-ready:is(:hover, :focus-visible, :active, .is-active) .project-card-visual,
+.project-card--eclipsed.visuals-ready:is(:hover, :focus-visible, :active, .is-active) .eclipsed-blood-mask { opacity: 1; }
+.project-card--eclipsed.visuals-ready:is(:hover, :focus-visible, :active, .is-active) .eclipsed-blood-mask { animation: project-blood-impact 310ms linear forwards; }
 
 @keyframes project-signs-on {
   0% { opacity: 0; }
@@ -956,13 +956,13 @@ html.dark .hero-shell {
     animation: none !important;
     transition: none !important;
   }
-  .project-card--neon:is(:hover, :focus-visible, :active, .is-active) .neon-street-signs { opacity: .88; }
-  .project-card--neon:is(:hover, :focus-visible, :active, .is-active) .neon-card-glow { opacity: .7; }
+  .project-card--neon.visuals-ready:is(:hover, :focus-visible, :active, .is-active) .neon-street-signs { opacity: .88; }
+  .project-card--neon.visuals-ready:is(:hover, :focus-visible, :active, .is-active) .neon-card-glow { opacity: .7; }
   .project-card--rolling:is(:hover, :focus-visible, :active, .is-active) .rolling-card-ball {
     left: calc(100% - 132px);
     transform: rotate(540deg);
   }
-  .project-card--eclipsed:is(:hover, :focus-visible, :active, .is-active) .eclipsed-blood-mask { --blood-reveal: 115%; }
+  .project-card--eclipsed.visuals-ready:is(:hover, :focus-visible, :active, .is-active) .eclipsed-blood-mask { --blood-reveal: 115%; }
   .project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key .key-normal { opacity: 0; }
   .project-card--rogue:is(:hover, :focus-visible, :active, .is-active) .rogue-key .key-swapped { opacity: 1; }
 }
@@ -1873,9 +1873,13 @@ html.dark .neon-story-list li {
   place-items: center;
   padding: .5rem 0 1.25rem;
 }
-.neon-v2-logo {
+.neon-v2-masthead > picture {
   display: block;
   width: min(88%, 700px);
+}
+.neon-v2-logo {
+  display: block;
+  width: 100%;
   height: auto;
   max-height: 230px;
   object-fit: contain;
@@ -2949,9 +2953,13 @@ html.dark .eclipsed-v2-case-study {
   place-items: center;
   margin: -1rem auto 1rem;
 }
-.eclipsed-v2-masthead img {
+.eclipsed-v2-masthead > picture {
   display: block;
   width: min(70%, 600px);
+}
+.eclipsed-v2-masthead img {
+  display: block;
+  width: 100%;
   height: auto;
   max-height: 290px;
   object-fit: contain;

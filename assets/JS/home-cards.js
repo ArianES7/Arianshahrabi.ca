@@ -15,8 +15,30 @@
   const cards = Array.from(document.querySelectorAll('.project-card'));
   if (!cards.length) return;
 
+  const visualLoadPromises = new WeakMap();
+
+  const waitForImage = (image) => new Promise((resolve) => {
+    const finish = () => {
+      if (!image.naturalWidth || typeof image.decode !== 'function') {
+        resolve();
+        return;
+      }
+
+      image.decode().catch(() => {}).then(resolve);
+    };
+
+    if (image.complete) {
+      finish();
+      return;
+    }
+
+    image.addEventListener('load', finish, { once: true });
+    image.addEventListener('error', resolve, { once: true });
+  });
+
   const loadCardVisuals = (card) => {
-    if (card.dataset.visualsLoaded === 'true') return;
+    if (card.dataset.visualsLoaded === 'true') return Promise.resolve();
+    if (visualLoadPromises.has(card)) return visualLoadPromises.get(card);
 
     card.querySelectorAll('source[data-srcset]').forEach((source) => {
       source.srcset = source.dataset.srcset;
@@ -32,7 +54,14 @@
       image.removeAttribute('data-src');
     });
 
-    card.dataset.visualsLoaded = 'true';
+    const images = Array.from(card.querySelectorAll('.project-card-visual img'));
+    const loadPromise = Promise.all(images.map(waitForImage)).then(() => {
+      card.dataset.visualsLoaded = 'true';
+      card.classList.add('visuals-ready');
+    });
+
+    visualLoadPromises.set(card, loadPromise);
+    return loadPromise;
   };
 
   cards.forEach((card) => {
