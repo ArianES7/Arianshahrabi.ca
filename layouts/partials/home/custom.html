@@ -89,6 +89,9 @@
               </span>
             {{ else if eq $cardTheme "eclipsed" }}
               <span class="project-card-visual" aria-hidden="true">
+                {{ with .Resources.GetMatch "*Zombie*" }}
+                  <img class="eclipsed-card-zombie" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="" decoding="async" fetchpriority="low">
+                {{ end }}
                 <span class="eclipsed-blood-mask">
                   <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="{{ "images/cards/eclipsed-card-splatter-800.png" | relURL }}" data-srcset="{{ "images/cards/eclipsed-card-splatter-800.png" | relURL }} 800w, {{ "images/cards/eclipsed-card-splatter-1200.png" | relURL }} 1200w, {{ "images/cards/eclipsed-card-splatter.png" | relURL }} 2048w" sizes="(min-width: 1200px) 608px, (min-width: 701px) 51vw, calc(115vw - 3.45rem)" width="2048" height="1024" alt="" decoding="async" fetchpriority="low">
                 </span>
