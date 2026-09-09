@@ -8,7 +8,9 @@
       Close
     </button>
     <h2 id="project-image-lightbox-title" class="sr-only">Expanded project image</h2>
-        <img id="project-image-lightbox-image" class="nozoom" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="">
+    <div class="project-image-lightbox-stage" aria-busy="false">
+      <p class="project-image-lightbox-status" role="status" aria-live="polite" hidden></p>
+    </div>
     <p id="project-image-lightbox-caption"></p>
   </div>
 </dialog>
@@ -18,16 +20,31 @@
     const dialog = document.getElementById('project-image-lightbox');
     if (!dialog) return;
 
-    const image = document.getElementById('project-image-lightbox-image');
     const caption = document.getElementById('project-image-lightbox-caption');
     const closeButton = dialog.querySelector('.project-image-lightbox-close');
+    const stage = dialog.querySelector('.project-image-lightbox-stage');
+    const status = dialog.querySelector('.project-image-lightbox-status');
     let returnFocus = null;
+    let image = null;
+    let requestId = 0;
+
+    const resetImage = () => {
+      requestId += 1;
+      image?.remove();
+      image = null;
+      status.hidden = true;
+      status.textContent = '';
+      stage.setAttribute('aria-busy', 'false');
+    };
 
     const close = () => {
       if (typeof dialog.close === 'function' && dialog.open) {
         dialog.close();
       } else {
         dialog.removeAttribute('open');
+        resetImage();
+        returnFocus?.focus();
+        returnFocus = null;
       }
     };
 
@@ -37,10 +54,15 @@
 
       const figure = trigger.closest('figure');
       const figureCaption = figure?.querySelector('figcaption')?.textContent?.trim();
+      const sourceUrl = trigger.dataset.fullSrc || source.currentSrc || source.src;
+      const currentRequest = ++requestId;
       returnFocus = trigger;
-      image.src = trigger.dataset.fullSrc || source.currentSrc || source.src;
-      image.alt = source.alt;
       caption.textContent = figureCaption || source.alt;
+      image?.remove();
+      image = null;
+      status.textContent = 'Loading image';
+      status.hidden = false;
+      stage.setAttribute('aria-busy', 'true');
 
       if (typeof dialog.showModal === 'function') {
         dialog.showModal();
@@ -48,7 +70,38 @@
         dialog.setAttribute('open', '');
       }
       closeButton.focus();
+
+      const pendingImage = new Image();
+      pendingImage.className = 'nozoom';
+      pendingImage.decoding = 'async';
+      pendingImage.alt = source.alt;
+      pendingImage.src = sourceUrl;
+
+      const ready = typeof pendingImage.decode === 'function'
+        ? pendingImage.decode()
+        : new Promise((resolve, reject) => {
+            pendingImage.addEventListener('load', resolve, { once: true });
+            pendingImage.addEventListener('error', reject, { once: true });
+          });
+
+      ready.then(() => {
+        if (currentRequest !== requestId) return;
+        image = pendingImage;
+        stage.prepend(image);
+        status.hidden = true;
+        status.textContent = '';
+        stage.setAttribute('aria-busy', 'false');
+      }).catch(() => {
+        if (currentRequest !== requestId) return;
+        status.textContent = 'The image could not be loaded.';
+        status.hidden = false;
+        stage.setAttribute('aria-busy', 'false');
+      });
     };
+
+    document.querySelectorAll('[data-project-lightbox]').forEach((trigger) => {
+      trigger.setAttribute('aria-haspopup', 'dialog');
+    });
 
     document.addEventListener('click', (event) => {
       const trigger = event.target.closest('[data-project-lightbox]');
@@ -62,6 +115,7 @@
       if (event.target === dialog) close();
     });
     dialog.addEventListener('close', () => {
+      resetImage();
       returnFocus?.focus();
       returnFocus = null;
     });
