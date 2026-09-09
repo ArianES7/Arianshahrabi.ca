@@ -110,16 +110,6 @@ p  { font-size: 1rem; }
 
 
 
-/* --------------------------------
-   Badge jiggle
---------------------------------- */
-@keyframes badge-jiggle {
-  0%,100% { transform: rotate(0deg); }
-  25% { transform: rotate(2deg); }
-  50% { transform: rotate(-2deg); }
-  75% { transform: rotate(1deg); }
-}
-
 /* Mode-aware badge tokens (light defaults) */
 :root {
   --badge-bg:        var(--color-bg-light);
@@ -162,57 +152,15 @@ html.dark {
 }
 .badge:hover {
   background: rgb(var(--badge-hover-bg));
-  animation: badge-jiggle .35s ease-in-out;
-}
-
-/* Optional: respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .badge:hover { animation: none; }
-}
-
-
-
-/* ================================
-   Nav Wiggle Loop
-================================= */
-@keyframes nav-wiggle {
-  0%,100% { transform: rotate(0deg); }
-  25%     { transform: rotate(3deg); }
-  50%     { transform: rotate(-3deg); }
-  75%     { transform: rotate(1.5deg); }
-}
-
-/* Wiggle interactions */
-.main-menu nav.md\:flex a > p,
-.main-menu .nested-menu > a,
-.main-menu > .flex > nav.flex a,
-#menu-wrapper a > p {
-  display: inline-block;
-  transform-origin: center;
-}
-.main-menu nav.md\:flex a:hover > p,
-.main-menu nav.md\:flex a:focus-visible > p,
-.main-menu .nested-menu > a:hover,
-.main-menu .nested-menu > a:focus-visible,
-.main-menu > .flex > nav.flex a:hover,
-.main-menu > .flex > nav.flex a:focus-visible,
-#menu-wrapper a:hover > p,
-#menu-wrapper a:focus-visible > p {
-  animation: nav-wiggle .6s ease-in-out infinite;
+  transform: translateY(-1px);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .main-menu nav.md\:flex a:hover > p,
-  .main-menu nav.md\:flex a:focus-visible > p,
-  .main-menu .nested-menu > a:hover,
-  .main-menu .nested-menu > a:focus-visible,
-  .main-menu > .flex > nav.flex a:hover,
-  .main-menu > .flex > nav.flex a:focus-visible,
-  #menu-wrapper a:hover > p,
-  #menu-wrapper a:focus-visible > p {
-    animation: none;
-  }
+  .badge { transition: none; }
+  .badge:hover { transform: none; }
 }
+
+
 
 /* ================================
    Portfolio page
@@ -2948,20 +2896,18 @@ html.dark .eclipsed-v2-case-study {
 .eclipsed-v2-masthead {
   display: grid;
   width: 100%;
-  height: clamp(8rem, 61vw, 18.125rem);
-  min-height: 0;
+  min-height: clamp(18rem, 38vw, 27.5rem);
   place-items: center;
   margin: -1rem auto 1rem;
 }
 .eclipsed-v2-masthead > picture {
   display: block;
-  width: min(70%, 600px);
+  width: min(82%, 440px);
 }
 .eclipsed-v2-masthead img {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 290px;
   object-fit: contain;
 }
 .eclipsed-v2-section { margin-top: clamp(4rem, 8vw, 5.5rem); }
@@ -3171,7 +3117,6 @@ html.dark .eclipsed-v2-case-study {
 
 @media (max-width: 520px) {
   .eclipsed-v2-case-study { padding-bottom: 4rem; }
-  .eclipsed-v2-masthead { min-height: 0; }
   .eclipsed-v2-section { margin-top: 4rem; }
   .eclipsed-v2-section h2,
   .eclipsed-v2-play h2 { font-size: 2rem; }
@@ -3233,7 +3178,13 @@ html.dark .project-image-lightbox {
 }
 .project-image-lightbox::backdrop { background: rgba(0, 0, 0, .8); }
 .project-image-lightbox-content { position: relative; padding: 1rem; }
+.project-image-lightbox-stage {
+  display: grid;
+  min-height: min(68dvh, 640px);
+  place-items: center;
+}
 .project-image-lightbox img {
+  grid-area: 1 / 1;
   display: block;
   width: auto;
   max-width: 100%;
@@ -3241,6 +3192,13 @@ html.dark .project-image-lightbox {
   margin: 0 auto;
   object-fit: contain;
 }
+.project-image-lightbox-status {
+  grid-area: 1 / 1;
+  margin: 0 !important;
+  color: rgb(var(--color-neutral-600));
+  font-size: .9rem !important;
+}
+html.dark .project-image-lightbox-status { color: rgb(var(--color-neutral-300)); }
 .project-image-lightbox p {
   margin: .75rem 3.5rem 0 .25rem;
   font-size: .8rem;
@@ -3251,7 +3209,7 @@ html.dark .project-image-lightbox {
   top: 1.5rem;
   right: 1.5rem;
   z-index: 1;
-  min-height: 2.5rem;
+  min-height: 2.75rem;
   border: 1px solid rgb(var(--color-neutral-400));
   border-radius: 8px;
   background: rgb(var(--color-neutral));
@@ -3291,8 +3249,3 @@ html.dark .project-image-lightbox-close {
 @media (prefers-reduced-motion: reduce) {
   .project-image-trigger img { transition: none; }
 }
-
-/* Make badges feel "premium" (less playful) */
-.badge { transition: transform .15s ease, box-shadow .2s ease; }
-.badge:hover { animation: none; transform: translateY(-1px); box-shadow: none; }
-@media (prefers-reduced-motion: reduce) { .badge { transition: none; } .badge:hover { transform: none; } }
