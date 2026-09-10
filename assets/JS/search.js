@@ -54,7 +54,7 @@
       copy.className = 'grow';
       addText(copy, 'div', '-mb-1 text-lg font-bold', item.title);
       addText(copy, 'div', 'text-sm text-neutral-500 dark:text-neutral-400', [item.section, item.date].filter(Boolean).join(' · '));
-      addText(copy, 'div', 'text-sm italic', item.summary);
+      addText(copy, 'div', 'text-sm', item.summary);
       link.append(copy);
       const arrow = addText(link, 'div', 'ml-2 text-neutral-500', '\u2192');
       arrow.setAttribute('aria-hidden', 'true');
