@@ -84,49 +84,76 @@
   }
 
   const touchContext = window.matchMedia('(hover: none), (pointer: coarse)');
-  if (!touchContext.matches || !('IntersectionObserver' in window)) return;
+  if (!touchContext.matches) return;
 
-  const ratios = new Map(cards.map((card) => [card, 0]));
   let activeCard = null;
+  let pendingCard = null;
   let activationTimer = null;
+  let framePending = false;
+
+  const measureCard = (card) => {
+    const viewport = window.visualViewport;
+    const top = viewport?.offsetTop || 0;
+    const left = viewport?.offsetLeft || 0;
+    const height = viewport?.height || window.innerHeight;
+    const width = viewport?.width || window.innerWidth;
+    const bounds = card.getBoundingClientRect();
+    const visibleHeight = Math.max(0, Math.min(bounds.bottom, top + height) - Math.max(bounds.top, top));
+    const visibleWidth = Math.max(0, Math.min(bounds.right, left + width) - Math.max(bounds.left, left));
+    // A tall card should qualify when it fills the available viewport.
+    const availableArea = Math.min(bounds.height, height) * Math.min(bounds.width, width);
+    return {
+      card,
+      ratio: availableArea > 0 ? visibleHeight * visibleWidth / availableArea : 0,
+      distance: Math.abs(bounds.top + bounds.height / 2 - (top + height / 2))
+    };
+  };
 
   const chooseCard = () => {
-    if (activeCard && ratios.get(activeCard) > 0) return;
+    const measurements = cards.map(measureCard);
+    if (activeCard && measurements.find(({ card }) => card === activeCard).ratio > 0) return;
     if (activeCard) {
       activeCard.classList.remove('is-active');
       activeCard = null;
     }
 
-    const candidate = cards
-      .filter((card) => ratios.get(card) >= 0.7)
+    const candidate = measurements
+      .filter(({ ratio }) => ratio >= 0.7)
       .sort((a, b) => {
-        const ratioDifference = ratios.get(b) - ratios.get(a);
+        const ratioDifference = b.ratio - a.ratio;
         if (Math.abs(ratioDifference) > 0.05) return ratioDifference;
-        const viewportCentre = window.innerHeight / 2;
-        const aBounds = a.getBoundingClientRect();
-        const bBounds = b.getBoundingClientRect();
-        const aDistance = Math.abs(aBounds.top + aBounds.height / 2 - viewportCentre);
-        const bDistance = Math.abs(bBounds.top + bBounds.height / 2 - viewportCentre);
-        return aDistance - bDistance;
-      })[0];
+        return a.distance - b.distance;
+      })[0]?.card;
 
+    if (candidate === pendingCard) return;
     window.clearTimeout(activationTimer);
+    pendingCard = candidate;
     if (!candidate) return;
 
     activationTimer = window.setTimeout(() => {
-      if (ratios.get(candidate) < 0.7 || activeCard) return;
+      pendingCard = null;
+      if (measureCard(candidate).ratio < 0.7 || activeCard) return;
       activeCard = candidate;
       activeCard.classList.add('is-active');
     }, 160);
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => ratios.set(entry.target, entry.intersectionRatio));
-    chooseCard();
-  }, {
-    threshold: [0, 0.25, 0.5, 0.7, 0.85, 1],
-    rootMargin: '0px'
-  });
+  const scheduleSelection = () => {
+    if (framePending) return;
+    framePending = true;
+    window.requestAnimationFrame(() => {
+      framePending = false;
+      chooseCard();
+    });
+  };
 
-  cards.forEach((card) => observer.observe(card));
+  window.addEventListener('scroll', scheduleSelection, { passive: true });
+  window.addEventListener('resize', scheduleSelection);
+  window.visualViewport?.addEventListener('resize', scheduleSelection);
+  window.visualViewport?.addEventListener('scroll', scheduleSelection, { passive: true });
+  if ('ResizeObserver' in window) {
+    const sizeObserver = new ResizeObserver(scheduleSelection);
+    cards.forEach((card) => sizeObserver.observe(card));
+  }
+  scheduleSelection();
 })();

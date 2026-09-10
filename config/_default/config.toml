@@ -13,6 +13,7 @@ summaryLength = 0
 
 buildDrafts = false
 buildFuture = false
+disableKinds = ["taxonomy", "term"]
 
 enableEmoji = true
 
